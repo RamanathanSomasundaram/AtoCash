@@ -1,0 +1,2597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		035E3A194BC65020D4A2D58B /* Pods_AtoCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A03FF65DC7F6BCB344BD5F82 /* Pods_AtoCash.framework */; };
+		44038077293B0AB80071EE81 /* TabPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44038076293B0AB80071EE81 /* TabPageViewController.storyboard */; };
+		CE060A25262B082500FA478F /* CreateTravalRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE060A24262B082500FA478F /* CreateTravalRequestViewController.swift */; };
+		CE060A2C262B0C7200FA478F /* TravalRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE060A2B262B0C7200FA478F /* TravalRequestViewController.swift */; };
+		CE09E4D22635DA4400F8F547 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE09E4D12635DA4400F8F547 /* WebKit.framework */; };
+		CE09E50D2637C4DB00F8F547 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09E50C2637C4DB00F8F547 /* DocumentViewController.swift */; };
+		CE09E5C82639235500F8F547 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09E5C72639235500F8F547 /* UserProfileViewController.swift */; };
+		CE0DF45926FA6C8200F96E9C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE0DF45B26FA6C8200F96E9C /* Localizable.strings */; };
+		CE2BDBB625CD21FE0091E5F4 /* UtilsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDBB525CD21FE0091E5F4 /* UtilsManager.swift */; };
+		CE2BDBBD25CD22210091E5F4 /* Rechability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDBBB25CD22210091E5F4 /* Rechability.swift */; };
+		CE2BDBC225CD22460091E5F4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDBC125CD22460091E5F4 /* UIView+Extension.swift */; };
+		CE2BDBD325CD24B00091E5F4 /* SRActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDBD225CD24B00091E5F4 /* SRActivityIndicator.swift */; };
+		CE2BDBED25CD618F0091E5F4 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDBEC25CD618E0091E5F4 /* DashboardViewController.swift */; };
+		CE2BDBF425CD62060091E5F4 /* ExpanseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDBF325CD62060091E5F4 /* ExpanseViewController.swift */; };
+		CE2BDC1325CDA3550091E5F4 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDC0F25CDA3540091E5F4 /* DesignableView.swift */; };
+		CE2BDC1425CDA3550091E5F4 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDC1025CDA3540091E5F4 /* DesignableButton.swift */; };
+		CE2BDC1525CDA3550091E5F4 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDC1125CDA3550091E5F4 /* DesignableTextField.swift */; };
+		CE2BDC1625CDA3550091E5F4 /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDC1225CDA3550091E5F4 /* DesignableImageView.swift */; };
+		CE3734D32630BAA8002D3767 /* MediaSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3734D12630BAA8002D3767 /* MediaSelectionCell.swift */; };
+		CE3734D42630BAA8002D3767 /* MediaSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3734D22630BAA8002D3767 /* MediaSelectionCell.xib */; };
+		CE5134CD26FBAF00002D6B7B /* CSLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5134CA26FBAEEC002D6B7B /* CSLocalizer.swift */; };
+		CE5134CE26FBAF00002D6B7B /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5134CB26FBAEF5002D6B7B /* Bundle+Extension.swift */; };
+		CE5134CF26FBAF00002D6B7B /* CSlanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5134CC26FBAF00002D6B7B /* CSlanguage.swift */; };
+		CE5141DD26048C12008554BB /* MyRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5141DB26048C12008554BB /* MyRequestCell.swift */; };
+		CE5141DE26048C12008554BB /* MyRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5141DC26048C12008554BB /* MyRequestCell.xib */; };
+		CE5141E526048C33008554BB /* MyInboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5141E326048C33008554BB /* MyInboxCell.swift */; };
+		CE5141E626048C33008554BB /* MyInboxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5141E426048C33008554BB /* MyInboxCell.xib */; };
+		CE5141F42604A5CC008554BB /* AdvanceRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5141F32604A5CC008554BB /* AdvanceRequestViewController.swift */; };
+		CE5141FC2604A5E0008554BB /* CreateAdvanceRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5141FB2604A5E0008554BB /* CreateAdvanceRequestViewController.swift */; };
+		CE5142062604A607008554BB /* AdvacanceRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5142052604A607008554BB /* AdvacanceRequestModel.swift */; };
+		CE57C96625FB3972008B659C /* ApprovalGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C96525FB3972008B659C /* ApprovalGroupModel.swift */; };
+		CE57C96B25FB39A6008B659C /* ApprovalGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C96A25FB39A6008B659C /* ApprovalGroupViewController.swift */; };
+		CE57C97125FB39CA008B659C /* ApprovalRoleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C97025FB39CA008B659C /* ApprovalRoleMapViewController.swift */; };
+		CE57C97625FB39DE008B659C /* ApprovalRoleMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C97525FB39DE008B659C /* ApprovalRoleMapModel.swift */; };
+		CE57C97E25FB3A15008B659C /* CreateCostCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C97D25FB3A15008B659C /* CreateCostCenterViewController.swift */; };
+		CE57C98325FB3A27008B659C /* CreateDepartmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C98225FB3A27008B659C /* CreateDepartmentViewController.swift */; };
+		CE57C98825FB3A3A008B659C /* CreateRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C98725FB3A3A008B659C /* CreateRoleViewController.swift */; };
+		CE57C98D25FB3A4C008B659C /* CreateEmployeeTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C98C25FB3A4C008B659C /* CreateEmployeeTypeViewController.swift */; };
+		CE57C99225FB3A5E008B659C /* CreateEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C99125FB3A5E008B659C /* CreateEmployeeViewController.swift */; };
+		CE57C99725FB3A7A008B659C /* CreateExpenseTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C99625FB3A7A008B659C /* CreateExpenseTypeViewController.swift */; };
+		CE57C99C25FB3A94008B659C /* CreateApprovalRoleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C99B25FB3A94008B659C /* CreateApprovalRoleMapViewController.swift */; };
+		CE57C9A125FB3AAB008B659C /* CreateApprovalGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C9A025FB3AAB008B659C /* CreateApprovalGroupViewController.swift */; };
+		CE57C9A625FB3AC2008B659C /* CreateApprovalLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C9A525FB3AC2008B659C /* CreateApprovalLevelViewController.swift */; };
+		CE57C9AB25FB3ADA008B659C /* CreateProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C9AA25FB3ADA008B659C /* CreateProjectViewController.swift */; };
+		CE57C9B325FB3AEB008B659C /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C9B225FB3AEB008B659C /* CreateTaskViewController.swift */; };
+		CE57C9BB25FB3B05008B659C /* CreateSubprojectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C9BA25FB3B05008B659C /* CreateSubprojectViewController.swift */; };
+		CE57C9C125FB3C80008B659C /* ApprovalStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C9C025FB3C80008B659C /* ApprovalStatusViewController.swift */; };
+		CE57C9C925FB3C96008B659C /* CreateApprovalStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C9C825FB3C96008B659C /* CreateApprovalStatusViewController.swift */; };
+		CE57C9CE25FB3CAA008B659C /* ApprovalStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C9CD25FB3CAA008B659C /* ApprovalStatusModel.swift */; };
+		CE57C9FB25FB60D4008B659C /* CONSTANT.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C9FA25FB60D4008B659C /* CONSTANT.swift */; };
+		CE57CA0125FC9E89008B659C /* NavigationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CA0025FC9E89008B659C /* NavigationHeaderView.swift */; };
+		CE57CA0B25FCA180008B659C /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CA0925FCA180008B659C /* NoInternetViewController.swift */; };
+		CE57CA0C25FCA180008B659C /* NoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE57CA0A25FCA180008B659C /* NoInternetViewController.xib */; };
+		CE57CA2625FCC678008B659C /* SubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CA2225FCC677008B659C /* SubCell.swift */; };
+		CE57CA2725FCC678008B659C /* SubCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE57CA2325FCC677008B659C /* SubCell.xib */; };
+		CE57CA2825FCC678008B659C /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE57CA2425FCC678008B659C /* HeaderCell.xib */; };
+		CE57CA2925FCC678008B659C /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CA2525FCC678008B659C /* HeaderCell.swift */; };
+		CE57CA5925FD2165008B659C /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CA5725FD2164008B659C /* CustomCell.swift */; };
+		CE57CA5A25FD2165008B659C /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE57CA5825FD2164008B659C /* CustomCell.xib */; };
+		CE57CAEB25FDB470008B659C /* CustomCellDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CAE925FDB46F008B659C /* CustomCellDropDown.swift */; };
+		CE57CAEC25FDB470008B659C /* CustomCellDropDown.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE57CAEA25FDB470008B659C /* CustomCellDropDown.xib */; };
+		CE591EBD26ADCE9D00BEF222 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE591EBC26ADCE9D00BEF222 /* ImageZoomView.swift */; };
+		CE591EC026ADEAA200BEF222 /* ExpenseSubmitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE591EBE26ADEAA200BEF222 /* ExpenseSubmitCell.swift */; };
+		CE591EC126ADEAA200BEF222 /* ExpenseSubmitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE591EBF26ADEAA200BEF222 /* ExpenseSubmitCell.xib */; };
+		CE63641D26046EE500334DB5 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63641C26046EE500334DB5 /* CustomSegmentControl.swift */; };
+		CE6B194025C3DD9000C289C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B193F25C3DD9000C289C6 /* AppDelegate.swift */; };
+		CE6B194725C3DD9000C289C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6B194525C3DD9000C289C6 /* Main.storyboard */; };
+		CE6B194925C3DD9100C289C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6B194825C3DD9100C289C6 /* Assets.xcassets */; };
+		CE6B194C25C3DD9100C289C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6B194A25C3DD9100C289C6 /* LaunchScreen.storyboard */; };
+		CE6B195725C3DD9100C289C6 /* AtoCashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B195625C3DD9100C289C6 /* AtoCashTests.swift */; };
+		CE6B196225C3DD9100C289C6 /* AtoCashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B196125C3DD9100C289C6 /* AtoCashUITests.swift */; };
+		CE6EE10D2675EEE200DB2B6C /* OfflineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE10C2675EEE200DB2B6C /* OfflineData.swift */; };
+		CE77378E25F93075001678EA /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77378D25F93075001678EA /* SideMenuViewController.swift */; };
+		CE834DEF262B9BE6002FA7D3 /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE834DEE262B9BE6002FA7D3 /* IncomeViewController.swift */; };
+		CE834DFB262B9CA7002FA7D3 /* TabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE834DF4262B9CA7002FA7D3 /* TabView.xib */; };
+		CE834DFC262B9CA7002FA7D3 /* TabCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE834DF5262B9CA7002FA7D3 /* TabCollectionCell.swift */; };
+		CE834DFD262B9CA7002FA7D3 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE834DF6262B9CA7002FA7D3 /* TabView.swift */; };
+		CE834DFF262B9CA7002FA7D3 /* TabCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE834DF8262B9CA7002FA7D3 /* TabCollectionCell.xib */; };
+		CE834E00262B9CA7002FA7D3 /* TabPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE834DF9262B9CA7002FA7D3 /* TabPageViewController.swift */; };
+		CE834E01262B9CA7002FA7D3 /* TabPageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE834DFA262B9CA7002FA7D3 /* TabPageOption.swift */; };
+		CE834E0B262BA406002FA7D3 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE834E09262BA406002FA7D3 /* PopupViewController.swift */; };
+		CE8C7B57261A03B1005AEA3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C7B56261A03B1005AEA3C /* ViewController.swift */; };
+		CE8C7B94261A1A78005AEA3C /* MyInboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C7B93261A1A78005AEA3C /* MyInboxViewController.swift */; };
+		CE9DEAB125CC28F400F99518 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DEAB025CC28F400F99518 /* LoginViewController.swift */; };
+		CE9DEAB925CC290900F99518 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DEAB825CC290900F99518 /* LoginViewModel.swift */; };
+		CE9DEABE25CC291800F99518 /* LoginModel1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DEABD25CC291800F99518 /* LoginModel1.swift */; };
+		CE9DEAEA25CC482200F99518 /* CustomBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DEAE925CC482200F99518 /* CustomBackgroundView.swift */; };
+		CEA0AA6D2706E04500B73450 /* logos.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA0AA6C2706E04400B73450 /* logos.png */; };
+		CEA1099B2600F0B8003DB73C /* AdminRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1099A2600F0B8003DB73C /* AdminRoleModel.swift */; };
+		CEA109A02600F6B1003DB73C /* AdminUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1099F2600F6B1003DB73C /* AdminUserModel.swift */; };
+		CEA3319E262C62D400631077 /* CreateExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3319D262C62D400631077 /* CreateExpenseViewController.swift */; };
+		CEA6C645261F466400D8756A /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6C644261F466400D8756A /* CurrencyViewController.swift */; };
+		CEA6C64D261F467500D8756A /* CreateCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6C64C261F467500D8756A /* CreateCurrencyViewController.swift */; };
+		CEB1FC57264DA48E004071B0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1FC55264DA48E004071B0 /* ChartViewController.swift */; };
+		CEB1FC58264DA48E004071B0 /* ChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB1FC56264DA48E004071B0 /* ChartViewController.xib */; };
+		CEB1FC5D264E6587004071B0 /* BadgeButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1FC5C264E6587004071B0 /* BadgeButtonExtension.swift */; };
+		CEB2A87B264245A10069385E /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A879264245A10069385E /* DashboardCell.swift */; };
+		CEB2A87C264245A10069385E /* DashboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB2A87A264245A10069385E /* DashboardCell.xib */; };
+		CEB2A887264254A70069385E /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A884264254A70069385E /* UITableView+Ext.swift */; };
+		CEB2A888264254A70069385E /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A885264254A70069385E /* Animations.swift */; };
+		CEB2A889264254A70069385E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A886264254A70069385E /* Animator.swift */; };
+		CEB2A88E26428C530069385E /* MyReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A88D26428C530069385E /* MyReportsViewController.swift */; };
+		CEB2A990264294770069385E /* ReportsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A98F264294770069385E /* ReportsModel.swift */; };
+		CEB2A9972642A0B90069385E /* MyReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A9952642A0B90069385E /* MyReportCell.swift */; };
+		CEB2A9982642A0B90069385E /* MyReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB2A9962642A0B90069385E /* MyReportCell.xib */; };
+		CEB5DE3C2605CE4B006BC623 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5DE3A2605CE4B006BC623 /* UIKitExtensions.swift */; };
+		CEB5DE3D2605CE4B006BC623 /* EasyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5DE3B2605CE4B006BC623 /* EasyTipView.swift */; };
+		CEB6FF2C262ED2D90086179C /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6FF2B262ED2D90086179C /* AddItemViewController.swift */; };
+		CEB6FF46262F54070086179C /* MultipartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6FF45262F54070086179C /* MultipartAPI.swift */; };
+		CEB6FF54262F5B770086179C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB6FF53262F5B770086179C /* MobileCoreServices.framework */; };
+		CEB6FF69262FD2570086179C /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6FF68262FD2570086179C /* Attachment.swift */; };
+		CEB6FF72262FD7580086179C /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6FF70262FD7570086179C /* DownloadManager.swift */; };
+		CEB6FF73262FD7580086179C /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6FF71262FD7580086179C /* CacheManager.swift */; };
+		CEBB95A725FDB7DB002AF007 /* EmployeeViewDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB95A625FDB7DB002AF007 /* EmployeeViewDetailController.swift */; };
+		CEBE382E262B60CA00AF7FE0 /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE382D262B60CA00AF7FE0 /* TrackViewController.swift */; };
+		CEBE383B262B63C900AF7FE0 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE3839262B63C900AF7FE0 /* TrackCell.swift */; };
+		CEBE383C262B63C900AF7FE0 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBE383A262B63C900AF7FE0 /* TrackCell.xib */; };
+		CEBE3842262B677D00AF7FE0 /* TrackDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBE3840262B677D00AF7FE0 /* TrackDetailCell.swift */; };
+		CEBE3843262B677D00AF7FE0 /* TrackDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBE3841262B677D00AF7FE0 /* TrackDetailCell.xib */; };
+		CED156D5266D112D00321A85 /* ExpenseReimburseStatusTrackersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15655266D112D00321A85 /* ExpenseReimburseStatusTrackersAPI.swift */; };
+		CED156D6266D112D00321A85 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15657266D112D00321A85 /* APIHelper.swift */; };
+		CED156D7266D112D00321A85 /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15658266D112D00321A85 /* AlamofireImplementations.swift */; };
+		CED156D8266D112D00321A85 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15659266D112D00321A85 /* JSONValue.swift */; };
+		CED156D9266D112D00321A85 /* ClaimApprovalStatusTrackersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1565B266D112D00321A85 /* ClaimApprovalStatusTrackersAPI.swift */; };
+		CED156DA266D112D00321A85 /* ApprovalStatusTypesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1565C266D112D00321A85 /* ApprovalStatusTypesAPI.swift */; };
+		CED156DB266D112D00321A85 /* TravelApprovalRequestsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1565D266D112D00321A85 /* TravelApprovalRequestsAPI.swift */; };
+		CED156DC266D112D00321A85 /* ExpenseSubClaimsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1565E266D112D00321A85 /* ExpenseSubClaimsAPI.swift */; };
+		CED156DD266D112D00321A85 /* ApprovalGroupsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1565F266D112D00321A85 /* ApprovalGroupsAPI.swift */; };
+		CED156DE266D112D00321A85 /* ProjectManagementAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15660266D112D00321A85 /* ProjectManagementAPI.swift */; };
+		CED156DF266D112D00321A85 /* ApprovalLevelsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15661266D112D00321A85 /* ApprovalLevelsAPI.swift */; };
+		CED156E0266D112D00321A85 /* StatusTypesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15662266D112D00321A85 /* StatusTypesAPI.swift */; };
+		CED156E1266D112D00321A85 /* CurrencyTypesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15663266D112D00321A85 /* CurrencyTypesAPI.swift */; };
+		CED156E2266D112D00321A85 /* ApprovalRoleMapsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15664266D112D00321A85 /* ApprovalRoleMapsAPI.swift */; };
+		CED156E3266D112D00321A85 /* AdministrationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15665266D112D00321A85 /* AdministrationAPI.swift */; };
+		CED156E4266D112D00321A85 /* ExpenseReimburseRequestsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15666266D112D00321A85 /* ExpenseReimburseRequestsAPI.swift */; };
+		CED156E5266D112D00321A85 /* WorkTasksAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15667266D112D00321A85 /* WorkTasksAPI.swift */; };
+		CED156E6266D112D00321A85 /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15668266D112D00321A85 /* AccountAPI.swift */; };
+		CED156E7266D112D00321A85 /* DepartmentsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15669266D112D00321A85 /* DepartmentsAPI.swift */; };
+		CED156E8266D112D00321A85 /* ReportsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1566A266D112D00321A85 /* ReportsAPI.swift */; };
+		CED156E9266D112D00321A85 /* EmploymentTypesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1566B266D112D00321A85 /* EmploymentTypesAPI.swift */; };
+		CED156EA266D112D00321A85 /* SubProjectsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1566C266D112D00321A85 /* SubProjectsAPI.swift */; };
+		CED156EB266D112D00321A85 /* TravelApprovalStatusTrackersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1566D266D112D00321A85 /* TravelApprovalStatusTrackersAPI.swift */; };
+		CED156EC266D112D00321A85 /* RequestsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1566E266D112D00321A85 /* RequestsAPI.swift */; };
+		CED156ED266D112D00321A85 /* JobRolesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1566F266D112D00321A85 /* JobRolesAPI.swift */; };
+		CED156EE266D112D00321A85 /* EmployeesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15670266D112D00321A85 /* EmployeesAPI.swift */; };
+		CED156EF266D112D00321A85 /* ProjectsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15671266D112D00321A85 /* ProjectsAPI.swift */; };
+		CED156F0266D112D00321A85 /* EmpCurrentPettyCashBalancesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15672266D112D00321A85 /* EmpCurrentPettyCashBalancesAPI.swift */; };
+		CED156F1266D112D00321A85 /* PettyCashRequestsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15673266D112D00321A85 /* PettyCashRequestsAPI.swift */; };
+		CED156F2266D112D00321A85 /* DisbursementsAndClaimsMastersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15674266D112D00321A85 /* DisbursementsAndClaimsMastersAPI.swift */; };
+		CED156F3266D112D00321A85 /* CostCentersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15675266D112D00321A85 /* CostCentersAPI.swift */; };
+		CED156F5266D112D00321A85 /* ExpenseTypesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15677266D112D00321A85 /* ExpenseTypesAPI.swift */; };
+		CED156F6266D112D00321A85 /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15678266D112D00321A85 /* CodableHelper.swift */; };
+		CED156F7266D112D00321A85 /* JSONEncodableEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15679266D112D00321A85 /* JSONEncodableEncoding.swift */; };
+		CED156F8266D112D00321A85 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1567A266D112D00321A85 /* APIs.swift */; };
+		CED156F9266D112D00321A85 /* ApprovalRoleMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1567C266D112D00321A85 /* ApprovalRoleMap.swift */; };
+		CED156FA266D112D00321A85 /* ProjectManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1567D266D112D00321A85 /* ProjectManagement.swift */; };
+		CED156FB266D112D00321A85 /* ProjectVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1567E266D112D00321A85 /* ProjectVM.swift */; };
+		CED156FC266D112D00321A85 /* ApprovalGroupVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1567F266D112D00321A85 /* ApprovalGroupVM.swift */; };
+		CED156FD266D112D00321A85 /* WorkTaskVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15680266D112D00321A85 /* WorkTaskVM.swift */; };
+		CED156FE266D112D00321A85 /* ApprovalRoleMapDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15681266D112D00321A85 /* ApprovalRoleMapDTO.swift */; };
+		CED156FF266D112D00321A85 /* EditUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15682266D112D00321A85 /* EditUserModel.swift */; };
+		CED15700266D112D00321A85 /* GetEmployeesForProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15683266D112D00321A85 /* GetEmployeesForProject.swift */; };
+		CED15701266D112D00321A85 /* ApprovalStatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15684266D112D00321A85 /* ApprovalStatusType.swift */; };
+		CED15702266D112D00321A85 /* DepartmentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15685266D112D00321A85 /* DepartmentVM.swift */; };
+		CED15704266D112D00321A85 /* CostCenterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15687266D112D00321A85 /* CostCenterDTO.swift */; };
+		CED15705266D112D00321A85 /* JobRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15688266D112D00321A85 /* JobRole.swift */; };
+		CED15706266D112D00321A85 /* ClaimApprovalStatusTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15689266D112D00321A85 /* ClaimApprovalStatusTracker.swift */; };
+		CED15707266D112D00321A85 /* StatusTypeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1568A266D112D00321A85 /* StatusTypeVM.swift */; };
+		CED15709266D112D00321A85 /* ExpenseReimburseRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1568C266D112D00321A85 /* ExpenseReimburseRequestDTO.swift */; };
+		CED1570A266D112D00321A85 /* ApprovalGroupDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1568D266D112D00321A85 /* ApprovalGroupDTO.swift */; };
+		CED1570B266D112D00321A85 /* EmployeeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1568E266D112D00321A85 /* EmployeeVM.swift */; };
+		CED1570C266D112D00321A85 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1568F266D112D00321A85 /* LoginModel.swift */; };
+		CED1570D266D112D00321A85 /* EmployeeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15690266D112D00321A85 /* EmployeeDTO.swift */; };
+		CED1570E266D112D00321A85 /* JobRoleDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15691266D112D00321A85 /* JobRoleDTO.swift */; };
+		CED1570F266D112D00321A85 /* JobRoleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15692266D112D00321A85 /* JobRoleVM.swift */; };
+		CED15710266D112D00321A85 /* SubProjectVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15693266D112D00321A85 /* SubProjectVM.swift */; };
+		CED15711266D112D00321A85 /* TravelApprovalRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15694266D112D00321A85 /* TravelApprovalRequestDTO.swift */; };
+		CED15712266D112D00321A85 /* EmploymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15695266D112D00321A85 /* EmploymentType.swift */; };
+		CED15713266D112D00321A85 /* RequestTypeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15696266D112D00321A85 /* RequestTypeVM.swift */; };
+		CED15714266D112D00321A85 /* EditRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15697266D112D00321A85 /* EditRoleModel.swift */; };
+		CED15715266D112D00321A85 /* DisbursementsAndClaimsMasterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15698266D112D00321A85 /* DisbursementsAndClaimsMasterDTO.swift */; };
+		CED15716266D112D00321A85 /* PettyCashRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15699266D112D00321A85 /* PettyCashRequestDTO.swift */; };
+		CED15717266D112D00321A85 /* CashAndClaimRequestSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1569A266D112D00321A85 /* CashAndClaimRequestSearchModel.swift */; };
+		CED15718266D112D00321A85 /* RoleToUserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1569B266D112D00321A85 /* RoleToUserSearch.swift */; };
+		CED15719266D112D00321A85 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1569C266D112D00321A85 /* Department.swift */; };
+		CED1571A266D112D00321A85 /* EmployeeSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1569D266D112D00321A85 /* EmployeeSearchModel.swift */; };
+		CED1571B266D112D00321A85 /* PettyCashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1569E266D112D00321A85 /* PettyCashRequest.swift */; };
+		CED1571C266D112D00321A85 /* AccountsPayableSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1569F266D112D00321A85 /* AccountsPayableSearchModel.swift */; };
+		CED1571D266D112D00321A85 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156A0266D112D00321A85 /* Project.swift */; };
+		CED1571E266D112D00321A85 /* CurrencyTypeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156A1266D112D00321A85 /* CurrencyTypeDTO.swift */; };
+		CED1571F266D112D00321A85 /* ProjectManagementDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156A2266D112D00321A85 /* ProjectManagementDTO.swift */; };
+		CED15720266D112D00321A85 /* EmpCurrentPettyCashBalanceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156A3266D112D00321A85 /* EmpCurrentPettyCashBalanceDTO.swift */; };
+		CED15721266D112D00321A85 /* DepartmentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156A4266D112D00321A85 /* DepartmentDTO.swift */; };
+		CED15722266D112D00321A85 /* ApprovalLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156A5266D112D00321A85 /* ApprovalLevel.swift */; };
+		CED15723266D112D00321A85 /* TravelApprovalStatusTrackerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156A6266D112D00321A85 /* TravelApprovalStatusTrackerDTO.swift */; };
+		CED15724266D112D00321A85 /* AddEmployeesToProjectId.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156A7266D112D00321A85 /* AddEmployeesToProjectId.swift */; };
+		CED15725266D112D00321A85 /* CashbalVsAdvancedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156A8266D112D00321A85 /* CashbalVsAdvancedVM.swift */; };
+		CED15726266D112D00321A85 /* SubProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156A9266D112D00321A85 /* SubProject.swift */; };
+		CED15727266D112D00321A85 /* ResetPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156AA266D112D00321A85 /* ResetPasswordVM.swift */; };
+		CED15728266D112D00321A85 /* ExpenseTypeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156AB266D112D00321A85 /* ExpenseTypeVM.swift */; };
+		CED15729266D112D00321A85 /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156AC266D112D00321A85 /* ForgotPasswordVM.swift */; };
+		CED1572A266D112D00321A85 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156AD266D112D00321A85 /* Employee.swift */; };
+		CED1572B266D112D00321A85 /* TravelApprovalStatusTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156AE266D112D00321A85 /* TravelApprovalStatusTracker.swift */; };
+		CED1572C266D112D00321A85 /* ExpenseReimburseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156AF266D112D00321A85 /* ExpenseReimburseRequest.swift */; };
+		CED1572D266D112D00321A85 /* UserToRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156B0266D112D00321A85 /* UserToRoleModel.swift */; };
+		CED1572E266D112D00321A85 /* ApprovalStatusFlowVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156B1266D112D00321A85 /* ApprovalStatusFlowVM.swift */; };
+		CED1572F266D112D00321A85 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156B2266D112D00321A85 /* RegisterModel.swift */; };
+		CED15730266D112D00321A85 /* CostCenterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156B3266D112D00321A85 /* CostCenterVM.swift */; };
+		CED15731266D112D00321A85 /* StatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156B4266D112D00321A85 /* StatusType.swift */; };
+		CED15732266D112D00321A85 /* EmploymentTypeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156B5266D112D00321A85 /* EmploymentTypeDTO.swift */; };
+		CED15733266D112D00321A85 /* ApprovalLevelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156B6266D112D00321A85 /* ApprovalLevelDTO.swift */; };
+		CED15734266D112D00321A85 /* ApprovalGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156B7266D112D00321A85 /* ApprovalGroup.swift */; };
+		CED15735266D112D00321A85 /* ClaimApprovalStatusTrackerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156B8266D112D00321A85 /* ClaimApprovalStatusTrackerDTO.swift */; };
+		CED15736266D112D00321A85 /* FileDocumentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156B9266D112D00321A85 /* FileDocumentDTO.swift */; };
+		CED15737266D112D00321A85 /* ExpenseSubClaim.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156BA266D112D00321A85 /* ExpenseSubClaim.swift */; };
+		CED15738266D112D00321A85 /* TravelApprovalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156BB266D112D00321A85 /* TravelApprovalRequest.swift */; };
+		CED15739266D112D00321A85 /* CostCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156BC266D112D00321A85 /* CostCenter.swift */; };
+		CED1573A266D112D00321A85 /* SubProjectDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156BD266D112D00321A85 /* SubProjectDTO.swift */; };
+		CED1573B266D112D00321A85 /* ExpenseTypeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156BE266D112D00321A85 /* ExpenseTypeDTO.swift */; };
+		CED1573C266D112D00321A85 /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156BF266D112D00321A85 /* CurrencyType.swift */; };
+		CED1573D266D112D00321A85 /* ProjectDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156C0266D112D00321A85 /* ProjectDTO.swift */; };
+		CED1573E266D112D00321A85 /* WorkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156C1266D112D00321A85 /* WorkTask.swift */; };
+		CED1573F266D112D00321A85 /* RoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156C2266D112D00321A85 /* RoleModel.swift */; };
+		CED15740266D112D00321A85 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156C3266D112D00321A85 /* RequestType.swift */; };
+		CED15741266D112D00321A85 /* CurrencyTypeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156C4266D112D00321A85 /* CurrencyTypeVM.swift */; };
+		CED15742266D112D00321A85 /* EmpAllCurBalStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156C5266D112D00321A85 /* EmpAllCurBalStatusDTO.swift */; };
+		CED15743266D112D00321A85 /* WorkTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156C6266D112D00321A85 /* WorkTaskDTO.swift */; };
+		CED15744266D112D00321A85 /* EmpCurrentPettyCashBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156C7266D112D00321A85 /* EmpCurrentPettyCashBalance.swift */; };
+		CED15745266D112D00321A85 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156C8266D112D00321A85 /* Body.swift */; };
+		CED15746266D112D00321A85 /* TravelRequestSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156C9266D112D00321A85 /* TravelRequestSearchModel.swift */; };
+		CED15747266D112D00321A85 /* ExpenseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156CA266D112D00321A85 /* ExpenseType.swift */; };
+		CED15749266D112D00321A85 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156CC266D112D00321A85 /* Extensions.swift */; };
+		CED1574A266D112D00321A85 /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156CD266D112D00321A85 /* JSONEncodingHelper.swift */; };
+		CED1574B266D112D00321A85 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156CE266D112D00321A85 /* Models.swift */; };
+		CED1574C266D112D00321A85 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156CF266D112D00321A85 /* Configuration.swift */; };
+		CED1574D266D112D00321A85 /* ExpenseSubClaimDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156D1266D112D00321A85 /* ExpenseSubClaimDTO.swift */; };
+		CED1574E266D112D00321A85 /* ExpenseReimburseStatusTrackerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156D2266D112D00321A85 /* ExpenseReimburseStatusTrackerDTO.swift */; };
+		CED1574F266D112D00321A85 /* ExpenseReimburseStatusTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED156D3266D112D00321A85 /* ExpenseReimburseStatusTracker.swift */; };
+		CED15751266DF18100321A85 /* ManagerReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED15750266DF18100321A85 /* ManagerReportViewController.swift */; };
+		CED31FF5262C9499006D8FA4 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED31FF4262C9499006D8FA4 /* RealmHelper.swift */; };
+		CED31FFA262C94AD006D8FA4 /* offlineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED31FF9262C94AD006D8FA4 /* offlineModel.swift */; };
+		CED3212F262E8558006D8FA4 /* ExpenseFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3212E262E8558006D8FA4 /* ExpenseFormViewController.swift */; };
+		CED32136262E8728006D8FA4 /* ExpenseClaimCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED32134262E8728006D8FA4 /* ExpenseClaimCell.swift */; };
+		CED32137262E8728006D8FA4 /* ExpenseClaimCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED32135262E8728006D8FA4 /* ExpenseClaimCell.xib */; };
+		CED32140262E9711006D8FA4 /* ExpenseListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3213E262E9711006D8FA4 /* ExpenseListCell.swift */; };
+		CED32141262E9711006D8FA4 /* ExpenseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED3213F262E9711006D8FA4 /* ExpenseListCell.xib */; };
+		CED43344261CD23D00907AD7 /* AnimatedTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED43343261CD23D00907AD7 /* AnimatedTextFieldExtension.swift */; };
+		CED4336D261EA4CD00907AD7 /* CustomTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED4336C261EA4CD00907AD7 /* CustomTextView.xib */; };
+		CED433DA261EAADB00907AD7 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED433D9261EAADB00907AD7 /* CustomTextView.swift */; };
+		CED9727725FE6E730088FBC9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9727625FE6E730088FBC9 /* RegisterViewController.swift */; };
+		CED9728025FE70970088FBC9 /* AdminAssignRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9727F25FE70970088FBC9 /* AdminAssignRoleViewController.swift */; };
+		CED9729025FE71190088FBC9 /* ListRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9728F25FE71190088FBC9 /* ListRoleViewController.swift */; };
+		CED9729825FE712E0088FBC9 /* ListUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9729725FE712E0088FBC9 /* ListUserViewController.swift */; };
+		CED9729D25FE71490088FBC9 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED9729C25FE71490088FBC9 /* EditUserViewController.swift */; };
+		CED972A225FE715A0088FBC9 /* EditRoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED972A125FE715A0088FBC9 /* EditRoleViewController.swift */; };
+		CED972A925FE82060088FBC9 /* AdminCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED972A725FE82060088FBC9 /* AdminCell.swift */; };
+		CED972AA25FE82060088FBC9 /* AdminCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED972A825FE82060088FBC9 /* AdminCell.xib */; };
+		CEDDFA5D25D79A3C00697941 /* SFUIDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEDDFA5425D79A3A00697941 /* SFUIDisplay-Semibold.otf */; };
+		CEDDFA5E25D79A3C00697941 /* SFUIDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEDDFA5525D79A3B00697941 /* SFUIDisplay-Thin.otf */; };
+		CEDDFA5F25D79A3C00697941 /* SFUIDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEDDFA5625D79A3B00697941 /* SFUIDisplay-Black.otf */; };
+		CEDDFA6025D79A3C00697941 /* SFUIDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEDDFA5725D79A3B00697941 /* SFUIDisplay-Heavy.otf */; };
+		CEDDFA6125D79A3C00697941 /* SFUIDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEDDFA5825D79A3B00697941 /* SFUIDisplay-Regular.otf */; };
+		CEDDFA6225D79A3C00697941 /* SFUIDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEDDFA5925D79A3C00697941 /* SFUIDisplay-Light.ttf */; };
+		CEDDFA6325D79A3C00697941 /* SFUIDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEDDFA5A25D79A3C00697941 /* SFUIDisplay-Bold.ttf */; };
+		CEDDFA6425D79A3C00697941 /* SFUIDisplay-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEDDFA5B25D79A3C00697941 /* SFUIDisplay-Ultralight.otf */; };
+		CEDDFA6525D79A3C00697941 /* SFUIDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEDDFA5C25D79A3C00697941 /* SFUIDisplay-Medium.otf */; };
+		CEE76C542639BA2D00259B6D /* SuccessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE76C532639BA2D00259B6D /* SuccessModel.swift */; };
+		CEE76C5C263A5B8700259B6D /* RequestCountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE76C5B263A5B8700259B6D /* RequestCountModel.swift */; };
+		CEE76CA626405F9100259B6D /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE76CA526405F9000259B6D /* ReportViewController.swift */; };
+		CEE76CAF2640687900259B6D /* TextyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE76CAD2640687800259B6D /* TextyTabBarController.swift */; };
+		CEE76CB02640687900259B6D /* TextyTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE76CAE2640687900259B6D /* TextyTabBarItem.swift */; };
+		CEEE91A4263197DD003B348C /* ExpenseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE91A3263197DD003B348C /* ExpenseListViewController.swift */; };
+		CEEE91AD2631C250003B348C /* ExpenseDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE91AB2631C250003B348C /* ExpenseDetailCell.swift */; };
+		CEEE91AE2631C250003B348C /* ExpenseDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEE91AC2631C250003B348C /* ExpenseDetailCell.xib */; };
+		CEEE91C7263293CD003B348C /* ExpenseDocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE91C5263293CD003B348C /* ExpenseDocumentCell.swift */; };
+		CEEE91C8263293CD003B348C /* ExpenseDocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEE91C6263293CD003B348C /* ExpenseDocumentCell.xib */; };
+		CEEE91CD26329E22003B348C /* ExpenseFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE91CC26329E22003B348C /* ExpenseFileViewController.swift */; };
+		CEEE91D526340B53003B348C /* ExpenseSubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE91D426340B53003B348C /* ExpenseSubmitViewController.swift */; };
+		CEF0EB902663BE28002EC7B0 /* RangeSeekSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0EB8D2663BE28002EC7B0 /* RangeSeekSliderDelegate.swift */; };
+		CEF0EB912663BE28002EC7B0 /* RangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0EB8E2663BE28002EC7B0 /* RangeSeekSlider.swift */; };
+		CEF0EB922663BE28002EC7B0 /* TapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0EB8F2663BE28002EC7B0 /* TapticEngine.swift */; };
+		CEF2AFA92646DAC6003D2BDD /* CashFIlterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2AFA82646DAC6003D2BDD /* CashFIlterViewController.swift */; };
+		CEFA1BC325FA300900A9A052 /* CostCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1BC225FA300900A9A052 /* CostCenterViewController.swift */; };
+		CEFA1BCC25FA301E00A9A052 /* CostCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1BCB25FA301E00A9A052 /* CostCenterModel.swift */; };
+		CEFA1BD225FA303700A9A052 /* DepartmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1BD125FA303700A9A052 /* DepartmentModel.swift */; };
+		CEFA1BD725FA304700A9A052 /* DepartmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1BD625FA304700A9A052 /* DepartmentViewController.swift */; };
+		CEFA1BDD25FA305D00A9A052 /* RolesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1BDC25FA305D00A9A052 /* RolesViewController.swift */; };
+		CEFA1BE525FA306900A9A052 /* RolesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1BE425FA306900A9A052 /* RolesModel.swift */; };
+		CEFA1BEB25FA308600A9A052 /* EmployeeTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1BEA25FA308600A9A052 /* EmployeeTypeModel.swift */; };
+		CEFA1BF325FA309300A9A052 /* EmployeeTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1BF225FA309300A9A052 /* EmployeeTypeViewController.swift */; };
+		CEFA1BF925FA30A900A9A052 /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1BF825FA30A900A9A052 /* EmployeeViewController.swift */; };
+		CEFA1C0125FA30B600A9A052 /* EmployeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C0025FA30B600A9A052 /* EmployeeModel.swift */; };
+		CEFA1C0725FA30CE00A9A052 /* ExpenseTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C0625FA30CE00A9A052 /* ExpenseTypeModel.swift */; };
+		CEFA1C0C25FA30E600A9A052 /* ExpenseTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C0B25FA30E600A9A052 /* ExpenseTypeViewController.swift */; };
+		CEFA1C1225FA310600A9A052 /* ApprovelLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C1125FA310600A9A052 /* ApprovelLevelViewController.swift */; };
+		CEFA1C1A25FA311300A9A052 /* ApprovelLevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C1925FA311300A9A052 /* ApprovelLevelModel.swift */; };
+		CEFA1C2025FA312C00A9A052 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C1F25FA312C00A9A052 /* ProjectModel.swift */; };
+		CEFA1C2825FA314000A9A052 /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C2725FA314000A9A052 /* ProjectViewController.swift */; };
+		CEFA1C2E25FA316000A9A052 /* SubProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C2D25FA316000A9A052 /* SubProjectViewController.swift */; };
+		CEFA1C3625FA317200A9A052 /* SubProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C3525FA317200A9A052 /* SubProjectModel.swift */; };
+		CEFA1C3C25FA318A00A9A052 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C3B25FA318A00A9A052 /* TaskModel.swift */; };
+		CEFA1C4425FA319C00A9A052 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C4325FA319C00A9A052 /* TaskViewController.swift */; };
+		CEFA1C4A25FA31CD00A9A052 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C4925FA31CD00A9A052 /* ResetPasswordViewController.swift */; };
+		CEFA1C5A25FB1A3700A9A052 /* TextFieldDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA1C5925FB1A3600A9A052 /* TextFieldDesign.swift */; };
+		CEFBB5972602706E00E415EA /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBB5962602706E00E415EA /* ForgetPasswordViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE6B195325C3DD9100C289C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE6B193425C3DD9000C289C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE6B193B25C3DD9000C289C6;
+			remoteInfo = AtoCash;
+		};
+		CE6B195E25C3DD9100C289C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE6B193425C3DD9000C289C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE6B193B25C3DD9000C289C6;
+			remoteInfo = AtoCash;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		44038076293B0AB80071EE81 /* TabPageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabPageViewController.storyboard; sourceTree = "<group>"; };
+		80767F4297851157B0F104E0 /* Pods-AtoCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoCash.release.xcconfig"; path = "Target Support Files/Pods-AtoCash/Pods-AtoCash.release.xcconfig"; sourceTree = "<group>"; };
+		A03FF65DC7F6BCB344BD5F82 /* Pods_AtoCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE060A24262B082500FA478F /* CreateTravalRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTravalRequestViewController.swift; sourceTree = "<group>"; };
+		CE060A2B262B0C7200FA478F /* TravalRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravalRequestViewController.swift; sourceTree = "<group>"; };
+		CE09E4D12635DA4400F8F547 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		CE09E50C2637C4DB00F8F547 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		CE09E5C72639235500F8F547 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		CE0DF45A26FA6C8200F96E9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE2BDBB525CD21FE0091E5F4 /* UtilsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsManager.swift; sourceTree = "<group>"; };
+		CE2BDBBB25CD22210091E5F4 /* Rechability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rechability.swift; sourceTree = "<group>"; };
+		CE2BDBC125CD22460091E5F4 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CE2BDBD225CD24B00091E5F4 /* SRActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRActivityIndicator.swift; sourceTree = "<group>"; };
+		CE2BDBEC25CD618E0091E5F4 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		CE2BDBF325CD62060091E5F4 /* ExpanseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpanseViewController.swift; sourceTree = "<group>"; };
+		CE2BDC0F25CDA3540091E5F4 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		CE2BDC1025CDA3540091E5F4 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		CE2BDC1125CDA3550091E5F4 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		CE2BDC1225CDA3550091E5F4 /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
+		CE3734D12630BAA8002D3767 /* MediaSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSelectionCell.swift; sourceTree = "<group>"; };
+		CE3734D22630BAA8002D3767 /* MediaSelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaSelectionCell.xib; sourceTree = "<group>"; };
+		CE5134CA26FBAEEC002D6B7B /* CSLocalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSLocalizer.swift; sourceTree = "<group>"; };
+		CE5134CB26FBAEF5002D6B7B /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		CE5134CC26FBAF00002D6B7B /* CSlanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSlanguage.swift; sourceTree = "<group>"; };
+		CE5134D026FBAF13002D6B7B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE5141DB26048C12008554BB /* MyRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRequestCell.swift; sourceTree = "<group>"; };
+		CE5141DC26048C12008554BB /* MyRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRequestCell.xib; sourceTree = "<group>"; };
+		CE5141E326048C33008554BB /* MyInboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInboxCell.swift; sourceTree = "<group>"; };
+		CE5141E426048C33008554BB /* MyInboxCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInboxCell.xib; sourceTree = "<group>"; };
+		CE5141F32604A5CC008554BB /* AdvanceRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvanceRequestViewController.swift; sourceTree = "<group>"; };
+		CE5141FB2604A5E0008554BB /* CreateAdvanceRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdvanceRequestViewController.swift; sourceTree = "<group>"; };
+		CE5142052604A607008554BB /* AdvacanceRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvacanceRequestModel.swift; sourceTree = "<group>"; };
+		CE57C96525FB3972008B659C /* ApprovalGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalGroupModel.swift; sourceTree = "<group>"; };
+		CE57C96A25FB39A6008B659C /* ApprovalGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalGroupViewController.swift; sourceTree = "<group>"; };
+		CE57C97025FB39CA008B659C /* ApprovalRoleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalRoleMapViewController.swift; sourceTree = "<group>"; };
+		CE57C97525FB39DE008B659C /* ApprovalRoleMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalRoleMapModel.swift; sourceTree = "<group>"; };
+		CE57C97D25FB3A15008B659C /* CreateCostCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCostCenterViewController.swift; sourceTree = "<group>"; };
+		CE57C98225FB3A27008B659C /* CreateDepartmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDepartmentViewController.swift; sourceTree = "<group>"; };
+		CE57C98725FB3A3A008B659C /* CreateRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoleViewController.swift; sourceTree = "<group>"; };
+		CE57C98C25FB3A4C008B659C /* CreateEmployeeTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEmployeeTypeViewController.swift; sourceTree = "<group>"; };
+		CE57C99125FB3A5E008B659C /* CreateEmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEmployeeViewController.swift; sourceTree = "<group>"; };
+		CE57C99625FB3A7A008B659C /* CreateExpenseTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExpenseTypeViewController.swift; sourceTree = "<group>"; };
+		CE57C99B25FB3A94008B659C /* CreateApprovalRoleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateApprovalRoleMapViewController.swift; sourceTree = "<group>"; };
+		CE57C9A025FB3AAB008B659C /* CreateApprovalGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateApprovalGroupViewController.swift; sourceTree = "<group>"; };
+		CE57C9A525FB3AC2008B659C /* CreateApprovalLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateApprovalLevelViewController.swift; sourceTree = "<group>"; };
+		CE57C9AA25FB3ADA008B659C /* CreateProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectViewController.swift; sourceTree = "<group>"; };
+		CE57C9B225FB3AEB008B659C /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
+		CE57C9BA25FB3B05008B659C /* CreateSubprojectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSubprojectViewController.swift; sourceTree = "<group>"; };
+		CE57C9C025FB3C80008B659C /* ApprovalStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalStatusViewController.swift; sourceTree = "<group>"; };
+		CE57C9C825FB3C96008B659C /* CreateApprovalStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateApprovalStatusViewController.swift; sourceTree = "<group>"; };
+		CE57C9CD25FB3CAA008B659C /* ApprovalStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalStatusModel.swift; sourceTree = "<group>"; };
+		CE57C9FA25FB60D4008B659C /* CONSTANT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CONSTANT.swift; sourceTree = "<group>"; };
+		CE57CA0025FC9E89008B659C /* NavigationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeaderView.swift; sourceTree = "<group>"; };
+		CE57CA0925FCA180008B659C /* NoInternetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
+		CE57CA0A25FCA180008B659C /* NoInternetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoInternetViewController.xib; sourceTree = "<group>"; };
+		CE57CA2225FCC677008B659C /* SubCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCell.swift; sourceTree = "<group>"; };
+		CE57CA2325FCC677008B659C /* SubCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubCell.xib; sourceTree = "<group>"; };
+		CE57CA2425FCC678008B659C /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
+		CE57CA2525FCC678008B659C /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		CE57CA5725FD2164008B659C /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		CE57CA5825FD2164008B659C /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		CE57CA8F25FD3310008B659C /* AtoCash-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AtoCash-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE57CAE925FDB46F008B659C /* CustomCellDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDropDown.swift; sourceTree = "<group>"; };
+		CE57CAEA25FDB470008B659C /* CustomCellDropDown.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCellDropDown.xib; sourceTree = "<group>"; };
+		CE591EBC26ADCE9D00BEF222 /* ImageZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
+		CE591EBE26ADEAA200BEF222 /* ExpenseSubmitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSubmitCell.swift; sourceTree = "<group>"; };
+		CE591EBF26ADEAA200BEF222 /* ExpenseSubmitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseSubmitCell.xib; sourceTree = "<group>"; };
+		CE63641C26046EE500334DB5 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
+		CE6B193C25C3DD9000C289C6 /* AtoCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtoCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE6B193F25C3DD9000C289C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE6B194625C3DD9000C289C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE6B194825C3DD9100C289C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE6B194B25C3DD9100C289C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE6B194D25C3DD9100C289C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE6B195225C3DD9100C289C6 /* AtoCashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtoCashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE6B195625C3DD9100C289C6 /* AtoCashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtoCashTests.swift; sourceTree = "<group>"; };
+		CE6B195825C3DD9100C289C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE6B195D25C3DD9100C289C6 /* AtoCashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtoCashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE6B196125C3DD9100C289C6 /* AtoCashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtoCashUITests.swift; sourceTree = "<group>"; };
+		CE6B196325C3DD9100C289C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE6EE10C2675EEE200DB2B6C /* OfflineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineData.swift; sourceTree = "<group>"; };
+		CE77378D25F93075001678EA /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		CE834DEE262B9BE6002FA7D3 /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
+		CE834DF4262B9CA7002FA7D3 /* TabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabView.xib; sourceTree = "<group>"; };
+		CE834DF5262B9CA7002FA7D3 /* TabCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabCollectionCell.swift; sourceTree = "<group>"; };
+		CE834DF6262B9CA7002FA7D3 /* TabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		CE834DF8262B9CA7002FA7D3 /* TabCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabCollectionCell.xib; sourceTree = "<group>"; };
+		CE834DF9262B9CA7002FA7D3 /* TabPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabPageViewController.swift; sourceTree = "<group>"; };
+		CE834DFA262B9CA7002FA7D3 /* TabPageOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabPageOption.swift; sourceTree = "<group>"; };
+		CE834E09262BA406002FA7D3 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		CE8C7B56261A03B1005AEA3C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE8C7B93261A1A78005AEA3C /* MyInboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInboxViewController.swift; sourceTree = "<group>"; };
+		CE9DEAB025CC28F400F99518 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CE9DEAB825CC290900F99518 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CE9DEABD25CC291800F99518 /* LoginModel1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel1.swift; sourceTree = "<group>"; };
+		CE9DEAE925CC482200F99518 /* CustomBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBackgroundView.swift; sourceTree = "<group>"; };
+		CEA0AA6C2706E04400B73450 /* logos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logos.png; sourceTree = "<group>"; };
+		CEA1099A2600F0B8003DB73C /* AdminRoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminRoleModel.swift; sourceTree = "<group>"; };
+		CEA1099F2600F6B1003DB73C /* AdminUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminUserModel.swift; sourceTree = "<group>"; };
+		CEA3319D262C62D400631077 /* CreateExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExpenseViewController.swift; sourceTree = "<group>"; };
+		CEA6C644261F466400D8756A /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		CEA6C64C261F467500D8756A /* CreateCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCurrencyViewController.swift; sourceTree = "<group>"; };
+		CEB1FC55264DA48E004071B0 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		CEB1FC56264DA48E004071B0 /* ChartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartViewController.xib; sourceTree = "<group>"; };
+		CEB1FC5C264E6587004071B0 /* BadgeButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeButtonExtension.swift; sourceTree = "<group>"; };
+		CEB2A879264245A10069385E /* DashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
+		CEB2A87A264245A10069385E /* DashboardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCell.xib; sourceTree = "<group>"; };
+		CEB2A884264254A70069385E /* UITableView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		CEB2A885264254A70069385E /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		CEB2A886264254A70069385E /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		CEB2A88D26428C530069385E /* MyReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReportsViewController.swift; sourceTree = "<group>"; };
+		CEB2A98F264294770069385E /* ReportsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsModel.swift; sourceTree = "<group>"; };
+		CEB2A9952642A0B90069385E /* MyReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReportCell.swift; sourceTree = "<group>"; };
+		CEB2A9962642A0B90069385E /* MyReportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyReportCell.xib; sourceTree = "<group>"; };
+		CEB5DE3A2605CE4B006BC623 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		CEB5DE3B2605CE4B006BC623 /* EasyTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyTipView.swift; sourceTree = "<group>"; };
+		CEB6FF2B262ED2D90086179C /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		CEB6FF45262F54070086179C /* MultipartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartAPI.swift; sourceTree = "<group>"; };
+		CEB6FF53262F5B770086179C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CEB6FF68262FD2570086179C /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		CEB6FF70262FD7570086179C /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		CEB6FF71262FD7580086179C /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		CEBB95A625FDB7DB002AF007 /* EmployeeViewDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewDetailController.swift; sourceTree = "<group>"; };
+		CEBE382D262B60CA00AF7FE0 /* TrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
+		CEBE3839262B63C900AF7FE0 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		CEBE383A262B63C900AF7FE0 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
+		CEBE3840262B677D00AF7FE0 /* TrackDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailCell.swift; sourceTree = "<group>"; };
+		CEBE3841262B677D00AF7FE0 /* TrackDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailCell.xib; sourceTree = "<group>"; };
+		CEBEA4A1D620B5240CF0A69E /* Pods-AtoCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoCash.debug.xcconfig"; path = "Target Support Files/Pods-AtoCash/Pods-AtoCash.debug.xcconfig"; sourceTree = "<group>"; };
+		CED15655266D112D00321A85 /* ExpenseReimburseStatusTrackersAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseReimburseStatusTrackersAPI.swift; sourceTree = "<group>"; };
+		CED15657266D112D00321A85 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		CED15658266D112D00321A85 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
+		CED15659266D112D00321A85 /* JSONValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValue.swift; sourceTree = "<group>"; };
+		CED1565B266D112D00321A85 /* ClaimApprovalStatusTrackersAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimApprovalStatusTrackersAPI.swift; sourceTree = "<group>"; };
+		CED1565C266D112D00321A85 /* ApprovalStatusTypesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalStatusTypesAPI.swift; sourceTree = "<group>"; };
+		CED1565D266D112D00321A85 /* TravelApprovalRequestsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelApprovalRequestsAPI.swift; sourceTree = "<group>"; };
+		CED1565E266D112D00321A85 /* ExpenseSubClaimsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseSubClaimsAPI.swift; sourceTree = "<group>"; };
+		CED1565F266D112D00321A85 /* ApprovalGroupsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalGroupsAPI.swift; sourceTree = "<group>"; };
+		CED15660266D112D00321A85 /* ProjectManagementAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManagementAPI.swift; sourceTree = "<group>"; };
+		CED15661266D112D00321A85 /* ApprovalLevelsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalLevelsAPI.swift; sourceTree = "<group>"; };
+		CED15662266D112D00321A85 /* StatusTypesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTypesAPI.swift; sourceTree = "<group>"; };
+		CED15663266D112D00321A85 /* CurrencyTypesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTypesAPI.swift; sourceTree = "<group>"; };
+		CED15664266D112D00321A85 /* ApprovalRoleMapsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalRoleMapsAPI.swift; sourceTree = "<group>"; };
+		CED15665266D112D00321A85 /* AdministrationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdministrationAPI.swift; sourceTree = "<group>"; };
+		CED15666266D112D00321A85 /* ExpenseReimburseRequestsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseReimburseRequestsAPI.swift; sourceTree = "<group>"; };
+		CED15667266D112D00321A85 /* WorkTasksAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTasksAPI.swift; sourceTree = "<group>"; };
+		CED15668266D112D00321A85 /* AccountAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
+		CED15669266D112D00321A85 /* DepartmentsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentsAPI.swift; sourceTree = "<group>"; };
+		CED1566A266D112D00321A85 /* ReportsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsAPI.swift; sourceTree = "<group>"; };
+		CED1566B266D112D00321A85 /* EmploymentTypesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmploymentTypesAPI.swift; sourceTree = "<group>"; };
+		CED1566C266D112D00321A85 /* SubProjectsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubProjectsAPI.swift; sourceTree = "<group>"; };
+		CED1566D266D112D00321A85 /* TravelApprovalStatusTrackersAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelApprovalStatusTrackersAPI.swift; sourceTree = "<group>"; };
+		CED1566E266D112D00321A85 /* RequestsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsAPI.swift; sourceTree = "<group>"; };
+		CED1566F266D112D00321A85 /* JobRolesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobRolesAPI.swift; sourceTree = "<group>"; };
+		CED15670266D112D00321A85 /* EmployeesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeesAPI.swift; sourceTree = "<group>"; };
+		CED15671266D112D00321A85 /* ProjectsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsAPI.swift; sourceTree = "<group>"; };
+		CED15672266D112D00321A85 /* EmpCurrentPettyCashBalancesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmpCurrentPettyCashBalancesAPI.swift; sourceTree = "<group>"; };
+		CED15673266D112D00321A85 /* PettyCashRequestsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PettyCashRequestsAPI.swift; sourceTree = "<group>"; };
+		CED15674266D112D00321A85 /* DisbursementsAndClaimsMastersAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisbursementsAndClaimsMastersAPI.swift; sourceTree = "<group>"; };
+		CED15675266D112D00321A85 /* CostCentersAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCentersAPI.swift; sourceTree = "<group>"; };
+		CED15677266D112D00321A85 /* ExpenseTypesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTypesAPI.swift; sourceTree = "<group>"; };
+		CED15678266D112D00321A85 /* CodableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
+		CED15679266D112D00321A85 /* JSONEncodableEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodableEncoding.swift; sourceTree = "<group>"; };
+		CED1567A266D112D00321A85 /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
+		CED1567C266D112D00321A85 /* ApprovalRoleMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalRoleMap.swift; sourceTree = "<group>"; };
+		CED1567D266D112D00321A85 /* ProjectManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManagement.swift; sourceTree = "<group>"; };
+		CED1567E266D112D00321A85 /* ProjectVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectVM.swift; sourceTree = "<group>"; };
+		CED1567F266D112D00321A85 /* ApprovalGroupVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalGroupVM.swift; sourceTree = "<group>"; };
+		CED15680266D112D00321A85 /* WorkTaskVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTaskVM.swift; sourceTree = "<group>"; };
+		CED15681266D112D00321A85 /* ApprovalRoleMapDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalRoleMapDTO.swift; sourceTree = "<group>"; };
+		CED15682266D112D00321A85 /* EditUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserModel.swift; sourceTree = "<group>"; };
+		CED15683266D112D00321A85 /* GetEmployeesForProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEmployeesForProject.swift; sourceTree = "<group>"; };
+		CED15684266D112D00321A85 /* ApprovalStatusType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalStatusType.swift; sourceTree = "<group>"; };
+		CED15685266D112D00321A85 /* DepartmentVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentVM.swift; sourceTree = "<group>"; };
+		CED15687266D112D00321A85 /* CostCenterDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCenterDTO.swift; sourceTree = "<group>"; };
+		CED15688266D112D00321A85 /* JobRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobRole.swift; sourceTree = "<group>"; };
+		CED15689266D112D00321A85 /* ClaimApprovalStatusTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimApprovalStatusTracker.swift; sourceTree = "<group>"; };
+		CED1568A266D112D00321A85 /* StatusTypeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTypeVM.swift; sourceTree = "<group>"; };
+		CED1568C266D112D00321A85 /* ExpenseReimburseRequestDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseReimburseRequestDTO.swift; sourceTree = "<group>"; };
+		CED1568D266D112D00321A85 /* ApprovalGroupDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalGroupDTO.swift; sourceTree = "<group>"; };
+		CED1568E266D112D00321A85 /* EmployeeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeVM.swift; sourceTree = "<group>"; };
+		CED1568F266D112D00321A85 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		CED15690266D112D00321A85 /* EmployeeDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeDTO.swift; sourceTree = "<group>"; };
+		CED15691266D112D00321A85 /* JobRoleDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobRoleDTO.swift; sourceTree = "<group>"; };
+		CED15692266D112D00321A85 /* JobRoleVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobRoleVM.swift; sourceTree = "<group>"; };
+		CED15693266D112D00321A85 /* SubProjectVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubProjectVM.swift; sourceTree = "<group>"; };
+		CED15694266D112D00321A85 /* TravelApprovalRequestDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelApprovalRequestDTO.swift; sourceTree = "<group>"; };
+		CED15695266D112D00321A85 /* EmploymentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmploymentType.swift; sourceTree = "<group>"; };
+		CED15696266D112D00321A85 /* RequestTypeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTypeVM.swift; sourceTree = "<group>"; };
+		CED15697266D112D00321A85 /* EditRoleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRoleModel.swift; sourceTree = "<group>"; };
+		CED15698266D112D00321A85 /* DisbursementsAndClaimsMasterDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisbursementsAndClaimsMasterDTO.swift; sourceTree = "<group>"; };
+		CED15699266D112D00321A85 /* PettyCashRequestDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PettyCashRequestDTO.swift; sourceTree = "<group>"; };
+		CED1569A266D112D00321A85 /* CashAndClaimRequestSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CashAndClaimRequestSearchModel.swift; sourceTree = "<group>"; };
+		CED1569B266D112D00321A85 /* RoleToUserSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleToUserSearch.swift; sourceTree = "<group>"; };
+		CED1569C266D112D00321A85 /* Department.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
+		CED1569D266D112D00321A85 /* EmployeeSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeSearchModel.swift; sourceTree = "<group>"; };
+		CED1569E266D112D00321A85 /* PettyCashRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PettyCashRequest.swift; sourceTree = "<group>"; };
+		CED1569F266D112D00321A85 /* AccountsPayableSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsPayableSearchModel.swift; sourceTree = "<group>"; };
+		CED156A0266D112D00321A85 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		CED156A1266D112D00321A85 /* CurrencyTypeDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTypeDTO.swift; sourceTree = "<group>"; };
+		CED156A2266D112D00321A85 /* ProjectManagementDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectManagementDTO.swift; sourceTree = "<group>"; };
+		CED156A3266D112D00321A85 /* EmpCurrentPettyCashBalanceDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmpCurrentPettyCashBalanceDTO.swift; sourceTree = "<group>"; };
+		CED156A4266D112D00321A85 /* DepartmentDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentDTO.swift; sourceTree = "<group>"; };
+		CED156A5266D112D00321A85 /* ApprovalLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalLevel.swift; sourceTree = "<group>"; };
+		CED156A6266D112D00321A85 /* TravelApprovalStatusTrackerDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelApprovalStatusTrackerDTO.swift; sourceTree = "<group>"; };
+		CED156A7266D112D00321A85 /* AddEmployeesToProjectId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEmployeesToProjectId.swift; sourceTree = "<group>"; };
+		CED156A8266D112D00321A85 /* CashbalVsAdvancedVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CashbalVsAdvancedVM.swift; sourceTree = "<group>"; };
+		CED156A9266D112D00321A85 /* SubProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubProject.swift; sourceTree = "<group>"; };
+		CED156AA266D112D00321A85 /* ResetPasswordVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVM.swift; sourceTree = "<group>"; };
+		CED156AB266D112D00321A85 /* ExpenseTypeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTypeVM.swift; sourceTree = "<group>"; };
+		CED156AC266D112D00321A85 /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
+		CED156AD266D112D00321A85 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		CED156AE266D112D00321A85 /* TravelApprovalStatusTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelApprovalStatusTracker.swift; sourceTree = "<group>"; };
+		CED156AF266D112D00321A85 /* ExpenseReimburseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseReimburseRequest.swift; sourceTree = "<group>"; };
+		CED156B0266D112D00321A85 /* UserToRoleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserToRoleModel.swift; sourceTree = "<group>"; };
+		CED156B1266D112D00321A85 /* ApprovalStatusFlowVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalStatusFlowVM.swift; sourceTree = "<group>"; };
+		CED156B2266D112D00321A85 /* RegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		CED156B3266D112D00321A85 /* CostCenterVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCenterVM.swift; sourceTree = "<group>"; };
+		CED156B4266D112D00321A85 /* StatusType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusType.swift; sourceTree = "<group>"; };
+		CED156B5266D112D00321A85 /* EmploymentTypeDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmploymentTypeDTO.swift; sourceTree = "<group>"; };
+		CED156B6266D112D00321A85 /* ApprovalLevelDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalLevelDTO.swift; sourceTree = "<group>"; };
+		CED156B7266D112D00321A85 /* ApprovalGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalGroup.swift; sourceTree = "<group>"; };
+		CED156B8266D112D00321A85 /* ClaimApprovalStatusTrackerDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimApprovalStatusTrackerDTO.swift; sourceTree = "<group>"; };
+		CED156B9266D112D00321A85 /* FileDocumentDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDocumentDTO.swift; sourceTree = "<group>"; };
+		CED156BA266D112D00321A85 /* ExpenseSubClaim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseSubClaim.swift; sourceTree = "<group>"; };
+		CED156BB266D112D00321A85 /* TravelApprovalRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelApprovalRequest.swift; sourceTree = "<group>"; };
+		CED156BC266D112D00321A85 /* CostCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostCenter.swift; sourceTree = "<group>"; };
+		CED156BD266D112D00321A85 /* SubProjectDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubProjectDTO.swift; sourceTree = "<group>"; };
+		CED156BE266D112D00321A85 /* ExpenseTypeDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTypeDTO.swift; sourceTree = "<group>"; };
+		CED156BF266D112D00321A85 /* CurrencyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyType.swift; sourceTree = "<group>"; };
+		CED156C0266D112D00321A85 /* ProjectDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDTO.swift; sourceTree = "<group>"; };
+		CED156C1266D112D00321A85 /* WorkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTask.swift; sourceTree = "<group>"; };
+		CED156C2266D112D00321A85 /* RoleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleModel.swift; sourceTree = "<group>"; };
+		CED156C3266D112D00321A85 /* RequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		CED156C4266D112D00321A85 /* CurrencyTypeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTypeVM.swift; sourceTree = "<group>"; };
+		CED156C5266D112D00321A85 /* EmpAllCurBalStatusDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmpAllCurBalStatusDTO.swift; sourceTree = "<group>"; };
+		CED156C6266D112D00321A85 /* WorkTaskDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTaskDTO.swift; sourceTree = "<group>"; };
+		CED156C7266D112D00321A85 /* EmpCurrentPettyCashBalance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmpCurrentPettyCashBalance.swift; sourceTree = "<group>"; };
+		CED156C8266D112D00321A85 /* Body.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
+		CED156C9266D112D00321A85 /* TravelRequestSearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelRequestSearchModel.swift; sourceTree = "<group>"; };
+		CED156CA266D112D00321A85 /* ExpenseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseType.swift; sourceTree = "<group>"; };
+		CED156CC266D112D00321A85 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CED156CD266D112D00321A85 /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
+		CED156CE266D112D00321A85 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		CED156CF266D112D00321A85 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		CED156D1266D112D00321A85 /* ExpenseSubClaimDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseSubClaimDTO.swift; sourceTree = "<group>"; };
+		CED156D2266D112D00321A85 /* ExpenseReimburseStatusTrackerDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseReimburseStatusTrackerDTO.swift; sourceTree = "<group>"; };
+		CED156D3266D112D00321A85 /* ExpenseReimburseStatusTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseReimburseStatusTracker.swift; sourceTree = "<group>"; };
+		CED15750266DF18100321A85 /* ManagerReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerReportViewController.swift; sourceTree = "<group>"; };
+		CED31FF4262C9499006D8FA4 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		CED31FF9262C94AD006D8FA4 /* offlineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = offlineModel.swift; sourceTree = "<group>"; };
+		CED3212E262E8558006D8FA4 /* ExpenseFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseFormViewController.swift; sourceTree = "<group>"; };
+		CED32134262E8728006D8FA4 /* ExpenseClaimCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseClaimCell.swift; sourceTree = "<group>"; };
+		CED32135262E8728006D8FA4 /* ExpenseClaimCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseClaimCell.xib; sourceTree = "<group>"; };
+		CED3213E262E9711006D8FA4 /* ExpenseListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListCell.swift; sourceTree = "<group>"; };
+		CED3213F262E9711006D8FA4 /* ExpenseListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseListCell.xib; sourceTree = "<group>"; };
+		CED43343261CD23D00907AD7 /* AnimatedTextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTextFieldExtension.swift; sourceTree = "<group>"; };
+		CED4336C261EA4CD00907AD7 /* CustomTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextView.xib; sourceTree = "<group>"; };
+		CED433D9261EAADB00907AD7 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		CED9727625FE6E730088FBC9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CED9727F25FE70970088FBC9 /* AdminAssignRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAssignRoleViewController.swift; sourceTree = "<group>"; };
+		CED9728F25FE71190088FBC9 /* ListRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRoleViewController.swift; sourceTree = "<group>"; };
+		CED9729725FE712E0088FBC9 /* ListUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserViewController.swift; sourceTree = "<group>"; };
+		CED9729C25FE71490088FBC9 /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
+		CED972A125FE715A0088FBC9 /* EditRoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRoleViewController.swift; sourceTree = "<group>"; };
+		CED972A725FE82060088FBC9 /* AdminCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCell.swift; sourceTree = "<group>"; };
+		CED972A825FE82060088FBC9 /* AdminCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminCell.xib; sourceTree = "<group>"; };
+		CEDDFA5425D79A3A00697941 /* SFUIDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		CEDDFA5525D79A3B00697941 /* SFUIDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Thin.otf"; sourceTree = "<group>"; };
+		CEDDFA5625D79A3B00697941 /* SFUIDisplay-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Black.otf"; sourceTree = "<group>"; };
+		CEDDFA5725D79A3B00697941 /* SFUIDisplay-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Heavy.otf"; sourceTree = "<group>"; };
+		CEDDFA5825D79A3B00697941 /* SFUIDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Regular.otf"; sourceTree = "<group>"; };
+		CEDDFA5925D79A3C00697941 /* SFUIDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Light.ttf"; sourceTree = "<group>"; };
+		CEDDFA5A25D79A3C00697941 /* SFUIDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		CEDDFA5B25D79A3C00697941 /* SFUIDisplay-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Ultralight.otf"; sourceTree = "<group>"; };
+		CEDDFA5C25D79A3C00697941 /* SFUIDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Medium.otf"; sourceTree = "<group>"; };
+		CEE76C532639BA2D00259B6D /* SuccessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessModel.swift; sourceTree = "<group>"; };
+		CEE76C5B263A5B8700259B6D /* RequestCountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCountModel.swift; sourceTree = "<group>"; };
+		CEE76CA526405F9000259B6D /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		CEE76CAD2640687800259B6D /* TextyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextyTabBarController.swift; sourceTree = "<group>"; };
+		CEE76CAE2640687900259B6D /* TextyTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextyTabBarItem.swift; sourceTree = "<group>"; };
+		CEEE91A3263197DD003B348C /* ExpenseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListViewController.swift; sourceTree = "<group>"; };
+		CEEE91AB2631C250003B348C /* ExpenseDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailCell.swift; sourceTree = "<group>"; };
+		CEEE91AC2631C250003B348C /* ExpenseDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseDetailCell.xib; sourceTree = "<group>"; };
+		CEEE91C5263293CD003B348C /* ExpenseDocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDocumentCell.swift; sourceTree = "<group>"; };
+		CEEE91C6263293CD003B348C /* ExpenseDocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseDocumentCell.xib; sourceTree = "<group>"; };
+		CEEE91CC26329E22003B348C /* ExpenseFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseFileViewController.swift; sourceTree = "<group>"; };
+		CEEE91D426340B53003B348C /* ExpenseSubmitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSubmitViewController.swift; sourceTree = "<group>"; };
+		CEF0EB8D2663BE28002EC7B0 /* RangeSeekSliderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSliderDelegate.swift; sourceTree = "<group>"; };
+		CEF0EB8E2663BE28002EC7B0 /* RangeSeekSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSlider.swift; sourceTree = "<group>"; };
+		CEF0EB8F2663BE28002EC7B0 /* TapticEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngine.swift; sourceTree = "<group>"; };
+		CEF2AFA82646DAC6003D2BDD /* CashFIlterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFIlterViewController.swift; sourceTree = "<group>"; };
+		CEFA1BC225FA300900A9A052 /* CostCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostCenterViewController.swift; sourceTree = "<group>"; };
+		CEFA1BCB25FA301E00A9A052 /* CostCenterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostCenterModel.swift; sourceTree = "<group>"; };
+		CEFA1BD125FA303700A9A052 /* DepartmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentModel.swift; sourceTree = "<group>"; };
+		CEFA1BD625FA304700A9A052 /* DepartmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentViewController.swift; sourceTree = "<group>"; };
+		CEFA1BDC25FA305D00A9A052 /* RolesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesViewController.swift; sourceTree = "<group>"; };
+		CEFA1BE425FA306900A9A052 /* RolesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesModel.swift; sourceTree = "<group>"; };
+		CEFA1BEA25FA308600A9A052 /* EmployeeTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTypeModel.swift; sourceTree = "<group>"; };
+		CEFA1BF225FA309300A9A052 /* EmployeeTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTypeViewController.swift; sourceTree = "<group>"; };
+		CEFA1BF825FA30A900A9A052 /* EmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewController.swift; sourceTree = "<group>"; };
+		CEFA1C0025FA30B600A9A052 /* EmployeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeModel.swift; sourceTree = "<group>"; };
+		CEFA1C0625FA30CE00A9A052 /* ExpenseTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTypeModel.swift; sourceTree = "<group>"; };
+		CEFA1C0B25FA30E600A9A052 /* ExpenseTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTypeViewController.swift; sourceTree = "<group>"; };
+		CEFA1C1125FA310600A9A052 /* ApprovelLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovelLevelViewController.swift; sourceTree = "<group>"; };
+		CEFA1C1925FA311300A9A052 /* ApprovelLevelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovelLevelModel.swift; sourceTree = "<group>"; };
+		CEFA1C1F25FA312C00A9A052 /* ProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
+		CEFA1C2725FA314000A9A052 /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		CEFA1C2D25FA316000A9A052 /* SubProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubProjectViewController.swift; sourceTree = "<group>"; };
+		CEFA1C3525FA317200A9A052 /* SubProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubProjectModel.swift; sourceTree = "<group>"; };
+		CEFA1C3B25FA318A00A9A052 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		CEFA1C4325FA319C00A9A052 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		CEFA1C4925FA31CD00A9A052 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		CEFA1C5925FB1A3600A9A052 /* TextFieldDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDesign.swift; sourceTree = "<group>"; };
+		CEFBB5962602706E00E415EA /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE6B193925C3DD9000C289C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				035E3A194BC65020D4A2D58B /* Pods_AtoCash.framework in Frameworks */,
+				CEB6FF54262F5B770086179C /* MobileCoreServices.framework in Frameworks */,
+				CE09E4D22635DA4400F8F547 /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE6B194F25C3DD9100C289C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE6B195A25C3DD9100C289C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B396FAEFF531D69AEBF1BCA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE09E4D12635DA4400F8F547 /* WebKit.framework */,
+				CEB6FF53262F5B770086179C /* MobileCoreServices.framework */,
+				A03FF65DC7F6BCB344BD5F82 /* Pods_AtoCash.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE060A17262B079B00FA478F /* Traval */ = {
+			isa = PBXGroup;
+			children = (
+				CEBE382C262B60A900AF7FE0 /* Tracker */,
+				CE060A30262B2E7A00FA478F /* TravelRequestCell */,
+				CE060A2A262B0C5400FA478F /* TravalRequest */,
+				CE060A29262B0C3800FA478F /* CreateTravalRequest */,
+			);
+			path = Traval;
+			sourceTree = "<group>";
+		};
+		CE060A29262B0C3800FA478F /* CreateTravalRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE060A24262B082500FA478F /* CreateTravalRequestViewController.swift */,
+			);
+			path = CreateTravalRequest;
+			sourceTree = "<group>";
+		};
+		CE060A2A262B0C5400FA478F /* TravalRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE060A2B262B0C7200FA478F /* TravalRequestViewController.swift */,
+			);
+			path = TravalRequest;
+			sourceTree = "<group>";
+		};
+		CE060A30262B2E7A00FA478F /* TravelRequestCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TravelRequestCell;
+			sourceTree = "<group>";
+		};
+		CE09E5C62639233A00F8F547 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				CE09E5C72639235500F8F547 /* UserProfileViewController.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		CE0DF45126FA6C0B00F96E9C /* LocalizationString */ = {
+			isa = PBXGroup;
+			children = (
+				CE0DF45B26FA6C8200F96E9C /* Localizable.strings */,
+			);
+			path = LocalizationString;
+			sourceTree = "<group>";
+		};
+		CE2BDBD125CD24A00091E5F4 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				CE2BDBD225CD24B00091E5F4 /* SRActivityIndicator.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		CE2BDBEB25CD61790091E5F4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CEB2A8752642457E0069385E /* CustomCell */,
+				CE2BDBEC25CD618E0091E5F4 /* DashboardViewController.swift */,
+				CEB1FC55264DA48E004071B0 /* ChartViewController.swift */,
+				CEB1FC56264DA48E004071B0 /* ChartViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CE2BDBF125CD61D50091E5F4 /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+				CEEE91A2263197B7003B348C /* ExpenseDetails */,
+				CED32133262E86DB006D8FA4 /* ExpenseCustomCell */,
+				CE5141ED2604A567008554BB /* ExpenseRequest */,
+				CE2BDBF225CD61E50091E5F4 /* Controller */,
+			);
+			path = Expense;
+			sourceTree = "<group>";
+		};
+		CE2BDBF225CD61E50091E5F4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE2BDBF325CD62060091E5F4 /* ExpanseViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CE3734C22630BA62002D3767 /* CollectionviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE3734D12630BAA8002D3767 /* MediaSelectionCell.swift */,
+				CE3734D22630BAA8002D3767 /* MediaSelectionCell.xib */,
+			);
+			path = CollectionviewCell;
+			sourceTree = "<group>";
+		};
+		CE5134C826FBADD2002D6B7B /* LocalizationExtension */ = {
+			isa = PBXGroup;
+			children = (
+				CE5134CB26FBAEF5002D6B7B /* Bundle+Extension.swift */,
+				CE5134CC26FBAF00002D6B7B /* CSlanguage.swift */,
+				CE5134CA26FBAEEC002D6B7B /* CSLocalizer.swift */,
+			);
+			path = LocalizationExtension;
+			sourceTree = "<group>";
+		};
+		CE5141DA26048BF1008554BB /* RequestCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE5141DB26048C12008554BB /* MyRequestCell.swift */,
+				CE5141DC26048C12008554BB /* MyRequestCell.xib */,
+			);
+			path = RequestCell;
+			sourceTree = "<group>";
+		};
+		CE5141E226048C18008554BB /* MyInboxCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE5141E326048C33008554BB /* MyInboxCell.swift */,
+				CE5141E426048C33008554BB /* MyInboxCell.xib */,
+			);
+			path = MyInboxCell;
+			sourceTree = "<group>";
+		};
+		CE5141ED2604A567008554BB /* ExpenseRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE3734C22630BA62002D3767 /* CollectionviewCell */,
+				CEB6FF4A262F56280086179C /* Attachments */,
+				CEA3319D262C62D400631077 /* CreateExpenseViewController.swift */,
+				CED3212E262E8558006D8FA4 /* ExpenseFormViewController.swift */,
+				CEB6FF2B262ED2D90086179C /* AddItemViewController.swift */,
+				CEB6FF45262F54070086179C /* MultipartAPI.swift */,
+				CEEE91D426340B53003B348C /* ExpenseSubmitViewController.swift */,
+				CE6EE10C2675EEE200DB2B6C /* OfflineData.swift */,
+			);
+			path = ExpenseRequest;
+			sourceTree = "<group>";
+		};
+		CE5141EE2604A574008554BB /* Advance */ = {
+			isa = PBXGroup;
+			children = (
+				CE5141F22604A5AB008554BB /* AdvanceRequestModel */,
+				CE5141F02604A58D008554BB /* CreateAdvanceRequest */,
+				CE5141EF2604A582008554BB /* AdvanceRequest */,
+			);
+			path = Advance;
+			sourceTree = "<group>";
+		};
+		CE5141EF2604A582008554BB /* AdvanceRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE5141F32604A5CC008554BB /* AdvanceRequestViewController.swift */,
+			);
+			path = AdvanceRequest;
+			sourceTree = "<group>";
+		};
+		CE5141F02604A58D008554BB /* CreateAdvanceRequest */ = {
+			isa = PBXGroup;
+			children = (
+				CE5141FB2604A5E0008554BB /* CreateAdvanceRequestViewController.swift */,
+			);
+			path = CreateAdvanceRequest;
+			sourceTree = "<group>";
+		};
+		CE5141F22604A5AB008554BB /* AdvanceRequestModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE5142052604A607008554BB /* AdvacanceRequestModel.swift */,
+			);
+			path = AdvanceRequestModel;
+			sourceTree = "<group>";
+		};
+		CE57C95A25FB3949008B659C /* ApprovalGroup */ = {
+			isa = PBXGroup;
+			children = (
+				CE57C9BF25FB3C62008B659C /* ApprovalStatus */,
+				CE57C96F25FB39B0008B659C /* ApprovalRoleMap */,
+				CE57C95E25FB3956008B659C /* ApprovalGroupView */,
+				CEFA1C1025FA30ED00A9A052 /* ApprovalLevel */,
+			);
+			path = ApprovalGroup;
+			sourceTree = "<group>";
+		};
+		CE57C95E25FB3956008B659C /* ApprovalGroupView */ = {
+			isa = PBXGroup;
+			children = (
+				CE57C96525FB3972008B659C /* ApprovalGroupModel.swift */,
+				CE57C96A25FB39A6008B659C /* ApprovalGroupViewController.swift */,
+				CE57C9A025FB3AAB008B659C /* CreateApprovalGroupViewController.swift */,
+			);
+			path = ApprovalGroupView;
+			sourceTree = "<group>";
+		};
+		CE57C96F25FB39B0008B659C /* ApprovalRoleMap */ = {
+			isa = PBXGroup;
+			children = (
+				CE57C97025FB39CA008B659C /* ApprovalRoleMapViewController.swift */,
+				CE57C97525FB39DE008B659C /* ApprovalRoleMapModel.swift */,
+				CE57C99B25FB3A94008B659C /* CreateApprovalRoleMapViewController.swift */,
+			);
+			path = ApprovalRoleMap;
+			sourceTree = "<group>";
+		};
+		CE57C9BF25FB3C62008B659C /* ApprovalStatus */ = {
+			isa = PBXGroup;
+			children = (
+				CE57C9C025FB3C80008B659C /* ApprovalStatusViewController.swift */,
+				CE57C9C825FB3C96008B659C /* CreateApprovalStatusViewController.swift */,
+				CE57C9CD25FB3CAA008B659C /* ApprovalStatusModel.swift */,
+			);
+			path = ApprovalStatus;
+			sourceTree = "<group>";
+		};
+		CE57C9FF25FC9E39008B659C /* NavigationHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				CE57CA0025FC9E89008B659C /* NavigationHeaderView.swift */,
+			);
+			path = NavigationHeaderView;
+			sourceTree = "<group>";
+		};
+		CE57CA0825FCA180008B659C /* No Internet VC */ = {
+			isa = PBXGroup;
+			children = (
+				CE57CA0925FCA180008B659C /* NoInternetViewController.swift */,
+				CE57CA0A25FCA180008B659C /* NoInternetViewController.xib */,
+			);
+			path = "No Internet VC";
+			sourceTree = "<group>";
+		};
+		CE57CA2125FCC66B008B659C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE57CA2525FCC678008B659C /* HeaderCell.swift */,
+				CE57CA2425FCC678008B659C /* HeaderCell.xib */,
+				CE57CA2225FCC677008B659C /* SubCell.swift */,
+				CE57CA2325FCC677008B659C /* SubCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CE57CA5625FD2141008B659C /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE57CA5725FD2164008B659C /* CustomCell.swift */,
+				CE57CA5825FD2164008B659C /* CustomCell.xib */,
+				CE57CAE925FDB46F008B659C /* CustomCellDropDown.swift */,
+				CE57CAEA25FDB470008B659C /* CustomCellDropDown.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		CE591EBB26ADCE8100BEF222 /* ImageZoomView */ = {
+			isa = PBXGroup;
+			children = (
+				CE591EBC26ADCE9D00BEF222 /* ImageZoomView.swift */,
+			);
+			path = ImageZoomView;
+			sourceTree = "<group>";
+		};
+		CE6B193325C3DD9000C289C6 = {
+			isa = PBXGroup;
+			children = (
+				CE6B193E25C3DD9000C289C6 /* AtoCash */,
+				CE6B195525C3DD9100C289C6 /* AtoCashTests */,
+				CE6B196025C3DD9100C289C6 /* AtoCashUITests */,
+				CE6B193D25C3DD9000C289C6 /* Products */,
+				DFD0416F969B5978DA99F45E /* Pods */,
+				B396FAEFF531D69AEBF1BCA9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CE6B193D25C3DD9000C289C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE6B193C25C3DD9000C289C6 /* AtoCash.app */,
+				CE6B195225C3DD9100C289C6 /* AtoCashTests.xctest */,
+				CE6B195D25C3DD9100C289C6 /* AtoCashUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE6B193E25C3DD9000C289C6 /* AtoCash */ = {
+			isa = PBXGroup;
+			children = (
+				CE6B197525C3DDEE00C289C6 /* Application */,
+				CE6B197425C3DDE300C289C6 /* Managers */,
+				CE6B197325C3DDDA00C289C6 /* ExternalLibraries */,
+				CE6B197225C3DDCB00C289C6 /* SupportingFiles */,
+			);
+			path = AtoCash;
+			sourceTree = "<group>";
+		};
+		CE6B195525C3DD9100C289C6 /* AtoCashTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE6B195625C3DD9100C289C6 /* AtoCashTests.swift */,
+				CE6B195825C3DD9100C289C6 /* Info.plist */,
+			);
+			path = AtoCashTests;
+			sourceTree = "<group>";
+		};
+		CE6B196025C3DD9100C289C6 /* AtoCashUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CE6B196125C3DD9100C289C6 /* AtoCashUITests.swift */,
+				CE6B196325C3DD9100C289C6 /* Info.plist */,
+			);
+			path = AtoCashUITests;
+			sourceTree = "<group>";
+		};
+		CE6B197225C3DDCB00C289C6 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CEA0AA6B2706E03500B73450 /* Logo */,
+				CE0DF45126FA6C0B00F96E9C /* LocalizationString */,
+				CEDDFA5325D79A2900697941 /* Fonts */,
+				CE6B194825C3DD9100C289C6 /* Assets.xcassets */,
+				CE6B194A25C3DD9100C289C6 /* LaunchScreen.storyboard */,
+				CE6B194D25C3DD9100C289C6 /* Info.plist */,
+				CE57C9FA25FB60D4008B659C /* CONSTANT.swift */,
+				CE57CA8F25FD3310008B659C /* AtoCash-Bridging-Header.h */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		CE6B197325C3DDDA00C289C6 /* ExternalLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				CE5134C826FBADD2002D6B7B /* LocalizationExtension */,
+				CE591EBB26ADCE8100BEF222 /* ImageZoomView */,
+				CEF0EB8C2663BE17002EC7B0 /* RangeSeekSlider */,
+				CEB2A883264254A70069385E /* CellAnimation */,
+				CEE76C8F263F964700259B6D /* TabbarExtension */,
+				CEB5DE392605CE3B006BC623 /* TipView */,
+				CE57CA0825FCA180008B659C /* No Internet VC */,
+				CE57C9FF25FC9E39008B659C /* NavigationHeaderView */,
+				CE2BDBD125CD24A00091E5F4 /* Loader */,
+				CE9DEAE525CC475A00F99518 /* Utilities */,
+				CE9DEAE425CC475000F99518 /* Extension */,
+			);
+			path = ExternalLibraries;
+			sourceTree = "<group>";
+		};
+		CE6B197425C3DDE300C289C6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CED15652266D112D00321A85 /* Swaggers */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		CE6B197525C3DDEE00C289C6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CE6B193F25C3DD9000C289C6 /* AppDelegate.swift */,
+				CE8C7B56261A03B1005AEA3C /* ViewController.swift */,
+				CE6B194525C3DD9000C289C6 /* Main.storyboard */,
+				CE6B197C25C3DE9300C289C6 /* Controller */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CE6B197C25C3DE9300C289C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CEE76CA426405F7200259B6D /* Report */,
+				CEE76C522639BA0800259B6D /* CommonSuccessModel */,
+				CE09E5C62639233A00F8F547 /* UserProfile */,
+				CED31FF3262C9464006D8FA4 /* LocalRealmDatabase */,
+				CE060A17262B079B00FA478F /* Traval */,
+				CED43368261EA46F00907AD7 /* TextFieldView */,
+				CE8C7B92261A1A57005AEA3C /* MyInboxView */,
+				CE5141EE2604A574008554BB /* Advance */,
+				CE5141E226048C18008554BB /* MyInboxCell */,
+				CE5141DA26048BF1008554BB /* RequestCell */,
+				CEFA1BC025FA2FE400A9A052 /* AdminController */,
+				CE77378C25F93058001678EA /* SideMenuController */,
+				CE2BDBF125CD61D50091E5F4 /* Expense */,
+				CE9DEAC225CC292400F99518 /* Dashboard */,
+				CE9DEAA525CC28B200F99518 /* Authendication */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CE77378C25F93058001678EA /* SideMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				CE57CA2125FCC66B008B659C /* Cell */,
+				CE77378D25F93075001678EA /* SideMenuViewController.swift */,
+			);
+			path = SideMenuController;
+			sourceTree = "<group>";
+		};
+		CE834DF3262B9CA7002FA7D3 /* TabPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE834DF4262B9CA7002FA7D3 /* TabView.xib */,
+				CE834DF5262B9CA7002FA7D3 /* TabCollectionCell.swift */,
+				CE834DF6262B9CA7002FA7D3 /* TabView.swift */,
+				44038076293B0AB80071EE81 /* TabPageViewController.storyboard */,
+				CE834DF8262B9CA7002FA7D3 /* TabCollectionCell.xib */,
+				CE834DF9262B9CA7002FA7D3 /* TabPageViewController.swift */,
+				CE834DFA262B9CA7002FA7D3 /* TabPageOption.swift */,
+			);
+			path = TabPageViewController;
+			sourceTree = "<group>";
+		};
+		CE834E05262BA3DC002FA7D3 /* Accept_RejectPopupView */ = {
+			isa = PBXGroup;
+			children = (
+				CE834E09262BA406002FA7D3 /* PopupViewController.swift */,
+			);
+			path = Accept_RejectPopupView;
+			sourceTree = "<group>";
+		};
+		CE834E16262BF739002FA7D3 /* StatusType */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StatusType;
+			sourceTree = "<group>";
+		};
+		CE834E17262BF745002FA7D3 /* ProjectManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProjectManager;
+			sourceTree = "<group>";
+		};
+		CE8C7B92261A1A57005AEA3C /* MyInboxView */ = {
+			isa = PBXGroup;
+			children = (
+				CE834E05262BA3DC002FA7D3 /* Accept_RejectPopupView */,
+				CE834DF3262B9CA7002FA7D3 /* TabPageViewController */,
+				CE8C7B93261A1A78005AEA3C /* MyInboxViewController.swift */,
+				CE834DEE262B9BE6002FA7D3 /* IncomeViewController.swift */,
+			);
+			path = MyInboxView;
+			sourceTree = "<group>";
+		};
+		CE9DEAA525CC28B200F99518 /* Authendication */ = {
+			isa = PBXGroup;
+			children = (
+				CE9DEAAC25CC28C100F99518 /* Login */,
+				CEFBB5962602706E00E415EA /* ForgetPasswordViewController.swift */,
+			);
+			path = Authendication;
+			sourceTree = "<group>";
+		};
+		CE9DEAAC25CC28C100F99518 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CE9DEAAF25CC28DB00F99518 /* Controller */,
+				CE9DEAAE25CC28D200F99518 /* LoginViewModel */,
+				CE9DEAAD25CC28CB00F99518 /* LoginModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CE9DEAAD25CC28CB00F99518 /* LoginModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE9DEABD25CC291800F99518 /* LoginModel1.swift */,
+			);
+			path = LoginModel;
+			sourceTree = "<group>";
+		};
+		CE9DEAAE25CC28D200F99518 /* LoginViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE9DEAB825CC290900F99518 /* LoginViewModel.swift */,
+			);
+			path = LoginViewModel;
+			sourceTree = "<group>";
+		};
+		CE9DEAAF25CC28DB00F99518 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE9DEAB025CC28F400F99518 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CE9DEAC225CC292400F99518 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				CE2BDBEB25CD61790091E5F4 /* Controller */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		CE9DEAE425CC475000F99518 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CE2BDC1025CDA3540091E5F4 /* DesignableButton.swift */,
+				CE2BDC1225CDA3550091E5F4 /* DesignableImageView.swift */,
+				CE2BDC1125CDA3550091E5F4 /* DesignableTextField.swift */,
+				CE2BDC0F25CDA3540091E5F4 /* DesignableView.swift */,
+				CE2BDBC125CD22460091E5F4 /* UIView+Extension.swift */,
+				CE9DEAE925CC482200F99518 /* CustomBackgroundView.swift */,
+				CEFA1C5925FB1A3600A9A052 /* TextFieldDesign.swift */,
+				CE63641C26046EE500334DB5 /* CustomSegmentControl.swift */,
+				CED43343261CD23D00907AD7 /* AnimatedTextFieldExtension.swift */,
+				CEB1FC5C264E6587004071B0 /* BadgeButtonExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CE9DEAE525CC475A00F99518 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CE2BDBBB25CD22210091E5F4 /* Rechability.swift */,
+				CE2BDBB525CD21FE0091E5F4 /* UtilsManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CEA0AA6B2706E03500B73450 /* Logo */ = {
+			isa = PBXGroup;
+			children = (
+				CEA0AA6C2706E04400B73450 /* logos.png */,
+			);
+			path = Logo;
+			sourceTree = "<group>";
+		};
+		CEA6C643261F464A00D8756A /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				CEA6C644261F466400D8756A /* CurrencyViewController.swift */,
+				CEA6C64C261F467500D8756A /* CreateCurrencyViewController.swift */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
+		CEB2A8752642457E0069385E /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEB2A879264245A10069385E /* DashboardCell.swift */,
+				CEB2A87A264245A10069385E /* DashboardCell.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		CEB2A883264254A70069385E /* CellAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				CEB2A884264254A70069385E /* UITableView+Ext.swift */,
+				CEB2A885264254A70069385E /* Animations.swift */,
+				CEB2A886264254A70069385E /* Animator.swift */,
+			);
+			path = CellAnimation;
+			sourceTree = "<group>";
+		};
+		CEB2A9942642A05D0069385E /* ReportCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEB2A9952642A0B90069385E /* MyReportCell.swift */,
+				CEB2A9962642A0B90069385E /* MyReportCell.xib */,
+			);
+			path = ReportCell;
+			sourceTree = "<group>";
+		};
+		CEB5DE392605CE3B006BC623 /* TipView */ = {
+			isa = PBXGroup;
+			children = (
+				CEB5DE3B2605CE4B006BC623 /* EasyTipView.swift */,
+				CEB5DE3A2605CE4B006BC623 /* UIKitExtensions.swift */,
+			);
+			path = TipView;
+			sourceTree = "<group>";
+		};
+		CEB6FF4A262F56280086179C /* Attachments */ = {
+			isa = PBXGroup;
+			children = (
+				CEB6FF71262FD7580086179C /* CacheManager.swift */,
+				CEB6FF70262FD7570086179C /* DownloadManager.swift */,
+				CEB6FF68262FD2570086179C /* Attachment.swift */,
+			);
+			path = Attachments;
+			sourceTree = "<group>";
+		};
+		CEBE382C262B60A900AF7FE0 /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				CEBE3835262B618900AF7FE0 /* TrackerCell */,
+				CEBE382D262B60CA00AF7FE0 /* TrackViewController.swift */,
+			);
+			path = Tracker;
+			sourceTree = "<group>";
+		};
+		CEBE3835262B618900AF7FE0 /* TrackerCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEBE3839262B63C900AF7FE0 /* TrackCell.swift */,
+				CEBE383A262B63C900AF7FE0 /* TrackCell.xib */,
+				CEBE3840262B677D00AF7FE0 /* TrackDetailCell.swift */,
+				CEBE3841262B677D00AF7FE0 /* TrackDetailCell.xib */,
+			);
+			path = TrackerCell;
+			sourceTree = "<group>";
+		};
+		CED15652266D112D00321A85 /* Swaggers */ = {
+			isa = PBXGroup;
+			children = (
+				CED15653266D112D00321A85 /* APIs */,
+				CED15656266D112D00321A85 /* Swaggers */,
+				CED156D0266D112D00321A85 /* Models */,
+			);
+			path = Swaggers;
+			sourceTree = "<group>";
+		};
+		CED15653266D112D00321A85 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				CED15655266D112D00321A85 /* ExpenseReimburseStatusTrackersAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		CED15656266D112D00321A85 /* Swaggers */ = {
+			isa = PBXGroup;
+			children = (
+				CED15657266D112D00321A85 /* APIHelper.swift */,
+				CED15658266D112D00321A85 /* AlamofireImplementations.swift */,
+				CED15659266D112D00321A85 /* JSONValue.swift */,
+				CED1565A266D112D00321A85 /* APIs */,
+				CED15678266D112D00321A85 /* CodableHelper.swift */,
+				CED15679266D112D00321A85 /* JSONEncodableEncoding.swift */,
+				CED1567A266D112D00321A85 /* APIs.swift */,
+				CED1567B266D112D00321A85 /* Models */,
+				CED156CC266D112D00321A85 /* Extensions.swift */,
+				CED156CD266D112D00321A85 /* JSONEncodingHelper.swift */,
+				CED156CE266D112D00321A85 /* Models.swift */,
+				CED156CF266D112D00321A85 /* Configuration.swift */,
+			);
+			path = Swaggers;
+			sourceTree = "<group>";
+		};
+		CED1565A266D112D00321A85 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				CED1565B266D112D00321A85 /* ClaimApprovalStatusTrackersAPI.swift */,
+				CED1565C266D112D00321A85 /* ApprovalStatusTypesAPI.swift */,
+				CED1565D266D112D00321A85 /* TravelApprovalRequestsAPI.swift */,
+				CED1565E266D112D00321A85 /* ExpenseSubClaimsAPI.swift */,
+				CED1565F266D112D00321A85 /* ApprovalGroupsAPI.swift */,
+				CED15660266D112D00321A85 /* ProjectManagementAPI.swift */,
+				CED15661266D112D00321A85 /* ApprovalLevelsAPI.swift */,
+				CED15662266D112D00321A85 /* StatusTypesAPI.swift */,
+				CED15663266D112D00321A85 /* CurrencyTypesAPI.swift */,
+				CED15664266D112D00321A85 /* ApprovalRoleMapsAPI.swift */,
+				CED15665266D112D00321A85 /* AdministrationAPI.swift */,
+				CED15666266D112D00321A85 /* ExpenseReimburseRequestsAPI.swift */,
+				CED15667266D112D00321A85 /* WorkTasksAPI.swift */,
+				CED15668266D112D00321A85 /* AccountAPI.swift */,
+				CED15669266D112D00321A85 /* DepartmentsAPI.swift */,
+				CED1566A266D112D00321A85 /* ReportsAPI.swift */,
+				CED1566B266D112D00321A85 /* EmploymentTypesAPI.swift */,
+				CED1566C266D112D00321A85 /* SubProjectsAPI.swift */,
+				CED1566D266D112D00321A85 /* TravelApprovalStatusTrackersAPI.swift */,
+				CED1566E266D112D00321A85 /* RequestsAPI.swift */,
+				CED1566F266D112D00321A85 /* JobRolesAPI.swift */,
+				CED15670266D112D00321A85 /* EmployeesAPI.swift */,
+				CED15671266D112D00321A85 /* ProjectsAPI.swift */,
+				CED15672266D112D00321A85 /* EmpCurrentPettyCashBalancesAPI.swift */,
+				CED15673266D112D00321A85 /* PettyCashRequestsAPI.swift */,
+				CED15674266D112D00321A85 /* DisbursementsAndClaimsMastersAPI.swift */,
+				CED15675266D112D00321A85 /* CostCentersAPI.swift */,
+				CED15677266D112D00321A85 /* ExpenseTypesAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		CED1567B266D112D00321A85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CED1567C266D112D00321A85 /* ApprovalRoleMap.swift */,
+				CED1567D266D112D00321A85 /* ProjectManagement.swift */,
+				CED1567E266D112D00321A85 /* ProjectVM.swift */,
+				CED1567F266D112D00321A85 /* ApprovalGroupVM.swift */,
+				CED15680266D112D00321A85 /* WorkTaskVM.swift */,
+				CED15681266D112D00321A85 /* ApprovalRoleMapDTO.swift */,
+				CED15682266D112D00321A85 /* EditUserModel.swift */,
+				CED15683266D112D00321A85 /* GetEmployeesForProject.swift */,
+				CED15684266D112D00321A85 /* ApprovalStatusType.swift */,
+				CED15685266D112D00321A85 /* DepartmentVM.swift */,
+				CED15687266D112D00321A85 /* CostCenterDTO.swift */,
+				CED15688266D112D00321A85 /* JobRole.swift */,
+				CED15689266D112D00321A85 /* ClaimApprovalStatusTracker.swift */,
+				CED1568A266D112D00321A85 /* StatusTypeVM.swift */,
+				CED1568C266D112D00321A85 /* ExpenseReimburseRequestDTO.swift */,
+				CED1568D266D112D00321A85 /* ApprovalGroupDTO.swift */,
+				CED1568E266D112D00321A85 /* EmployeeVM.swift */,
+				CED1568F266D112D00321A85 /* LoginModel.swift */,
+				CED15690266D112D00321A85 /* EmployeeDTO.swift */,
+				CED15691266D112D00321A85 /* JobRoleDTO.swift */,
+				CED15692266D112D00321A85 /* JobRoleVM.swift */,
+				CED15693266D112D00321A85 /* SubProjectVM.swift */,
+				CED15694266D112D00321A85 /* TravelApprovalRequestDTO.swift */,
+				CED15695266D112D00321A85 /* EmploymentType.swift */,
+				CED15696266D112D00321A85 /* RequestTypeVM.swift */,
+				CED15697266D112D00321A85 /* EditRoleModel.swift */,
+				CED15698266D112D00321A85 /* DisbursementsAndClaimsMasterDTO.swift */,
+				CED15699266D112D00321A85 /* PettyCashRequestDTO.swift */,
+				CED1569A266D112D00321A85 /* CashAndClaimRequestSearchModel.swift */,
+				CED1569B266D112D00321A85 /* RoleToUserSearch.swift */,
+				CED1569C266D112D00321A85 /* Department.swift */,
+				CED1569D266D112D00321A85 /* EmployeeSearchModel.swift */,
+				CED1569E266D112D00321A85 /* PettyCashRequest.swift */,
+				CED1569F266D112D00321A85 /* AccountsPayableSearchModel.swift */,
+				CED156A0266D112D00321A85 /* Project.swift */,
+				CED156A1266D112D00321A85 /* CurrencyTypeDTO.swift */,
+				CED156A2266D112D00321A85 /* ProjectManagementDTO.swift */,
+				CED156A3266D112D00321A85 /* EmpCurrentPettyCashBalanceDTO.swift */,
+				CED156A4266D112D00321A85 /* DepartmentDTO.swift */,
+				CED156A5266D112D00321A85 /* ApprovalLevel.swift */,
+				CED156A6266D112D00321A85 /* TravelApprovalStatusTrackerDTO.swift */,
+				CED156A7266D112D00321A85 /* AddEmployeesToProjectId.swift */,
+				CED156A8266D112D00321A85 /* CashbalVsAdvancedVM.swift */,
+				CED156A9266D112D00321A85 /* SubProject.swift */,
+				CED156AA266D112D00321A85 /* ResetPasswordVM.swift */,
+				CED156AB266D112D00321A85 /* ExpenseTypeVM.swift */,
+				CED156AC266D112D00321A85 /* ForgotPasswordVM.swift */,
+				CED156AD266D112D00321A85 /* Employee.swift */,
+				CED156AE266D112D00321A85 /* TravelApprovalStatusTracker.swift */,
+				CED156AF266D112D00321A85 /* ExpenseReimburseRequest.swift */,
+				CED156B0266D112D00321A85 /* UserToRoleModel.swift */,
+				CED156B1266D112D00321A85 /* ApprovalStatusFlowVM.swift */,
+				CED156B2266D112D00321A85 /* RegisterModel.swift */,
+				CED156B3266D112D00321A85 /* CostCenterVM.swift */,
+				CED156B4266D112D00321A85 /* StatusType.swift */,
+				CED156B5266D112D00321A85 /* EmploymentTypeDTO.swift */,
+				CED156B6266D112D00321A85 /* ApprovalLevelDTO.swift */,
+				CED156B7266D112D00321A85 /* ApprovalGroup.swift */,
+				CED156B8266D112D00321A85 /* ClaimApprovalStatusTrackerDTO.swift */,
+				CED156B9266D112D00321A85 /* FileDocumentDTO.swift */,
+				CED156BA266D112D00321A85 /* ExpenseSubClaim.swift */,
+				CED156BB266D112D00321A85 /* TravelApprovalRequest.swift */,
+				CED156BC266D112D00321A85 /* CostCenter.swift */,
+				CED156BD266D112D00321A85 /* SubProjectDTO.swift */,
+				CED156BE266D112D00321A85 /* ExpenseTypeDTO.swift */,
+				CED156BF266D112D00321A85 /* CurrencyType.swift */,
+				CED156C0266D112D00321A85 /* ProjectDTO.swift */,
+				CED156C1266D112D00321A85 /* WorkTask.swift */,
+				CED156C2266D112D00321A85 /* RoleModel.swift */,
+				CED156C3266D112D00321A85 /* RequestType.swift */,
+				CED156C4266D112D00321A85 /* CurrencyTypeVM.swift */,
+				CED156C5266D112D00321A85 /* EmpAllCurBalStatusDTO.swift */,
+				CED156C6266D112D00321A85 /* WorkTaskDTO.swift */,
+				CED156C7266D112D00321A85 /* EmpCurrentPettyCashBalance.swift */,
+				CED156C8266D112D00321A85 /* Body.swift */,
+				CED156C9266D112D00321A85 /* TravelRequestSearchModel.swift */,
+				CED156CA266D112D00321A85 /* ExpenseType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CED156D0266D112D00321A85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CED156D1266D112D00321A85 /* ExpenseSubClaimDTO.swift */,
+				CED156D2266D112D00321A85 /* ExpenseReimburseStatusTrackerDTO.swift */,
+				CED156D3266D112D00321A85 /* ExpenseReimburseStatusTracker.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CED31FF3262C9464006D8FA4 /* LocalRealmDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				CED31FF4262C9499006D8FA4 /* RealmHelper.swift */,
+				CED31FF9262C94AD006D8FA4 /* offlineModel.swift */,
+			);
+			path = LocalRealmDatabase;
+			sourceTree = "<group>";
+		};
+		CED32133262E86DB006D8FA4 /* ExpenseCustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				CED32134262E8728006D8FA4 /* ExpenseClaimCell.swift */,
+				CED32135262E8728006D8FA4 /* ExpenseClaimCell.xib */,
+				CED3213E262E9711006D8FA4 /* ExpenseListCell.swift */,
+				CED3213F262E9711006D8FA4 /* ExpenseListCell.xib */,
+				CEEE91AB2631C250003B348C /* ExpenseDetailCell.swift */,
+				CEEE91AC2631C250003B348C /* ExpenseDetailCell.xib */,
+				CEEE91C5263293CD003B348C /* ExpenseDocumentCell.swift */,
+				CEEE91C6263293CD003B348C /* ExpenseDocumentCell.xib */,
+				CE591EBE26ADEAA200BEF222 /* ExpenseSubmitCell.swift */,
+				CE591EBF26ADEAA200BEF222 /* ExpenseSubmitCell.xib */,
+			);
+			path = ExpenseCustomCell;
+			sourceTree = "<group>";
+		};
+		CED43368261EA46F00907AD7 /* TextFieldView */ = {
+			isa = PBXGroup;
+			children = (
+				CED4336C261EA4CD00907AD7 /* CustomTextView.xib */,
+				CED433D9261EAADB00907AD7 /* CustomTextView.swift */,
+			);
+			path = TextFieldView;
+			sourceTree = "<group>";
+		};
+		CED9727125FE6E320088FBC9 /* Administrative */ = {
+			isa = PBXGroup;
+			children = (
+				CED972A625FE81E20088FBC9 /* AdminCell */,
+				CED9728E25FE70FD0088FBC9 /* AdminUser */,
+				CED9728D25FE70F20088FBC9 /* AdminRole */,
+				CED9727E25FE6E7A0088FBC9 /* AdministrativeAssignRoles */,
+				CED9727525FE6E400088FBC9 /* RegisterEmployee */,
+			);
+			path = Administrative;
+			sourceTree = "<group>";
+		};
+		CED9727525FE6E400088FBC9 /* RegisterEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				CED9727625FE6E730088FBC9 /* RegisterViewController.swift */,
+			);
+			path = RegisterEmployee;
+			sourceTree = "<group>";
+		};
+		CED9727E25FE6E7A0088FBC9 /* AdministrativeAssignRoles */ = {
+			isa = PBXGroup;
+			children = (
+				CED9727F25FE70970088FBC9 /* AdminAssignRoleViewController.swift */,
+				CEA1099A2600F0B8003DB73C /* AdminRoleModel.swift */,
+			);
+			path = AdministrativeAssignRoles;
+			sourceTree = "<group>";
+		};
+		CED9728D25FE70F20088FBC9 /* AdminRole */ = {
+			isa = PBXGroup;
+			children = (
+				CED9728F25FE71190088FBC9 /* ListRoleViewController.swift */,
+				CED972A125FE715A0088FBC9 /* EditRoleViewController.swift */,
+			);
+			path = AdminRole;
+			sourceTree = "<group>";
+		};
+		CED9728E25FE70FD0088FBC9 /* AdminUser */ = {
+			isa = PBXGroup;
+			children = (
+				CED9729725FE712E0088FBC9 /* ListUserViewController.swift */,
+				CED9729C25FE71490088FBC9 /* EditUserViewController.swift */,
+				CEA1099F2600F6B1003DB73C /* AdminUserModel.swift */,
+			);
+			path = AdminUser;
+			sourceTree = "<group>";
+		};
+		CED972A625FE81E20088FBC9 /* AdminCell */ = {
+			isa = PBXGroup;
+			children = (
+				CED972A725FE82060088FBC9 /* AdminCell.swift */,
+				CED972A825FE82060088FBC9 /* AdminCell.xib */,
+			);
+			path = AdminCell;
+			sourceTree = "<group>";
+		};
+		CEDDFA5325D79A2900697941 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CEDDFA5625D79A3B00697941 /* SFUIDisplay-Black.otf */,
+				CEDDFA5A25D79A3C00697941 /* SFUIDisplay-Bold.ttf */,
+				CEDDFA5725D79A3B00697941 /* SFUIDisplay-Heavy.otf */,
+				CEDDFA5925D79A3C00697941 /* SFUIDisplay-Light.ttf */,
+				CEDDFA5C25D79A3C00697941 /* SFUIDisplay-Medium.otf */,
+				CEDDFA5825D79A3B00697941 /* SFUIDisplay-Regular.otf */,
+				CEDDFA5425D79A3A00697941 /* SFUIDisplay-Semibold.otf */,
+				CEDDFA5525D79A3B00697941 /* SFUIDisplay-Thin.otf */,
+				CEDDFA5B25D79A3C00697941 /* SFUIDisplay-Ultralight.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CEE76C522639BA0800259B6D /* CommonSuccessModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEE76C532639BA2D00259B6D /* SuccessModel.swift */,
+				CEE76C5B263A5B8700259B6D /* RequestCountModel.swift */,
+			);
+			path = CommonSuccessModel;
+			sourceTree = "<group>";
+		};
+		CEE76C8F263F964700259B6D /* TabbarExtension */ = {
+			isa = PBXGroup;
+			children = (
+				CEE76CAD2640687800259B6D /* TextyTabBarController.swift */,
+				CEE76CAE2640687900259B6D /* TextyTabBarItem.swift */,
+			);
+			path = TabbarExtension;
+			sourceTree = "<group>";
+		};
+		CEE76CA426405F7200259B6D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				CEF2AFA72646DAAA003D2BDD /* FIlterView */,
+				CEB2A9942642A05D0069385E /* ReportCell */,
+				CEE76CA526405F9000259B6D /* ReportViewController.swift */,
+				CEB2A88D26428C530069385E /* MyReportsViewController.swift */,
+				CEB2A98F264294770069385E /* ReportsModel.swift */,
+				CED15750266DF18100321A85 /* ManagerReportViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		CEEE91A2263197B7003B348C /* ExpenseDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CEEE91A3263197DD003B348C /* ExpenseListViewController.swift */,
+				CEEE91CC26329E22003B348C /* ExpenseFileViewController.swift */,
+				CE09E50C2637C4DB00F8F547 /* DocumentViewController.swift */,
+			);
+			path = ExpenseDetails;
+			sourceTree = "<group>";
+		};
+		CEF0EB8C2663BE17002EC7B0 /* RangeSeekSlider */ = {
+			isa = PBXGroup;
+			children = (
+				CEF0EB8E2663BE28002EC7B0 /* RangeSeekSlider.swift */,
+				CEF0EB8D2663BE28002EC7B0 /* RangeSeekSliderDelegate.swift */,
+				CEF0EB8F2663BE28002EC7B0 /* TapticEngine.swift */,
+			);
+			path = RangeSeekSlider;
+			sourceTree = "<group>";
+		};
+		CEF2AFA72646DAAA003D2BDD /* FIlterView */ = {
+			isa = PBXGroup;
+			children = (
+				CEF2AFA82646DAC6003D2BDD /* CashFIlterViewController.swift */,
+			);
+			path = FIlterView;
+			sourceTree = "<group>";
+		};
+		CEFA1BC025FA2FE400A9A052 /* AdminController */ = {
+			isa = PBXGroup;
+			children = (
+				CE834E17262BF745002FA7D3 /* ProjectManager */,
+				CE834E16262BF739002FA7D3 /* StatusType */,
+				CEA6C643261F464A00D8756A /* Currency */,
+				CED9727125FE6E320088FBC9 /* Administrative */,
+				CE57CA5625FD2141008B659C /* CustomCell */,
+				CEFA1C4825FA31AF00A9A052 /* ResetPassword */,
+				CEFA1C1E25FA311D00A9A052 /* Project */,
+				CE57C95A25FB3949008B659C /* ApprovalGroup */,
+				CEFA1C0525FA30BB00A9A052 /* ExpenseType */,
+				CEFA1BF725FA309B00A9A052 /* Employee */,
+				CEFA1BE925FA306F00A9A052 /* EmployeeType */,
+				CEFA1BDB25FA304D00A9A052 /* Roles */,
+				CEFA1BD025FA302300A9A052 /* Departments */,
+				CEFA1BC125FA2FF200A9A052 /* CostCenter */,
+			);
+			path = AdminController;
+			sourceTree = "<group>";
+		};
+		CEFA1BC125FA2FF200A9A052 /* CostCenter */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1BC225FA300900A9A052 /* CostCenterViewController.swift */,
+				CEFA1BCB25FA301E00A9A052 /* CostCenterModel.swift */,
+				CE57C97D25FB3A15008B659C /* CreateCostCenterViewController.swift */,
+			);
+			path = CostCenter;
+			sourceTree = "<group>";
+		};
+		CEFA1BD025FA302300A9A052 /* Departments */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1BD125FA303700A9A052 /* DepartmentModel.swift */,
+				CEFA1BD625FA304700A9A052 /* DepartmentViewController.swift */,
+				CE57C98225FB3A27008B659C /* CreateDepartmentViewController.swift */,
+			);
+			path = Departments;
+			sourceTree = "<group>";
+		};
+		CEFA1BDB25FA304D00A9A052 /* Roles */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1BDC25FA305D00A9A052 /* RolesViewController.swift */,
+				CEFA1BE425FA306900A9A052 /* RolesModel.swift */,
+				CE57C98725FB3A3A008B659C /* CreateRoleViewController.swift */,
+			);
+			path = Roles;
+			sourceTree = "<group>";
+		};
+		CEFA1BE925FA306F00A9A052 /* EmployeeType */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1BEA25FA308600A9A052 /* EmployeeTypeModel.swift */,
+				CEFA1BF225FA309300A9A052 /* EmployeeTypeViewController.swift */,
+				CE57C98C25FB3A4C008B659C /* CreateEmployeeTypeViewController.swift */,
+			);
+			path = EmployeeType;
+			sourceTree = "<group>";
+		};
+		CEFA1BF725FA309B00A9A052 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1BF825FA30A900A9A052 /* EmployeeViewController.swift */,
+				CEFA1C0025FA30B600A9A052 /* EmployeeModel.swift */,
+				CE57C99125FB3A5E008B659C /* CreateEmployeeViewController.swift */,
+				CEBB95A625FDB7DB002AF007 /* EmployeeViewDetailController.swift */,
+			);
+			path = Employee;
+			sourceTree = "<group>";
+		};
+		CEFA1C0525FA30BB00A9A052 /* ExpenseType */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1C0625FA30CE00A9A052 /* ExpenseTypeModel.swift */,
+				CEFA1C0B25FA30E600A9A052 /* ExpenseTypeViewController.swift */,
+				CE57C99625FB3A7A008B659C /* CreateExpenseTypeViewController.swift */,
+			);
+			path = ExpenseType;
+			sourceTree = "<group>";
+		};
+		CEFA1C1025FA30ED00A9A052 /* ApprovalLevel */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1C1125FA310600A9A052 /* ApprovelLevelViewController.swift */,
+				CEFA1C1925FA311300A9A052 /* ApprovelLevelModel.swift */,
+				CE57C9A525FB3AC2008B659C /* CreateApprovalLevelViewController.swift */,
+			);
+			path = ApprovalLevel;
+			sourceTree = "<group>";
+		};
+		CEFA1C1E25FA311D00A9A052 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1C1F25FA312C00A9A052 /* ProjectModel.swift */,
+				CEFA1C2725FA314000A9A052 /* ProjectViewController.swift */,
+				CE57C9AA25FB3ADA008B659C /* CreateProjectViewController.swift */,
+				CEFA1C3A25FA317700A9A052 /* Task */,
+				CEFA1C2C25FA314C00A9A052 /* SubProject */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		CEFA1C2C25FA314C00A9A052 /* SubProject */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1C2D25FA316000A9A052 /* SubProjectViewController.swift */,
+				CEFA1C3525FA317200A9A052 /* SubProjectModel.swift */,
+				CE57C9BA25FB3B05008B659C /* CreateSubprojectViewController.swift */,
+			);
+			path = SubProject;
+			sourceTree = "<group>";
+		};
+		CEFA1C3A25FA317700A9A052 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1C3B25FA318A00A9A052 /* TaskModel.swift */,
+				CEFA1C4325FA319C00A9A052 /* TaskViewController.swift */,
+				CE57C9B225FB3AEB008B659C /* CreateTaskViewController.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		CEFA1C4825FA31AF00A9A052 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				CEFA1C4925FA31CD00A9A052 /* ResetPasswordViewController.swift */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		DFD0416F969B5978DA99F45E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEBEA4A1D620B5240CF0A69E /* Pods-AtoCash.debug.xcconfig */,
+				80767F4297851157B0F104E0 /* Pods-AtoCash.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE6B193B25C3DD9000C289C6 /* AtoCash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE6B196625C3DD9100C289C6 /* Build configuration list for PBXNativeTarget "AtoCash" */;
+			buildPhases = (
+				EEAB96695D9886B9C85725B4 /* [CP] Check Pods Manifest.lock */,
+				CE6B193825C3DD9000C289C6 /* Sources */,
+				CE6B193925C3DD9000C289C6 /* Frameworks */,
+				CE6B193A25C3DD9000C289C6 /* Resources */,
+				C136BDE09512D72D4CDEDABD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AtoCash;
+			productName = AtoCash;
+			productReference = CE6B193C25C3DD9000C289C6 /* AtoCash.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE6B195125C3DD9100C289C6 /* AtoCashTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE6B196925C3DD9100C289C6 /* Build configuration list for PBXNativeTarget "AtoCashTests" */;
+			buildPhases = (
+				CE6B194E25C3DD9100C289C6 /* Sources */,
+				CE6B194F25C3DD9100C289C6 /* Frameworks */,
+				CE6B195025C3DD9100C289C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE6B195425C3DD9100C289C6 /* PBXTargetDependency */,
+			);
+			name = AtoCashTests;
+			productName = AtoCashTests;
+			productReference = CE6B195225C3DD9100C289C6 /* AtoCashTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CE6B195C25C3DD9100C289C6 /* AtoCashUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE6B196C25C3DD9100C289C6 /* Build configuration list for PBXNativeTarget "AtoCashUITests" */;
+			buildPhases = (
+				CE6B195925C3DD9100C289C6 /* Sources */,
+				CE6B195A25C3DD9100C289C6 /* Frameworks */,
+				CE6B195B25C3DD9100C289C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE6B195F25C3DD9100C289C6 /* PBXTargetDependency */,
+			);
+			name = AtoCashUITests;
+			productName = AtoCashUITests;
+			productReference = CE6B195D25C3DD9100C289C6 /* AtoCashUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE6B193425C3DD9000C289C6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					CE6B193B25C3DD9000C289C6 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					CE6B195125C3DD9100C289C6 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = CE6B193B25C3DD9000C289C6;
+					};
+					CE6B195C25C3DD9100C289C6 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = CE6B193B25C3DD9000C289C6;
+					};
+				};
+			};
+			buildConfigurationList = CE6B193725C3DD9000C289C6 /* Build configuration list for PBXProject "AtoCash" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ar,
+			);
+			mainGroup = CE6B193325C3DD9000C289C6;
+			productRefGroup = CE6B193D25C3DD9000C289C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE6B193B25C3DD9000C289C6 /* AtoCash */,
+				CE6B195125C3DD9100C289C6 /* AtoCashTests */,
+				CE6B195C25C3DD9100C289C6 /* AtoCashUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE6B193A25C3DD9000C289C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDDFA6525D79A3C00697941 /* SFUIDisplay-Medium.otf in Resources */,
+				CEBE383C262B63C900AF7FE0 /* TrackCell.xib in Resources */,
+				CEDDFA5D25D79A3C00697941 /* SFUIDisplay-Semibold.otf in Resources */,
+				CE3734D42630BAA8002D3767 /* MediaSelectionCell.xib in Resources */,
+				44038077293B0AB80071EE81 /* TabPageViewController.storyboard in Resources */,
+				CEEE91AE2631C250003B348C /* ExpenseDetailCell.xib in Resources */,
+				CED32137262E8728006D8FA4 /* ExpenseClaimCell.xib in Resources */,
+				CEA0AA6D2706E04500B73450 /* logos.png in Resources */,
+				CEDDFA6225D79A3C00697941 /* SFUIDisplay-Light.ttf in Resources */,
+				CE57CA0C25FCA180008B659C /* NoInternetViewController.xib in Resources */,
+				CEDDFA5F25D79A3C00697941 /* SFUIDisplay-Black.otf in Resources */,
+				CE5141E626048C33008554BB /* MyInboxCell.xib in Resources */,
+				CEDDFA6425D79A3C00697941 /* SFUIDisplay-Ultralight.otf in Resources */,
+				CEB1FC58264DA48E004071B0 /* ChartViewController.xib in Resources */,
+				CEDDFA6125D79A3C00697941 /* SFUIDisplay-Regular.otf in Resources */,
+				CE57CA2825FCC678008B659C /* HeaderCell.xib in Resources */,
+				CE5141DE26048C12008554BB /* MyRequestCell.xib in Resources */,
+				CEB2A9982642A0B90069385E /* MyReportCell.xib in Resources */,
+				CE57CA5A25FD2165008B659C /* CustomCell.xib in Resources */,
+				CE0DF45926FA6C8200F96E9C /* Localizable.strings in Resources */,
+				CED4336D261EA4CD00907AD7 /* CustomTextView.xib in Resources */,
+				CEB2A87C264245A10069385E /* DashboardCell.xib in Resources */,
+				CED972AA25FE82060088FBC9 /* AdminCell.xib in Resources */,
+				CE834DFF262B9CA7002FA7D3 /* TabCollectionCell.xib in Resources */,
+				CED32141262E9711006D8FA4 /* ExpenseListCell.xib in Resources */,
+				CE6B194C25C3DD9100C289C6 /* LaunchScreen.storyboard in Resources */,
+				CEDDFA6325D79A3C00697941 /* SFUIDisplay-Bold.ttf in Resources */,
+				CE6B194925C3DD9100C289C6 /* Assets.xcassets in Resources */,
+				CE591EC126ADEAA200BEF222 /* ExpenseSubmitCell.xib in Resources */,
+				CE57CAEC25FDB470008B659C /* CustomCellDropDown.xib in Resources */,
+				CE834DFB262B9CA7002FA7D3 /* TabView.xib in Resources */,
+				CE6B194725C3DD9000C289C6 /* Main.storyboard in Resources */,
+				CEBE3843262B677D00AF7FE0 /* TrackDetailCell.xib in Resources */,
+				CEDDFA5E25D79A3C00697941 /* SFUIDisplay-Thin.otf in Resources */,
+				CEDDFA6025D79A3C00697941 /* SFUIDisplay-Heavy.otf in Resources */,
+				CE57CA2725FCC678008B659C /* SubCell.xib in Resources */,
+				CEEE91C8263293CD003B348C /* ExpenseDocumentCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE6B195025C3DD9100C289C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE6B195B25C3DD9100C289C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C136BDE09512D72D4CDEDABD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AtoCash/Pods-AtoCash-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AtoCash/Pods-AtoCash-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AtoCash/Pods-AtoCash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEAB96695D9886B9C85725B4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AtoCash-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE6B193825C3DD9000C289C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB2A87B264245A10069385E /* DashboardCell.swift in Sources */,
+				CEBB95A725FDB7DB002AF007 /* EmployeeViewDetailController.swift in Sources */,
+				CEF0EB902663BE28002EC7B0 /* RangeSeekSliderDelegate.swift in Sources */,
+				CED9729D25FE71490088FBC9 /* EditUserViewController.swift in Sources */,
+				CE9DEAB125CC28F400F99518 /* LoginViewController.swift in Sources */,
+				CE57C96625FB3972008B659C /* ApprovalGroupModel.swift in Sources */,
+				CED156F5266D112D00321A85 /* ExpenseTypesAPI.swift in Sources */,
+				CED156DA266D112D00321A85 /* ApprovalStatusTypesAPI.swift in Sources */,
+				CE2BDBB625CD21FE0091E5F4 /* UtilsManager.swift in Sources */,
+				CED1573B266D112D00321A85 /* ExpenseTypeDTO.swift in Sources */,
+				CED1571C266D112D00321A85 /* AccountsPayableSearchModel.swift in Sources */,
+				CEBE383B262B63C900AF7FE0 /* TrackCell.swift in Sources */,
+				CED156E8266D112D00321A85 /* ReportsAPI.swift in Sources */,
+				CEFA1BD225FA303700A9A052 /* DepartmentModel.swift in Sources */,
+				CE834DEF262B9BE6002FA7D3 /* IncomeViewController.swift in Sources */,
+				CEA6C645261F466400D8756A /* CurrencyViewController.swift in Sources */,
+				CED156D7266D112D00321A85 /* AlamofireImplementations.swift in Sources */,
+				CED15710266D112D00321A85 /* SubProjectVM.swift in Sources */,
+				CED3212F262E8558006D8FA4 /* ExpenseFormViewController.swift in Sources */,
+				CED15712266D112D00321A85 /* EmploymentType.swift in Sources */,
+				CED156FF266D112D00321A85 /* EditUserModel.swift in Sources */,
+				CED156DF266D112D00321A85 /* ApprovalLevelsAPI.swift in Sources */,
+				CED15715266D112D00321A85 /* DisbursementsAndClaimsMasterDTO.swift in Sources */,
+				CED15705266D112D00321A85 /* JobRole.swift in Sources */,
+				CEFA1C4425FA319C00A9A052 /* TaskViewController.swift in Sources */,
+				CED15704266D112D00321A85 /* CostCenterDTO.swift in Sources */,
+				CE834E0B262BA406002FA7D3 /* PopupViewController.swift in Sources */,
+				CED156EE266D112D00321A85 /* EmployeesAPI.swift in Sources */,
+				CED1572C266D112D00321A85 /* ExpenseReimburseRequest.swift in Sources */,
+				CED1571E266D112D00321A85 /* CurrencyTypeDTO.swift in Sources */,
+				CEB5DE3C2605CE4B006BC623 /* UIKitExtensions.swift in Sources */,
+				CEEE91AD2631C250003B348C /* ExpenseDetailCell.swift in Sources */,
+				CED15721266D112D00321A85 /* DepartmentDTO.swift in Sources */,
+				CED156D9266D112D00321A85 /* ClaimApprovalStatusTrackersAPI.swift in Sources */,
+				CE57CA5925FD2165008B659C /* CustomCell.swift in Sources */,
+				CED1572D266D112D00321A85 /* UserToRoleModel.swift in Sources */,
+				CED15733266D112D00321A85 /* ApprovalLevelDTO.swift in Sources */,
+				CE57C96B25FB39A6008B659C /* ApprovalGroupViewController.swift in Sources */,
+				CEFA1C0125FA30B600A9A052 /* EmployeeModel.swift in Sources */,
+				CE57C9A125FB3AAB008B659C /* CreateApprovalGroupViewController.swift in Sources */,
+				CEB2A88E26428C530069385E /* MyReportsViewController.swift in Sources */,
+				CE77378E25F93075001678EA /* SideMenuViewController.swift in Sources */,
+				CEB6FF72262FD7580086179C /* DownloadManager.swift in Sources */,
+				CED15723266D112D00321A85 /* TravelApprovalStatusTrackerDTO.swift in Sources */,
+				CE9DEABE25CC291800F99518 /* LoginModel1.swift in Sources */,
+				CE5134CF26FBAF00002D6B7B /* CSlanguage.swift in Sources */,
+				CED156E0266D112D00321A85 /* StatusTypesAPI.swift in Sources */,
+				CED15720266D112D00321A85 /* EmpCurrentPettyCashBalanceDTO.swift in Sources */,
+				CE57CAEB25FDB470008B659C /* CustomCellDropDown.swift in Sources */,
+				CEE76C5C263A5B8700259B6D /* RequestCountModel.swift in Sources */,
+				CED156EC266D112D00321A85 /* RequestsAPI.swift in Sources */,
+				CED15739266D112D00321A85 /* CostCenter.swift in Sources */,
+				CE5141E526048C33008554BB /* MyInboxCell.swift in Sources */,
+				CED31FFA262C94AD006D8FA4 /* offlineModel.swift in Sources */,
+				CED15716266D112D00321A85 /* PettyCashRequestDTO.swift in Sources */,
+				CED1570B266D112D00321A85 /* EmployeeVM.swift in Sources */,
+				CE2BDC1625CDA3550091E5F4 /* DesignableImageView.swift in Sources */,
+				CED1574E266D112D00321A85 /* ExpenseReimburseStatusTrackerDTO.swift in Sources */,
+				CE57C98D25FB3A4C008B659C /* CreateEmployeeTypeViewController.swift in Sources */,
+				CEBE3842262B677D00AF7FE0 /* TrackDetailCell.swift in Sources */,
+				CED156D6266D112D00321A85 /* APIHelper.swift in Sources */,
+				CE834DFD262B9CA7002FA7D3 /* TabView.swift in Sources */,
+				CE2BDBF425CD62060091E5F4 /* ExpanseViewController.swift in Sources */,
+				CEA6C64D261F467500D8756A /* CreateCurrencyViewController.swift in Sources */,
+				CEFA1C2825FA314000A9A052 /* ProjectViewController.swift in Sources */,
+				CED15722266D112D00321A85 /* ApprovalLevel.swift in Sources */,
+				CED1571B266D112D00321A85 /* PettyCashRequest.swift in Sources */,
+				CED1573F266D112D00321A85 /* RoleModel.swift in Sources */,
+				CED15738266D112D00321A85 /* TravelApprovalRequest.swift in Sources */,
+				CED15706266D112D00321A85 /* ClaimApprovalStatusTracker.swift in Sources */,
+				CE57C99C25FB3A94008B659C /* CreateApprovalRoleMapViewController.swift in Sources */,
+				CED156E7266D112D00321A85 /* DepartmentsAPI.swift in Sources */,
+				CED1573D266D112D00321A85 /* ProjectDTO.swift in Sources */,
+				CE2BDC1325CDA3550091E5F4 /* DesignableView.swift in Sources */,
+				CE57C9A625FB3AC2008B659C /* CreateApprovalLevelViewController.swift in Sources */,
+				CED1570A266D112D00321A85 /* ApprovalGroupDTO.swift in Sources */,
+				CEFA1C5A25FB1A3700A9A052 /* TextFieldDesign.swift in Sources */,
+				CED433DA261EAADB00907AD7 /* CustomTextView.swift in Sources */,
+				CEEE91CD26329E22003B348C /* ExpenseFileViewController.swift in Sources */,
+				CED15730266D112D00321A85 /* CostCenterVM.swift in Sources */,
+				CEF0EB912663BE28002EC7B0 /* RangeSeekSlider.swift in Sources */,
+				CEF0EB922663BE28002EC7B0 /* TapticEngine.swift in Sources */,
+				CE5141DD26048C12008554BB /* MyRequestCell.swift in Sources */,
+				CEFA1BD725FA304700A9A052 /* DepartmentViewController.swift in Sources */,
+				CE6B194025C3DD9000C289C6 /* AppDelegate.swift in Sources */,
+				CE8C7B57261A03B1005AEA3C /* ViewController.swift in Sources */,
+				CEFA1BEB25FA308600A9A052 /* EmployeeTypeModel.swift in Sources */,
+				CE2BDBD325CD24B00091E5F4 /* SRActivityIndicator.swift in Sources */,
+				CEA109A02600F6B1003DB73C /* AdminUserModel.swift in Sources */,
+				CED1574C266D112D00321A85 /* Configuration.swift in Sources */,
+				CE3734D32630BAA8002D3767 /* MediaSelectionCell.swift in Sources */,
+				CE9DEAB925CC290900F99518 /* LoginViewModel.swift in Sources */,
+				CED15724266D112D00321A85 /* AddEmployeesToProjectId.swift in Sources */,
+				CE57CA0125FC9E89008B659C /* NavigationHeaderView.swift in Sources */,
+				CEFA1BDD25FA305D00A9A052 /* RolesViewController.swift in Sources */,
+				CE09E5C82639235500F8F547 /* UserProfileViewController.swift in Sources */,
+				CEFA1C1225FA310600A9A052 /* ApprovelLevelViewController.swift in Sources */,
+				CEB5DE3D2605CE4B006BC623 /* EasyTipView.swift in Sources */,
+				CE5141FC2604A5E0008554BB /* CreateAdvanceRequestViewController.swift in Sources */,
+				CE6EE10D2675EEE200DB2B6C /* OfflineData.swift in Sources */,
+				CED15713266D112D00321A85 /* RequestTypeVM.swift in Sources */,
+				CEA3319E262C62D400631077 /* CreateExpenseViewController.swift in Sources */,
+				CE57CA0B25FCA180008B659C /* NoInternetViewController.swift in Sources */,
+				CED156F1266D112D00321A85 /* PettyCashRequestsAPI.swift in Sources */,
+				CED1570D266D112D00321A85 /* EmployeeDTO.swift in Sources */,
+				CE57C98825FB3A3A008B659C /* CreateRoleViewController.swift in Sources */,
+				CEFBB5972602706E00E415EA /* ForgetPasswordViewController.swift in Sources */,
+				CE5142062604A607008554BB /* AdvacanceRequestModel.swift in Sources */,
+				CED15725266D112D00321A85 /* CashbalVsAdvancedVM.swift in Sources */,
+				CED15731266D112D00321A85 /* StatusType.swift in Sources */,
+				CEE76CB02640687900259B6D /* TextyTabBarItem.swift in Sources */,
+				CED156DB266D112D00321A85 /* TravelApprovalRequestsAPI.swift in Sources */,
+				CED1574F266D112D00321A85 /* ExpenseReimburseStatusTracker.swift in Sources */,
+				CEFA1BCC25FA301E00A9A052 /* CostCenterModel.swift in Sources */,
+				CE5134CD26FBAF00002D6B7B /* CSLocalizer.swift in Sources */,
+				CE060A25262B082500FA478F /* CreateTravalRequestViewController.swift in Sources */,
+				CED15736266D112D00321A85 /* FileDocumentDTO.swift in Sources */,
+				CE834E00262B9CA7002FA7D3 /* TabPageViewController.swift in Sources */,
+				CED156FB266D112D00321A85 /* ProjectVM.swift in Sources */,
+				CED15728266D112D00321A85 /* ExpenseTypeVM.swift in Sources */,
+				CEFA1BF325FA309300A9A052 /* EmployeeTypeViewController.swift in Sources */,
+				CE57CA2625FCC678008B659C /* SubCell.swift in Sources */,
+				CEE76CA626405F9100259B6D /* ReportViewController.swift in Sources */,
+				CED156E5266D112D00321A85 /* WorkTasksAPI.swift in Sources */,
+				CEB2A990264294770069385E /* ReportsModel.swift in Sources */,
+				CED156EB266D112D00321A85 /* TravelApprovalStatusTrackersAPI.swift in Sources */,
+				CED156E6266D112D00321A85 /* AccountAPI.swift in Sources */,
+				CED156EF266D112D00321A85 /* ProjectsAPI.swift in Sources */,
+				CE591EC026ADEAA200BEF222 /* ExpenseSubmitCell.swift in Sources */,
+				CEB2A889264254A70069385E /* Animator.swift in Sources */,
+				CE5141F42604A5CC008554BB /* AdvanceRequestViewController.swift in Sources */,
+				CED156EA266D112D00321A85 /* SubProjectsAPI.swift in Sources */,
+				CED156E1266D112D00321A85 /* CurrencyTypesAPI.swift in Sources */,
+				CE060A2C262B0C7200FA478F /* TravalRequestViewController.swift in Sources */,
+				CE2BDC1425CDA3550091E5F4 /* DesignableButton.swift in Sources */,
+				CE57C9B325FB3AEB008B659C /* CreateTaskViewController.swift in Sources */,
+				CE57C9C925FB3C96008B659C /* CreateApprovalStatusViewController.swift in Sources */,
+				CED15701266D112D00321A85 /* ApprovalStatusType.swift in Sources */,
+				CED156E3266D112D00321A85 /* AdministrationAPI.swift in Sources */,
+				CEFA1C2025FA312C00A9A052 /* ProjectModel.swift in Sources */,
+				CED15743266D112D00321A85 /* WorkTaskDTO.swift in Sources */,
+				CED1574A266D112D00321A85 /* JSONEncodingHelper.swift in Sources */,
+				CEFA1C1A25FA311300A9A052 /* ApprovelLevelModel.swift in Sources */,
+				CE834E01262B9CA7002FA7D3 /* TabPageOption.swift in Sources */,
+				CED9729825FE712E0088FBC9 /* ListUserViewController.swift in Sources */,
+				CED1572A266D112D00321A85 /* Employee.swift in Sources */,
+				CEB1FC5D264E6587004071B0 /* BadgeButtonExtension.swift in Sources */,
+				CE57C97125FB39CA008B659C /* ApprovalRoleMapViewController.swift in Sources */,
+				CED15747266D112D00321A85 /* ExpenseType.swift in Sources */,
+				CED15719266D112D00321A85 /* Department.swift in Sources */,
+				CED15751266DF18100321A85 /* ManagerReportViewController.swift in Sources */,
+				CE57C99725FB3A7A008B659C /* CreateExpenseTypeViewController.swift in Sources */,
+				CEFA1BE525FA306900A9A052 /* RolesModel.swift in Sources */,
+				CED972A925FE82060088FBC9 /* AdminCell.swift in Sources */,
+				CE57C9C125FB3C80008B659C /* ApprovalStatusViewController.swift in Sources */,
+				CED15735266D112D00321A85 /* ClaimApprovalStatusTrackerDTO.swift in Sources */,
+				CED15746266D112D00321A85 /* TravelRequestSearchModel.swift in Sources */,
+				CEB2A887264254A70069385E /* UITableView+Ext.swift in Sources */,
+				CEB2A9972642A0B90069385E /* MyReportCell.swift in Sources */,
+				CEEE91D526340B53003B348C /* ExpenseSubmitViewController.swift in Sources */,
+				CEB6FF73262FD7580086179C /* CacheManager.swift in Sources */,
+				CED31FF5262C9499006D8FA4 /* RealmHelper.swift in Sources */,
+				CEBE382E262B60CA00AF7FE0 /* TrackViewController.swift in Sources */,
+				CE57C97E25FB3A15008B659C /* CreateCostCenterViewController.swift in Sources */,
+				CE09E50D2637C4DB00F8F547 /* DocumentViewController.swift in Sources */,
+				CED15707266D112D00321A85 /* StatusTypeVM.swift in Sources */,
+				CED15734266D112D00321A85 /* ApprovalGroup.swift in Sources */,
+				CED15700266D112D00321A85 /* GetEmployeesForProject.swift in Sources */,
+				CED15717266D112D00321A85 /* CashAndClaimRequestSearchModel.swift in Sources */,
+				CED156DE266D112D00321A85 /* ProjectManagementAPI.swift in Sources */,
+				CEEE91C7263293CD003B348C /* ExpenseDocumentCell.swift in Sources */,
+				CED15737266D112D00321A85 /* ExpenseSubClaim.swift in Sources */,
+				CED156DC266D112D00321A85 /* ExpenseSubClaimsAPI.swift in Sources */,
+				CE9DEAEA25CC482200F99518 /* CustomBackgroundView.swift in Sources */,
+				CE57C9CE25FB3CAA008B659C /* ApprovalStatusModel.swift in Sources */,
+				CED1574B266D112D00321A85 /* Models.swift in Sources */,
+				CED1573A266D112D00321A85 /* SubProjectDTO.swift in Sources */,
+				CED156D5266D112D00321A85 /* ExpenseReimburseStatusTrackersAPI.swift in Sources */,
+				CE57C98325FB3A27008B659C /* CreateDepartmentViewController.swift in Sources */,
+				CED15727266D112D00321A85 /* ResetPasswordVM.swift in Sources */,
+				CEB6FF69262FD2570086179C /* Attachment.swift in Sources */,
+				CED1572E266D112D00321A85 /* ApprovalStatusFlowVM.swift in Sources */,
+				CE63641D26046EE500334DB5 /* CustomSegmentControl.swift in Sources */,
+				CED15709266D112D00321A85 /* ExpenseReimburseRequestDTO.swift in Sources */,
+				CED15729266D112D00321A85 /* ForgotPasswordVM.swift in Sources */,
+				CED15744266D112D00321A85 /* EmpCurrentPettyCashBalance.swift in Sources */,
+				CED32136262E8728006D8FA4 /* ExpenseClaimCell.swift in Sources */,
+				CEA1099B2600F0B8003DB73C /* AdminRoleModel.swift in Sources */,
+				CE2BDBC225CD22460091E5F4 /* UIView+Extension.swift in Sources */,
+				CED156FD266D112D00321A85 /* WorkTaskVM.swift in Sources */,
+				CEEE91A4263197DD003B348C /* ExpenseListViewController.swift in Sources */,
+				CED156E4266D112D00321A85 /* ExpenseReimburseRequestsAPI.swift in Sources */,
+				CED9729025FE71190088FBC9 /* ListRoleViewController.swift in Sources */,
+				CED156F7266D112D00321A85 /* JSONEncodableEncoding.swift in Sources */,
+				CEF2AFA92646DAC6003D2BDD /* CashFIlterViewController.swift in Sources */,
+				CED15711266D112D00321A85 /* TravelApprovalRequestDTO.swift in Sources */,
+				CED43344261CD23D00907AD7 /* AnimatedTextFieldExtension.swift in Sources */,
+				CED156F9266D112D00321A85 /* ApprovalRoleMap.swift in Sources */,
+				CED156F8266D112D00321A85 /* APIs.swift in Sources */,
+				CED1570F266D112D00321A85 /* JobRoleVM.swift in Sources */,
+				CED156F6266D112D00321A85 /* CodableHelper.swift in Sources */,
+				CE8C7B94261A1A78005AEA3C /* MyInboxViewController.swift in Sources */,
+				CED156F0266D112D00321A85 /* EmpCurrentPettyCashBalancesAPI.swift in Sources */,
+				CEFA1C0725FA30CE00A9A052 /* ExpenseTypeModel.swift in Sources */,
+				CED156F2266D112D00321A85 /* DisbursementsAndClaimsMastersAPI.swift in Sources */,
+				CE834DFC262B9CA7002FA7D3 /* TabCollectionCell.swift in Sources */,
+				CEB6FF2C262ED2D90086179C /* AddItemViewController.swift in Sources */,
+				CED1572B266D112D00321A85 /* TravelApprovalStatusTracker.swift in Sources */,
+				CED1570C266D112D00321A85 /* LoginModel.swift in Sources */,
+				CE57C9BB25FB3B05008B659C /* CreateSubprojectViewController.swift in Sources */,
+				CED1573E266D112D00321A85 /* WorkTask.swift in Sources */,
+				CED15726266D112D00321A85 /* SubProject.swift in Sources */,
+				CEFA1C2E25FA316000A9A052 /* SubProjectViewController.swift in Sources */,
+				CED156D8266D112D00321A85 /* JSONValue.swift in Sources */,
+				CEB1FC57264DA48E004071B0 /* ChartViewController.swift in Sources */,
+				CED32140262E9711006D8FA4 /* ExpenseListCell.swift in Sources */,
+				CE57C97625FB39DE008B659C /* ApprovalRoleMapModel.swift in Sources */,
+				CED156DD266D112D00321A85 /* ApprovalGroupsAPI.swift in Sources */,
+				CED156F3266D112D00321A85 /* CostCentersAPI.swift in Sources */,
+				CE57C9FB25FB60D4008B659C /* CONSTANT.swift in Sources */,
+				CEB6FF46262F54070086179C /* MultipartAPI.swift in Sources */,
+				CED15714266D112D00321A85 /* EditRoleModel.swift in Sources */,
+				CED15742266D112D00321A85 /* EmpAllCurBalStatusDTO.swift in Sources */,
+				CE57C9AB25FB3ADA008B659C /* CreateProjectViewController.swift in Sources */,
+				CED15718266D112D00321A85 /* RoleToUserSearch.swift in Sources */,
+				CE2BDBBD25CD22210091E5F4 /* Rechability.swift in Sources */,
+				CEFA1C3C25FA318A00A9A052 /* TaskModel.swift in Sources */,
+				CE2BDBED25CD618F0091E5F4 /* DashboardViewController.swift in Sources */,
+				CEE76C542639BA2D00259B6D /* SuccessModel.swift in Sources */,
+				CED15732266D112D00321A85 /* EmploymentTypeDTO.swift in Sources */,
+				CED156FE266D112D00321A85 /* ApprovalRoleMapDTO.swift in Sources */,
+				CED156FA266D112D00321A85 /* ProjectManagement.swift in Sources */,
+				CE591EBD26ADCE9D00BEF222 /* ImageZoomView.swift in Sources */,
+				CE57CA2925FCC678008B659C /* HeaderCell.swift in Sources */,
+				CEFA1BF925FA30A900A9A052 /* EmployeeViewController.swift in Sources */,
+				CEFA1C3625FA317200A9A052 /* SubProjectModel.swift in Sources */,
+				CED156FC266D112D00321A85 /* ApprovalGroupVM.swift in Sources */,
+				CE57C99225FB3A5E008B659C /* CreateEmployeeViewController.swift in Sources */,
+				CEE76CAF2640687900259B6D /* TextyTabBarController.swift in Sources */,
+				CED1571F266D112D00321A85 /* ProjectManagementDTO.swift in Sources */,
+				CED15741266D112D00321A85 /* CurrencyTypeVM.swift in Sources */,
+				CED972A225FE715A0088FBC9 /* EditRoleViewController.swift in Sources */,
+				CED15740266D112D00321A85 /* RequestType.swift in Sources */,
+				CEFA1C0C25FA30E600A9A052 /* ExpenseTypeViewController.swift in Sources */,
+				CE5134CE26FBAF00002D6B7B /* Bundle+Extension.swift in Sources */,
+				CEFA1BC325FA300900A9A052 /* CostCenterViewController.swift in Sources */,
+				CED156E2266D112D00321A85 /* ApprovalRoleMapsAPI.swift in Sources */,
+				CED9727725FE6E730088FBC9 /* RegisterViewController.swift in Sources */,
+				CE2BDC1525CDA3550091E5F4 /* DesignableTextField.swift in Sources */,
+				CED9728025FE70970088FBC9 /* AdminAssignRoleViewController.swift in Sources */,
+				CED15745266D112D00321A85 /* Body.swift in Sources */,
+				CED1572F266D112D00321A85 /* RegisterModel.swift in Sources */,
+				CED156E9266D112D00321A85 /* EmploymentTypesAPI.swift in Sources */,
+				CED15702266D112D00321A85 /* DepartmentVM.swift in Sources */,
+				CED1570E266D112D00321A85 /* JobRoleDTO.swift in Sources */,
+				CED1573C266D112D00321A85 /* CurrencyType.swift in Sources */,
+				CEB2A888264254A70069385E /* Animations.swift in Sources */,
+				CED1574D266D112D00321A85 /* ExpenseSubClaimDTO.swift in Sources */,
+				CED15749266D112D00321A85 /* Extensions.swift in Sources */,
+				CED156ED266D112D00321A85 /* JobRolesAPI.swift in Sources */,
+				CED1571A266D112D00321A85 /* EmployeeSearchModel.swift in Sources */,
+				CEFA1C4A25FA31CD00A9A052 /* ResetPasswordViewController.swift in Sources */,
+				CED1571D266D112D00321A85 /* Project.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE6B194E25C3DD9100C289C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE6B195725C3DD9100C289C6 /* AtoCashTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE6B195925C3DD9100C289C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE6B196225C3DD9100C289C6 /* AtoCashUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE6B195425C3DD9100C289C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE6B193B25C3DD9000C289C6 /* AtoCash */;
+			targetProxy = CE6B195325C3DD9100C289C6 /* PBXContainerItemProxy */;
+		};
+		CE6B195F25C3DD9100C289C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE6B193B25C3DD9000C289C6 /* AtoCash */;
+			targetProxy = CE6B195E25C3DD9100C289C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE0DF45B26FA6C8200F96E9C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE0DF45A26FA6C8200F96E9C /* en */,
+				CE5134D026FBAF13002D6B7B /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		CE6B194525C3DD9000C289C6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE6B194625C3DD9000C289C6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CE6B194A25C3DD9100C289C6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE6B194B25C3DD9100C289C6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE6B196425C3DD9100C289C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CE6B196525C3DD9100C289C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE6B196725C3DD9100C289C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEBEA4A1D620B5240CF0A69E /* Pods-AtoCash.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development: Ramanathan Somasundaram (MWS2S54U7C)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 237H6U4SUT;
+				INFOPLIST_FILE = "$(SRCROOT)/AtoCash/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = atocash.atominos.com;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "AtoCash-Development";
+				SWIFT_OBJC_BRIDGING_HEADER = "AtoCash/SupportingFiles/AtoCash-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CE6B196825C3DD9100C289C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80767F4297851157B0F104E0 /* Pods-AtoCash.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Atominos Consulting (237H6U4SUT)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 237H6U4SUT;
+				INFOPLIST_FILE = "$(SRCROOT)/AtoCash/SupportingFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = atocash.atominos.com;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "AtoCash-AppStore";
+				SWIFT_OBJC_BRIDGING_HEADER = "AtoCash/SupportingFiles/AtoCash-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		CE6B196A25C3DD9100C289C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AtoCashTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.atocash.expense.AtoCashTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtoCash.app/AtoCash";
+			};
+			name = Debug;
+		};
+		CE6B196B25C3DD9100C289C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AtoCashTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.atocash.expense.AtoCashTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AtoCash.app/AtoCash";
+			};
+			name = Release;
+		};
+		CE6B196D25C3DD9100C289C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AtoCashUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.atocash.expense.AtoCashUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AtoCash;
+			};
+			name = Debug;
+		};
+		CE6B196E25C3DD9100C289C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AtoCashUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.atocash.expense.AtoCashUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AtoCash;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE6B193725C3DD9000C289C6 /* Build configuration list for PBXProject "AtoCash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE6B196425C3DD9100C289C6 /* Debug */,
+				CE6B196525C3DD9100C289C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE6B196625C3DD9100C289C6 /* Build configuration list for PBXNativeTarget "AtoCash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE6B196725C3DD9100C289C6 /* Debug */,
+				CE6B196825C3DD9100C289C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE6B196925C3DD9100C289C6 /* Build configuration list for PBXNativeTarget "AtoCashTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE6B196A25C3DD9100C289C6 /* Debug */,
+				CE6B196B25C3DD9100C289C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE6B196C25C3DD9100C289C6 /* Build configuration list for PBXNativeTarget "AtoCashUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE6B196D25C3DD9100C289C6 /* Debug */,
+				CE6B196E25C3DD9100C289C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE6B193425C3DD9000C289C6 /* Project object */;
+}

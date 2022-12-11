@@ -1,0 +1,237 @@
+/* 
+  English.strings
+  AtoCash
+
+  Created by User on 22/09/21.
+  
+*/
+
+"cancel" = "الغاء";
+"create" = "انشاء";
+"submit" = "ارسال";
+"somthing_wrong" = "شيء ما يريد خطأ";
+
+//Login page
+
+"signin_title" = "تسجيل دخول في حسابك";
+"signin" = "تسجيل دخول";
+"username" = "اسم المستخدم*";
+"password" = "كلمة السر*";
+"forget" = "نسيت كلمة السر ؟";
+"user_error" = "من فضلك ادخل اسم مستخدم صحيح";
+"pass_error" = "من فضلك ادخل كلمة سر صحيحه";
+"invalid" = "اسم مستخدم و كلمة سر غير صحيحه";
+
+//Forgot password
+"forget_title" = "نسيت كلمة السر";
+"email" = "بريد الكتروني";
+"email_error" = "من فضلك ادخل بريد الكتروني صحيح";
+"forgot_success" = "تم إرسال رابط نسيت كلمة المرور إلى البريد بنجاح";
+
+//Dashboard
+"dashboard" = "لوحة تحكم";
+"welcome" = "مرحبا";
+"advance_request" = "طلب مقدم نقدي";
+"travel_request" = "طلب سفر";
+"expense_request" = "طلب تعويض تكلفه";
+"inbox" = "رساله وارده";
+"approve" = "موافقه";
+"reject" = "مرفوضه";
+"pending" = "قيد الانتظار";
+"expense" = "تكلفه";
+"advance" = "مقدم";
+"travel" = "سفر";
+"no_chart" = "لا توجد بيانات مخطط";
+
+//Expense request
+"expense_claim" = "طلب تعويض تكاليف";
+"submit_request" = "طلب مرسل";
+"draft" = "طلب مسوده";
+"total_amount" = "القيمه الاجماليه :";
+"current_status" = "الحاله الراهنه :";
+"track_status" = "متابعة الحاله";
+
+//Track Status
+"expense_track" = "متابعة طلب التعويض النقدي";
+"track_info" = "تفاصيل طلب التعويض النقدي";
+"dept" = "اداره";
+"request_id" = "رقم الطلب";
+"request_amount" = "قيمة الطلب";
+
+//Expense Details
+"expense_details" = "تفاصيل التكلفه";
+"expense_title" = "اسم التكلفه*";
+"expense_type" = "نوع التكلفه*";
+"invoice_date" = "تاريخ الفاتوره";
+"claim_amount" = "القيمه المطلوبه";
+"document_attach" = "مستند مرفق";
+"documents_attach" = "مستندات مرفقه";
+"moreinfo" = "مزيد من المعلومات";
+
+//Expense Subclaims
+"invoice_no" = "رقم الفاتوره :";
+"invoice_dt" = "تاريخ الفاتوره :";
+"expense_ty" = "نوع التكلفه :";
+"expense_amount" = "قيمة التكلفه :";
+"tax" = "الضريبه :";
+"tax_amount" = "قيمة الضريبه :";
+"location" = "المكان :";
+"vendor" = "المورد :";
+"description" = "الوصف :";
+"document_list" = "قائمة المستندات";
+
+//Advance Cash Request
+
+"adance_title" = "طلب مقدم نقدي";
+"request_amt" = "قيمة الطلب :";
+"advace_track" = "متابعة طلب المقدم النقدي";
+
+//Travel Request
+"travel_title" = "طلب سفر";
+"approved" = "مقبول";
+"rejected" = "مرفوض";
+"travel_track" = "متابعة طلب السفر";
+
+//Inbox
+
+"inbox_title" = "صندوق الوارد";
+"expense_tab" = "تعويض التكاليف";
+"travel_tab" = "طلب سفر";
+"cash_tab" = "طلب مقدم نقدي";
+"request_date" = "تاريخ الطلب";
+"approve" = "موافقه";
+"rej" = "رفض";
+"rej_reason" = "سبب الرفض*";
+"rej_error" = "من فضلك قم بادخال سبب الرفض";
+
+//Menu
+"home" = "الصفحه الرئيسيه";
+"report" = "التقارير";
+"my_report" = "تقاريري";
+"all_report" = "كل التقارير";
+"statustype" = "نوع الحاله";
+
+
+//Logout
+"logout" = "تسجيل خروج";
+"language" = "اللغه";
+
+//Create Expense
+"create_expense_title" = "انشاء طلب تعويض تكاليف";
+"currency" = "العمله*";
+"add_expense" = "اضافة بند تكلفه";
+"expense_cr" = "تكلفه*";
+"inv_no" = "رقم الفاتوره*";
+"inv_date" = "تاريخ الفاتوره*";
+"exp_amount" = "قيمة التكلفه*";
+"vend" = "المورد*";
+"tax_" = "(%)الضريبه*";
+"tax_amt" = "قيمة الضريبه*";
+"loc" = "المكان*";
+"desc" = "الوصف*";
+"doc" = "المستند*";
+"upload" = "ارفاق مستندات*";
+"update_exp" = "تحديث تكلفه";
+"add_item" = "اضافة بند";
+"save_draft" = "حفظ المسوده";
+"charge_to" = "تحميل تكلفه علي";
+"subclaims" = "طلبات تعويض التكلفه الفرعيه";
+"not_revert" = "*لا يمكنك تعديل طلبات تعويض التكاليف بعد ارسالها للمراجعه";
+"exp_error" = "من فضلك قم بادخال اسم التكلفه";
+"exp_type_error" = "من فضلك قم باختيار نوع تكلفه";
+"exp_inv_error" = "من فضلك قم بادخال رقم الفاتوره";
+"exp_inv_date_error" = "من فضلك قم بادخال تاريخ الفاتوره";
+"exp_amount_error" = "من فضلك قم بادخال قيمة التعويض النقدي";
+"exp_tax_error" = "من فضلك قم بادخال قيمة الضريبه";
+"exp_loc_error" = "من فضلك قم بادخال المكان";
+"exp_desc_error" = "من فضلك قم بادخال وصف التكلفه";
+"doc_error" = "من فضلك قم بارفاق مستند واحد علي الاقل";
+"exp_submit" = "من فضلك قم باضافة بند تكلفه لارسال الطلب";
+ 
+"enable_project" = "تفعيل مشروع";
+"project" = "مشروع*";
+"subproject" = "مشروع فرعي*";
+"work_task" = "مهمة عمل*";
+"proj" = "مشروع";
+
+
+//Create Advance Cash
+"petty_title" = "انشاء طلب مصروفات مثريه";
+"petty_amount" = "قيمة المصروفات النثريه*";
+"petty_desc" = "وصف المصروفات النثريه";
+"petty_amount_error" = "من فضلك قم بادخال قيمة المصروفات النثريه";
+"petty_desc_error" = "من فضلك قم بادخال وصف المصروفات النثريه";
+"project_error" = "من فضلك قم باختيار مشروع";
+"subproject_error" = "من فضلك قم باختيار مشروع فرعي";
+"task_error" = "من فضلك قم باختيار مهمة عمل";
+
+
+//Create Travel Request
+"start_date" = "تاريخ البدء*";
+"end_date" = "تاريخ الانتهاء*";
+"start_date_title" = "تاريخ البدء";
+"end_date_title" = "تاريخ الانتهاء";
+"travel_purpose" = "غرض السفر";
+"start_error" = "من فضلك قم باختيار تاريخ البدء";
+"end_error" = "من فضلك قم باختيار تاريخ الانتهاء";
+"purpose_error" = "من فضلك قم بادخال غرض السفر";
+"profile" = "الملف الشخصي";
+
+"draft_record" = "مسوده";
+"delete" = "الغاء";
+"delete_alert" = "هل انت متاكد من الغاء هذا السجل؟";
+"claim_delete_toast" = "تم الغاء طلب التعويض النقدي بنجاح";
+"expense_subclaim_title" = "تفاصيل التعويضات القديه الفرعيه";
+"document_preview" = "عرض المستند";
+"update_btn" = "تحديث";
+"expense_title_error" = "من فضلك قم بادخال اسم التكلفه";
+"project_error" = "من فضلك قم باختيار مشروع واحد علي الاقل";
+"subproject_error" = "من فضلك قم باختيار مشروع فرعي واحد علي الاقل";
+"task_error" = "من فضلك قم باختيار مهمه واحده علي الاقل";
+"search" = "بحث";
+"edit_expense" = "تعديل طلبات التعويضات النقديه";
+"create_expenses" = "انشاء طلبات تعويضات نقديه";
+"edit_draft" = "تعديل مسودة طلبات التعويض النقدي";
+"save_draft1" = "تم حفظ مسودة طلبات التعويض النقدي بنجاح";
+"attchment_error" = "ينقص ارفاق ملف في قائمة البنود التاليه";
+"expense_success" = "تم انشاء طلب تعويض نقدي بنجاح";
+"expense_type_error" = "من فضلك قم باختيار نوع تكلفه";
+"invno_error" = "من فضلك قم بادخال رقم الفاتوره";
+"invdate_error" = "من فضلك قم باختيار تاريخ الفاتوره";
+"amount_error" = "من فضلك قم بادخال قيمة التكلفه";
+"vendor_error" = "من فضلك قم بادخال اسم المورد";
+"tax_error" = "من فضلك قم بادخال قيمة الضريبه";
+"loc_error" = "من فضلك قم بادخال المكان";
+"desc_error" = "من فضلك قم بادخال الوصف";
+"doc_error" = "من فضلك قم باختيار مستند واحد علي الاقل";
+"edit_petty_cash_title" = "تعديل طلب المصروفات النثريه";
+"pettycash_amount_error" = "من فضلك قم بادخال قيمة المصروفات النثريه";
+"pettycash_desc_error" = "من فضلك قم بادخال وصف المصروفات النثريه";
+"pettycash_success" = "تم انشاء طلب المقدم النقدي بنجاح";
+"peetycash_update" = "تم تعديل طلب المقدم النقدي بنجاح ";
+"expense_approve_status"= "تم الموافقه علي طلب التعويض النقدي";
+"expense_reject_status"= "تم رفض طلب التعويض النقدي";
+"cash_approve_status"= "تم الموافقه علي طلب المقدم النقدي";
+"cash_reject_status"= "تم رفض طلب المقدم النقدي";
+"travel_approve_status"= "تم الموافقه علي طلب السفر";
+"travel_reject_status"= "تم رفض طلب السفر";
+"approve_request" = "هل انت متاكد من الموافقه علي هذا الطلب؟";
+"yes" = "نعم";
+"no" = "لا";
+"reject_request" = "هل انت متاكد من رفض هذا الطلب؟";
+"track_status_cash" = "تفاصيل طلب المقدم النقدي";
+"track_status_expense" = "تفاصيل طلب التعويض النقدي";
+"track_status_travel" = "تفاصيل طلب السفر";
+"travel_request_delete" = "تم الغاء طلب السفر بنجاح";
+"create_travel_title" = "انشاء طلب سفر";
+"edit_travel_title" = "تعديل طلب سفر";
+"startdate_greater" = "من فضلك قم باختيار تاريخ قبل تاريخ الانتهاء";
+"enddate_greater" = "من فضلك قم باختيار تاريخ بعد تاريخ البدء";
+"travel_purpose_error" = "من فضلك قم بادخال وصف غرض السفر";
+"travel_request_success" = "تم انشاء طلب السفر بنجاح";
+"travel_request_update" = "تم تعديل طلب السفر بنجاح";
+"firstname" = " : الاسم الاول";
+"lastname" = " : اسم العائله";
+"currency_lbl" = " : العمله";
+"email_add" = " : البريد الالكتروني";
+"logout_message" = "هل انت متاكد من تسجيل خروخ من هذا الحساب؟";

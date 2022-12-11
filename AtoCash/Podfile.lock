@@ -1,0 +1,59 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
+  - DropDown (2.3.13)
+  - IQKeyboardManagerSwift (6.5.10)
+  - Loaf (0.7.0)
+  - Localize-Swift (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore (= 3.2.0)
+    - Localize-Swift/UIKit (= 3.2.0)
+  - Localize-Swift/LocalizeSwiftCore (3.2.0)
+  - Localize-Swift/UIKit (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore
+  - RSSelectionMenu (7.1.3)
+  - SideMenu (6.5.0)
+  - SkyFloatingLabelTextField (4.0.0)
+  - SwiftAlgorithms (1.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.9.1)
+  - Charts
+  - DropDown
+  - IQKeyboardManagerSwift
+  - Loaf
+  - Localize-Swift (~> 3.2)
+  - RSSelectionMenu
+  - SideMenu (~> 6.0)
+  - SkyFloatingLabelTextField
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Charts
+    - DropDown
+    - IQKeyboardManagerSwift
+    - Loaf
+    - Localize-Swift
+    - RSSelectionMenu
+    - SideMenu
+    - SkyFloatingLabelTextField
+    - SwiftAlgorithms
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Charts: 354f86803d11d9c35de280587fef50d1af063978
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
+  Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
+  RSSelectionMenu: 873d62ebbaef138519f6cf3f073412c2b5d94c2c
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
+  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
+
+PODFILE CHECKSUM: 479d32597d981309459472a4a51a8bfe5fe4c163
+
+COCOAPODS: 1.11.3

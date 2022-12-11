@@ -1,0 +1,248 @@
+/* 
+  English.strings
+  AtoCash
+
+  Created by User on 22/09/21.
+  
+*/
+
+"cancel" = "CANCEL";
+"create" = "CREATE";
+"submit" = "SUBMIT";
+"somthing_wrong" = "Something want a wrong";
+
+//Login page
+
+"signin_title" = "Sign in your account";
+"signin" = "Sign In";
+"username" = "Username*";
+"password" = "Password*";
+"forget" = "Forgot Password?";
+"user_error" = "Please enter valid username";
+"pass_error" = "Please entet valid password";
+"invalid" = "Invalid username and password";
+
+//Forgot password
+"forget_title" = "Forgot Password";
+"email" = "Email Address";
+"email_error" = "Please enter valid Email address";
+"forgot_success" = "Forgot Password link send to mail successfully";
+
+//Dashboard
+"dashboard" = "Dashboard";
+"welcome" = "Welcome";
+"advance_request" = "Advance Request";
+"travel_request" = "Travel Request";
+"expense_request" = "Expense Request";
+"inbox" = "Inbox Request";
+"approve" = "Approval";
+"reject" = "Rejected";
+"pending" = "Pending";
+"expense" = "Expense";
+"advance" = "Advance";
+"travel" = "Travel";
+"no_chart" = "No chart data";
+
+//Expense request
+"expense_claim" = "Expense Claim Request";
+"submit_request" = "Submitted Request";
+"draft" = "Draft Request";
+"total_amount" = "Total Amount :";
+"current_status" = "Current Status :";
+"track_status" = "Track Status";
+
+//Track Status
+"expense_track" = "Expense Request Track";
+"track_info" = "Expense Reimburse Request Details";
+"dept" = "Department";
+"request_id" = "Request ID";
+"request_amount" = "Request Amount";
+
+//Expense Details
+"expense_details" = "Expense Details";
+"expense_title" = "Expense Title*";
+"expense_type" = "Expense Type*";
+"invoice_date" = "Invoice Date";
+"claim_amount" = "Claim Amount";
+"document_attach" = "document attached";
+"documents_attach" = "documents attached";
+"moreinfo" = "More Info";
+
+//Expense Subclaims
+"invoice_no" = "Invoice No :";
+"invoice_dt" = "Invoice Date :";
+"expense_ty" = "Expense Type :";
+"expense_amount" = "Expense Amount :";
+"tax" = "Tax :";
+"tax_amount" = "Tax Amount :";
+"location" = "Location :";
+"vendor" = "Vendor :";
+"description" = "Description :";
+"document_list" = "Document List";
+
+//Advance Cash Request
+
+"adance_title" = "Advance Cash Request";
+"request_amt" = "Request Amount :";
+"advace_track" = "Advance Request Track";
+
+//Travel Request
+"travel_title" = "Travel Request";
+"approved" = "Approved";
+"rejected" = "Rejected";
+"travel_track" = "Travel Request Track";
+
+//Inbox
+
+"inbox_title" = "My Inbox";
+"expense_tab" = "Expense Reimburse";
+"travel_tab" = "Travel Request";
+"cash_tab" = "Cash Advance Request";
+"request_date" = "Request Date";
+"approve" = "Approve";
+"rej" = "Reject";
+"rej_reason" = "Reject Reason*";
+"rej_error" = "Please enter reject reason";
+
+//Menu
+"home" = "Home";
+"report" = "Reports";
+"my_report" = "My Reports";
+"all_report" = "All Reports";
+"statustype" = "Status Type";
+
+
+//Logout
+"logout" = "Logout";
+"language" = "Language";
+
+//Create Expense
+"create_expense_title" = "Expense Reimburse Initialization";
+"currency" = "Currency*";
+"add_expense" = "Add Expense Item";
+"expense_cr" = "Expense*";
+"inv_no" = "Invoice No*";
+"inv_date" = "Invoice Date*";
+"exp_amount" = "Expense Amount*";
+"vend" = "Vendor*";
+"tax_" = "Tax(%)*";
+"tax_amt" = "Tax Amount*";
+"loc" = "Location*";
+"desc" = "Description*";
+"doc" = "Document*";
+"upload" = "Upload Documents*";
+"update_exp" = "Update Expense";
+"add_item" = "Add Item";
+"save_draft" = "SAVE DRAFT";
+"charge_to" = "Charge To";
+"subclaims" = "Sub Claims";
+"not_revert" = "*You can't revert your expenses once you are done with the submission";
+"exp_error" = "Please enter expense title";
+"exp_type_error" = "Please select one expense type";
+"exp_inv_error" = "Please enter the invoice number";
+"exp_inv_date_error" = "Please enter the invoice Date";
+"exp_amount_error" = "Please enter expense claim amount";
+"exp_tax_error" = "Please enter tax amount";
+"exp_loc_error" = "Please enter location";
+"exp_desc_error" = "Please enter expense description";
+"doc_error" = "Please submit atleast one document";
+"exp_submit" = "Add one of expense items to submit the request";
+ 
+"enable_project" = "Enable Project";
+"project" = "Project*";
+"subproject" = "Subproject*";
+"work_task" = "Work Task*";
+"proj" = "Project";
+
+
+//Create Advance Cash
+"petty_title" = "Create Pettycash Request";
+"petty_amount" = "Petty Cash Amount*";
+"petty_desc" = "Petty Cash Description";
+"petty_amount_error" = "Please enter pettycash amount";
+"petty_desc_error" = "Please enter pettycash description";
+"project_error" = "Please select one project";
+"subproject_error" = "Please select one subproject";
+"task_error" = "Please select one worktask";
+
+
+//Create Travel Request
+"start_date" = "Start Date*";
+"end_date" = "End Date*";
+"start_date_title" = "Start Date";
+"end_date_title" = "End Date";
+"travel_purpose" = "Travel Purpose";
+"start_error" = "Please select start date";
+"end_error" = "Please select end date";
+"purpose_error" = "Please enter travel purpose";
+
+"draft_record" = "Draft";
+"delete" = "Delete";
+"delete_alert" = "Are you sure? You want delete this record?";
+"claim_delete_toast" = "Expense Claim Request deleted successfully";
+"expense_subclaim_title" = "Expense Sub Claim Details";
+"document_preview" = "Document Preview";
+"update_btn" = "UPDATE";
+"expense_title_error" = "Please enter the Expense Title";
+"project_error" = "Please select atleast one project";
+"subproject_error" = "Please select atleast one subproject";
+"task_error" = "Please select atleast one task";
+"search" = "Search";
+"edit_expense" = "Edit Expense Claims";
+"create_expenses" = "Create Expense Claims";
+"edit_draft" = "Edit Draft Expense Claims";
+"save_draft1" = "Expense Request Save Draft Successfully";
+"attchment_error" = "Attachment missing in below items list";
+"expense_success" = "Expense Reimburse Request created successfully";
+"expense_type_error" = "Please select atleast one Expense type";
+"invno_error" = "Please enter the invoice number";
+"invdate_error" = "Please select the invoice date";
+"amount_error" = "Please enter the Expense amount";
+"vendor_error" = "Please enter the vendor name";
+"tax_error" = "Please enter the tax amount";
+"loc_error" = "Please enter the location";
+"desc_error" = "Please enter the description";
+"doc_error" = "Please choose atleast one document";
+"edit_petty_cash_title" = "Edit Pettycash Request";
+"pettycash_amount_error" = "Please enter the pettycash amount";
+"pettycash_desc_error" = "Please enter the pettycash description";
+"pettycash_success" = "Advance Request created successfully";
+"peetycash_update" = "Advance Request updated successfully";
+"expense_approve_status"= "Expense Reimburse Request approved successfully";
+"expense_reject_status"= "Expense Reimburse Request rejected successfully";
+"cash_approve_status"= "Advance cash Request approved successfully";
+"cash_reject_status"= "Advance cash Request rejected successfully";
+"travel_approve_status"= "Travel Request approved successfully";
+"travel_reject_status"= "Travel Request rejected successfully";
+"approve_request" = "Are you sure? You want approve this request?";
+"yes" = "Yes";
+"no" = "No";
+"reject_request" = "Are you sure? You want reject this request?";
+"track_status_cash" = "Advance Cash Request Details";
+"track_status_expense" = "Expense Reimburse Requests Details";
+"track_status_travel" = "Travel Request Details";
+"travel_request_delete" = "Travel Request deleted successfully";
+"create_travel_title" = "Create Travel Request";
+"edit_travel_title" = "Edit Travel Request";
+"startdate_greater" = "Please select date less than end date";
+"enddate_greater" = "Please select date greater than start date";
+"travel_purpose_error" = "Please Enter travel purpose description";
+"travel_request_success" = "Travel Request created successfully";
+"travel_request_update" = "Travel Request updated successfully";
+"firstname" = "Firstname :";
+"lastname" = "Lastname :";
+"currency_lbl" = "Currency :";
+"email_add" = "Email Address :";
+"logout_message" = "Are you sure? You want logout this account?";
+"profile" = "Profile";
+
+
+//New Variables
+"business" = "Business Area";
+"expense_category" = "Expense Category*";
+"no_days" = "No of Days";
+"is_vat" = "Is VAT";
+"expense_category_error" = "Please select atleast one Expense category";
+"txt_no" = "Tax No*";
+"txt_error" = "Please enter the Tax No.";
+
