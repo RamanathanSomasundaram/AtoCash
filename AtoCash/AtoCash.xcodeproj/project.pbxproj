@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		035E3A194BC65020D4A2D58B /* Pods_AtoCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A03FF65DC7F6BCB344BD5F82 /* Pods_AtoCash.framework */; };
 		44038077293B0AB80071EE81 /* TabPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44038076293B0AB80071EE81 /* TabPageViewController.storyboard */; };
+		448116F92952B7A20055F72D /* AdminControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 448116F82952B7A10055F72D /* AdminControl.storyboard */; };
 		CE060A25262B082500FA478F /* CreateTravalRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE060A24262B082500FA478F /* CreateTravalRequestViewController.swift */; };
 		CE060A2C262B0C7200FA478F /* TravalRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE060A2B262B0C7200FA478F /* TravalRequestViewController.swift */; };
 		CE09E4D22635DA4400F8F547 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE09E4D12635DA4400F8F547 /* WebKit.framework */; };
@@ -333,6 +334,7 @@
 
 /* Begin PBXFileReference section */
 		44038076293B0AB80071EE81 /* TabPageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabPageViewController.storyboard; sourceTree = "<group>"; };
+		448116F82952B7A10055F72D /* AdminControl.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminControl.storyboard; sourceTree = "<group>"; };
 		80767F4297851157B0F104E0 /* Pods-AtoCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AtoCash.release.xcconfig"; path = "Target Support Files/Pods-AtoCash/Pods-AtoCash.release.xcconfig"; sourceTree = "<group>"; };
 		A03FF65DC7F6BCB344BD5F82 /* Pods_AtoCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AtoCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE060A24262B082500FA478F /* CreateTravalRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTravalRequestViewController.swift; sourceTree = "<group>"; };
@@ -1047,6 +1049,7 @@
 				CE6B193F25C3DD9000C289C6 /* AppDelegate.swift */,
 				CE8C7B56261A03B1005AEA3C /* ViewController.swift */,
 				CE6B194525C3DD9000C289C6 /* Main.storyboard */,
+				448116F82952B7A10055F72D /* AdminControl.storyboard */,
 				CE6B197C25C3DE9300C289C6 /* Controller */,
 			);
 			path = Application;
@@ -1899,6 +1902,7 @@
 				CE6B194C25C3DD9100C289C6 /* LaunchScreen.storyboard in Resources */,
 				CEDDFA6325D79A3C00697941 /* SFUIDisplay-Bold.ttf in Resources */,
 				CE6B194925C3DD9100C289C6 /* Assets.xcassets in Resources */,
+				448116F92952B7A20055F72D /* AdminControl.storyboard in Resources */,
 				CE591EC126ADEAA200BEF222 /* ExpenseSubmitCell.xib in Resources */,
 				CE57CAEC25FDB470008B659C /* CustomCellDropDown.xib in Resources */,
 				CE834DFB262B9CA7002FA7D3 /* TabView.xib in Resources */,
@@ -2424,20 +2428,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development: Ramanathan Somasundaram (MWS2S54U7C)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 237H6U4SUT;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 237H6U4SUT;
 				INFOPLIST_FILE = "$(SRCROOT)/AtoCash/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = atocash.atominos.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "AtoCash-Development";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AtoCash-Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "AtoCash/SupportingFiles/AtoCash-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_VERSION = 5.0;
@@ -2453,18 +2460,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Atominos Consulting (237H6U4SUT)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 237H6U4SUT;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 237H6U4SUT;
 				INFOPLIST_FILE = "$(SRCROOT)/AtoCash/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = atocash.atominos.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "AtoCash-AppStore";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AtoCash-AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "AtoCash/SupportingFiles/AtoCash-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_VERSION = 5.0;

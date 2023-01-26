@@ -16,6 +16,7 @@ class ResetPasswordViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = true
     }
     
 
@@ -30,15 +31,15 @@ class ResetPasswordViewController: UIViewController {
     @IBAction func createAction(_ sender: Any) {
         if txtOldPassword.text == "" {
          //   txtOldPassword.errorMessage = "Please Enter username"
-            Loaf("Please Enter username", state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+            Loaf("Please Enter the old password", state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
         else if txtNewPass.text == "" {
            // txtNewPass.errorMessage = "Please Enter password"
-            Loaf("Please Enter username", state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+            Loaf("Please Enter the new password", state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
         else if txtConfirmPass.text == "" {
            // txtConfirmPass.errorMessage = "Please Enter password"
-            Loaf("Please Enter username", state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+            Loaf("Please Enter the confirm password", state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
         else if(!isValidPassword(txtOldPassword.text!)){
            // txtOldPassword.errorMessage = "Minimum 6 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character"

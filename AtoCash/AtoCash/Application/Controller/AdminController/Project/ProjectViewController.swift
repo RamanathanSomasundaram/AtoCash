@@ -18,6 +18,7 @@ class ProjectViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.tblView.tableFooterView = UIView()
         self.tblView.register(UINib(nibName: "CustomCellDropDown", bundle: nil), forCellReuseIdentifier: reuseDropDown)
+        self.navigationController?.isNavigationBarHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

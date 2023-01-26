@@ -31,7 +31,8 @@ class DocumentViewController: UIViewController,WKUIDelegate,WKNavigationDelegate
         
         if isImage{
             self.imagePageView.isHidden = false
-            guard let url = URL(string: chatURL!)else {
+            let urlEncode = self.chatURL?.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            guard let url = URL(string: urlEncode ?? "")else {
                 return
             }
             DispatchQueue.global().async { [weak self] in
@@ -101,7 +102,8 @@ class DocumentViewController: UIViewController,WKUIDelegate,WKNavigationDelegate
     }
     
     func loadWebpageURL(_ url : String){
-        let link = URL(string:url)!
+        let urlEncode = url.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let link = URL(string:urlEncode ?? "")!
         let request = URLRequest(url: link)
         self.webview.load(request)
     }

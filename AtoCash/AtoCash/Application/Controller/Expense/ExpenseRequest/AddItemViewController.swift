@@ -549,6 +549,7 @@ class AddItemViewController: UIViewController {
     }
     
     @IBAction func createAction(_ sender: Any) {
+        self.view.endEditing(true)
         if txtExpenseCategory.text == "" && !isProject {
             Loaf(NSLocalizedString("expense_category_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
@@ -594,7 +595,7 @@ class AddItemViewController: UIViewController {
     }
     @IBAction func uploadFIleAction(_ sender: Any) {
         
-            
+        self.view.endEditing(true)
         AttachmentHandler.shared.showAttachmentActionSheet(vc: self)
         AttachmentHandler.shared.imagePickedBlock = { (image) in
         /* get your image here */

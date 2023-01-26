@@ -24,6 +24,7 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
         txtSelectEmp.setupRightPaddingView()
         self.getEmployee()
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     private func getEmployee(){

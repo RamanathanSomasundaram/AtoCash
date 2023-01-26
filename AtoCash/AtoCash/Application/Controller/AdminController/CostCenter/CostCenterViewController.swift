@@ -20,6 +20,7 @@ class CostCenterViewController: UIViewController {
         self.tblView.tableFooterView = UIView()
         self.tblView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: reuseCell)
         self.getCostCenter = []
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

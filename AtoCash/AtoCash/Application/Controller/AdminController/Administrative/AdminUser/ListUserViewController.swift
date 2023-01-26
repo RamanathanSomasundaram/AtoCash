@@ -15,6 +15,7 @@ class ListUserViewController: UIViewController {
         self.tblView.tableFooterView = UIView()
         self.tblView.register(UINib(nibName: "AdminCell", bundle: nil), forCellReuseIdentifier: adminReuseCell)
         self.adminUser = []
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -25,6 +25,7 @@ class AdminAssignRoleViewController: UIViewController {
         txtApprovalGroup.setupRightPadview()
         getAdminRoles()
         selectJob = []
+        self.navigationController?.isNavigationBarHidden = true
     }
     @IBAction func backAction(_ sender: Any) {
         self.present(SideMenuManager.default.leftMenuNavigationController!, animated: true, completion: nil)
