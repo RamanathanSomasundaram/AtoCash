@@ -14,6 +14,11 @@ public struct ExpenseReimburseStatusTrackerDTO: Codable {
     public var _id: Int?
     public var employeeId: Int?
     public var employeeName: String?
+    public var businessTypeId: Int?
+    public var businessUnitId: Int?
+    public var businessType: String?
+    public var businessUnit: String?
+    public var location: String?
     public var expenseReimburseRequestId: Int?
     public var currencyTypeId: Int?
     public var currencyType: String?
@@ -36,10 +41,12 @@ public struct ExpenseReimburseStatusTrackerDTO: Codable {
     public var approvedDate: Date?
     public var comments: String?
 
-    public init(_id: Int? = nil, employeeId: Int? = nil, employeeName: String? = nil, expenseReimburseRequestId: Int? = nil, currencyTypeId: Int? = nil, currencyType: String? = nil, totalClaimAmount: Double? = nil, expReimReqDate: Date? = nil, departmentId: Int? = nil, department: String? = nil, projectId: Int? = nil, project: String? = nil, workTaskId: Int? = nil, workTask: String? = nil, subProjectId: Int? = nil, subProject: String? = nil, approvalGroupId: Int? = nil, approvalLevelId: Int? = nil, jobRoleId: Int? = nil, jobRole: String? = nil, approvalStatusType: String? = nil, approvalStatusTypeId: Int? = nil, approvedDate: Date? = nil, comments: String? = nil) {
+    public init(_id: Int? = nil, employeeId: Int? = nil, employeeName: String? = nil,businessTypeId: Int? = nil,businessUnitId: Int? = nil, expenseReimburseRequestId: Int? = nil, currencyTypeId: Int? = nil, currencyType: String? = nil, totalClaimAmount: Double? = nil, expReimReqDate: Date? = nil, departmentId: Int? = nil, department: String? = nil, projectId: Int? = nil, project: String? = nil, workTaskId: Int? = nil, workTask: String? = nil, subProjectId: Int? = nil, subProject: String? = nil, approvalGroupId: Int? = nil, approvalLevelId: Int? = nil, jobRoleId: Int? = nil, jobRole: String? = nil, approvalStatusType: String? = nil, approvalStatusTypeId: Int? = nil, approvedDate: Date? = nil, comments: String? = nil) {
         self._id = _id
         self.employeeId = employeeId
         self.employeeName = employeeName
+        self.businessTypeId = businessTypeId
+        self.businessUnitId = businessUnitId
         self.expenseReimburseRequestId = expenseReimburseRequestId
         self.currencyTypeId = currencyTypeId
         self.currencyType = currencyType
@@ -67,11 +74,16 @@ public struct ExpenseReimburseStatusTrackerDTO: Codable {
         case _id = "id"
         case employeeId
         case employeeName
+        case businessTypeId
+        case businessUnitId
+        case businessType
+        case businessUnit
+        case location
         case expenseReimburseRequestId
         case currencyTypeId
         case currencyType
         case totalClaimAmount
-        case expReimReqDate
+        case expReimReqDate = "requestDate"
         case departmentId
         case department
         case projectId

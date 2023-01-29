@@ -22,7 +22,7 @@ let adminReuseCell = "adminCell"
 let myInboxCell = "myInboxCell"
 let myRequestCell = "myRequestCell"
 
-let concatBaseURL = ".atocash.com" //dev
+let concatBaseURL = ".atocash.tk" //dev
 var BASEURL = "https://" + (DefaultsManager.shared.baseLink ?? "") + concatBaseURL
 //let concatBaseURL = ".atocashserver.ml" //POSTSQL
 
@@ -116,14 +116,14 @@ let POST_JOBROLES = "api/JobRoles/PostRole"
 let DELETE_JOBROLES = "api/JobRoles/DeleteRole"
 
 //PettyCashRequests
-let PETTYCASHREQUEST = "api/PettyCashRequests/GetPettyCashRequests"
-let GET_PETTYCASHREQUEST = "api/PettyCashRequests/GetPettyCashRequest"
-let PUT_PETTYCASHREQUEST = "api/PettyCashRequests/PutPettyCashRequest"
-let POST_PETTYCASHREQUEST = "api/PettyCashRequests/PostPettyCashRequest"
-let DELETE_PETTYCASHREQUEST = "api/PettyCashRequests/DeletePettyCashRequest"
-let GET_APPROVAL_PETTYCASHREQUEST = "api/PettyCashRequests/ApprovalsPendingRaisedByEmployee"
-let GET_APPROVALCOUNT_PETTYCASHREQUEST = "api/PettyCashRequests/CountofApprovalsPendingRaisedByEmployee"
-let Get_PEETYCASH_REQUEST = "api/PettyCashRequests/GetPettyCashRequestRaisedForEmployee"
+let PETTYCASHREQUEST = "api/CashAdvanceRequests/GetPettyCashRequests"
+let GET_PETTYCASHREQUEST = "api/CashAdvanceRequests/GetPettyCashRequest"
+let PUT_PETTYCASHREQUEST = "api/CashAdvanceRequests/PutPettyCashRequest"
+let POST_PETTYCASHREQUEST = "api/CashAdvanceRequests/PostPettyCashRequest"
+let DELETE_PETTYCASHREQUEST = "api/CashAdvanceRequests/DeletePettyCashRequest"
+let GET_APPROVAL_PETTYCASHREQUEST = "api/CashAdvanceRequests/ApprovalsPendingRaisedByEmployee"
+let GET_APPROVALCOUNT_PETTYCASHREQUEST = "api/CashAdvanceRequests/CountofApprovalsPendingRaisedByEmployee"
+let Get_PEETYCASH_REQUEST = "api/CashAdvanceRequests/GetPettyCashRequestRaisedForEmployee"
 
 
 //ProjectManagement

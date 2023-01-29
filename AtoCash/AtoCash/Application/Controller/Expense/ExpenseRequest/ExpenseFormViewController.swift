@@ -39,6 +39,16 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
     var editOfflineDataIndex : Int?
     var isBusiness = false
     var isProject = false
+    var selectedBusinessType : BusinessTypeVM?
+    var selectedBusinessUnit : BusinessUnitVM?
+    var selectedBusinessLocation : BusinessUnitLocationVM?
+    
+    var approvalStatusType : String?
+    var approvalStatusTypeId : Int?
+    var costCenter : String?
+    var costCenterId : Int?
+    var currencyType: String?
+    var currencyTypeId : Int?
     
     
     override func viewDidLoad() {
@@ -66,11 +76,14 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
             else if ((UIInfo["type"] as! String) == "Business Area"){
                 self.txtExpenseType.text = NSLocalizedString("business", comment: "")
                 self.isBusiness = true
+                self.selectedBusinessType = (UIInfo["bussType"] as? BusinessTypeVM)
+                self.selectedBusinessUnit = (UIInfo["bussUnit"] as? BusinessUnitVM)
+                self.getBusinessLocation()
             }
-            else{
-                self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
-                self.isBusiness = false
-            }
+//            else{
+//                self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
+//                self.isBusiness = false
+//            }
             self.txtTotalAmount.text = "0.0"
             self.addItemAction(nil)
         }
@@ -92,18 +105,22 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
                 self.UIInfo = info
                 self.isBusiness = false
             }
-            else if((self.UIInfo["type"] as! String) == "Business Area"){
+            else{
                 self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
-                let info = ["title": txtExpenseTitle!.text!, "project" : self.selectedProject ?? nil, "subProject" : self.selectSubproject ?? nil, "task": self.selectWorkTask ?? nil,"type" : "Business Area"] as [String : Any?]
+                
+                self.selectedBusinessType = BusinessTypeVM(_id: editExpense?.businessTypeId,businessTypeName: editExpense?.businessType)
+                self.selectedBusinessUnit = BusinessUnitVM(_id: editExpense?.businessUnitId,businessUnitName: editExpense?.businessUnit)
+                self.getBusinessLocation()
+                let info = ["title": txtExpenseTitle!.text!, "project" : self.selectedProject ?? nil, "subProject" : self.selectSubproject ?? nil, "task": self.selectWorkTask ?? nil,"type" : "Business Area","bussType":self.selectedBusinessType,"bussUnit": self.selectedBusinessUnit,"bussLoc": self.selectedBusinessLocation] as [String : Any?]
                 self.UIInfo = info
                 self.isBusiness = true
             }
-            else {
-                self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
-                let info = ["title": txtExpenseTitle!.text!, "project" : self.selectedProject ?? nil, "subProject" : self.selectSubproject ?? nil, "task": self.selectWorkTask ?? nil,"type" : "Department"] as [String : Any?]
-                self.UIInfo = info
-                self.isBusiness = false
-            }
+//            else {
+//                self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
+//                let info = ["title": txtExpenseTitle!.text!, "project" : self.selectedProject ?? nil, "subProject" : self.selectSubproject ?? nil, "task": self.selectWorkTask ?? nil,"type" : "Department"] as [String : Any?]
+//                self.UIInfo = info
+//                self.isBusiness = false
+//            }
             self.txtTotalAmount.text = "\(editExpense?.totalClaimAmount ?? 0.0)"
             
             self.getExpenseSubclamisList()
@@ -126,22 +143,22 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
                     if let taskProject = expense.task, taskProject.taskName != ""{
                         self.selectWorkTask = TaskModel(_id: expense.task?.id, taskName: expense.task?.taskName, taskDesc: nil)
                     }
-                    let info = ["title": expense.expenseTitle, "project" : expense.project ?? nil, "subProject" : expense.subProjct ?? nil, "task": expense.task ?? nil,"type" : "Project"] as [String : Any?]
+                    let info = ["title": expense.expenseTitle, "project" : expense.project ?? nil, "subProject" : expense.subProjct ?? nil, "task": expense.task ?? nil,"type" : "Project","bussType":nil,"bussUnit": nil,"bussLoc": nil] as [String : Any?]
                     self.UIInfo = info
                     self.isBusiness = false
                 }
                 else if expense.isBusiness ?? false{
                     self.txtExpenseType.text = NSLocalizedString("business", comment: "")
-                    let info = ["title": expense.expenseTitle, "project" : expense.project ?? nil, "subProject" : expense.subProjct ?? nil, "task": expense.task ?? nil,"type" : "Business Area"] as [String : Any?]
+                    let info = ["title": expense.expenseTitle, "project" : expense.project ?? nil, "subProject" : expense.subProjct ?? nil, "task": expense.task ?? nil,"type" : "Business Area","bussType":expense.businessType,"bussUnit": expense.businessUnit,"bussLoc": expense.businessLocation] as [String : Any?]
                     self.isBusiness = true
                     self.UIInfo = info
                 }
-                else{
-                    self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
-                    let info = ["title": expense.expenseTitle, "project" : expense.project ?? nil, "subProject" : expense.subProjct ?? nil, "task": expense.task ?? nil,"type" : "Department"] as [String : Any?]
-                    self.UIInfo = info
-                    self.isBusiness = false
-                }
+//                else{
+//                    self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
+//                    let info = ["title": expense.expenseTitle, "project" : expense.project ?? nil, "subProject" : expense.subProjct ?? nil, "task": expense.task ?? nil,"type" : "Department"] as [String : Any?]
+//                    self.UIInfo = info
+//                    self.isBusiness = false
+//                }
                 self.txtTotalAmount.text = "\(expense.totalAmount ?? 0.0)"
                 self.itemsList = expense.itemsList ?? []
                 self.tblView.reloadData()
@@ -172,7 +189,40 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
         //Pop to home view controller
         self.navigationController?.popViewController(animated: true)
     }
-    
+    private func getBusinessLocation(){
+        
+        showLoader()
+        
+        ProjectsAPI.apiBusinessUnitLocationGet(_id: self.selectedBusinessUnit?._id ?? 0, completion: {  (result, error) in
+            hideLoader()
+            if error == nil {
+                self.selectedBusinessLocation = result
+                print("business location \(self.selectedBusinessLocation)")
+            }
+            else{
+                switch error as! ErrorResponse {
+                case .error(let code, let result, let message):
+                    print(code,result,message)
+                    if code == 401 {
+                        DefaultsManager.shared.accesstoken = ""
+                        DefaultsManager.shared.userRole = ""
+                        DefaultsManager.shared.isRemoved = false
+                        AppDelegate.shared.setupRootViewController()
+                    }
+                    else{
+                        do{
+                            let json = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String: AnyObject]
+                             Loaf((json["message"] as! String), state: .error,location: .top, sender: self).show(.short, completionHandler: nil)
+                        }
+                        catch{
+                            print("json error \(error.localizedDescription)")
+                        }
+                    }
+
+                }
+            }
+        })
+    }
     private func getBusinessList(){
         showLoader()
         ExpenseSubClaimsAPI.apiExpenseIsBusinessDropDownGet(_isBusiness: self.isBusiness, completion: { (result, error) in
@@ -230,6 +280,12 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
                         let inbox = imageUpload(fileName: docs, fileData: nil, fileType: nil, filePath: nil, fileExtension: nil)
                         uploadImg.append(inbox)
                     }
+                    self.approvalStatusType = item.approvalStatusType
+                    self.approvalStatusTypeId = item.approvalStatusTypeId
+                    self.costCenter = item.costCenter
+                    self.costCenterId = item.costCenterId
+                    self.currencyType = item.currencyType
+                    self.currencyTypeId = item.currencyTypeId
                     //Fix
                     var selectBusiness: ExpenseBusinessDTO?
                     for drop in self.expenseBusinessList{
@@ -240,7 +296,7 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
                         }
                     }
                     
-                    let addItem = addItemInfo(_id: item._id, expenseReimbClaimAmount: item.expenseReimbClaimAmount, documentIDs: item.documentIDs, expReimReqDate: item.expReimReqDate, invoiceNo: item.invoiceNo, invoiceDate: item.invoiceDate, tax: item.tax, taxAmount: item.taxAmount, vendor: item.vendor, location: item.location, _description: item._description, expenseTypeId: item.expenseTypeId, expenseType: item.expenseType, selectDocument: uploadImg, isDuplicate: false,expCategory: "\(item.expenseCategoryId ?? 0)",startDate: item.expStrtDate,endDate: item.expEndDate,noDays: "\(item.expNoOfDays ?? 0)",taxNo: item.taxNo,isVAT: item.isVAT, businessExpenseId: selectBusiness?._id,buinessCategoryName:selectBusiness?.expenseCategoryName)
+                    let addItem = addItemInfo(_id: item._id, expenseReimbClaimAmount: item.expenseReimbClaimAmount, documentIDs: item.documentIDs, expReimReqDate: item.expReimReqDate, invoiceNo: item.invoiceNo, invoiceDate: item.invoiceDate, tax: item.tax, taxAmount: item.taxAmount, vendor: item.vendor, location: item.location, _description: item._description, expenseTypeId: item.expenseTypeId, expenseType: item.expenseType, selectDocument: uploadImg, isDuplicate: false,expCategory: "\(item.expenseCategoryId ?? 0)",startDate: item.expStrtDate,endDate: item.expEndDate,noDays: "\(item.expNoOfDays ?? 0)",taxNo: item.taxNo,isVAT: item.isVAT, businessExpenseId: selectBusiness?._id,buinessCategoryName:selectBusiness?.expenseCategoryName,selectedVendorId: item.vendorId,selectedVendorOthers: item.additionalVendor)
                     self.itemsList.append(addItem)
                 }
                 DispatchQueue.main.async {
@@ -306,10 +362,10 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
             self.isBusiness = true
             self.txtExpenseType.text = NSLocalizedString("business", comment: "")
         }
-        else{
-            self.isBusiness = false
-            self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
-        }
+//        else{
+//            self.isBusiness = false
+//            self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
+//        }
         self.getBusinessList()
     }
     
@@ -351,7 +407,7 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
                 if let expenseData = DefaultsManager.shared.expenseRequest?.keys.first{
                     if self.editOfflineDataIndex != nil {
                             DefaultsManager.shared.expenseRequest?[DefaultsManager.shared.userID!]?.remove(at: self.editOfflineDataIndex!)
-                        let offline = offlineData(expenseTitle: self.txtExpenseTitle.text, project: self.selectedProject, subProjct: self.selectSubproject, task: self.selectWorkTask, empId: Int(DefaultsManager.shared.userID!), totalAmount: Double(self.txtTotalAmount.text ?? "0.0"), expenseDate: Date(), itemsList: self.itemsList, isBusiness: !self.isProject, isDepart: self.isBusiness)
+                        let offline = offlineData(expenseTitle: self.txtExpenseTitle.text, businessType: self.selectedBusinessType, businessUnit: self.selectedBusinessUnit,businessLocation: self.selectedBusinessLocation ,project: self.selectedProject, subProjct: self.selectSubproject, task: self.selectWorkTask, empId: Int(DefaultsManager.shared.userID!), totalAmount: Double(self.txtTotalAmount.text ?? "0.0"), expenseDate: Date(), itemsList: self.itemsList, isBusiness: !self.isProject, isDepart: self.isBusiness)
                             DefaultsManager.shared.expenseRequest?[DefaultsManager.shared.userID!]?.insert(offline, at: self.editOfflineDataIndex!)
                     }
                     else{
@@ -359,18 +415,18 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
                     if var expense = DefaultsManager.shared.expenseRequest![expenseData], expense.count > 0{
                         
                         expense.removeAll()
-                        let offline = offlineData(expenseTitle: self.txtExpenseTitle.text, project: self.selectedProject, subProjct: self.selectSubproject, task: self.selectWorkTask, empId: Int(DefaultsManager.shared.userID!), totalAmount: Double(self.txtTotalAmount.text ?? "0.0"), expenseDate: Date(), itemsList: self.itemsList, isBusiness: !self.isProject, isDepart: self.isBusiness)
+                        let offline = offlineData(expenseTitle: self.txtExpenseTitle.text, businessType: self.selectedBusinessType, businessUnit: self.selectedBusinessUnit,businessLocation: self.selectedBusinessLocation, project: self.selectedProject, subProjct: self.selectSubproject, task: self.selectWorkTask, empId: Int(DefaultsManager.shared.userID!), totalAmount: Double(self.txtTotalAmount.text ?? "0.0"), expenseDate: Date(), itemsList: self.itemsList, isBusiness: !self.isProject, isDepart: self.isBusiness)
                         DefaultsManager.shared.expenseRequest?[DefaultsManager.shared.userID!]?.append(offline)
                     }
                     else{
-                        let offline = offlineData(expenseTitle: self.txtExpenseTitle.text, project: self.selectedProject, subProjct: self.selectSubproject, task: self.selectWorkTask, empId: Int(DefaultsManager.shared.userID!), totalAmount: Double(self.txtTotalAmount.text ?? "0.0"), expenseDate: Date(), itemsList: self.itemsList, isBusiness: !self.isProject, isDepart: self.isBusiness)
+                        let offline = offlineData(expenseTitle: self.txtExpenseTitle.text, businessType: self.selectedBusinessType, businessUnit: self.selectedBusinessUnit,businessLocation: self.selectedBusinessLocation, project: self.selectedProject, subProjct: self.selectSubproject, task: self.selectWorkTask, empId: Int(DefaultsManager.shared.userID!), totalAmount: Double(self.txtTotalAmount.text ?? "0.0"), expenseDate: Date(), itemsList: self.itemsList, isBusiness: !self.isProject, isDepart: self.isBusiness)
                         DefaultsManager.shared.expenseRequest?[DefaultsManager.shared.userID!]?.append(offline)
                     }
                     }
 
                 }
                 else{
-                    let offline = offlineData(expenseTitle: self.txtExpenseTitle.text, project: self.selectedProject, subProjct: self.selectSubproject, task: self.selectWorkTask, empId: Int(DefaultsManager.shared.userID!), totalAmount: Double(self.txtTotalAmount.text ?? "0.0"), expenseDate: Date(), itemsList: self.itemsList, isBusiness: !self.isProject, isDepart: self.isBusiness)
+                    let offline = offlineData(expenseTitle: self.txtExpenseTitle.text, businessType: self.selectedBusinessType, businessUnit: self.selectedBusinessUnit,businessLocation: self.selectedBusinessLocation, project: self.selectedProject, subProjct: self.selectSubproject, task: self.selectWorkTask, empId: Int(DefaultsManager.shared.userID!), totalAmount: Double(self.txtTotalAmount.text ?? "0.0"), expenseDate: Date(), itemsList: self.itemsList, isBusiness: !self.isProject, isDepart: self.isBusiness)
                     DefaultsManager.shared.expenseRequest?[DefaultsManager.shared.userID!]?.append(offline)
                 }
                 Loaf(NSLocalizedString("save_draft1", comment: ""), state: .success, location: .top, sender: self).show(.short, completionHandler: nil)
@@ -430,20 +486,20 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
         var expenseList = [ExpenseSubClaimDTO]()
         
             for items in self.itemsList{
-                expenseList.append(ExpenseSubClaimDTO(_id: items._id, employeeName: nil, employeeId: nil, expenseReimbClaimAmount: items.expenseReimbClaimAmount, documentIDs: items.documentIDs, expReimReqDate: items.expReimReqDate, invoiceNo: items.invoiceNo, invoiceDate: items.invoiceDate, tax: items.tax, taxAmount: items.taxAmount, vendor: items.vendor, location: items.location, _description: items._description, currencyTypeId: nil, currencyType: nil, expenseTypeId: items.expenseTypeId, expenseType: items.expenseType, department: nil, departmentId: nil, project: nil, projectId: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, approvalStatusType: nil, approvalStatusTypeId: nil, approvedDate: nil,expenseCategoryId: items.businessExpenseId,taxNo: items.taxNo, NoOfDaysDate: [items.startDate,items.endDate], isVAT: items.isVat,expStrtDate: items.endDate, expEndDate: items.endDate,expNoOfDays: Int(items.noDays ?? "0") ?? 0))
+                expenseList.append(ExpenseSubClaimDTO(_id: items._id, employeeName: nil, employeeId: nil, expenseReimbClaimAmount: items.expenseReimbClaimAmount, documentIDs: items.documentIDs, expReimReqDate: items.expReimReqDate, invoiceNo: items.invoiceNo, invoiceDate: items.invoiceDate, tax: items.tax, taxAmount: items.taxAmount, vendor: items.vendor, location: items.location, _description: items._description, currencyTypeId: nil, currencyType: nil, expenseTypeId: items.expenseTypeId, expenseType: items.expenseType, department: nil, departmentId: nil, project: nil, projectId: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, approvalStatusType: nil, approvalStatusTypeId: nil, approvedDate: nil,expenseCategoryId: items.businessExpenseId,taxNo: items.taxNo, NoOfDaysDate: [items.startDate,items.endDate], isVAT: items.isVat,expStrtDate: items.endDate, expEndDate: items.endDate,expNoOfDays: Int(items.noDays ?? "0") ?? 0,vendorId: items.selectedVendorId,additionalVendor: items.selectedVendorOthers))
             }
         
         if let project = UIInfo["project"] as? ProjectVM{
             let subproject = (UIInfo["subProject"] as? SubProjectVM) == nil ? nil : (UIInfo["subProject"] as? SubProjectVM)
             let task = (UIInfo["task"] as? TaskModel) == nil ? nil : (UIInfo["task"] as? TaskModel)
-            params = ExpenseReimburseRequestDTO(_id: 0, expenseReportTitle: self.txtExpenseTitle.text, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, currencyTypeId: Int(DefaultsManager.shared.currencyId!), totalClaimAmount: Double(self.txtTotalAmount.text!), expReimReqDate: Date(), department: nil, departmentId: nil, project: project.projectName, projectId: project._id, subProject: subproject == nil ? nil : subproject?.subProjectName, subProjectId: subproject == nil ? nil : subproject?._id, workTask: task == nil ? nil : task?.taskName, workTaskId: task == nil ? nil : task?.id, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true, expenseSubClaims: expenseList,expensefor: "Project",isBusinessAreaReq: nil)
+            params = ExpenseReimburseRequestDTO(_id: 0, expenseReportTitle: self.txtExpenseTitle.text, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, businessTypeId: nil,businessUnitId: nil, currencyTypeId: Int(DefaultsManager.shared.currencyId!), totalClaimAmount: Double(self.txtTotalAmount.text!), expReimReqDate: Date(), department: nil, departmentId: nil, project: project.projectName, projectId: project._id, subProject: subproject == nil ? nil : subproject?.subProjectName, subProjectId: subproject == nil ? nil : subproject?._id, workTask: task == nil ? nil : task?.taskName, workTaskId: task == nil ? nil : task?.id, approvalStatusTypeId: self.approvalStatusTypeId, approvalStatusType: self.approvalStatusType, approvedDate: nil, showEditDelete: false, expenseSubClaims: expenseList,expensefor: "Project",isBusinessAreaReq: nil,costCenter: self.costCenter,costCenterId: self.costCenterId)
         }
         else if((self.UIInfo["type"] as! String) == "Business Area"){
-            params = ExpenseReimburseRequestDTO(_id: 0, expenseReportTitle: self.txtExpenseTitle.text, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, currencyTypeId: Int(DefaultsManager.shared.currencyId!), totalClaimAmount: Double(self.txtTotalAmount.text!), expReimReqDate: Date(), department: nil, departmentId: nil, project: nil, projectId: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true, expenseSubClaims: expenseList, expensefor: "Business Area",isBusinessAreaReq: true)
+            params = ExpenseReimburseRequestDTO(_id: 0, expenseReportTitle: self.txtExpenseTitle.text, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, businessTypeId: self.selectedBusinessType?._id ?? 0,businessUnitId: self.selectedBusinessUnit?._id ?? 0, currencyTypeId: Int(DefaultsManager.shared.currencyId!), totalClaimAmount: Double(self.txtTotalAmount.text!), expReimReqDate: Date(), department: nil, departmentId: nil, project: nil, projectId: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, approvalStatusTypeId: self.approvalStatusTypeId, approvalStatusType: self.approvalStatusType, approvedDate: nil, showEditDelete: false, expenseSubClaims: expenseList,expensefor: "Business Area",isBusinessAreaReq: nil,costCenter: self.costCenter,costCenterId: self.costCenterId)
         }
-        else{
-            params = ExpenseReimburseRequestDTO(_id: 0, expenseReportTitle: self.txtExpenseTitle.text, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, currencyTypeId: Int(DefaultsManager.shared.currencyId!), totalClaimAmount: Double(self.txtTotalAmount.text!), expReimReqDate: Date(), department: nil, departmentId: nil, project: nil, projectId: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true, expenseSubClaims: expenseList,expensefor: "Department",isBusinessAreaReq: false)
-        }
+//        else{
+//            params = ExpenseReimburseRequestDTO(_id: 0, expenseReportTitle: self.txtExpenseTitle.text, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!,businessTypeId: self.selectedBusinessType?._id ?? 0,businessUnitId: self.selectedBusinessUnit?._id ?? 0, currencyTypeId: Int(DefaultsManager.shared.currencyId!), totalClaimAmount: Double(self.txtTotalAmount.text!), expReimReqDate: Date(), department: nil, departmentId: nil, project: nil, projectId: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true, expenseSubClaims: expenseList,expensefor: "Department",isBusinessAreaReq: false)
+//        }
         
         ExpenseReimburseRequestsAPI.apiExpenseReimburseRequestsPostExpenseReimburseRequestPost(body: params) { (result, error) in
             hideLoader()
@@ -452,6 +508,7 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
                 if self.editOfflineDataIndex != nil {
                         DefaultsManager.shared.expenseRequest?[DefaultsManager.shared.userID!]?.remove(at: self.editOfflineDataIndex!)
                 }
+                DefaultsManager.shared.expenseCount =  (DefaultsManager.shared.expenseCount ?? 1000) + 1
                 Loaf(NSLocalizedString("expense_success", comment: ""), state: .success, location: .top, sender: self).show(.short, completionHandler: nil)
                 self.view.isUserInteractionEnabled = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -585,7 +642,7 @@ extension ExpenseFormViewController : UITableViewDataSource,UITableViewDelegate,
     }
     func copyActionTag(_ sender: Int) {
         let items = self.itemsList[sender]
-        let copyItems = addItemInfo(_id: items._id, expenseReimbClaimAmount: items.expenseReimbClaimAmount, documentIDs: "", expReimReqDate: items.expReimReqDate, invoiceNo: items.invoiceNo, invoiceDate: items.invoiceDate, tax: items.tax, taxAmount: items.taxAmount, vendor: items.vendor, location: items.location, _description: items._description, expenseTypeId: items.expenseTypeId, expenseType: items.expenseType, selectDocument: nil, isDuplicate: true,expCategory: items.expenseCategory,startDate: items.startDate,endDate: items.endDate,noDays: items.noDays,taxNo: items.taxNo,isVAT: items.isVat,businessExpenseId: items.businessExpenseId,buinessCategoryName: items.buinessCategoryName)
+        let copyItems = addItemInfo(_id: items._id, expenseReimbClaimAmount: items.expenseReimbClaimAmount, documentIDs: "", expReimReqDate: items.expReimReqDate, invoiceNo: items.invoiceNo, invoiceDate: items.invoiceDate, tax: items.tax, taxAmount: items.taxAmount, vendor: items.vendor, location: items.location, _description: items._description, expenseTypeId: items.expenseTypeId, expenseType: items.expenseType, selectDocument: nil, isDuplicate: true,expCategory: items.expenseCategory,startDate: items.startDate,endDate: items.endDate,noDays: items.noDays,taxNo: items.taxNo,isVAT: items.isVat,businessExpenseId: items.businessExpenseId,buinessCategoryName: items.buinessCategoryName,selectedVendorId: items.selectedVendorId,selectedVendorOthers: items.selectedVendorOthers)
         self.itemsList.append(copyItems)
         self.calculateTotalAmount()
         DispatchQueue.main.async {

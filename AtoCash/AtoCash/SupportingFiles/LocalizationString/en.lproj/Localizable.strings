@@ -246,3 +246,11 @@
 "txt_no" = "Tax No*";
 "txt_error" = "Please enter the Tax No.";
 
+"businesstype" = "Business Type*";
+"businessunit" = "Business Unit*";
+"location1" = "Location";
+"select_businesstype_error" = "Please select business type";
+"select_businessunit_error" = "Please select business unit";
+"cash_request_delete" = "Cash Request deleted successfully";
+"vendor_select_error" = "Please select the vendor";
+"vendor_select_other_error" = "Please enter the other vendor name";

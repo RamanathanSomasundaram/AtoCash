@@ -162,6 +162,7 @@ class ExpanseViewController: UIViewController ,BarButtonConfigarable,createExpen
             if error == nil {
                 self.travelRequestList = result ?? []
                 DispatchQueue.main.async {
+                    DefaultsManager.shared.expenseCount =  (DefaultsManager.shared.expenseCount ?? 1000) + self.travelRequestList.count + 1
                     self.travelListTableView.reloadData()
                 }
             }
@@ -244,11 +245,14 @@ extension ExpanseViewController : UITableViewDelegate,UITableViewDataSource,expe
             if myRequest.project != "" && myRequest.project != nil {
                 cell.lblLink.text = "\(myRequest.project ?? NSLocalizedString("proj", comment: ""))"
             }
-            else if myRequest.department != nil{
-                cell.lblLink.text = "\(myRequest.department ?? NSLocalizedString("dept", comment: ""))"
-            }
+//            else if myRequest.department != nil{
+//
+//                cell.lblLink.text = "\(myRequest.department ?? NSLocalizedString("dept", comment: ""))"
+//            }
             else{
-                cell.lblLink.text = NSLocalizedString("business", comment: "")
+                let businessTitle = "Business Type: " + (myRequest.businessType ?? "") + "\n" + "Business unit: " + (myRequest.businessUnit ?? "") + "\n" + "Location: " + (myRequest.location ?? "")
+                cell.lblLink.text = businessTitle
+//                cell.lblLink.text = NSLocalizedString("business", comment: "")
             }
         }
         else{
@@ -263,11 +267,16 @@ extension ExpanseViewController : UITableViewDelegate,UITableViewDataSource,expe
                 if myRequest.project?.projectName != "" && myRequest.project != nil {
                     cell.lblLink.text = "\(myRequest.project?.projectName ?? NSLocalizedString("proj", comment: ""))"
                 }
-                else if (myRequest.isBusiness ?? false) && !(myRequest.isDepart ?? false){
-                    cell.lblLink.text = NSLocalizedString("dept", comment: "")
-                }
+//                else if (myRequest.isBusiness ?? false) && !(myRequest.isDepart ?? false){
+//                    cell.lblLink.text = NSLocalizedString("dept", comment: "")
+//                }
                 else{
-                    cell.lblLink.text = NSLocalizedString("business", comment: "")
+                    let businessType = (myRequest.businessType?.businessTypeName ?? "")
+                    let businessUnit = (myRequest.businessUnit?.businessUnitName ?? "")
+                    let businessLocation = (myRequest.businessLocation?.location ?? "")
+                    let businessTitle = "Business Type: " + businessType + "\n" + "Business unit: " + businessUnit + "\n" + "Location: " + businessLocation
+                    cell.lblLink.text = businessTitle
+//                    cell.lblLink.text = NSLocalizedString("business", comment: "")
                 }
                 
                 cell.lblStatus.text = NSLocalizedString("draft_record", comment: "")

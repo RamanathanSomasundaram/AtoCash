@@ -12,7 +12,7 @@ public struct RequestCountModel: Codable {
     public var pendingCount: Int?
     public var rejectedCount: Int?
     public var totalCount: Int?
-
+    //{"totalCount":0,"pendingCount":0,"rejectedCount":0,"approvedCount":0}
     public init(approvedCount: Int? = nil , pendingCount: Int? = nil,rejectedCount: Int? = nil,totalCount: Int? = nil ) {
         self.approvedCount = approvedCount
         self.pendingCount = pendingCount

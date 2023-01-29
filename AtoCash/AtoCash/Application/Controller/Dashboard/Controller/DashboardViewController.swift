@@ -148,6 +148,7 @@ class DashboardViewController: UIViewController,BarButtonConfigarable {
             }
             else{
                 hideLoader()
+                self.getAdvanceRequestCount()
                 switch error as! ErrorResponse {
                 case .error(let code, let result, let message):
                     print(code,result,message)

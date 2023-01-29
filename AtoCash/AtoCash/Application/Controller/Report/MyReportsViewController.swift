@@ -35,21 +35,22 @@ class MyReportsViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         //getInbox()
         switch inboxviewType {
         case .advance://maanger report true , need my report manager false
             self.currentIndex = nil
-            let params = CashAndClaimRequestSearchModel(empId: Int(DefaultsManager.shared.userID!) ?? 0, pettyCashRequestId: nil, requestTypeId: 1, departmentId: nil, projectId: nil, subProjectId: nil, workTaskId: nil, recordDateFrom: nil, recordDateTo: nil, amountFrom: nil, amountTo: nil, costCenterId: nil, approvalStatusId: nil, isManager: isReportView, isAccountSettled: nil)
+            let params = CashAndClaimRequestSearchModel(LoggedEmpId: Int(DefaultsManager.shared.userID!) ?? 0, IsManager: isReportView, requestTypeId: 1, ReporteeEmpId: nil)
             self.getAdvancenbox(params)
             break
         case .expanse:
             self.currentIndex = nil
-            let params = CashAndClaimRequestSearchModel(empId: Int(DefaultsManager.shared.userID!) ?? 0, pettyCashRequestId: nil, requestTypeId: 2, departmentId: nil, projectId: nil, subProjectId: nil, workTaskId: nil, recordDateFrom: nil, recordDateTo: nil, amountFrom: nil, amountTo: nil, costCenterId: nil, approvalStatusId: nil, isManager: isReportView, isAccountSettled: nil)
+            let params = CashAndClaimRequestSearchModel(LoggedEmpId: Int(DefaultsManager.shared.userID!) ?? 0, IsManager: isReportView, requestTypeId: 2, ReporteeEmpId: nil)
             self.getExpenseInbox(params)
             break
         case .travel:
             self.currentIndex = nil
-            let params = TravelRequestSearchModel(_id: 0, employeeId: Int(DefaultsManager.shared.userID!) ?? 0, employeeName: nil, travelApprovalRequestId: nil, travelStartDate: nil, travelEndDate: nil, travelPurpose: nil, departmentId: nil, department: nil, projectId: nil, project: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, reqRaisedDate: nil, costCenterId: nil, costCenter: nil, approvalStatusTypeId: nil, approvalStatusType: nil, isManager: isReportView)
+            let params = TravelRequestSearchModel(LoggedEmpId:Int(DefaultsManager.shared.userID!) ?? 0, IsManager: isReportView,ReporteeEmpId: nil)
             self.getTravelInbox(params)
             break
         }
@@ -227,13 +228,13 @@ extension MyReportsViewController : UITableViewDelegate,UITableViewDataSource,my
         switch inboxviewType {
         case .advance:
             let incomeMsg = self.cashAdvanceRequest[indexPath.row]
-            cell.lblTitle.text = " " + ((incomeMsg.department != nil) ? incomeMsg.department ?? "" : incomeMsg.project ?? "") + " "
+            cell.lblTitle.text = "Business Type : " + (incomeMsg.businessType ?? "")
             
             cell.startDateView.isHidden = true
             cell.endDateView.isHidden = true
             cell.lblStatus.text = incomeMsg.approvalStatusType ?? ""
-            cell.lblReqId.text = "\(incomeMsg._id ?? 0) "
-            cell.lblReqDate.text = incomeMsg.recordDate!
+            cell.lblReqId.text = "\(incomeMsg.id ?? 0) "
+            cell.lblReqDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(incomeMsg.requestDate!),formatOf: "dd MMM yyyy")
             cell.moreBtn.tag = indexPath.row
             cell.lblName.text = incomeMsg.employeeName
             cell.eyeBtn.tag = indexPath.row
@@ -241,14 +242,14 @@ extension MyReportsViewController : UITableViewDelegate,UITableViewDataSource,my
             cell.reportDelegate =  self
         case .expanse:
             let incomeMsg = self.expenseRequest[indexPath.row]
-            cell.lblTitle.text = " " + ((incomeMsg.department != nil) ? incomeMsg.department ?? "" : incomeMsg.project != nil ? incomeMsg.project ?? "" : NSLocalizedString("business", comment: "")) + " "
+            cell.lblTitle.text = incomeMsg.requestTitleDescription
             
             cell.startDateView.isHidden = true
             cell.endDateView.isHidden = true
             cell.lblStatus.text = incomeMsg.approvalStatusType ?? ""
-            cell.lblReqId.text = "\(incomeMsg._id ?? 0) "
-//            cell.lblReqDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(incomeMsg.recordDate!),formatOf: "dd MMM yyyy")
-            cell.lblReqDate.text = incomeMsg.recordDate!
+            cell.lblReqId.text = "\(incomeMsg.id ?? 0) "
+            cell.lblReqDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(incomeMsg.requestDate!),formatOf: "dd MMM yyyy")
+//            cell.lblReqDate.text = incomeMsg.requestDate!
             cell.moreBtn.tag = indexPath.row
             cell.lblName.text = incomeMsg.employeeName
             cell.eyeBtn.tag = indexPath.row
@@ -256,16 +257,16 @@ extension MyReportsViewController : UITableViewDelegate,UITableViewDataSource,my
             cell.reportDelegate =  self
         case .travel:
             let incomeMsg = self.travelRequest[indexPath.row]
-            cell.lblTitle.text = " " + ((incomeMsg.department != nil) ? incomeMsg.department ?? "" : incomeMsg.project ?? "") + " "
+            cell.lblTitle.text = "Business Type : " + (incomeMsg.businessType ?? "")
             cell.eyeBtn.tag = indexPath.row
             cell.eyeBtn.isHidden = true
             cell.startDateView.isHidden = true
             cell.endDateView.isHidden = true
-            cell.lblStartDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(incomeMsg.travelStartDate!),formatOf: "dd MMM yyyy")
-            cell.lblEndDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(incomeMsg.travelStartDate!),formatOf: "dd MMM yyyy")
+//            cell.lblStartDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(incomeMsg.travelStartDate!),formatOf: "dd MMM yyyy")
+//            cell.lblEndDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(incomeMsg.travelStartDate!),formatOf: "dd MMM yyyy")
             cell.lblStatus.text = incomeMsg.approvalStatusType ?? ""
-            cell.lblReqId.text = "\(incomeMsg._id ?? 0) "
-            cell.lblReqDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(incomeMsg.reqRaisedDate!),formatOf: "dd MMM yyyy")
+            cell.lblReqId.text = "\(incomeMsg.id ?? 0) "
+            cell.lblReqDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(incomeMsg.requestDate!),formatOf: "dd MMM yyyy")
             cell.moreBtn.tag = indexPath.row
             cell.lblName.text = incomeMsg.employeeName
             cell.eyeBtn.tag = indexPath.row
@@ -287,7 +288,7 @@ extension MyReportsViewController : UITableViewDelegate,UITableViewDataSource,my
         self.navigationController?.navigationBar.isHidden = false
         let incomeMsg = self.expenseRequest[sender]
         if (self.incomDelegate != nil){
-            self.incomDelegate?.expensereportsTracker(incomeMsg.expenseReimburseReqId!)
+            self.incomDelegate?.expensereportsTracker(incomeMsg.blendedRequestId!)
         }
     }
     
@@ -296,13 +297,13 @@ extension MyReportsViewController : UITableViewDelegate,UITableViewDataSource,my
         self.currentIndex = sender
         switch inboxviewType {
         case .advance:
-            self.incomDelegate?.reportsTracker(self.cashAdvanceRequest[sender].pettyCashRequestId!, reportViewType: .advance)
+            self.incomDelegate?.reportsTracker(self.cashAdvanceRequest[sender].blendedRequestId!, reportViewType: .advance)
             break
         case .expanse:
-            self.incomDelegate?.reportsTracker(self.expenseRequest[sender].expenseReimburseReqId!, reportViewType: .expanse)
+            self.incomDelegate?.reportsTracker(self.expenseRequest[sender].blendedRequestId!, reportViewType: .expanse)
             break
         case .travel:
-            self.incomDelegate?.reportsTracker(self.inboxList[sender].travelApprovalRequestId!, reportViewType: .travel)
+            self.incomDelegate?.reportsTracker(self.travelRequest[sender].id!, reportViewType: .travel)
             break
         }
         

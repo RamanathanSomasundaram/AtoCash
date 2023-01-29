@@ -44,7 +44,7 @@ open class TravelApprovalStatusTrackersAPI {
      - returns: RequestBuilder<[ApprovalStatusFlowVM]> 
      */
     open class func apiTravelApprovalStatusTrackersApprovalFlowForTravelRequestIdGetWithRequestBuilder(_id: Int) -> RequestBuilder<[ApprovalStatusFlowVM]> {
-        var path = "/api/TravelApprovalStatusTrackers/ApprovalFlowForTravelRequest/{id}"
+        var path = "/api/TravelApprovalStatusTrackers/ApprovalFlowForRequest/{id}"
         let _idPreEscape = "\(_id)"
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)

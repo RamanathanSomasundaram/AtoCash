@@ -8,6 +8,19 @@
 import Foundation
 
 
+public struct BusinessUnitDTO: Codable {
+    
+    public var businessTypeId: Int?
+    public var empId: String?
+    public init(businessTypeId: Int? = nil, empId: String? = nil) {
+        self.businessTypeId = businessTypeId
+        self.empId = empId
+    }
+    public enum CodingKeys: String, CodingKey {
+        case businessTypeId = "businessTypeId"
+        case empId = "empId"
+    }
+}
 
 public struct ProjectDTO: Codable {
 

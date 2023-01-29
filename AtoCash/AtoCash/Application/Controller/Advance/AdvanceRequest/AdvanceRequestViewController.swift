@@ -157,9 +157,9 @@ extension AdvanceRequestViewController : UITableViewDelegate,UITableViewDataSour
         cell.viewDetailBtn.setTitle(NSLocalizedString("track_status", comment: ""), for: .normal)
         let myRequest = self.getAdvanceRequests[indexPath.row]
         let request = NSLocalizedString("request_amt", comment: "")
-        cell.lblReqAmount.text = " \(request) \(myRequest.pettyClaimAmount!) "
-        cell.lblReqName.text = myRequest.pettyClaimRequestDesc
-        cell.lblReqDate.text =  UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(myRequest.cashReqDate!))
+        cell.lblReqAmount.text = " \(request) \(myRequest.cashAdvanceAmount!) "
+        cell.lblReqName.text = myRequest.cashAdvanceRequestDesc
+        cell.lblReqDate.text =  UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(myRequest.cashReqDate ?? Date()))
         cell.lblCurrency.text = myRequest.currencyType
         cell.editBtnAction.tag = indexPath.row
         cell.deleteAction.tag = indexPath.row
@@ -172,7 +172,8 @@ extension AdvanceRequestViewController : UITableViewDelegate,UITableViewDataSour
             cell.linkStatus.text = myRequest.project
         }
         else{
-            cell.linkStatus.text = myRequest.department ?? ""
+            let businessTitle = "Business Type: " + (myRequest.businessType ?? "") + "\n" + "Business unit: " + (myRequest.businessUnit ?? "") + "\n" + "Location: " + (myRequest.location ?? "")
+            cell.linkStatus.text = businessTitle
         }
         return cell
     }
@@ -191,7 +192,14 @@ extension AdvanceRequestViewController : UITableViewDelegate,UITableViewDataSour
     }
     
     func deleteDetailsTagAction(_ sender: Int) {
-        
+        let alert = UIAlertController(title: NSLocalizedString("delete", comment: ""), message: NSLocalizedString("delete_alert", comment: ""), preferredStyle: .alert)
+        let okAlert = UIAlertAction(title: NSLocalizedString("yes", comment: ""), style: .destructive) { (action) in
+            self.deleteCashRequest(deleteCenter: self.getAdvanceRequests[sender])
+        }
+        let cancelAlert = UIAlertAction(title: NSLocalizedString("no", comment: ""), style: .cancel, handler: nil)
+        alert.addAction(okAlert)
+        alert.addAction(cancelAlert)
+        self.present(alert, animated: true, completion: nil)
     }
     func viewDetailsTagAction(_ sender: Int) {
         let myRequest = self.getAdvanceRequests[sender]
@@ -200,6 +208,42 @@ extension AdvanceRequestViewController : UITableViewDelegate,UITableViewDataSour
         vc.trackStatusType = .advance
         vc.trackerRequestId = myRequest._id!
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    func deleteCashRequest(deleteCenter : PettyCashRequestDTO){
+        showLoader()
+        
+        PettyCashRequestsAPI.apiCashRequestsDeleteCashApprovalRequestIdDelete(_id: deleteCenter._id!) { (result, error) in
+            hideLoader()
+            if error == nil {
+                Loaf(NSLocalizedString("cash_request_delete", comment: ""), state: .success, location: .top, sender: self).show(.short, completionHandler: nil)
+                DispatchQueue.main.async {
+                    self.getAllSubmittedRequest()
+                }
+            }
+            else{
+                switch error as! ErrorResponse {
+                case .error(let code, let result, let message):
+                    print(code,result,message)
+                    if code == 401 {
+                        DefaultsManager.shared.accesstoken = ""
+                        DefaultsManager.shared.userRole = ""
+                        DefaultsManager.shared.isRemoved = false
+                        AppDelegate.shared.setupRootViewController()
+                    }
+                    else{
+                        do{
+                            let json = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String: AnyObject]
+                            Loaf((json["message"] as! String), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+                        }
+                        catch{
+                            Loaf(NSLocalizedString("somthing_wrong", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+                            print("json error \(error.localizedDescription)")
+                        }
+                    }
+                    
+                }
+            }
+        }
     }
 
 }

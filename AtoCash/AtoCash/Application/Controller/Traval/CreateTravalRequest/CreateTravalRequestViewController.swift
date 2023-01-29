@@ -8,6 +8,15 @@
 import UIKit
 
 class CreatetravelRequestViewController: UIViewController {
+    @IBOutlet weak var businessTypeView: UIView!
+    @IBOutlet weak var txtBusinessUnit: UITextField!
+    @IBOutlet weak var txtBusinessType: UITextField!
+    @IBOutlet weak var lblBusinessUnit: UILabel!
+    @IBOutlet weak var lblBusinessType: UILabel!
+    @IBOutlet weak var buinessUnitView: UIView!
+    @IBOutlet weak var txtBusinessLocation: UITextField!
+    @IBOutlet weak var lblBusinessLocation: UILabel!
+    @IBOutlet weak var businessLocationView: UIView!
 
     //UI Localization
     @IBOutlet weak var tStart: UILabel!
@@ -46,6 +55,12 @@ class CreatetravelRequestViewController: UIViewController {
     
     var viewDetailModel : TravelApprovalRequestDTO?
     
+    var businessTypeList = [BusinessTypeVM]()
+    var selectedBusinessType : BusinessTypeVM?
+    var businessUnitList = [BusinessUnitVM]()
+    var selectedBusinessUnit : BusinessUnitVM?
+    var selectedBusinessLocation : BusinessUnitLocationVM?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -61,6 +76,8 @@ class CreatetravelRequestViewController: UIViewController {
         
         self.txtStartDate.setupDateRightPadview()
         self.txtEndDate.setupDateRightPadview()
+        self.txtBusinessType.setupRightPadview()
+        self.txtBusinessUnit.setupRightPadview()
         self.txtStartDate.setInputViewPickerWithMin(target: self, selector: #selector(startDate))
         self.txtEndDate.setInputViewPickerWithMin(target: self, selector: #selector(endDate))
         if viewDetailModel == nil{
@@ -73,7 +90,21 @@ class CreatetravelRequestViewController: UIViewController {
             self.title = NSLocalizedString("edit_travel_title", comment: "")
             self.createBtn.setTitle(NSLocalizedString("update_btn", comment: ""), for: .normal)
             self.toggleSwitch.isOn = (viewDetailModel?.projectId != 0) && (viewDetailModel?.projectId != nil) ? true : false
+            
             self.setupViewHideShow()
+            if(!self.toggleSwitch.isOn){
+                self.toggleSwitch.isOn = false
+                self.projectBaseView.isHidden = true
+                self.txtBusinessType.text = viewDetailModel?.businessType
+                self.txtBusinessUnit.text = viewDetailModel?.businessUnit
+                self.txtBusinessLocation.text = viewDetailModel?.location
+                self.selectedBusinessType = BusinessTypeVM(_id: viewDetailModel?.businessTypeId,businessTypeName: viewDetailModel?.businessType)
+                self.selectedBusinessUnit = BusinessUnitVM(_id:viewDetailModel?.businessUnitId,businessUnitName: viewDetailModel?.businessUnit)
+                self.getBusinessLocation()
+                self.businessTypeView.isHidden = false
+                self.buinessUnitView.isHidden = false
+                self.businessLocationView.isHidden = false
+            }
             self.txtStartDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(viewDetailModel!.travelStartDate!),formatOf: "dd MMM yyyy")
             self.txtEndDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(viewDetailModel!.travelEndDate!),formatOf: "dd MMM yyyy")
             self.txtTravelPurpose.text = viewDetailModel!.travelPurpose
@@ -81,6 +112,7 @@ class CreatetravelRequestViewController: UIViewController {
             self.txtSubProject.text = viewDetailModel?.subProject ?? ""
             self.txtTask.text = viewDetailModel?.workTask ?? ""
         }
+        self.getBusinessTypeDropDown()
         self.getAllProjects()
         
     }
@@ -93,6 +125,9 @@ class CreatetravelRequestViewController: UIViewController {
     }
     
     private func setupUI(){
+        self.lblBusinessType.text = NSLocalizedString("businesstype", comment: "")
+        self.lblBusinessUnit.text = NSLocalizedString("businessunit", comment: "")
+        self.lblBusinessLocation.text = NSLocalizedString("location1", comment: "")
         tStart.text = NSLocalizedString("start_date", comment: "")
         cancelBtn.setTitle(NSLocalizedString("cancel", comment: ""), for: .normal)
         tWorktask.text = NSLocalizedString("work_task", comment: "")
@@ -209,7 +244,13 @@ class CreatetravelRequestViewController: UIViewController {
             }
         }
         else{
-            if txtStartDate.text == ""{
+            if selectedBusinessType == nil {
+                Loaf(NSLocalizedString("select_businesstype_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+            }
+            else if selectedBusinessUnit == nil{
+                Loaf(NSLocalizedString("select_businessunit_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+            }
+            else if txtStartDate.text == ""{
                 
                 Loaf(NSLocalizedString("start_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
             }
@@ -232,14 +273,14 @@ class CreatetravelRequestViewController: UIViewController {
         
         let end = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtEndDate.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
         if !self.toggleSwitch.isOn{
-            params = TravelApprovalRequestDTO(_id: 0, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, travelStartDate:start, travelEndDate: end, travelPurpose: self.txtTravelPurpose.text!, reqRaisedDate: nil, department: nil, departmentId: nil, projectId: nil, project: nil, subProjectId: nil, subProject: nil, workTaskId: nil, workTask: nil, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true)
+            params = TravelApprovalRequestDTO(_id: 0, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!,businessTypeId: self.selectedBusinessType?._id ?? 0,businessUnitId: self.selectedBusinessUnit?._id ?? 0, travelStartDate:start, travelEndDate: end, travelPurpose: self.txtTravelPurpose.text!, reqRaisedDate: nil, department: nil, departmentId: nil, projectId: nil, project: nil, subProjectId: nil, subProject: nil, workTaskId: nil, workTask: nil, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true)
         }
         else{
             let project = selectedProject == nil ? nil : self.selectedProject
             let subproject = selectSubproject == nil ? nil : self.selectSubproject
             let task = selectWorkTask == nil ? nil : self.selectWorkTask
             
-            params = TravelApprovalRequestDTO(_id: 0, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, travelStartDate: start, travelEndDate: end, travelPurpose: self.txtTravelPurpose.text!, reqRaisedDate: nil,  department: nil, departmentId: nil, projectId:  project == nil ? nil : project?._id, project: project == nil ? nil : project?.projectName, subProjectId: subproject == nil ? nil : subproject?._id, subProject:  subproject == nil ? nil : subproject?.subProjectName, workTaskId: task == nil ? nil : task?.id, workTask: task == nil ? nil : task?.taskName, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true)
+            params = TravelApprovalRequestDTO(_id: 0, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!,businessTypeId: nil,businessUnitId: nil, travelStartDate: start, travelEndDate: end, travelPurpose: self.txtTravelPurpose.text!, reqRaisedDate: nil,  department: nil, departmentId: nil, projectId:  project == nil ? nil : project?._id, project: project == nil ? nil : project?.projectName, subProjectId: subproject == nil ? nil : subproject?._id, subProject:  subproject == nil ? nil : subproject?.subProjectName, workTaskId: task == nil ? nil : task?.id, workTask: task == nil ? nil : task?.taskName, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true)
             
         }
         
@@ -286,14 +327,14 @@ class CreatetravelRequestViewController: UIViewController {
         let start = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtStartDate.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
         let end = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtEndDate.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
         if !self.toggleSwitch.isOn{
-            params = TravelApprovalRequestDTO(_id: self.viewDetailModel!._id!, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, travelStartDate: start, travelEndDate: end, travelPurpose: self.txtTravelPurpose.text!, reqRaisedDate: nil, department: nil, departmentId: nil, projectId: nil, project: nil, subProjectId: nil, subProject: nil, workTaskId: nil, workTask: nil, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true)
+            params = TravelApprovalRequestDTO(_id: self.viewDetailModel!._id!, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, businessTypeId: self.selectedBusinessType?._id ?? 0,businessUnitId: self.selectedBusinessUnit?._id ?? 0,travelStartDate: start, travelEndDate: end, travelPurpose: self.txtTravelPurpose.text!, reqRaisedDate: nil, department: nil, departmentId: nil, projectId: nil, project: nil, subProjectId: nil, subProject: nil, workTaskId: nil, workTask: nil, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true)
         }
         else{
             let project = selectedProject == nil ? nil : self.selectedProject
             let subproject = selectSubproject == nil ? nil : self.selectSubproject
             let task = selectWorkTask == nil ? nil : self.selectWorkTask
             
-            params = TravelApprovalRequestDTO(_id: self.viewDetailModel!._id!, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, travelStartDate: start, travelEndDate: end, travelPurpose: self.txtTravelPurpose.text!, reqRaisedDate: nil,  department: nil, departmentId: nil, projectId:  project == nil ? nil : project?._id, project: project == nil ? nil : project?.projectName, subProjectId: subproject == nil ? nil : subproject?._id, subProject:  subproject == nil ? nil : subproject?.subProjectName, workTaskId: task == nil ? nil : task?.id, workTask: task == nil ? nil : task?.taskName, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true)
+            params = TravelApprovalRequestDTO(_id: self.viewDetailModel!._id!, employeeId: Int(DefaultsManager.shared.userID!), employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!,businessTypeId: nil,businessUnitId: nil, travelStartDate: start, travelEndDate: end, travelPurpose: self.txtTravelPurpose.text!, reqRaisedDate: nil,  department: nil, departmentId: nil, projectId:  project == nil ? nil : project?._id, project: project == nil ? nil : project?.projectName, subProjectId: subproject == nil ? nil : subproject?._id, subProject:  subproject == nil ? nil : subproject?.subProjectName, workTaskId: task == nil ? nil : task?.id, workTask: task == nil ? nil : task?.taskName, approvalStatusTypeId: nil, approvalStatusType: nil, approvedDate: nil, showEditDelete: true)
             
         }
         TravelApprovalRequestsAPI.apiTravelApprovalRequestsPutTravelApprovalRequestIdPut(_id: self.viewDetailModel!._id!, body: params) { (result, error) in
@@ -333,7 +374,117 @@ class CreatetravelRequestViewController: UIViewController {
         }
     }
     
-    
+    private func getBusinessTypeDropDown(){
+        
+        showLoader()
+        
+        ProjectsAPI.apiBusinessTypeGet(completion: { (result, error) in
+            hideLoader()
+            if error == nil {
+                self.businessTypeList = result ?? []
+                if self.viewDetailModel == nil {
+                    self.selectedBusinessUnit = nil
+                    self.selectedBusinessLocation = nil
+                }
+                print("Business DropDown \(self.businessTypeList)")
+            }
+            else{
+                switch error as! ErrorResponse {
+                case .error(let code, let result, let message):
+                    print(code,result,message)
+                    if code == 401 {
+                        DefaultsManager.shared.accesstoken = ""
+                        DefaultsManager.shared.userRole = ""
+                        DefaultsManager.shared.isRemoved = false
+                        AppDelegate.shared.setupRootViewController()
+                    }
+                    else{
+                        do{
+                            let json = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String: AnyObject]
+                             Loaf((json["message"] as! String), state: .error,location: .top, sender: self).show(.short, completionHandler: nil)
+                        }
+                        catch{
+                            print("json error \(error.localizedDescription)")
+                        }
+                    }
+
+                }
+            }
+        })
+    }
+    private func getBusinessUnits(){
+        
+        showLoader()
+        self.businessLocationView.isHidden = true
+        ProjectsAPI.apiBusinessUnitPOST(body: BusinessUnitDTO(businessTypeId: self.selectedBusinessType?._id ?? 0,empId: DefaultsManager.shared.userID),completion: { (result, error) in
+            hideLoader()
+            if error == nil {
+                self.businessUnitList = result ?? []
+                if self.viewDetailModel == nil {
+                    self.selectedBusinessUnit = nil
+                    self.selectedBusinessLocation = nil
+                }
+                print("Business Units \(self.businessUnitList)")
+            }
+            else{
+                switch error as! ErrorResponse {
+                case .error(let code, let result, let message):
+                    print(code,result,message)
+                    if code == 401 {
+                        DefaultsManager.shared.accesstoken = ""
+                        DefaultsManager.shared.userRole = ""
+                        DefaultsManager.shared.isRemoved = false
+                        AppDelegate.shared.setupRootViewController()
+                    }
+                    else{
+                        do{
+                            let json = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String: AnyObject]
+                             Loaf((json["message"] as! String), state: .error,location: .top, sender: self).show(.short, completionHandler: nil)
+                        }
+                        catch{
+                            print("json error \(error.localizedDescription)")
+                        }
+                    }
+
+                }
+            }
+        })
+    }
+    private func getBusinessLocation(){
+        
+        showLoader()
+        
+        ProjectsAPI.apiBusinessUnitLocationGet(_id: self.selectedBusinessUnit?._id ?? 0, completion: {  (result, error) in
+            hideLoader()
+            if error == nil {
+                self.selectedBusinessLocation = result
+                self.txtBusinessLocation.text = result?.location ?? ""
+                print("business location \(self.selectedBusinessLocation)")
+            }
+            else{
+                switch error as! ErrorResponse {
+                case .error(let code, let result, let message):
+                    print(code,result,message)
+                    if code == 401 {
+                        DefaultsManager.shared.accesstoken = ""
+                        DefaultsManager.shared.userRole = ""
+                        DefaultsManager.shared.isRemoved = false
+                        AppDelegate.shared.setupRootViewController()
+                    }
+                    else{
+                        do{
+                            let json = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String: AnyObject]
+                             Loaf((json["message"] as! String), state: .error,location: .top, sender: self).show(.short, completionHandler: nil)
+                        }
+                        catch{
+                            print("json error \(error.localizedDescription)")
+                        }
+                    }
+
+                }
+            }
+        })
+    }
     private func getAllProjects(){
         
         showLoader()
@@ -453,10 +604,22 @@ class CreatetravelRequestViewController: UIViewController {
     
     func setupViewHideShow(){
         if !self.toggleSwitch.isOn{
+            self.businessTypeView.isHidden = false
+            self.buinessUnitView.isHidden = true
+            self.businessLocationView.isHidden = true
             self.projectBaseView.isHidden = true
         }
         else{
+            self.businessTypeView.isHidden = true
+            self.buinessUnitView.isHidden = true
+            self.businessLocationView.isHidden = true
             self.projectBaseView.isHidden = false
+            self.txtBusinessType.text = ""
+            self.txtBusinessUnit.text = ""
+            self.txtBusinessLocation.text = ""
+            self.selectedBusinessType = nil
+            self.selectedBusinessUnit = nil
+            self.selectedBusinessLocation = nil
         }
     }
     /*
@@ -472,7 +635,7 @@ class CreatetravelRequestViewController: UIViewController {
 }
 extension CreatetravelRequestViewController : UITextFieldDelegate, UITextViewDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-    
+        let searchPlace = NSLocalizedString("search", comment: "")
         if textField == txtProjectId{
             var projectTitle = [String]()
             for dropDown in self.projectList{
@@ -604,6 +767,94 @@ extension CreatetravelRequestViewController : UITextFieldDelegate, UITextViewDel
             }
             // show searchbar with placeholder and barTintColor
             selectionMenu.showSearchBar(withPlaceHolder: NSLocalizedString("search", comment: ""), barTintColor: UIColor.init(named: "NavBar")!.withAlphaComponent(0.2)) { (searchText) -> ([String]) in
+
+                return simpleArray.filter({ $0.lowercased().contains(searchText.lowercased()) })
+            }
+            selectionMenu.show(style: .popover(sourceView: textField, size: CGSize(width: textField.frame.size.width, height: 230)), from: self)
+            
+            return false
+        }
+        if textField == txtBusinessType{
+            var projectTitle = [String]()
+            for dropDown in self.businessTypeList{
+                projectTitle.append("\(dropDown.businessTypeName ?? "")")
+            }
+            
+            let simpleArray: [String] = projectTitle
+            var simpleSelectedArray: [String] = selectedBusinessType == nil ? [] : ["\(selectedBusinessType!.businessTypeName ?? "")"]
+            let selectionMenu = RSSelectionMenu(dataSource: simpleArray) { (cell, item, indexPath) in
+                cell.textLabel?.text = item
+                cell.separatorInset = .zero
+                cell.textLabel?.font = UIFont(name: "SFUIDisplay-Light", size: 15.0)
+                cell.layoutMargins = .zero
+            }
+            if (textField.text != nil) {
+                simpleSelectedArray = [textField.text] as! [String]
+            }
+            selectionMenu.setSelectedItems(items: simpleSelectedArray) {(item, index, isSelected, selectedItems) in
+                textField.text = item!
+                for drop in self.businessTypeList{
+                    if "\(drop.businessTypeName ?? "")" == item!{
+                        self.selectedBusinessType = drop
+                        self.txtBusinessUnit.text = ""
+                        self.txtBusinessLocation.text = ""
+                        self.buinessUnitView.isHidden = false
+                        self.getBusinessUnits()
+                        break
+                    }
+                }
+                
+            }
+            if #available(iOS 13.0, *) {
+                selectionMenu.searchBar?.searchTextField.textColor = .white
+            } else {
+                // Fallback on earlier versions
+            }
+            // show searchbar with placeholder and barTintColor
+            selectionMenu.showSearchBar(withPlaceHolder: searchPlace, barTintColor: UIColor.init(named: "NavBar")!.withAlphaComponent(0.2)) { (searchText) -> ([String]) in
+
+                return simpleArray.filter({ $0.lowercased().contains(searchText.lowercased()) })
+            }
+            selectionMenu.show(style: .popover(sourceView: textField, size: CGSize(width: textField.frame.size.width, height: 230)), from: self)
+            
+            return false
+        }
+        if textField == txtBusinessUnit{
+            var projectTitle = [String]()
+            for dropDown in self.businessUnitList{
+                projectTitle.append("\(dropDown.businessUnitName ?? "")")
+            }
+            
+            let simpleArray: [String] = projectTitle
+            var simpleSelectedArray: [String] = selectedBusinessUnit == nil ? [] : ["\(selectedBusinessUnit!.businessUnitName ?? "")"]
+            let selectionMenu = RSSelectionMenu(dataSource: simpleArray) { (cell, item, indexPath) in
+                cell.textLabel?.text = item
+                cell.separatorInset = .zero
+                cell.textLabel?.font = UIFont(name: "SFUIDisplay-Light", size: 15.0)
+                cell.layoutMargins = .zero
+            }
+            if (textField.text != nil) {
+                simpleSelectedArray = [textField.text] as! [String]
+            }
+            selectionMenu.setSelectedItems(items: simpleSelectedArray) {(item, index, isSelected, selectedItems) in
+                textField.text = item!
+                for drop in self.businessUnitList{
+                    if "\(drop.businessUnitName ?? "")" == item!{
+                        self.selectedBusinessUnit = drop
+                        self.businessLocationView.isHidden = false
+                        self.getBusinessLocation()
+                        break
+                    }
+                }
+                
+            }
+            if #available(iOS 13.0, *) {
+                selectionMenu.searchBar?.searchTextField.textColor = .white
+            } else {
+                // Fallback on earlier versions
+            }
+            // show searchbar with placeholder and barTintColor
+            selectionMenu.showSearchBar(withPlaceHolder: searchPlace, barTintColor: UIColor.init(named: "NavBar")!.withAlphaComponent(0.2)) { (searchText) -> ([String]) in
 
                 return simpleArray.filter({ $0.lowercased().contains(searchText.lowercased()) })
             }

@@ -14,6 +14,11 @@ public struct ClaimApprovalStatusTrackerDTO: Codable {
     public var _id: Int?
     public var employeeId: Int?
     public var employeeName: String?
+    public var businessTypeId: Int?
+    public var businessUnitId: Int?
+    public var businessType: String?
+    public var businessUnit: String?
+    public var location: String?
     public var pettyCashRequestId: Int?
     public var departmentId: Int?
     public var departmentName: String?
@@ -33,10 +38,12 @@ public struct ClaimApprovalStatusTrackerDTO: Codable {
     public var approvalStatusType: String?
     public var comments: String?
 
-    public init(_id: Int? = nil, employeeId: Int? = nil, employeeName: String? = nil, pettyCashRequestId: Int? = nil, departmentId: Int? = nil, departmentName: String? = nil, projectId: Int? = nil, projectName: String? = nil, subProjectId: Int? = nil, subProjectName: String? = nil, workTaskId: Int? = nil, workTask: String? = nil, approvalGroupId: Int? = nil, roleId: Int? = nil, jobRole: String? = nil, approvalLevelId: Int? = nil, reqDate: Date? = nil, finalApprovedDate: Date? = nil, approvalStatusTypeId: Int? = nil, approvalStatusType: String? = nil, comments: String? = nil) {
+    public init(_id: Int? = nil, employeeId: Int? = nil, employeeName: String? = nil,businessTypeId: Int? = nil,businessUnitId: Int? = nil, pettyCashRequestId: Int? = nil, departmentId: Int? = nil, departmentName: String? = nil, projectId: Int? = nil, projectName: String? = nil, subProjectId: Int? = nil, subProjectName: String? = nil, workTaskId: Int? = nil, workTask: String? = nil, approvalGroupId: Int? = nil, roleId: Int? = nil, jobRole: String? = nil, approvalLevelId: Int? = nil, reqDate: Date? = nil, finalApprovedDate: Date? = nil, approvalStatusTypeId: Int? = nil, approvalStatusType: String? = nil, comments: String? = nil) {
         self._id = _id
         self.employeeId = employeeId
         self.employeeName = employeeName
+        self.businessTypeId = businessTypeId
+        self.businessUnitId = businessUnitId
         self.pettyCashRequestId = pettyCashRequestId
         self.departmentId = departmentId
         self.departmentName = departmentName
@@ -61,6 +68,11 @@ public struct ClaimApprovalStatusTrackerDTO: Codable {
         case _id = "id"
         case employeeId
         case employeeName
+        case businessTypeId
+        case businessUnitId
+        case businessType
+        case businessUnit
+        case location
         case pettyCashRequestId
         case departmentId
         case departmentName
@@ -74,7 +86,7 @@ public struct ClaimApprovalStatusTrackerDTO: Codable {
         case roleId
         case jobRole
         case approvalLevelId
-        case reqDate
+        case reqDate = "requestDate"
         case finalApprovedDate
         case approvalStatusTypeId
         case approvalStatusType

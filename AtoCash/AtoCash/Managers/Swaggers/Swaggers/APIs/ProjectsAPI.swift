@@ -48,6 +48,67 @@ open class ProjectsAPI {
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
+    
+    /**
+
+     - parameter _id: (path)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func apiBusinessTypeGet(completion: @escaping ((_ data: [BusinessTypeVM]?,_ error: Error?) -> Void)) {
+        apiBusinessTypeGetWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+    open class func apiBusinessTypeGetWithRequestBuilder() -> RequestBuilder<[BusinessTypeVM]> {
+        var path = "/api/BusinessTypes/BusinessTypesForDropdown"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        let url = URLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<[BusinessTypeVM]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+    
+    //api/BusinessUnits/GetBusinessUnit/
+    open class func apiBusinessUnitLocationGet(_id: Int,completion: @escaping ((_ data: BusinessUnitLocationVM?,_ error: Error?) -> Void)) {
+        apiBusinessUnitLocationGetWithRequestBuilder(_id: _id).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+    open class func apiBusinessUnitLocationGetWithRequestBuilder(_id: Int) -> RequestBuilder<BusinessUnitLocationVM> {
+        var path = "/api/BusinessUnits/GetBusinessUnit/{id}"
+        let _idPreEscape = "\(_id)"
+        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        let url = URLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<BusinessUnitLocationVM>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+ 
+    open class func apiBusinessUnitPOST(body: BusinessUnitDTO? = nil, completion: @escaping ((_ data: [BusinessUnitVM]?,_ error: Error?) -> Void)) {
+        apiBusinessUnitPOSTWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+    
+    open class func apiBusinessUnitPOSTWithRequestBuilder(body: BusinessUnitDTO? = nil) -> RequestBuilder<[BusinessUnitVM]> {
+            let path = "/api/BusinessUnits/BusinessUnitsByBizTypeIdAndEmpIdForDropdown"
+            let URLString = SwaggerClientAPI.basePath + path
+            let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+            let url = URLComponents(string: URLString)
+
+
+            let requestBuilder: RequestBuilder<[BusinessUnitVM]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+            return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        }
     /**
 
      - parameter _id: (path)  

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -32,9 +32,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qo-Fh-0Z5">
-                                <rect key="frame" x="238.5" y="165.5" width="41.5" height="20"/>
+                                <rect key="frame" x="290" y="165.5" width="0.0" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="NL0-iJ-1D6"/>
+                                    <constraint firstAttribute="width" id="YdT-pf-TQx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,7 +65,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZz-TL-I0g">
-                                <rect key="frame" x="218.5" y="143" width="15" height="15"/>
+                                <rect key="frame" x="275" y="143" width="15" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="YQQ-nC-wab"/>
@@ -79,7 +80,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSq-WW-lMp">
-                                <rect key="frame" x="35" y="145" width="178.5" height="61"/>
+                                <rect key="frame" x="35" y="145" width="235" height="61"/>
                                 <string key="text">Label
 dcdc
 cdfc</string>
@@ -120,7 +121,7 @@ cdfc</string>
                             <constraint firstItem="JSq-WW-lMp" firstAttribute="centerY" secondItem="4Qo-Fh-0Z5" secondAttribute="centerY" id="GkT-XH-DmF"/>
                             <constraint firstItem="JSq-WW-lMp" firstAttribute="leading" secondItem="4Tm-UG-Tkr" secondAttribute="trailing" constant="5" id="IcH-Y0-gsu"/>
                             <constraint firstItem="bJr-X1-ZGd" firstAttribute="leading" secondItem="3nF-Yc-vIc" secondAttribute="leading" constant="10" id="M5q-EB-vqE"/>
-                            <constraint firstAttribute="trailing" secondItem="4Qo-Fh-0Z5" secondAttribute="trailing" constant="20" id="MkR-e4-Ti8"/>
+                            <constraint firstAttribute="trailing" secondItem="4Qo-Fh-0Z5" secondAttribute="trailing" constant="10" id="MkR-e4-Ti8"/>
                             <constraint firstItem="4Tm-UG-Tkr" firstAttribute="leading" secondItem="3nF-Yc-vIc" secondAttribute="leading" constant="10" id="PWO-8I-DED"/>
                             <constraint firstItem="JSq-WW-lMp" firstAttribute="top" secondItem="SQi-rb-P7t" secondAttribute="bottom" constant="10" id="eAx-KB-bcg"/>
                             <constraint firstItem="OlI-cK-nKR" firstAttribute="top" secondItem="3nF-Yc-vIc" secondAttribute="top" constant="10" id="eFv-ii-Adq"/>
@@ -129,7 +130,7 @@ cdfc</string>
                             <constraint firstItem="O1m-N4-GwD" firstAttribute="top" secondItem="3nF-Yc-vIc" secondAttribute="top" constant="30" id="one-fh-Be6"/>
                             <constraint firstAttribute="bottom" secondItem="JSq-WW-lMp" secondAttribute="bottom" constant="10" id="orR-RQ-Rj0"/>
                             <constraint firstItem="lZz-TL-I0g" firstAttribute="leading" secondItem="JSq-WW-lMp" secondAttribute="trailing" constant="5" id="tlP-rq-EDt"/>
-                            <constraint firstItem="4Qo-Fh-0Z5" firstAttribute="leading" secondItem="lZz-TL-I0g" secondAttribute="trailing" constant="5" id="uf2-XD-m0S"/>
+                            <constraint firstItem="4Qo-Fh-0Z5" firstAttribute="leading" secondItem="lZz-TL-I0g" secondAttribute="trailing" id="uf2-XD-m0S"/>
                             <constraint firstItem="O1m-N4-GwD" firstAttribute="leading" secondItem="3nF-Yc-vIc" secondAttribute="leading" constant="10" id="vHE-s7-RiR"/>
                         </constraints>
                     </view>

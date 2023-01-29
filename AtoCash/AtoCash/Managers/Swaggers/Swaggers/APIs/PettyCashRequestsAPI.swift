@@ -35,7 +35,7 @@ open class PettyCashRequestsAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func apiPettyCashRequestsCountAllPettyCashRequestRaisedByEmployeeIdGetWithRequestBuilder(_id: Int) -> RequestBuilder<RequestCountModel> {
-        var path = "/api/PettyCashRequests/CountAllPettyCashRequestRaisedByEmployee/{id}"
+        var path = "/api/CashAdvanceRequests/CountAllCashAdvanceRequestRaisedByEmployee/{id}"
         let _idPreEscape = "\(_id)"
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
@@ -73,7 +73,7 @@ open class PettyCashRequestsAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func apiPettyCashRequestsDeletePettyCashRequestIdDeleteWithRequestBuilder(_id: Int) -> RequestBuilder<Void> {
-        var path = "/api/PettyCashRequests/DeletePettyCashRequest/{id}"
+        var path = "/api/CashAdvanceRequests/DeletePettyCashRequest/{id}"
         let _idPreEscape = "\(_id)"
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
@@ -106,7 +106,7 @@ open class PettyCashRequestsAPI {
      - returns: RequestBuilder<Int> 
      */
     open class func apiPettyCashRequestsGetPettyCashReqInPendingForAllGetWithRequestBuilder() -> RequestBuilder<Int> {
-        let path = "/api/PettyCashRequests/GetPettyCashReqInPendingForAll"
+        let path = "/api/CashAdvanceRequests/GetPettyCashReqInPendingForAll"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         let url = URLComponents(string: URLString)
@@ -160,7 +160,7 @@ open class PettyCashRequestsAPI {
      - returns: RequestBuilder<PettyCashRequestDTO> 
      */
     open class func apiPettyCashRequestsGetPettyCashRequestIdGetWithRequestBuilder(_id: Int) -> RequestBuilder<PettyCashRequestDTO> {
-        var path = "/api/PettyCashRequests/GetPettyCashRequest/{id}"
+        var path = "/api/CashAdvanceRequests/GetCashAdvanceRequest/{id}"
         let _idPreEscape = "\(_id)"
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
@@ -172,6 +172,44 @@ open class PettyCashRequestsAPI {
         let requestBuilder: RequestBuilder<PettyCashRequestDTO>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+    /**
+
+     - parameter _id: (path)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func apiCashRequestsDeleteCashApprovalRequestIdDelete(_id: Int, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        apiCashApprovalRequestsDeleteCashApprovalRequestIdDeleteWithRequestBuilder(_id: _id).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - DELETE /api/TravelApprovalRequests/DeleteTravelApprovalRequest/{id}
+     -
+
+     - parameter _id: (path)
+
+     - returns: RequestBuilder<Void>
+     */
+    open class func apiCashApprovalRequestsDeleteCashApprovalRequestIdDeleteWithRequestBuilder(_id: Int) -> RequestBuilder<Void> {
+        var path = "/api/CashAdvanceRequests/DeleteCashAdvanceRequest/{id}"
+        let _idPreEscape = "\(_id)"
+        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        let url = URLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
     /**
 
@@ -239,7 +277,7 @@ open class PettyCashRequestsAPI {
      - returns: RequestBuilder<[PettyCashRequestDTO]> 
      */
     open class func apiPettyCashRequestsGetPettyCashRequestRaisedForEmployeeIdGetWithRequestBuilder(_id: Int) -> RequestBuilder<[PettyCashRequestDTO]> {
-        var path = "/api/PettyCashRequests/GetPettyCashRequestRaisedForEmployee/{id}"
+        var path = "/api/CashAdvanceRequests/GetCashAdvanceRequestRaisedForEmployee/{id}"
         let _idPreEscape = "\(_id)"
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
@@ -316,7 +354,7 @@ open class PettyCashRequestsAPI {
      - returns: RequestBuilder<[PettyCashRequestDTO]> 
      */
     open class func apiPettyCashRequestsGetPettyCashRequestsGetWithRequestBuilder() -> RequestBuilder<[PettyCashRequestDTO]> {
-        let path = "/api/PettyCashRequests/GetPettyCashRequests"
+        let path = "/api/CashAdvanceRequests/GetPettyCashRequests"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         let url = URLComponents(string: URLString)
@@ -387,7 +425,7 @@ open class PettyCashRequestsAPI {
      - returns: RequestBuilder<PettyCashRequest> 
      */
     open class func apiPettyCashRequestsPostPettyCashRequestPostWithRequestBuilder(body: PettyCashRequestDTO? = nil) -> RequestBuilder<SuccessModel> {
-        let path = "/api/PettyCashRequests/PostPettyCashRequest"
+        let path = "/api/CashAdvanceRequests/PostCashAdvanceRequest"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
         let url = URLComponents(string: URLString)
@@ -424,7 +462,7 @@ open class PettyCashRequestsAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func apiPettyCashRequestsPutPettyCashRequestIdPutWithRequestBuilder(_id: Int, body: PettyCashRequestDTO? = nil) -> RequestBuilder<Void> {
-        var path = "/api/PettyCashRequests/PutPettyCashRequest/{id}"
+        var path = "/api/CashAdvanceRequests/PutCashAdvanceRequest/{id}"
         let _idPreEscape = "\(_id)"
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)

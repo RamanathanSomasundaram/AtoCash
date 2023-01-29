@@ -199,7 +199,7 @@ class LoginViewController: UIViewController {
             //self.txtErrorPass.isHidden = true
             let concat = self.txtUserName.text?.components(separatedBy: "@")[1].components(separatedBy: ".")
             //fwserver
-            let serverAddress = "foodunitco" == (concat?.first ?? "") ? "fwserver" : (concat?.first ?? "")
+            let serverAddress = "foodunitco" == (concat?.first ?? "") || "gmail" == (concat?.first ?? "") ? "fwserver" : (concat?.first ?? "")
             DefaultsManager.shared.baseLink = serverAddress
             BASEURL = "https://" + (serverAddress) + concatBaseURL
             loginAPI()
@@ -256,17 +256,33 @@ class LoginViewController: UIViewController {
                     if let userList = (responseModel.role){
                         DefaultsManager.shared.userRolesList = userList
                         
-                        if(userList.contains("Admin") || userList.contains("AtominosAdmin")){
-                            DefaultsManager.shared.userRole = "Admin"
-                        }
-                        else if(userList.contains("Finmgr")){
-                            DefaultsManager.shared.userRole = "FinManager"
-                        }
-                        else if( userList.contains("Manager")){
-                            DefaultsManager.shared.userRole = "Manager"
+                        if(userList.count == 1){
+                            
+                            if(userList.contains("Admin") || userList.contains("AtominosAdmin")){
+                                DefaultsManager.shared.userRole = "Admin"
+                            }
+                            else if(userList.contains("Finmgr")){
+                                DefaultsManager.shared.userRole = "FinManager"
+                            }
+                            else if( userList.contains("Manager")){
+                                DefaultsManager.shared.userRole = "Manager"
+                            }
+                            else {
+                                DefaultsManager.shared.userRole = "User"
+                            }
                         }
                         else{
-                            DefaultsManager.shared.userRole = "User"
+                            if(userList.contains("Finmgr")){
+                                DefaultsManager.shared.userRole = "FinManager"
+                            }
+                            else if( userList.contains("Manager")){
+                                DefaultsManager.shared.userRole = "Manager"
+                            }
+                            else if(userList.contains("Admin") || userList.contains("AtominosAdmin")){
+                                DefaultsManager.shared.userRole = "Admin"
+                            }else{
+                                DefaultsManager.shared.userRole = "User"
+                            }
                         }
                     }
                     DefaultsManager.shared.fName = responseModel.firstName

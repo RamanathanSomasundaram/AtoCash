@@ -7,17 +7,20 @@
 
 import Foundation
 
-
-
 public struct PettyCashRequestDTO: Codable {
 
     public var _id: Int?
     public var employeeName: String?
     public var employeeId: Int?
+    public var businessTypeId: Int?
+    public var businessUnitId: Int?
+    public var businessType: String?
+    public var businessUnit: String?
+    public var location: String?
     public var currencyType: String?
     public var currencyTypeId: Int?
-    public var pettyClaimAmount: Double?
-    public var pettyClaimRequestDesc: String?
+    public var cashAdvanceAmount: Double?
+    public var cashAdvanceRequestDesc: String?
     public var cashReqDate: Date?
     public var department: String?
     public var departmentId: Int?
@@ -33,14 +36,16 @@ public struct PettyCashRequestDTO: Codable {
     public var showEditDelete: Bool?
     public var comments: String?
 
-    public init(_id: Int? = nil, employeeName: String? = nil, employeeId: Int? = nil, currencyType: String? = nil, currencyTypeId: Int? = nil, pettyClaimAmount: Double? = nil, pettyClaimRequestDesc: String? = nil, cashReqDate: Date? = nil, department: String? = nil, departmentId: Int? = nil, project: String? = nil, projectId: Int? = nil, subProject: String? = nil, subProjectId: Int? = nil, workTask: String? = nil, workTaskId: Int? = nil, approvalStatusType: String? = nil, approvalStatusTypeId: Int? = nil, approvedDate: Date? = nil, showEditDelete: Bool? = nil, comments: String? = nil) {
+    public init(_id: Int? = nil, employeeName: String? = nil, employeeId: Int? = nil,businessTypeId: Int? = nil,businessUnitId: Int? = nil, currencyType: String? = nil, currencyTypeId: Int? = nil, pettyClaimAmount: Double? = nil, pettyClaimRequestDesc: String? = nil, cashReqDate: Date? = nil, department: String? = nil, departmentId: Int? = nil, project: String? = nil, projectId: Int? = nil, subProject: String? = nil, subProjectId: Int? = nil, workTask: String? = nil, workTaskId: Int? = nil, approvalStatusType: String? = nil, approvalStatusTypeId: Int? = nil, approvedDate: Date? = nil, showEditDelete: Bool? = nil, comments: String? = nil) {
         self._id = _id
         self.employeeName = employeeName
         self.employeeId = employeeId
+        self.businessTypeId = businessTypeId
+        self.businessUnitId = businessUnitId
         self.currencyType = currencyType
         self.currencyTypeId = currencyTypeId
-        self.pettyClaimAmount = pettyClaimAmount
-        self.pettyClaimRequestDesc = pettyClaimRequestDesc
+        self.cashAdvanceAmount = pettyClaimAmount
+        self.cashAdvanceRequestDesc = pettyClaimRequestDesc
         self.cashReqDate = cashReqDate
         self.department = department
         self.departmentId = departmentId
@@ -61,11 +66,16 @@ public struct PettyCashRequestDTO: Codable {
         case _id = "id"
         case employeeName
         case employeeId
+        case businessTypeId
+        case businessUnitId
+        case businessType
+        case businessUnit
+        case location
         case currencyType
         case currencyTypeId
-        case pettyClaimAmount
-        case pettyClaimRequestDesc
-        case cashReqDate
+        case cashAdvanceAmount
+        case cashAdvanceRequestDesc
+        case cashReqDate = "requestDate"
         case department
         case departmentId
         case project
@@ -76,7 +86,7 @@ public struct PettyCashRequestDTO: Codable {
         case workTaskId
         case approvalStatusType
         case approvalStatusTypeId
-        case approvedDate
+        case approvedDate = "approverActionDate"
         case showEditDelete
         case comments
     }

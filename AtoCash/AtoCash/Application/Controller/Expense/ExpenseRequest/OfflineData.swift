@@ -10,6 +10,9 @@ import UIKit
 
 struct offlineData : Codable {
     var expenseTitle : String?
+    var businessType : BusinessTypeVM?
+    var businessUnit : BusinessUnitVM?
+    var businessLocation : BusinessUnitLocationVM?
     var project : ProjectVM?
     var subProjct : SubProjectVM?
     var task : TaskModel?
@@ -20,9 +23,12 @@ struct offlineData : Codable {
     var isBusiness : Bool?
     var isDepart : Bool?
     
-    init(expenseTitle : String?,project : ProjectVM? ,subProjct : SubProjectVM?,task : TaskModel?,empId : Int?,totalAmount : Double?,expenseDate : Date?,itemsList : [addItemInfo]?, isBusiness : Bool = false, isDepart : Bool = false ){
+    init(expenseTitle : String?,businessType: BusinessTypeVM? ,businessUnit: BusinessUnitVM?,businessLocation: BusinessUnitLocationVM? = nil,project : ProjectVM? ,subProjct : SubProjectVM?,task : TaskModel?,empId : Int?,totalAmount : Double?,expenseDate : Date?,itemsList : [addItemInfo]?, isBusiness : Bool = false, isDepart : Bool = false ){
         self.expenseTitle = expenseTitle
         self.project = project
+        self.businessType = businessType
+        self.businessUnit = businessUnit
+        self.businessLocation = businessLocation
         self.subProjct = subProjct
         self.task = task
         self.empId = empId
@@ -36,6 +42,9 @@ struct offlineData : Codable {
     enum CodingKeys: String, CodingKey,CaseIterable {
         
         case expenseTitle
+        case businessType
+        case businessUnit
+        case businessLocation
         case project
         case subProjct
         case task
@@ -51,6 +60,9 @@ struct offlineData : Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         expenseTitle = try values.decodeIfPresent(String.self, forKey: .expenseTitle)
         project = try values.decodeIfPresent(ProjectVM.self, forKey: .project)
+        businessUnit = try values.decodeIfPresent(BusinessUnitVM.self, forKey: .businessUnit)
+        businessType = try values.decodeIfPresent(BusinessTypeVM.self, forKey: .businessType)
+        businessLocation = try values.decodeIfPresent(BusinessUnitLocationVM.self, forKey: .businessLocation)
         subProjct = try values.decodeIfPresent(SubProjectVM.self, forKey: .subProjct)
         task = try values.decodeIfPresent(TaskModel.self, forKey: .task)
         empId = try values.decodeIfPresent(Int.self, forKey: .empId)

@@ -129,16 +129,36 @@ open class ExpenseSubClaimsAPI {
         }
     }
         open class func apiExpenseIsBusinessGetWithRequestBuilder(_isBusiness: Bool) -> RequestBuilder<[ExpenseBusinessDTO]> {
-            var path = "/api/ExpenseCategories/GetSelectedExpenseCategoriesForDropdown?isBussCategory={isBusiness}"
-            let _idPreEscape = "\(_isBusiness)"
-            let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-            path = path.replacingOccurrences(of: "{isBusiness}", with: _idPostEscape, options: .literal, range: nil)
+            var path = "/api/ExpenseCategories/GetSelectedExpenseCategoriesForDropdown"
+//            let _idPreEscape = "\(_isBusiness)"
+//            let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+//            path = path.replacingOccurrences(of: "{isBusiness}", with: _idPostEscape, options: .literal, range: nil)
             let URLString = SwaggerClientAPI.basePath + path
             let parameters: [String:Any]? = nil
             let url = URLComponents(string: URLString)
 
 
             let requestBuilder: RequestBuilder<[ExpenseBusinessDTO]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+            return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        }
+    
+    open class func apiExpenseVendorDropDownGet(completion: @escaping ((_ data: [ExpenseVendorDTO]?,_ error: Error?) -> Void)) {
+        apiExpenseVendorGetWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+        open class func apiExpenseVendorGetWithRequestBuilder() -> RequestBuilder<[ExpenseVendorDTO]> {
+            var path = "/api/Vendors/VendorsForDropdown"
+//            let _idPreEscape = "\(_isBusiness)"
+//            let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+//            path = path.replacingOccurrences(of: "{isBusiness}", with: _idPostEscape, options: .literal, range: nil)
+            let URLString = SwaggerClientAPI.basePath + path
+            let parameters: [String:Any]? = nil
+            let url = URLComponents(string: URLString)
+
+
+            let requestBuilder: RequestBuilder<[ExpenseVendorDTO]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
             return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
         }

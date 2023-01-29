@@ -45,6 +45,18 @@ public struct ExpenseBusinessDTO: Codable{
         case expenseCategoryName
     }
 }
+public struct ExpenseVendorDTO: Codable{
+    public var _id: Int?
+    public var vendorName: String?
+    public init(_id: Int? = nil, vendorName: String? = nil){
+        self._id = _id
+        self.vendorName = vendorName
+    }
+    public enum CodingKeys: String, CodingKey {
+        case _id = "id"
+        case vendorName
+    }
+}
 /*
  [{"expenseCategoryId":101,"invoiceNo":"1234","invoiceDate":"2022-12-10T20:00:01.166Z","expenseTypeId":1001,"expenseReimbClaimAmount":100,"location":"Madurai","vendor":"taj","description":"Madurai","taxNo":"12345","NoOfDaysDate":["2022-11-08T20:00:16.953Z","2022-12-08T20:00:16.953Z"],"isVAT":true,"tax":15,"taxAmount":15,"expStrtDate":"2022-11-08T20:00:16.953Z","expEndDate":"2022-12-08T20:00:16.953Z","expNoOfDays":31,"documentIds":"45"}]
  */
@@ -86,10 +98,15 @@ public struct ExpenseSubClaimDTO: Codable {
     public var expStrtDate: Date?
     public var expEndDate: Date?
     public var expNoOfDays: Int?
+    public var vendorId: Int?
+    public var additionalVendor: String?
+    public var costCenterId: Int?
+    public var costCenter: String?
+    
     
     
 
-    public init(_id: Int? = nil, employeeName: String? = nil, employeeId: Int? = nil, expenseReimbClaimAmount: Double? = nil, documentIDs: String? = nil, expReimReqDate: Date? = nil, invoiceNo: String? = nil, invoiceDate: Date? = nil, tax: Float? = nil, taxAmount: Double? = nil, vendor: String? = nil, location: String? = nil, _description: String? = nil, currencyTypeId: Int? = nil, currencyType: String? = nil, expenseTypeId: Int? = nil, expenseType: String? = nil, department: String? = nil, departmentId: Int? = nil, project: String? = nil, projectId: Int? = nil, subProject: String? = nil, subProjectId: Int? = nil, workTask: String? = nil, workTaskId: Int? = nil, approvalStatusType: String? = nil, approvalStatusTypeId: Int? = nil, approvedDate: Date? = nil, expenseCategoryId: Int? = nil,taxNo: String? = nil, NoOfDaysDate: [Date?]? = nil,isVAT: Bool? = nil,expStrtDate: Date? = nil,expEndDate: Date? = nil, expNoOfDays: Int?) {
+    public init(_id: Int? = nil, employeeName: String? = nil, employeeId: Int? = nil, expenseReimbClaimAmount: Double? = nil, documentIDs: String? = nil, expReimReqDate: Date? = nil, invoiceNo: String? = nil, invoiceDate: Date? = nil, tax: Float? = nil, taxAmount: Double? = nil, vendor: String? = nil, location: String? = nil, _description: String? = nil, currencyTypeId: Int? = nil, currencyType: String? = nil, expenseTypeId: Int? = nil, expenseType: String? = nil, department: String? = nil, departmentId: Int? = nil, project: String? = nil, projectId: Int? = nil, subProject: String? = nil, subProjectId: Int? = nil, workTask: String? = nil, workTaskId: Int? = nil, approvalStatusType: String? = nil, approvalStatusTypeId: Int? = nil, approvedDate: Date? = nil, expenseCategoryId: Int? = nil,taxNo: String? = nil, NoOfDaysDate: [Date?]? = nil,isVAT: Bool? = nil,expStrtDate: Date? = nil,expEndDate: Date? = nil, expNoOfDays: Int?,vendorId: Int?,additionalVendor: String?) {
         self._id = _id
         self.employeeName = employeeName
         self.employeeId = employeeId
@@ -125,6 +142,8 @@ public struct ExpenseSubClaimDTO: Codable {
         self.expStrtDate = expStrtDate
         self.expEndDate = expEndDate
         self.expNoOfDays = expNoOfDays
+        self.vendorId = vendorId
+        self.additionalVendor =  additionalVendor
     }
 
     public enum CodingKeys: String, CodingKey { 
@@ -161,9 +180,14 @@ public struct ExpenseSubClaimDTO: Codable {
         case taxNo
         case NoOfDaysDate
         case isVAT
-        case expStrtDate
-        case expEndDate
+        case expStrtDate = "expStrtDate"
+        case expEndDate = "expEndDate"
         case expNoOfDays
+        case vendorId
+        case additionalVendor
+        case costCenterId
+        case costCenter
+        
     }
 
 }

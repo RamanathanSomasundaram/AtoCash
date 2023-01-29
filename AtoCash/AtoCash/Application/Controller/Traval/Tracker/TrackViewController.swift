@@ -323,6 +323,10 @@ extension TrackViewController : UITableViewDelegate,UITableViewDataSource{
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch self.trackStatusType {
         case .advance:
@@ -359,7 +363,7 @@ extension TrackViewController : UITableViewDelegate,UITableViewDataSource{
                 cell.statusIcon.image = UIImage(named: trackImageName.pending.rawValue)
                 cell.lblLine.backgroundColor = UIColor.lightGray
                 break
-            case "Initiating":
+            case "Initiated":
                 //Initative
                 cell.statusIcon.image = UIImage(named: trackImageName.initative.rawValue)
                 cell.lblLine.backgroundColor = UIColor.lightGray
@@ -402,12 +406,13 @@ extension TrackViewController : UITableViewDelegate,UITableViewDataSource{
 //                cell.lblEnddate.text =
                 cell.stackView.isHidden = true
                 cell.stackHeight.constant = 0
-                cell.lblDesc.text = self.cashRequestData!.pettyClaimRequestDesc ?? ""
-                cell.lblDept.text = (self.cashRequestData!.department != nil) ? dept + " : " + self.cashRequestData!.department! : ""
+                cell.lblDesc.text = self.cashRequestData!.cashAdvanceRequestDesc ?? ""
+                let businessTitle = "Business Type: " + (self.cashRequestData!.businessType ?? "") + "\n" + "Business unit: " + (self.cashRequestData!.businessUnit ?? "") + "\n" + "Location: " + (self.cashRequestData!.location ?? "")
+                cell.lblDept.text = ((self.cashRequestData?.project != nil) ? proj + " : " + self.cashRequestData!.project! : businessTitle)
                 cell.lblEmpName.text = self.cashRequestData?.employeeName ?? ""
                 cell.requestStactHeight.constant = 80.0
                 cell.lblRequestId.text = "\(self.trackerRequestId)"
-                cell.lblRequestAmount.text = "\(self.cashRequestData?.pettyClaimAmount ?? 0)"
+                cell.lblRequestAmount.text = "\(self.cashRequestData?.cashAdvanceAmount ?? 0)"
                 break
             case .expanse:
                 
@@ -416,7 +421,9 @@ extension TrackViewController : UITableViewDelegate,UITableViewDataSource{
                 cell.stackView.isHidden = true
                 cell.stackHeight.constant = 0
                 cell.lblDesc.text = self.expenseData!.expenseReportTitle ?? ""
-                cell.lblDept.text = (self.expenseData!.department != nil) ? dept + " : " + self.expenseData!.department! : ((self.expenseData?.project != nil) ? proj + " : " + self.expenseData!.project! : "Expense Type : Business Area")
+                let businessTitle = "Business Type: " + (self.expenseData!.businessType ?? "") + "\n" + "Business unit: " + (self.expenseData!.businessUnit ?? "") + "\n" + "Location: " + (self.expenseData!.location ?? "")
+                cell.lblDept.text = ((self.expenseData?.project != nil) ? proj + " : " + self.expenseData!.project! : businessTitle)
+                
                 cell.lblEmpName.text = self.expenseData?.employeeName ?? ""
                 cell.requestStactHeight.constant = 80.0
                 cell.lblRequestId.text = "\(self.trackerRequestId)"
@@ -429,7 +436,8 @@ extension TrackViewController : UITableViewDelegate,UITableViewDataSource{
                 cell.lblStartDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(self.travelRequestData!.travelStartDate!),formatOf: "dd MMM yyyy")
                 cell.lblEnddate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(self.travelRequestData!.travelEndDate!),formatOf: "dd MMM yyyy")
                 cell.lblDesc.text = self.travelRequestData!.travelPurpose
-                cell.lblDept.text = (self.travelRequestData!.department != nil) ?  dept + " : " + self.travelRequestData!.department! : ""
+                let businessTitle = "Business Type: " + (self.travelRequestData!.businessType ?? "") + "\n" + "Business unit: " + (self.travelRequestData!.businessUnit ?? "") + "\n" + "Location: " + (self.travelRequestData!.location ?? "")
+                cell.lblDept.text = ((self.travelRequestData?.project != nil) ? proj + " : " + self.travelRequestData!.project! : businessTitle)
                 cell.lblEmpName.text = self.travelRequestData?.employeeName ?? ""
                 cell.requestStactHeight.constant = 0.0
                 break

@@ -17,6 +17,11 @@ public struct ExpenseReimburseRequestDTO: Codable {
     public var expenseReportTitle: String?
     public var employeeId: Int?
     public var employeeName: String?
+    public var businessTypeId: Int?
+    public var businessUnitId: Int?
+    public var businessType: String?
+    public var businessUnit: String?
+    public var location: String?
     public var currencyTypeId: Int?
     public var totalClaimAmount: Double?
     public var expReimReqDate: Date?
@@ -36,13 +41,17 @@ public struct ExpenseReimburseRequestDTO: Codable {
     public var expenseSubClaims: [ExpenseSubClaimDTO]?
     public var comments: String?
     public var expensefor: String?
-    
+    public var costCenter: String?
+    public var costCenterId: Int?
 
-    public init(_id: Int? = nil, expenseReportTitle: String? = nil, employeeId: Int? = nil, employeeName: String? = nil, currencyTypeId: Int? = nil, totalClaimAmount: Double? = nil, expReimReqDate: Date? = nil, department: String? = nil, departmentId: Int? = nil, project: String? = nil, projectId: Int? = nil, subProject: String? = nil, subProjectId: Int? = nil, workTask: String? = nil, workTaskId: Int? = nil, approvalStatusTypeId: Int? = nil, approvalStatusType: String? = nil, approvedDate: Date? = nil, showEditDelete: Bool? = nil, expenseSubClaims: [ExpenseSubClaimDTO]? = nil, comments: String? = nil, expensefor: String? = nil, isBusinessAreaReq: Bool?) {
+
+    public init(_id: Int? = nil, expenseReportTitle: String? = nil, employeeId: Int? = nil, employeeName: String? = nil, businessTypeId: Int? = nil,businessUnitId: Int? = nil,currencyTypeId: Int? = nil, totalClaimAmount: Double? = nil, expReimReqDate: Date? = nil, department: String? = nil, departmentId: Int? = nil, project: String? = nil, projectId: Int? = nil, subProject: String? = nil, subProjectId: Int? = nil, workTask: String? = nil, workTaskId: Int? = nil, approvalStatusTypeId: Int? = nil, approvalStatusType: String? = nil, approvedDate: Date? = nil, showEditDelete: Bool? = nil, expenseSubClaims: [ExpenseSubClaimDTO]? = nil, comments: String? = nil, expensefor: String? = nil, isBusinessAreaReq: Bool?,costCenter: String? = nil ,costCenterId: Int? = nil) {
         self._id = _id
         self.expenseReportTitle = expenseReportTitle
         self.employeeId = employeeId
         self.employeeName = employeeName
+        self.businessTypeId = businessTypeId
+        self.businessUnitId = businessUnitId
         self.currencyTypeId = currencyTypeId
         self.totalClaimAmount = totalClaimAmount
         self.expReimReqDate = expReimReqDate
@@ -62,6 +71,8 @@ public struct ExpenseReimburseRequestDTO: Codable {
         self.comments = comments
         self.isBusinessAreaReq = isBusinessAreaReq
         self.expensefor = expensefor
+        self.costCenter = costCenter
+        self.costCenterId = costCenterId
     }
 
     public enum CodingKeys: String, CodingKey { 
@@ -69,9 +80,14 @@ public struct ExpenseReimburseRequestDTO: Codable {
         case expenseReportTitle
         case employeeId
         case employeeName
+        case businessTypeId
+        case businessUnitId
+        case businessType
+        case businessUnit
+        case location
         case currencyTypeId
         case totalClaimAmount
-        case expReimReqDate
+        case expReimReqDate = "requestDate"
         case department = "departmentName"
         case departmentId
         case project = "projectName"
@@ -88,6 +104,8 @@ public struct ExpenseReimburseRequestDTO: Codable {
         case comments
         case isBusinessAreaReq
         case expensefor
+        case costCenter
+        case costCenterId
     }
 
 }

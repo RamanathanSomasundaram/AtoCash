@@ -25,3 +25,85 @@ public struct ProjectVM: Codable {
     }
 
 }
+
+public struct BusinessTypeVM: Codable {
+
+    public var _id: Int?
+    public var businessTypeName: String?
+
+    public init(_id: Int? = nil, businessTypeName: String? = nil) {
+        self._id = _id
+        self.businessTypeName = businessTypeName
+    }
+
+    public enum CodingKeys: String, CodingKey {
+        case _id = "id"
+        case businessTypeName
+    }
+
+}
+
+public struct BusinessUnitVM: Codable {
+
+    public var _id: Int?
+    public var businessUnitName: String?
+
+    public init(_id: Int? = nil, businessUnitName: String? = nil) {
+        self._id = _id
+        self.businessUnitName = businessUnitName
+    }
+
+    public enum CodingKeys: String, CodingKey {
+        case _id = "id"
+        case businessUnitName
+    }
+
+}
+
+public struct BusinessUnitLocationVM : Codable {
+    let _id : Int?
+    let businessTypeId : Int?
+    let businessType : String?
+    let businessUnitCode : String?
+    let businessUnitName : String?
+    let costCenterId : Int?
+    let costCenter : String?
+    let businessDesc : String?
+    let locationId : Int?
+    let location : String?
+    let statusTypeId : Int?
+    let statusType : String?
+
+    public enum CodingKeys: String, CodingKey {
+
+        case _id = "id"
+        case businessTypeId = "businessTypeId"
+        case businessType = "businessType"
+        case businessUnitCode = "businessUnitCode"
+        case businessUnitName = "businessUnitName"
+        case costCenterId = "costCenterId"
+        case costCenter = "costCenter"
+        case businessDesc = "businessDesc"
+        case locationId = "locationId"
+        case location = "location"
+        case statusTypeId = "statusTypeId"
+        case statusType = "statusType"
+    }
+
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        _id = try values.decodeIfPresent(Int.self, forKey: ._id)
+        businessTypeId = try values.decodeIfPresent(Int.self, forKey: .businessTypeId)
+        businessType = try values.decodeIfPresent(String.self, forKey: .businessType)
+        businessUnitCode = try values.decodeIfPresent(String.self, forKey: .businessUnitCode)
+        businessUnitName = try values.decodeIfPresent(String.self, forKey: .businessUnitName)
+        costCenterId = try values.decodeIfPresent(Int.self, forKey: .costCenterId)
+        costCenter = try values.decodeIfPresent(String.self, forKey: .costCenter)
+        businessDesc = try values.decodeIfPresent(String.self, forKey: .businessDesc)
+        locationId = try values.decodeIfPresent(Int.self, forKey: .locationId)
+        location = try values.decodeIfPresent(String.self, forKey: .location)
+        statusTypeId = try values.decodeIfPresent(Int.self, forKey: .statusTypeId)
+        statusType = try values.decodeIfPresent(String.self, forKey: .statusType)
+    }
+
+}

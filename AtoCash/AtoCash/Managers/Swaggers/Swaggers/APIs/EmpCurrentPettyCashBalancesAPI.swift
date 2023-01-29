@@ -113,7 +113,9 @@ open class EmpCurrentPettyCashBalancesAPI {
      - returns: RequestBuilder<EmpCurrentPettyCashBalanceDTO> 
      */
     open class func apiEmpCurrentPettyCashBalancesGetEmpCurrentPettyCashBalanceIdGetWithRequestBuilder(_id: Int) -> RequestBuilder<EmpCurrentPettyCashBalanceDTO> {
-        var path = "/api/EmpCurrentPettyCashBalances/GetEmpCurrentPettyCashBalance/{id}"
+        
+//    https://fwserver.atocash.tk/api/EmpCurrentCashAdvanceBalances/GetEmpCashBalanceVsAdvanced/40005
+        var path = "/api/EmpCurrentCashAdvanceBalances/GetEmpMaxlimitcurBalAndCashInHandStatus/{id}"
         let _idPreEscape = "\(_id)"
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)

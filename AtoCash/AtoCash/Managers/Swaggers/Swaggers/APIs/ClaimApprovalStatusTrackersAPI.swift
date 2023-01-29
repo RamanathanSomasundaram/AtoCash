@@ -44,7 +44,7 @@ open class ClaimApprovalStatusTrackersAPI {
      - returns: RequestBuilder<[ApprovalStatusFlowVM]> 
      */
     open class func apiClaimApprovalStatusTrackersApprovalFlowForRequestIdGetWithRequestBuilder(_id: Int) -> RequestBuilder<[ApprovalStatusFlowVM]> {
-        var path = "/api/ClaimApprovalStatusTrackers/ApprovalFlowForRequest/{id}"
+        var path = "/api/CashAdvanceStatusTrackers/ApprovalFlowForRequest/{id}"
         let _idPreEscape = "\(_id)"
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
@@ -123,7 +123,8 @@ open class ClaimApprovalStatusTrackersAPI {
      - returns: RequestBuilder<[ClaimApprovalStatusTrackerDTO]> 
      */
     open class func apiClaimApprovalStatusTrackersApprovalsPendingForApproverIdGetWithRequestBuilder(_id: Int) -> RequestBuilder<[ClaimApprovalStatusTrackerDTO]> {
-        var path = "/api/ClaimApprovalStatusTrackers/ApprovalsPendingForApprover/{id}"
+        
+        var path = "/api/CashAdvanceStatusTrackers/ApprovalsPendingForApprover/{id}"
         let _idPreEscape = "\(_id)"
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)

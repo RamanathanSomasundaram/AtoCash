@@ -61,9 +61,11 @@ struct addItemInfo : Codable{
      var expenseType: String?
      var selectDocument : [imageUpload]?
      var isDuplicate : Bool? = false
+    var selectedVendorId :Int?
+    var selectedVendorOthers : String?
     var businessExpenseId : Int?
     var buinessCategoryName : String?
-    init( _id: Int?,expenseReimbClaimAmount: Double?,documentIDs: String?,expReimReqDate: Date?,invoiceNo: String?,invoiceDate: Date?,tax: Float?,taxAmount: Double?,vendor: String?,location: String?,_description: String?, expenseTypeId: Int?,expenseType: String?,selectDocument : [imageUpload]?,isDuplicate : Bool? = false, expCategory : String?, startDate: Date?, endDate : Date?, noDays : String?, taxNo : String?, isVAT : Bool?, businessExpenseId : Int?,buinessCategoryName : String?){
+    init( _id: Int?,expenseReimbClaimAmount: Double?,documentIDs: String?,expReimReqDate: Date?,invoiceNo: String?,invoiceDate: Date?,tax: Float?,taxAmount: Double?,vendor: String?,location: String?,_description: String?, expenseTypeId: Int?,expenseType: String?,selectDocument : [imageUpload]?,isDuplicate : Bool? = false, expCategory : String?, startDate: Date?, endDate : Date?, noDays : String?, taxNo : String?, isVAT : Bool?, businessExpenseId : Int?,buinessCategoryName : String?, selectedVendorId :Int?,selectedVendorOthers : String?){
         self._id = _id
         self.expenseReimbClaimAmount = expenseReimbClaimAmount
         self.documentIDs = documentIDs
@@ -87,6 +89,8 @@ struct addItemInfo : Codable{
         self.isVat = isVAT
         self.businessExpenseId = businessExpenseId
         self.buinessCategoryName = buinessCategoryName
+        self.selectedVendorId = selectedVendorId
+        self.selectedVendorOthers = selectedVendorOthers
     }
     
     
@@ -115,6 +119,8 @@ struct addItemInfo : Codable{
         case isVat
         case businessExpenseId
         case buinessCategoryName
+        case selectedVendorId
+        case selectedVendorOthers
         
     }
 
@@ -142,6 +148,8 @@ struct addItemInfo : Codable{
         taxNo = try values.decodeIfPresent(String.self, forKey: .taxNo)
         isVat = try values.decodeIfPresent(Bool.self, forKey: .isVat)
         businessExpenseId = try values.decodeIfPresent(Int.self, forKey: .businessExpenseId)
+        selectedVendorId = try values.decodeIfPresent(Int.self, forKey: .selectedVendorId)
+        selectedVendorOthers = try values.decodeIfPresent(String.self, forKey: .selectedVendorOthers)
         buinessCategoryName = try values.decodeIfPresent(String.self, forKey: .buinessCategoryName)
     }
 }
@@ -153,6 +161,9 @@ protocol addItemDelegate: NSObjectProtocol {
 
 class AddItemViewController: UIViewController {
     
+    @IBOutlet weak var vendorOthersView: UIView!
+    @IBOutlet weak var txtOthersVendor: UITextField!
+    @IBOutlet weak var lblOthers: UILabel!
     @IBOutlet weak var lblTaxNo: UILabel!
     @IBOutlet weak var txtStartDates: UITextField!
     @IBOutlet weak var lblStartDate: UILabel!
@@ -215,17 +226,24 @@ class AddItemViewController: UIViewController {
     var isBusiness = false
     var isNewTaxAmount = ""
     var isProject = false
+    
+    var vendorList = [ExpenseVendorDTO]()
+    var selectedVendor : ExpenseVendorDTO?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.getBusinessList()
         self.getVATPercentage()
+        self.getVendorList()
+        self.vendorOthersView.isHidden = true
         self.txtExpenseType.setupRightPadview()
         self.txtExpenseCategory.setupRightPadview()
         self.txtInvoiceDate.setupDateRightPadview()
         self.txtStartDates.setupDateRightPadview()
         self.txtEndDate.setupDateRightPadview()
+        self.txtVendor.setupRightPadview()
         self.txtInvoiceDate.setInputViewPicker(nil, target: self, selector: #selector(invoiceDate))
         self.txtStartDates.setInputViewPicker(nil, target: self, selector: #selector(startDatess))
         self.txtEndDate.setInputViewPicker(nil, target: self, selector: #selector(endDatess))
@@ -236,12 +254,21 @@ class AddItemViewController: UIViewController {
         self.getExpenseType()
         if let edit = editInfo, self.selectedIndex != nil && !(edit.isDuplicate!){
             self.selectDocument = [imageUpload]()
-            self.selectDocument = edit.selectDocument!
+//            self.selectDocument = edit.selectDocument!
             self.txtExpenseType.text = edit.expenseType
             self.txtInvoiceNo.text = edit.invoiceNo
             self.txtInvoiceDate.text =  UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.invoiceDate!),formatOf: "dd-MMM-yyyy")
             self.txtExpenseAmount.text = "\(edit.expenseReimbClaimAmount ?? 0)"
             self.txtVendor.text = edit.vendor
+            self.selectedVendor = ExpenseVendorDTO(_id: edit.selectedVendorId,vendorName: edit.vendor)
+            if(edit.vendor == "Other Vendors"){
+                self.vendorOthersView.isHidden = false
+                self.txtOthersVendor.text = edit.selectedVendorOthers
+            }
+            else{
+                self.vendorOthersView.isHidden = true
+                self.txtOthersVendor.text = ""
+            }
             self.txtTax.text = "\(edit.tax ?? 0)"
             self.txtTaxAmountCal.text = "\(edit.taxAmount ?? 0)"
             self.txtLocation.text = edit.location
@@ -249,8 +276,12 @@ class AddItemViewController: UIViewController {
             self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
             self.selectedBusinessExpense = ExpenseBusinessDTO(_id: edit.businessExpenseId,expenseCategoryName: edit.buinessCategoryName)
             self.txtExpenseCategory.text = edit.buinessCategoryName ?? ""
-            self.txtStartDates.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.startDate!),formatOf: "dd-MMM-yyyy")
-            self.txtEndDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.endDate!),formatOf: "dd-MMM-yyyy")
+            if edit.startDate != nil {
+                self.txtStartDates.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.startDate!),formatOf: "dd-MMM-yyyy")
+            }
+            if edit.endDate != nil {
+                self.txtEndDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.endDate!),formatOf: "dd-MMM-yyyy")
+            }
             self.txtDays.text = edit.noDays ?? ""
             self.txtTaxNo.text = edit.taxNo ?? ""
             self.isVatToggle.isOn = edit.isVat ?? false
@@ -270,14 +301,27 @@ class AddItemViewController: UIViewController {
                 self.txtInvoiceDate.text =  UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.invoiceDate!),formatOf: "dd-MMM-yyyy")
                 self.txtExpenseAmount.text = "\(edit.expenseReimbClaimAmount ?? 0)"
                 self.txtVendor.text = edit.vendor
+                self.selectedVendor = ExpenseVendorDTO(_id: edit.selectedVendorId,vendorName: edit.vendor)
+                if(edit.vendor == "Other Vendors"){
+                    self.vendorOthersView.isHidden = false
+                    self.txtOthersVendor.text = edit.selectedVendorOthers
+                }
+                else{
+                    self.vendorOthersView.isHidden = true
+                    self.txtOthersVendor.text = ""
+                }
                 self.txtTax.text = "\(edit.tax ?? 0)"
                 self.txtTaxAmountCal.text = "\(edit.taxAmount ?? 0)"
                 self.txtLocation.text = edit.location
                 self.txtDesc.text = edit._description
                 self.selectedBusinessExpense = ExpenseBusinessDTO(_id: edit.businessExpenseId,expenseCategoryName: edit.buinessCategoryName)
                 self.txtExpenseCategory.text = edit.buinessCategoryName ?? ""
-                self.txtStartDates.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.startDate!),formatOf: "dd-MMM-yyyy")
-                self.txtEndDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.endDate!),formatOf: "dd-MMM-yyyy")
+                if edit.startDate != nil{
+                    self.txtStartDates.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.startDate!),formatOf: "dd-MMM-yyyy")
+                }
+                if edit.endDate != nil {
+                    self.txtEndDate.text = UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.endDate!),formatOf: "dd-MMM-yyyy")
+                }
                 self.txtDays.text = edit.noDays ?? ""
                 self.txtTaxNo.text = edit.taxNo ?? ""
                 self.isVatToggle.isOn = edit.isVat ?? false
@@ -348,6 +392,38 @@ class AddItemViewController: UIViewController {
         else{
             self.txtTax.isUserInteractionEnabled = true
         }
+    }
+    //Vendor
+    private func getVendorList(){
+        showLoader()
+        ExpenseSubClaimsAPI.apiExpenseVendorDropDownGet(completion: { (result, error) in
+            hideLoader()
+            if error == nil {
+                self.vendorList = result ?? []
+            }
+            else{
+                switch error as! ErrorResponse {
+                case .error(let code, let result, let message):
+                    print(code,result,message)
+                    if code == 401 {
+                        DefaultsManager.shared.accesstoken = ""
+                        DefaultsManager.shared.userRole = ""
+                        DefaultsManager.shared.isRemoved = false
+                        AppDelegate.shared.setupRootViewController()
+                    }
+                    else{
+                        do{
+                            let json = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String: AnyObject]
+                            Loaf((json["message"] as! String), state: .error,location: .top, sender: self).show(.short, completionHandler: nil)
+                        }
+                        catch{
+                            print("json error \(error.localizedDescription)")
+                        }
+                    }
+                    
+                }
+            }
+        })
     }
     
     //Buiness
@@ -573,9 +649,12 @@ class AddItemViewController: UIViewController {
         }
         else if(txtExpenseAmount.text == ""){
             Loaf(NSLocalizedString("amount_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
-        }else if(txtVendor.text == ""){
-            Loaf(NSLocalizedString("vendor_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
-        }else if(txtTax.text == "" && !isVatToggle.isOn && !isProject){
+        }else if(txtVendor.text == "" && vendorOthersView.isHidden){
+            Loaf(NSLocalizedString("vendor_select_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+        }else if(txtVendor.text != "" && txtOthersVendor.text == "" && !vendorOthersView.isHidden){
+            Loaf(NSLocalizedString("vendor_select_other_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+        }
+        else if(txtTax.text == "" && !isVatToggle.isOn && !isProject){
             Loaf(NSLocalizedString("tax_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }else if(txtTax.text == "" && isProject){
             Loaf(NSLocalizedString("tax_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
@@ -727,7 +806,7 @@ class AddItemViewController: UIViewController {
                         let startDates = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtStartDates.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
                         let endDates = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtEndDate.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
                         
-                        let addItem = addItemInfo(_id: self.editInfo == nil ? 0 : self.editInfo!._id, expenseReimbClaimAmount: Double(self.txtExpenseAmount.text!), documentIDs: formattedArray, expReimReqDate: nil, invoiceNo: self.txtInvoiceNo.text, invoiceDate: invoiceDate, tax: Float(self.txtTax.text!), taxAmount: Double(self.txtTaxAmountCal.text!), vendor: self.txtVendor.text, location: self.txtLocation.text, _description: self.txtDesc.text,expenseTypeId: self.isProject ? self.selectedExpenseType?._id : self.selectedBusinessCategory?._id, expenseType: self.txtExpenseType.text, selectDocument: self.selectDocument, isDuplicate: false,expCategory: self.txtExpenseCategory.text,startDate: startDates,endDate: endDates,noDays: self.txtDays.text,taxNo: self.txtTaxNo.text,isVAT: self.isVatToggle.isOn, businessExpenseId: self.selectedBusinessExpense?._id, buinessCategoryName: self.selectedBusinessExpense?.expenseCategoryName)
+                        let addItem = addItemInfo(_id: self.editInfo == nil ? 0 : self.editInfo!._id, expenseReimbClaimAmount: Double(self.txtExpenseAmount.text!), documentIDs: formattedArray, expReimReqDate: nil, invoiceNo: self.txtInvoiceNo.text, invoiceDate: invoiceDate, tax: Float(self.txtTax.text!), taxAmount: Double(self.txtTaxAmountCal.text!), vendor: self.txtVendor.text, location: self.txtLocation.text, _description: self.txtDesc.text,expenseTypeId: self.selectedExpenseType?._id, expenseType: self.txtExpenseType.text, selectDocument: self.selectDocument, isDuplicate: false,expCategory: self.txtExpenseCategory.text,startDate: startDates,endDate: endDates,noDays: self.txtDays.text,taxNo: self.txtTaxNo.text,isVAT: self.isVatToggle.isOn, businessExpenseId: self.selectedBusinessExpense?._id, buinessCategoryName: self.selectedBusinessExpense?.expenseCategoryName,selectedVendorId: self.selectedVendor?._id ?? 0, selectedVendorOthers: self.txtOthersVendor.text)
                         self.delegate?.addItemsList(addItem,selectIndex: self.selectedIndex)
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -918,6 +997,55 @@ extension AddItemViewController : UITextFieldDelegate,UITextViewDelegate{
             }
             
         }
+        if textField == txtVendor{
+            var projectTitle = [String]()
+            for dropDown in self.vendorList{
+                projectTitle.append(dropDown.vendorName ?? "")
+            }
+            
+            let simpleArray: [String] = projectTitle
+            var simpleSelectedArray: [String] = selectedVendor == nil ? [] : [selectedVendor?.vendorName ?? ""]
+            let selectionMenu = RSSelectionMenu(dataSource: simpleArray) { (cell, item, indexPath) in
+                cell.textLabel?.text = item
+                cell.separatorInset = .zero
+                cell.textLabel?.font = UIFont(name: "SFUIDisplay-Light", size: 15.0)
+                cell.layoutMargins = .zero
+            }
+            if (textField.text != nil) {
+                simpleSelectedArray = [textField.text] as! [String]
+            }
+            selectionMenu.setSelectedItems(items: simpleSelectedArray) {(item, index, isSelected, selectedItems) in
+               
+                textField.text = item!
+                for drop in self.vendorList{
+                    if (drop.vendorName ?? "") == item!{
+                        self.selectedVendor = drop
+                        if(item == "Other Vendors"){
+                            self.vendorOthersView.isHidden = false
+                        }
+                        else{
+                            self.vendorOthersView.isHidden = true
+                        }
+                        break
+                    }
+                }
+                
+            }
+            if #available(iOS 13.0, *) {
+                selectionMenu.searchBar?.searchTextField.textColor = .white
+            } else {
+                // Fallback on earlier versions
+            }
+            // show searchbar with placeholder and barTintColor
+            selectionMenu.showSearchBar(withPlaceHolder: NSLocalizedString("search", comment: ""), barTintColor: UIColor.init(named: "NavBar")!.withAlphaComponent(0.2)) { (searchText) -> ([String]) in
+
+                return simpleArray.filter({ $0.lowercased().contains(searchText.lowercased()) })
+            }
+            selectionMenu.show(style: .popover(sourceView: textField, size: CGSize(width: textField.frame.size.width, height: 230)), from: self)
+            
+            return false
+            
+        }
         return true
     }
     
@@ -963,7 +1091,7 @@ extension AddItemViewController : UITextFieldDelegate,UITextViewDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if textField == txtInvoiceNo || textField == txtVendor || textField == txtLocation || textField == txtTaxNo{
+        if textField == txtInvoiceNo || textField == txtLocation || textField == txtTaxNo{
         guard let text = textField.text else { return true }
         let allowedCharacters = CharacterSet(charactersIn:"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .-")//Here change this characters based on your requirement
         let characterSet = CharacterSet(charactersIn: string)

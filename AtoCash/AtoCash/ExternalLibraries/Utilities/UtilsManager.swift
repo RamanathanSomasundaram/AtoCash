@@ -23,7 +23,14 @@ static let shared = DefaultsManager()
            return self.object(forKey: "BASELINK") as? String
        }
    }
-
+    var expenseCount: Int?{
+       set(newAccessToken){
+           self.set(newAccessToken, forKey: "EXPENSECOUNT")
+       }
+       get{
+           return self.object(forKey: "EXPENSECOUNT") as? Int
+       }
+   }
 // MARK: - USER INFO
  var accesstoken: String?{
     set(newAccessToken){

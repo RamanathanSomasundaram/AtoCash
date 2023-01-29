@@ -14,6 +14,11 @@ public struct TravelApprovalRequestDTO: Codable {
     public var _id: Int?
     public var employeeId: Int?
     public var employeeName: String?
+    public var businessTypeId: Int?
+    public var businessUnitId: Int?
+    public var businessType: String?
+    public var businessUnit: String?
+    public var location: String?
     public var travelStartDate: Date?
     public var travelEndDate: Date?
     public var travelPurpose: String?
@@ -34,9 +39,11 @@ public struct TravelApprovalRequestDTO: Codable {
     public var showEditDelete: Bool?
     public var comments: String?
 
-    public init(_id: Int? = nil, employeeId: Int? = nil, employeeName: String? = nil, travelStartDate: Date? = nil, travelEndDate: Date? = nil, travelPurpose: String? = nil, reqRaisedDate: Date? = nil, department: String? = nil, departmentId: Int? = nil, projectId: Int? = nil, project: String? = nil, subProjectId: Int? = nil, subProject: String? = nil, workTaskId: Int? = nil, workTask: String? = nil, costCenterId: Int? = nil, costCenter: String? = nil, approvalStatusTypeId: Int? = nil, approvalStatusType: String? = nil, approvedDate: Date? = nil, showEditDelete: Bool? = nil, comments: String? = nil) {
+    public init(_id: Int? = nil, employeeId: Int? = nil, employeeName: String? = nil,businessTypeId: Int? = nil,businessUnitId: Int? = nil, travelStartDate: Date? = nil, travelEndDate: Date? = nil, travelPurpose: String? = nil, reqRaisedDate: Date? = nil, department: String? = nil, departmentId: Int? = nil, projectId: Int? = nil, project: String? = nil, subProjectId: Int? = nil, subProject: String? = nil, workTaskId: Int? = nil, workTask: String? = nil, costCenterId: Int? = nil, costCenter: String? = nil, approvalStatusTypeId: Int? = nil, approvalStatusType: String? = nil, approvedDate: Date? = nil, showEditDelete: Bool? = nil, comments: String? = nil) {
         self._id = _id
         self.employeeId = employeeId
+        self.businessTypeId = businessTypeId
+        self.businessUnitId = businessUnitId
         self.employeeName = employeeName
         self.travelStartDate = travelStartDate
         self.travelEndDate = travelEndDate
@@ -63,6 +70,11 @@ public struct TravelApprovalRequestDTO: Codable {
         case _id = "id"
         case employeeId
         case employeeName
+        case businessTypeId
+        case businessUnitId
+        case businessType
+        case businessUnit
+        case location
         case travelStartDate
         case travelEndDate
         case travelPurpose
@@ -87,77 +99,88 @@ public struct TravelApprovalRequestDTO: Codable {
 }
 public struct TravelApprovalReportDTO: Codable {
 
-    public var _id: Int?
-    public var employeeId: Int?
-    public var employeeName: String?
-    public var travelStartDate: Date?
-    public var travelEndDate: Date?
-    public var travelPurpose: String?
-    public var reqRaisedDate: Date?
-    public var department: String?
-    public var departmentId: Int?
-    public var projectId: Int?
-    public var project: String?
-    public var subProjectId: Int?
-    public var subProject: String?
-    public var workTaskId: Int?
-    public var workTask: String?
-    public var costCenterId: Int?
-    public var costCenter: String?
-    public var approvalStatusTypeId: Int?
-    public var approvalStatusType: String?
-    public var approvedDate: Date?
-    public var showEditDelete: Bool?
-    public var comments: String?
+    let id : Int?
+    let employeeId : Int?
+    let employeeName : String?
+    let travelStartDate : String?
+    let travelEndDate : String?
+    let travelPurpose : String?
+    let requestDate : Date?
+    let businessType : String?
+    let businessTypeId : Int?
+    let businessUnit : String?
+    let businessUnitId : Int?
+    let projectId : Int?
+    let projectName : String?
+    let subProjectId : Int?
+    let subProjectName : String?
+    let workTaskId : Int?
+    let workTaskName : String?
+    let location : String?
+    let costCenterId : Int?
+    let costCenter : String?
+    let approvalStatusTypeId : Int?
+    let approvalStatusType : String?
+    let approverActionDate : String?
+    let showEditDelete : Bool?
+    let comments : String?
 
-    public init(_id: Int? = nil, employeeId: Int? = nil, employeeName: String? = nil, travelStartDate: Date? = nil, travelEndDate: Date? = nil, travelPurpose: String? = nil, reqRaisedDate: Date? = nil, department: String? = nil, departmentId: Int? = nil, projectId: Int? = nil, project: String? = nil, subProjectId: Int? = nil, subProject: String? = nil, workTaskId: Int? = nil, workTask: String? = nil, costCenterId: Int? = nil, costCenter: String? = nil, approvalStatusTypeId: Int? = nil, approvalStatusType: String? = nil, approvedDate: Date? = nil, showEditDelete: Bool? = nil, comments: String? = nil) {
-        self._id = _id
-        self.employeeId = employeeId
-        self.employeeName = employeeName
-        self.travelStartDate = travelStartDate
-        self.travelEndDate = travelEndDate
-        self.travelPurpose = travelPurpose
-        self.reqRaisedDate = reqRaisedDate
-        self.department = department
-        self.departmentId = departmentId
-        self.projectId = projectId
-        self.project = project
-        self.subProjectId = subProjectId
-        self.subProject = subProject
-        self.workTaskId = workTaskId
-        self.workTask = workTask
-        self.costCenterId = costCenterId
-        self.costCenter = costCenter
-        self.approvalStatusTypeId = approvalStatusTypeId
-        self.approvalStatusType = approvalStatusType
-        self.approvedDate = approvedDate
-        self.showEditDelete = showEditDelete
-        self.comments = comments
+    enum CodingKeys: String, CodingKey {
+
+        case id = "id"
+        case employeeId = "employeeId"
+        case employeeName = "employeeName"
+        case travelStartDate = "travelStartDate"
+        case travelEndDate = "travelEndDate"
+        case travelPurpose = "travelPurpose"
+        case requestDate = "requestDate"
+        case businessType = "businessType"
+        case businessTypeId = "businessTypeId"
+        case businessUnit = "businessUnit"
+        case businessUnitId = "businessUnitId"
+        case projectId = "projectId"
+        case projectName = "projectName"
+        case subProjectId = "subProjectId"
+        case subProjectName = "subProjectName"
+        case workTaskId = "workTaskId"
+        case workTaskName = "workTaskName"
+        case location = "location"
+        case costCenterId = "costCenterId"
+        case costCenter = "costCenter"
+        case approvalStatusTypeId = "approvalStatusTypeId"
+        case approvalStatusType = "approvalStatusType"
+        case approverActionDate = "approverActionDate"
+        case showEditDelete = "showEditDelete"
+        case comments = "comments"
     }
 
-    public enum CodingKeys: String, CodingKey {
-        case _id = "id"
-        case employeeId
-        case employeeName
-        case travelStartDate
-        case travelEndDate
-        case travelPurpose
-        case reqRaisedDate
-        case department = "departmentName"
-        case departmentId
-        case projectId
-        case project = "projectName"
-        case subProjectId
-        case subProject
-        case workTaskId
-        case workTask
-        case costCenterId
-        case costCenter
-        case approvalStatusTypeId
-        case approvalStatusType
-        case approvedDate
-        case showEditDelete
-        case comments
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        employeeId = try values.decodeIfPresent(Int.self, forKey: .employeeId)
+        employeeName = try values.decodeIfPresent(String.self, forKey: .employeeName)
+        travelStartDate = try values.decodeIfPresent(String.self, forKey: .travelStartDate)
+        travelEndDate = try values.decodeIfPresent(String.self, forKey: .travelEndDate)
+        travelPurpose = try values.decodeIfPresent(String.self, forKey: .travelPurpose)
+        requestDate = try values.decodeIfPresent(Date.self, forKey: .requestDate)
+        businessType = try values.decodeIfPresent(String.self, forKey: .businessType)
+        businessTypeId = try values.decodeIfPresent(Int.self, forKey: .businessTypeId)
+        businessUnit = try values.decodeIfPresent(String.self, forKey: .businessUnit)
+        businessUnitId = try values.decodeIfPresent(Int.self, forKey: .businessUnitId)
+        projectId = try values.decodeIfPresent(Int.self, forKey: .projectId)
+        projectName = try values.decodeIfPresent(String.self, forKey: .projectName)
+        subProjectId = try values.decodeIfPresent(Int.self, forKey: .subProjectId)
+        subProjectName = try values.decodeIfPresent(String.self, forKey: .subProjectName)
+        workTaskId = try values.decodeIfPresent(Int.self, forKey: .workTaskId)
+        workTaskName = try values.decodeIfPresent(String.self, forKey: .workTaskName)
+        location = try values.decodeIfPresent(String.self, forKey: .location)
+        costCenterId = try values.decodeIfPresent(Int.self, forKey: .costCenterId)
+        costCenter = try values.decodeIfPresent(String.self, forKey: .costCenter)
+        approvalStatusTypeId = try values.decodeIfPresent(Int.self, forKey: .approvalStatusTypeId)
+        approvalStatusType = try values.decodeIfPresent(String.self, forKey: .approvalStatusType)
+        approverActionDate = try values.decodeIfPresent(String.self, forKey: .approverActionDate)
+        showEditDelete = try values.decodeIfPresent(Bool.self, forKey: .showEditDelete)
+        comments = try values.decodeIfPresent(String.self, forKey: .comments)
     }
 
 }

@@ -36,85 +36,112 @@ import Foundation
  **/
 public struct ReportsModel: Codable {
 
-    public var amountToCredit: Double?
-    public var amountToWallet: Double?
-    public var approvalStatusId: Int?
-    public var approvalStatusType: String?
-    public var claimAmount: Double?
-    public var costCenter: String?
-    public var costCenterId: Int?
-    public var currencyType: String?
-    public var currencyTypeId: Int?
-    public var department: String?
-    public var departmentId: Int?
-    public var employeeId: Int?
-    public var employeeName: String?
-    public var expenseReimburseReqId: Int?
-    public var _id: Int?
-    public var pettyCashRequestId: Int?
-    public var project: String?
-    public var projectId: Int?
-    public var recordDate: String?
-    public var requestType: String?
-    public var requestTypeId: Int?
-    public var subProject: String?
-    public var subProjectId: Int?
-    public var workTask: String?
-    public var workTaskId: Int?
-
-    public init(_id: Int? = nil,amountToCredit: Double? = nil,amountToWallet: Double? = nil,approvalStatusId: Int? = nil,approvalStatusType: String? = nil,claimAmount: Double? = nil,costCenter: String? = nil,costCenterId: Int? = nil,currencyType: String? = nil,currencyTypeId: Int? = nil,department: String? = nil,departmentId: Int? = nil,employeeId: Int? = nil,employeeName: String? = nil,expenseReimburseReqId: Int? = nil,pettyCashRequestId: Int? = nil,project: String? = nil,projectId: Int? = nil,recordDate: String? = nil,requestType: String? = nil,requestTypeId: Int? = nil,subProject: String? = nil,subProjectId: Int? = nil,workTask: String? = nil,workTaskId: Int? = nil) {
-        self.amountToCredit = amountToCredit
-        self.amountToWallet = amountToWallet
-        self.approvalStatusId = approvalStatusId
-        self.approvalStatusType = approvalStatusType
-        self.claimAmount = claimAmount
-        self.costCenter = costCenter
-        self.costCenterId = costCenterId
-        self.currencyType =  currencyType
-        self.currencyTypeId = currencyTypeId
-        self.department = department
-        self.departmentId = departmentId
-        self.employeeId = employeeId
-        self.employeeName = employeeName
-        self.expenseReimburseReqId = expenseReimburseReqId
-        self._id = _id
-        self.pettyCashRequestId = pettyCashRequestId
-        self.project = project
-        self.projectId = projectId
-        self.recordDate = recordDate
-        self.requestType = requestType
-        self.requestTypeId = requestTypeId
-        self.subProject = subProject
-        self.subProjectId = subProjectId
-        self.workTask = workTask
-        self.workTaskId = workTaskId
-    }
+    let id : Int?
+    let employeeId : Int?
+    let employeeName : String?
+    let blendedRequestId : Int?
+    let requestTypeId : Int?
+    let requestType : String?
+    let businessTypeId : Int?
+    let businessType : String?
+    let businessUnitId : Int?
+    let businessUnit : String?
+    let projectId : Int?
+    let projectName : String?
+    let subProjectName : String?
+    let subProjectId : Int?
+    let workTaskName : String?
+    let workTaskId : Int?
+    let requestDate : Date?
+    let currencyTypeId : Int?
+    let currencyType : String?
+    let claimAmount : Double?
+    let amountToWallet : Int?
+    let amountToCredit : Int?
+    let isSettledAmountCredited : Bool?
+    let settledDate : String?
+    let settlementComment : String?
+    let settlementAccount : String?
+    let settlementBankCard : String?
+    let additionalData : String?
+    let costCenterId : Int?
+    let costCenter : String?
+    let approvalStatusId : Int?
+    let approvalStatusType : String?
+    let requestTitleDescription : String?
 
     public enum CodingKeys: String, CodingKey {
-        case _id = "id"
-        case amountToCredit
-        case amountToWallet
-        case approvalStatusId
-        case approvalStatusType
-        case claimAmount
-        case costCenter
-        case costCenterId
-        case currencyType
-        case currencyTypeId
-        case department = "departmentName"
-        case departmentId
-        case employeeId
-        case employeeName
-        case expenseReimburseReqId
-        case pettyCashRequestId
-        case project = "projectName"
-        case projectId
-        case recordDate
-        case requestType
-        case requestTypeId
-        case subProject = "subProjectName"
-        case subProjectId
-        case workTask = "workTaskName"
-        case workTaskId
+
+        case id = "id"
+        case employeeId = "employeeId"
+        case employeeName = "employeeName"
+        case blendedRequestId = "blendedRequestId"
+        case requestTypeId = "requestTypeId"
+        case requestType = "requestType"
+        case businessTypeId = "businessTypeId"
+        case businessType = "businessType"
+        case businessUnitId = "businessUnitId"
+        case businessUnit = "businessUnit"
+        case projectId = "projectId"
+        case projectName = "projectName"
+        case subProjectName = "subProjectName"
+        case subProjectId = "subProjectId"
+        case workTaskName = "workTaskName"
+        case workTaskId = "workTaskId"
+        case requestDate = "requestDate"
+        case currencyTypeId = "currencyTypeId"
+        case currencyType = "currencyType"
+        case claimAmount = "claimAmount"
+        case amountToWallet = "amountToWallet"
+        case amountToCredit = "amountToCredit"
+        case isSettledAmountCredited = "isSettledAmountCredited"
+        case settledDate = "settledDate"
+        case settlementComment = "settlementComment"
+        case settlementAccount = "settlementAccount"
+        case settlementBankCard = "settlementBankCard"
+        case additionalData = "additionalData"
+        case costCenterId = "costCenterId"
+        case costCenter = "costCenter"
+        case approvalStatusId = "approvalStatusId"
+        case approvalStatusType = "approvalStatusType"
+        case requestTitleDescription = "requestTitleDescription"
     }
+
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        employeeId = try values.decodeIfPresent(Int.self, forKey: .employeeId)
+        employeeName = try values.decodeIfPresent(String.self, forKey: .employeeName)
+        blendedRequestId = try values.decodeIfPresent(Int.self, forKey: .blendedRequestId)
+        requestTypeId = try values.decodeIfPresent(Int.self, forKey: .requestTypeId)
+        requestType = try values.decodeIfPresent(String.self, forKey: .requestType)
+        businessTypeId = try values.decodeIfPresent(Int.self, forKey: .businessTypeId)
+        businessType = try values.decodeIfPresent(String.self, forKey: .businessType)
+        businessUnitId = try values.decodeIfPresent(Int.self, forKey: .businessUnitId)
+        businessUnit = try values.decodeIfPresent(String.self, forKey: .businessUnit)
+        projectId = try values.decodeIfPresent(Int.self, forKey: .projectId)
+        projectName = try values.decodeIfPresent(String.self, forKey: .projectName)
+        subProjectName = try values.decodeIfPresent(String.self, forKey: .subProjectName)
+        subProjectId = try values.decodeIfPresent(Int.self, forKey: .subProjectId)
+        workTaskName = try values.decodeIfPresent(String.self, forKey: .workTaskName)
+        workTaskId = try values.decodeIfPresent(Int.self, forKey: .workTaskId)
+        requestDate = try values.decodeIfPresent(Date.self, forKey: .requestDate)
+        currencyTypeId = try values.decodeIfPresent(Int.self, forKey: .currencyTypeId)
+        currencyType = try values.decodeIfPresent(String.self, forKey: .currencyType)
+        claimAmount = try values.decodeIfPresent(Double.self, forKey: .claimAmount)
+        amountToWallet = try values.decodeIfPresent(Int.self, forKey: .amountToWallet)
+        amountToCredit = try values.decodeIfPresent(Int.self, forKey: .amountToCredit)
+        isSettledAmountCredited = try values.decodeIfPresent(Bool.self, forKey: .isSettledAmountCredited)
+        settledDate = try values.decodeIfPresent(String.self, forKey: .settledDate)
+        settlementComment = try values.decodeIfPresent(String.self, forKey: .settlementComment)
+        settlementAccount = try values.decodeIfPresent(String.self, forKey: .settlementAccount)
+        settlementBankCard = try values.decodeIfPresent(String.self, forKey: .settlementBankCard)
+        additionalData = try values.decodeIfPresent(String.self, forKey: .additionalData)
+        costCenterId = try values.decodeIfPresent(Int.self, forKey: .costCenterId)
+        costCenter = try values.decodeIfPresent(String.self, forKey: .costCenter)
+        approvalStatusId = try values.decodeIfPresent(Int.self, forKey: .approvalStatusId)
+        approvalStatusType = try values.decodeIfPresent(String.self, forKey: .approvalStatusType)
+        requestTitleDescription = try values.decodeIfPresent(String.self, forKey: .requestTitleDescription)
+    }
+
 }

@@ -15,15 +15,14 @@ public struct ApprovalStatusFlowVM: Codable {
     public var approverRole: String?
     public var approverName: String?
     public var approvalStatusType: String?
-    public var approvedDate: Date?
+    public var approverActionDate: Date?
 
     public init(approvalLevel: Int? = nil, approverRole: String? = nil, approverName: String? = nil, approvalStatusType: String? = nil, approvedDate: Date? = nil) {
         self.approvalLevel = approvalLevel
         self.approverRole = approverRole
         self.approverName = approverName
         self.approvalStatusType = approvalStatusType
-        self.approvedDate = approvedDate
+        self.approverActionDate = approvedDate
     }
-
 
 }

@@ -138,7 +138,7 @@ class MyInboxViewController: UIViewController {
         showLoader()
         let travelAccept = self.expenseRequest[currentIndex!]
         
-        ExpenseReimburseStatusTrackersAPI.apiExpenseReimburseStatusTrackersPutExpenseReimburseStatusTrackerPut(body: [ExpenseReimburseStatusTrackerDTO(_id: travelAccept._id, employeeId: Int(DefaultsManager.shared.userID!) ?? 0, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, expenseReimburseRequestId: travelAccept.expenseReimburseRequestId, currencyTypeId: travelAccept.currencyTypeId, currencyType: travelAccept.currencyType, totalClaimAmount: travelAccept.totalClaimAmount, expReimReqDate: travelAccept.expReimReqDate, departmentId: travelAccept.departmentId, department: travelAccept.department, projectId: travelAccept.projectId, project: travelAccept.project, workTaskId: travelAccept.workTaskId, workTask: travelAccept.workTask, subProjectId: travelAccept.subProjectId, subProject: travelAccept.subProject, approvalGroupId: travelAccept.approvalGroupId, approvalLevelId: travelAccept.approvalLevelId, jobRoleId: travelAccept.jobRoleId, jobRole: travelAccept.jobRole, approvalStatusType: (statusUpdate.count > 0 ? statusUpdate.first!.status : travelAccept.approvalStatusType), approvalStatusTypeId: (statusUpdate.count > 0 ? statusUpdate.first!._id! : travelAccept.approvalStatusTypeId), approvedDate: travelAccept.approvedDate, comments: comment)]) { (result, error) in
+        ExpenseReimburseStatusTrackersAPI.apiExpenseReimburseStatusTrackersPutExpenseReimburseStatusTrackerPut(body: [ExpenseReimburseStatusTrackerDTO(_id: travelAccept._id, employeeId: Int(DefaultsManager.shared.userID!) ?? 0, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, businessTypeId: travelAccept.businessTypeId,businessUnitId: travelAccept.businessUnitId,expenseReimburseRequestId: travelAccept.expenseReimburseRequestId, currencyTypeId: travelAccept.currencyTypeId, currencyType: travelAccept.currencyType, totalClaimAmount: travelAccept.totalClaimAmount, expReimReqDate: travelAccept.expReimReqDate, departmentId: travelAccept.departmentId, department: travelAccept.department, projectId: travelAccept.projectId, project: travelAccept.project, workTaskId: travelAccept.workTaskId, workTask: travelAccept.workTask, subProjectId: travelAccept.subProjectId, subProject: travelAccept.subProject, approvalGroupId: travelAccept.approvalGroupId, approvalLevelId: travelAccept.approvalLevelId, jobRoleId: travelAccept.jobRoleId, jobRole: travelAccept.jobRole, approvalStatusType: (statusUpdate.count > 0 ? statusUpdate.first!.status : travelAccept.approvalStatusType), approvalStatusTypeId: (statusUpdate.count > 0 ? statusUpdate.first!._id! : travelAccept.approvalStatusTypeId), approvedDate: travelAccept.approvedDate, comments: comment)]) { (result, error) in
 
             hideLoader()
             if error == nil {
@@ -229,7 +229,7 @@ class MyInboxViewController: UIViewController {
         showLoader()
         let cashAccept = self.cashAdvanceRequest[currentIndex!]
         
-        ClaimApprovalStatusTrackersAPI.apiClaimApprovalStatusTrackersPutClaimApprovalStatusTrackerPut(body: [ClaimApprovalStatusTrackerDTO(_id: cashAccept._id!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0 , employeeName:  DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, pettyCashRequestId: cashAccept.pettyCashRequestId, departmentId: cashAccept.departmentId, departmentName: cashAccept.departmentName, projectId: cashAccept.projectId, projectName: cashAccept.projectName, subProjectId: cashAccept.subProjectId, subProjectName: cashAccept.subProjectName, workTaskId: cashAccept.workTaskId, workTask: cashAccept.workTask, roleId: cashAccept.roleId, jobRole: cashAccept.jobRole, approvalLevelId: cashAccept.approvalLevelId, reqDate: cashAccept.reqDate, finalApprovedDate: cashAccept.finalApprovedDate, approvalStatusTypeId: (statusUpdate.count > 0 ? statusUpdate.first!._id! : cashAccept.approvalStatusTypeId), approvalStatusType: (statusUpdate.count > 0 ? statusUpdate.first!.status : cashAccept.approvalStatusType), comments: comment)]) { (result, error) in
+        ClaimApprovalStatusTrackersAPI.apiClaimApprovalStatusTrackersPutClaimApprovalStatusTrackerPut(body: [ClaimApprovalStatusTrackerDTO(_id: cashAccept._id!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0 , employeeName:  DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!,businessTypeId: cashAccept.businessTypeId,businessUnitId: cashAccept.businessUnitId, pettyCashRequestId: cashAccept.pettyCashRequestId, departmentId: cashAccept.departmentId, departmentName: cashAccept.departmentName, projectId: cashAccept.projectId, projectName: cashAccept.projectName, subProjectId: cashAccept.subProjectId, subProjectName: cashAccept.subProjectName, workTaskId: cashAccept.workTaskId, workTask: cashAccept.workTask, roleId: cashAccept.roleId, jobRole: cashAccept.jobRole, approvalLevelId: cashAccept.approvalLevelId, reqDate: cashAccept.reqDate, finalApprovedDate: cashAccept.finalApprovedDate, approvalStatusTypeId: (statusUpdate.count > 0 ? statusUpdate.first!._id! : cashAccept.approvalStatusTypeId), approvalStatusType: (statusUpdate.count > 0 ? statusUpdate.first!.status : cashAccept.approvalStatusType), comments: comment)]) { (result, error) in
             hideLoader()
             if error == nil {
                 let message = comment == "" ? NSLocalizedString("cash_approve_status", comment: "") : NSLocalizedString("cash_reject_status", comment: "")
@@ -318,7 +318,7 @@ class MyInboxViewController: UIViewController {
         
         showLoader()
         let travelAccept = self.inboxList[currentIndex!]
-        TravelApprovalStatusTrackersAPI.apiTravelApprovalStatusTrackersPutTravelApprovalStatusTrackerPut(body: [TravelApprovalStatusTrackerDTO(_id: travelAccept._id, employeeId: Int(DefaultsManager.shared.userID!) ?? 0, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, travelApprovalRequestId: travelAccept.travelApprovalRequestId, travelStartDate: travelAccept.travelStartDate, travelEndDate: travelAccept.travelEndDate, departmentId: travelAccept.departmentId, departmentName: travelAccept.departmentName, projectId: travelAccept.projectId, projectName: travelAccept.projectName, roleId: travelAccept.roleId, jobRole: travelAccept.jobRole, approvalLevelId: travelAccept.approvalLevelId, reqDate: travelAccept.reqDate, finalApprovedDate: travelAccept.finalApprovedDate, approvalStatusTypeId: (statusUpdate.count > 0 ? statusUpdate.first!._id! : travelAccept.approvalStatusTypeId), approvalStatusType: (statusUpdate.count > 0 ? statusUpdate.first!.status : travelAccept.approvalStatusType), comments: comment)]) { (result, error) in
+        TravelApprovalStatusTrackersAPI.apiTravelApprovalStatusTrackersPutTravelApprovalStatusTrackerPut(body: [TravelApprovalStatusTrackerDTO(_id: travelAccept._id, employeeId: Int(DefaultsManager.shared.userID!) ?? 0, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, businessTypeId: travelAccept.businessTypeId,businessUnitId: travelAccept.businessUnitId,travelApprovalRequestId: travelAccept.travelApprovalRequestId, travelStartDate: travelAccept.travelStartDate, travelEndDate: travelAccept.travelEndDate, departmentId: travelAccept.departmentId, departmentName: travelAccept.departmentName, projectId: travelAccept.projectId, projectName: travelAccept.projectName, roleId: travelAccept.roleId, jobRole: travelAccept.jobRole, approvalLevelId: travelAccept.approvalLevelId, reqDate: travelAccept.reqDate, finalApprovedDate: travelAccept.finalApprovedDate, approvalStatusTypeId: (statusUpdate.count > 0 ? statusUpdate.first!._id! : travelAccept.approvalStatusTypeId), approvalStatusType: (statusUpdate.count > 0 ? statusUpdate.first!.status : travelAccept.approvalStatusType), comments: comment)]) { (result, error) in
             hideLoader()
             if error == nil {
                 let message = comment == "" ? NSLocalizedString("travel_approve_status", comment: "") : NSLocalizedString("travel_reject_status", comment: "")
@@ -392,7 +392,8 @@ extension MyInboxViewController : UITableViewDelegate,UITableViewDataSource,myIn
         switch inboxviewType {
         case .advance:
             let incomeMsg = self.cashAdvanceRequest[indexPath.row]
-            cell.lblTitle.text = " " + (((incomeMsg.departmentName != nil) ? incomeMsg.departmentName : incomeMsg.projectName)!) + " "
+            let businessTitle = "Business Type: " + (incomeMsg.businessType ?? "")
+            cell.lblTitle.text = " " + (((incomeMsg.projectName != nil) ? incomeMsg.projectName : businessTitle)!) + " "
             
             cell.stackHeight.constant = 40.0
             cell.amountStackView.isHidden = true
@@ -400,13 +401,14 @@ extension MyInboxViewController : UITableViewDelegate,UITableViewDataSource,myIn
             cell.approveBtn.tag = indexPath.row
             cell.rejectBtn.tag = indexPath.row
             cell.deleteBtn.tag = indexPath.row
-            cell.lblEmpName.text = incomeMsg.employeeName
+            cell.lblEmpName.text =  "Business unit: " + (incomeMsg.businessUnit ?? "") + "\n" + "Location: " + (incomeMsg.location ?? "") + "\n" + "Name: " + (incomeMsg.employeeName ?? "")
             cell.eyeBtn.tag = indexPath.row
             cell.eyeBtn.isHidden = true
             cell.inboxDelegate =  self
         case .expanse:
             let incomeMsg = self.expenseRequest[indexPath.row]
-            cell.lblTitle.text = " " + (((incomeMsg.department != nil) ? incomeMsg.department : incomeMsg.project != nil ? incomeMsg.project : NSLocalizedString("business", comment: ""))!) + " "
+            let businessTitle = "Business Type: " + (incomeMsg.businessType ?? "")
+            cell.lblTitle.text = " " + ((((incomeMsg.department != nil) ? incomeMsg.department : incomeMsg.project != nil ? incomeMsg.project : businessTitle)!)) + " "
             
             cell.stackHeight.constant = 40.0
             cell.amountStackView.isHidden = true
@@ -414,13 +416,14 @@ extension MyInboxViewController : UITableViewDelegate,UITableViewDataSource,myIn
             cell.approveBtn.tag = indexPath.row
             cell.rejectBtn.tag = indexPath.row
             cell.deleteBtn.tag = indexPath.row
-            cell.lblEmpName.text = incomeMsg.employeeName
+            cell.lblEmpName.text =  "Business unit: " + (incomeMsg.businessUnit ?? "") + "\n" + "Location: " + (incomeMsg.location ?? "") + "\n" + "Name: " + (incomeMsg.employeeName ?? "")
             cell.inboxDelegate =  self
             cell.eyeBtn.tag = indexPath.row
             cell.eyeBtn.isHidden = false
         case .travel:
             let incomeMsg = self.inboxList[indexPath.row]
-            cell.lblTitle.text = " " + (((incomeMsg.departmentName != nil) ? incomeMsg.departmentName : incomeMsg.projectName)!) + " "
+            let businessTitle = "Business Type: " + (incomeMsg.businessType ?? "")
+            cell.lblTitle.text = " " + (((incomeMsg.projectName != nil) ? (incomeMsg.projectName ?? "") : businessTitle)!) + " "
             
             cell.stackHeight.constant = 40.0
             cell.amountStackView.isHidden = true
@@ -428,7 +431,7 @@ extension MyInboxViewController : UITableViewDelegate,UITableViewDataSource,myIn
             cell.approveBtn.tag = indexPath.row
             cell.rejectBtn.tag = indexPath.row
             cell.deleteBtn.tag = indexPath.row
-            cell.lblEmpName.text = incomeMsg.employeeName
+            cell.lblEmpName.text =  "Business unit: " + (incomeMsg.businessUnit ?? "") + "\n" + "Location: " + (incomeMsg.location ?? "") + "\n" + "Name: " + (incomeMsg.employeeName ?? "")
             cell.inboxDelegate =  self
             cell.eyeBtn.tag = indexPath.row
             cell.eyeBtn.isHidden = true

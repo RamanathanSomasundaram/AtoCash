@@ -154,8 +154,10 @@ extension travelRequestViewController : UITableViewDelegate,UITableViewDataSourc
         cell.lblReqDate.textColor = myRequest.approvalStatusType == "Approved" ? UIColor(named: "Approve") : myRequest.approvalStatusType == "Rejected" ? UIColor(named: "RejectApprove") : myRequest.approvalStatusType == "Pending" ? UIColor(named: "NavBar") : UIColor.lightGray
         cell.lblReqDate.font = UIFont.boldSystemFont(ofSize: 17.0)
         cell.viewDetailBtn.tag = indexPath.row
-        cell.linkIcon.isHidden = true
-        cell.linkStatus.isHidden = true
+        cell.linkIcon.isHidden = false
+        cell.linkStatus.isHidden = false
+        let businessTitle = "Business Type: " + (myRequest.businessType ?? "") + "\n" + "Business unit: " + (myRequest.businessUnit ?? "") + "\n" + "Location: " + (myRequest.location ?? "")
+        cell.linkStatus.text = businessTitle
         cell.requestDelegate = self
         cell.editBtnAction.tag = indexPath.row
         cell.deleteAction.tag = indexPath.row

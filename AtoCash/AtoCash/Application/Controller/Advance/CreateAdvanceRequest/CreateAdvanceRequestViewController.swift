@@ -8,7 +8,15 @@
 import UIKit
 
 class CreateAdvanceRequestViewController: UIViewController {
-
+    @IBOutlet weak var txtBusinessLocation: UITextField!
+    @IBOutlet weak var lblBusinessLocation: UILabel!
+    @IBOutlet weak var businessLocationView: UIView!
+    @IBOutlet weak var businessTypeView: UIView!
+    @IBOutlet weak var txtBusinessUnit: UITextField!
+    @IBOutlet weak var txtBusinessType: UITextField!
+    @IBOutlet weak var lblBusinessUnit: UILabel!
+    @IBOutlet weak var lblBusinessType: UILabel!
+    @IBOutlet weak var buinessUnitView: UIView!
     //UI Localization
     @IBOutlet weak var tPettyAmount: UILabel!
     @IBOutlet weak var tWorktask: UILabel!
@@ -49,6 +57,12 @@ class CreateAdvanceRequestViewController: UIViewController {
     var workTask = [TaskModel]()
     var selectWorkTask : TaskModel?
     
+    var businessTypeList = [BusinessTypeVM]()
+    var selectedBusinessType : BusinessTypeVM?
+    var businessUnitList = [BusinessUnitVM]()
+    var selectedBusinessUnit : BusinessUnitVM?
+    var selectedBusinessLocation : BusinessUnitLocationVM?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -62,6 +76,8 @@ class CreateAdvanceRequestViewController: UIViewController {
         self.txtSubProject.setupRightPadview()
         self.txtProjectId.setupRightPadview()
         self.txtCurrency.setupRightPadview()
+        self.txtBusinessType.setupRightPadview()
+        self.txtBusinessUnit.setupRightPadview()
         if viewDetailModel == nil{
             self.toggleSwitch.isOn = false
             self.setupViewHideShow()
@@ -72,8 +88,8 @@ class CreateAdvanceRequestViewController: UIViewController {
             self.title = NSLocalizedString("edit_petty_cash_title", comment: "")
             self.createBtn.setTitle(NSLocalizedString("update_btn", comment: ""), for: .normal)
             self.setupViewHideShow()
-            self.txtPettyCash.text = "\(viewDetailModel!.pettyClaimAmount!)"
-            self.txtPettyDesc.text = viewDetailModel?.pettyClaimRequestDesc
+            self.txtPettyCash.text = "\(viewDetailModel!.cashAdvanceAmount!)"
+            self.txtPettyDesc.text = viewDetailModel?.cashAdvanceRequestDesc
             
             if let project = viewDetailModel?.project, project != ""{
                 self.txtProjectId.text = project
@@ -83,7 +99,18 @@ class CreateAdvanceRequestViewController: UIViewController {
             }
             else{
                 self.toggleSwitch.isOn = false
+                self.projectBaseView.isHidden = true
+                self.txtBusinessType.text = viewDetailModel?.businessType
+                self.txtBusinessUnit.text = viewDetailModel?.businessUnit
+                self.txtBusinessLocation.text = viewDetailModel?.location
+                self.selectedBusinessType = BusinessTypeVM(_id: viewDetailModel?.businessTypeId,businessTypeName: viewDetailModel?.businessType)
+                self.selectedBusinessUnit = BusinessUnitVM(_id:viewDetailModel?.businessUnitId,businessUnitName: viewDetailModel?.businessUnit)
+                self.getBusinessLocation()
+                self.businessTypeView.isHidden = false
+                self.buinessUnitView.isHidden = false
+                self.businessLocationView.isHidden = false
             }
+            
             if let subProject = viewDetailModel?.subProject, subProject != ""{
                 self.txtSubProject.text = subProject
                 self.selectSubproject = SubProjectVM(_id: viewDetailModel?.subProjectId, subProjectName: subProject)
@@ -94,8 +121,10 @@ class CreateAdvanceRequestViewController: UIViewController {
                 self.txtTask.text = taskProject
                 self.selectWorkTask = TaskModel(_id: viewDetailModel?.workTaskId, taskName: taskProject, taskDesc: nil)
             }
+            
         }
         self.txtCurrency.text = DefaultsManager.shared.currencyType
+        self.getBusinessTypeDropDown()
         self.getAllProjects()
     }
     
@@ -107,6 +136,9 @@ class CreateAdvanceRequestViewController: UIViewController {
     }
     
     private func setupUI(){
+        self.lblBusinessType.text = NSLocalizedString("businesstype", comment: "")
+        self.lblBusinessUnit.text = NSLocalizedString("businessunit", comment: "")
+        self.lblBusinessLocation.text = NSLocalizedString("location1", comment: "")
         tPettyAmount.text = NSLocalizedString("petty_amount", comment: "")
         tWorktask.text = NSLocalizedString("work_task", comment: "")
         tSubproject.text = NSLocalizedString("subproject", comment: "")
@@ -173,7 +205,13 @@ class CreateAdvanceRequestViewController: UIViewController {
             }
         }
         else{
-            if txtPettyCash.text == ""{
+            if selectedBusinessType == nil {
+                Loaf(NSLocalizedString("select_businesstype_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+            }
+            else if selectedBusinessUnit == nil{
+                Loaf(NSLocalizedString("select_businessunit_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+            }
+            else if txtPettyCash.text == ""{
                 
                 Loaf(NSLocalizedString("pettycash_amount_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
             }
@@ -187,7 +225,7 @@ class CreateAdvanceRequestViewController: UIViewController {
                     self.createAdvanceRequest()
                 }
                 else{
-                    
+                    self.updateAdvanceRequest()
                 }
             }
         }
@@ -197,13 +235,13 @@ class CreateAdvanceRequestViewController: UIViewController {
         showLoader()
         var params : PettyCashRequestDTO!
         if !self.toggleSwitch.isOn{
-            params = PettyCashRequestDTO(_id: 0, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0, currencyType: DefaultsManager.shared.currencyType, currencyTypeId:  Int(DefaultsManager.shared.currencyId!) ?? 0, pettyClaimAmount: Double(self.txtPettyCash!.text!) ?? 0, pettyClaimRequestDesc: self.txtPettyDesc.text!, cashReqDate: Date(), department: nil, departmentId: nil, project: nil, projectId: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, approvalStatusType: nil, approvalStatusTypeId: nil, approvedDate: nil, showEditDelete: true)
+            params = PettyCashRequestDTO(_id: 0, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0,businessTypeId: self.selectedBusinessType?._id ?? 0,businessUnitId: self.selectedBusinessUnit?._id ?? 0, currencyType: DefaultsManager.shared.currencyType, currencyTypeId:  Int(DefaultsManager.shared.currencyId!) ?? 0, pettyClaimAmount: Double(self.txtPettyCash!.text!) ?? 0, pettyClaimRequestDesc: self.txtPettyDesc.text!, cashReqDate: Date(), department: nil, departmentId: nil, project: nil, projectId: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, approvalStatusType: nil, approvalStatusTypeId: nil, approvedDate: nil, showEditDelete: true)
         }
         else{
             let project = selectedProject == nil ? nil : self.selectedProject
             let subproject = selectSubproject == nil ? nil : self.selectSubproject
             let task = selectWorkTask == nil ? nil : self.selectWorkTask
-            params = PettyCashRequestDTO(_id: 0, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0, currencyType: DefaultsManager.shared.currencyType, currencyTypeId:  Int(DefaultsManager.shared.currencyId!) ?? 0, pettyClaimAmount: Double(self.txtPettyCash!.text!) ?? 0, pettyClaimRequestDesc: self.txtPettyDesc.text!, cashReqDate: Date(), department: nil, departmentId: nil, project: project == nil ? nil : project?.projectName, projectId:  project == nil ? nil : project?._id, subProject:  subproject == nil ? nil : subproject?.subProjectName, subProjectId: subproject == nil ? nil : subproject?._id, workTask: task == nil ? nil : task?.taskName, workTaskId: task == nil ? nil : task?.id, approvalStatusType: nil, approvalStatusTypeId: nil, approvedDate: nil, showEditDelete: true)
+            params = PettyCashRequestDTO(_id: 0, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0, businessTypeId: nil,businessUnitId: nil,currencyType: DefaultsManager.shared.currencyType, currencyTypeId:  Int(DefaultsManager.shared.currencyId!) ?? 0, pettyClaimAmount: Double(self.txtPettyCash!.text!) ?? 0, pettyClaimRequestDesc: self.txtPettyDesc.text!, cashReqDate: Date(), department: nil, departmentId: nil, project: project == nil ? nil : project?.projectName, projectId:  project == nil ? nil : project?._id, subProject:  subproject == nil ? nil : subproject?.subProjectName, subProjectId: subproject == nil ? nil : subproject?._id, workTask: task == nil ? nil : task?.taskName, workTaskId: task == nil ? nil : task?.id, approvalStatusType: nil, approvalStatusTypeId: nil, approvedDate: nil, showEditDelete: true)
             
         }
         PettyCashRequestsAPI.apiPettyCashRequestsPostPettyCashRequestPost(body: params) { (result, error) in
@@ -246,13 +284,13 @@ class CreateAdvanceRequestViewController: UIViewController {
         showLoader()
         var params : PettyCashRequestDTO!
         if !self.toggleSwitch.isOn{
-            params = PettyCashRequestDTO(_id: viewDetailModel?._id, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0, currencyType: DefaultsManager.shared.currencyType, currencyTypeId:  Int(DefaultsManager.shared.currencyId!) ?? 0, pettyClaimAmount: Double(self.txtPettyCash!.text!) ?? 0, pettyClaimRequestDesc: self.txtPettyDesc.text!, cashReqDate: nil, department: nil, departmentId: nil, project: nil, projectId: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, approvalStatusType: nil, approvalStatusTypeId: nil, approvedDate: nil, showEditDelete: true)
+            params = PettyCashRequestDTO(_id: viewDetailModel?._id, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0,businessTypeId: self.selectedBusinessType?._id ?? 0,businessUnitId: self.selectedBusinessUnit?._id ?? 0, currencyType: DefaultsManager.shared.currencyType, currencyTypeId:  Int(DefaultsManager.shared.currencyId!) ?? 0, pettyClaimAmount: Double(self.txtPettyCash!.text!) ?? 0, pettyClaimRequestDesc: self.txtPettyDesc.text!, cashReqDate: nil, department: nil, departmentId: nil, project: nil, projectId: nil, subProject: nil, subProjectId: nil, workTask: nil, workTaskId: nil, approvalStatusType: nil, approvalStatusTypeId: nil, approvedDate: nil, showEditDelete: true)
         }
         else{
             let project = selectedProject == nil ? nil : self.selectedProject
             let subproject = selectSubproject == nil ? nil : self.selectSubproject
             let task = selectWorkTask == nil ? nil : self.selectWorkTask
-            params = PettyCashRequestDTO(_id: viewDetailModel?._id, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0, currencyType: DefaultsManager.shared.currencyType, currencyTypeId:  Int(DefaultsManager.shared.currencyId!) ?? 0, pettyClaimAmount: Double(self.txtPettyCash!.text!) ?? 0, pettyClaimRequestDesc: self.txtPettyDesc.text!, cashReqDate: viewDetailModel?.cashReqDate, department: viewDetailModel?.department, departmentId: viewDetailModel?.departmentId, project: project == nil ? nil : project?.projectName, projectId:  project == nil ? nil : project?._id, subProject:  subproject == nil ? nil : subproject?.subProjectName, subProjectId: subproject == nil ? nil : subproject?._id, workTask: task == nil ? nil : task?.taskName, workTaskId: task == nil ? nil : task?.id, approvalStatusType: viewDetailModel?.approvalStatusType, approvalStatusTypeId: viewDetailModel?.approvalStatusTypeId, approvedDate: viewDetailModel?.approvedDate, showEditDelete: true)
+            params = PettyCashRequestDTO(_id: viewDetailModel?._id, employeeName: DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0,businessTypeId: nil,businessUnitId: nil, currencyType: DefaultsManager.shared.currencyType, currencyTypeId:  Int(DefaultsManager.shared.currencyId!) ?? 0, pettyClaimAmount: Double(self.txtPettyCash!.text!) ?? 0, pettyClaimRequestDesc: self.txtPettyDesc.text!, cashReqDate: viewDetailModel?.cashReqDate, department: viewDetailModel?.department, departmentId: viewDetailModel?.departmentId, project: project == nil ? nil : project?.projectName, projectId:  project == nil ? nil : project?._id, subProject:  subproject == nil ? nil : subproject?.subProjectName, subProjectId: subproject == nil ? nil : subproject?._id, workTask: task == nil ? nil : task?.taskName, workTaskId: task == nil ? nil : task?.id, approvalStatusType: viewDetailModel?.approvalStatusType, approvalStatusTypeId: viewDetailModel?.approvalStatusTypeId, approvedDate: viewDetailModel?.approvedDate, showEditDelete: true)
         }
         
         PettyCashRequestsAPI.apiPettyCashRequestsPutPettyCashRequestIdPut(_id: (viewDetailModel?._id)!, body: params) { (result, error) in
@@ -289,6 +327,117 @@ class CreateAdvanceRequestViewController: UIViewController {
                 }
             }
         }
+    }
+    private func getBusinessTypeDropDown(){
+        
+        showLoader()
+        
+        ProjectsAPI.apiBusinessTypeGet(completion: { (result, error) in
+            hideLoader()
+            if error == nil {
+                self.businessTypeList = result ?? []
+                if self.viewDetailModel == nil {
+                    self.selectedBusinessUnit = nil
+                    self.selectedBusinessLocation = nil
+                }
+                print("Business DropDown \(self.businessTypeList)")
+            }
+            else{
+                switch error as! ErrorResponse {
+                case .error(let code, let result, let message):
+                    print(code,result,message)
+                    if code == 401 {
+                        DefaultsManager.shared.accesstoken = ""
+                        DefaultsManager.shared.userRole = ""
+                        DefaultsManager.shared.isRemoved = false
+                        AppDelegate.shared.setupRootViewController()
+                    }
+                    else{
+                        do{
+                            let json = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String: AnyObject]
+                             Loaf((json["message"] as! String), state: .error,location: .top, sender: self).show(.short, completionHandler: nil)
+                        }
+                        catch{
+                            print("json error \(error.localizedDescription)")
+                        }
+                    }
+
+                }
+            }
+        })
+    }
+    private func getBusinessUnits(){
+        
+        showLoader()
+        self.businessLocationView.isHidden = true
+        ProjectsAPI.apiBusinessUnitPOST(body: BusinessUnitDTO(businessTypeId: self.selectedBusinessType?._id ?? 0,empId: DefaultsManager.shared.userID),completion: { (result, error) in
+            hideLoader()
+            if error == nil {
+                self.businessUnitList = result ?? []
+                if self.viewDetailModel == nil {
+                    self.selectedBusinessUnit = nil
+                    self.selectedBusinessLocation = nil
+                }
+                print("Business Units \(self.businessUnitList)")
+            }
+            else{
+                switch error as! ErrorResponse {
+                case .error(let code, let result, let message):
+                    print(code,result,message)
+                    if code == 401 {
+                        DefaultsManager.shared.accesstoken = ""
+                        DefaultsManager.shared.userRole = ""
+                        DefaultsManager.shared.isRemoved = false
+                        AppDelegate.shared.setupRootViewController()
+                    }
+                    else{
+                        do{
+                            let json = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String: AnyObject]
+                             Loaf((json["message"] as! String), state: .error,location: .top, sender: self).show(.short, completionHandler: nil)
+                        }
+                        catch{
+                            print("json error \(error.localizedDescription)")
+                        }
+                    }
+
+                }
+            }
+        })
+    }
+    private func getBusinessLocation(){
+        
+        showLoader()
+        
+        ProjectsAPI.apiBusinessUnitLocationGet(_id: self.selectedBusinessUnit?._id ?? 0, completion: {  (result, error) in
+            hideLoader()
+            if error == nil {
+                self.selectedBusinessLocation = result
+                self.txtBusinessLocation.text = result?.location ?? ""
+                print("business location \(self.selectedBusinessLocation)")
+            }
+            else{
+                switch error as! ErrorResponse {
+                case .error(let code, let result, let message):
+                    print(code,result,message)
+                    if code == 401 {
+                        DefaultsManager.shared.accesstoken = ""
+                        DefaultsManager.shared.userRole = ""
+                        DefaultsManager.shared.isRemoved = false
+                        AppDelegate.shared.setupRootViewController()
+                    }
+                    else{
+                        do{
+                            let json = try JSONSerialization.jsonObject(with: result!, options: .allowFragments) as! [String: AnyObject]
+                             Loaf((json["message"] as! String), state: .error,location: .top, sender: self).show(.short, completionHandler: nil)
+                        }
+                        catch{
+                            print("json error \(error.localizedDescription)")
+                        }
+                    }
+
+                }
+            }
+        })
     }
     
     private func getCurrencyList(){
@@ -479,10 +628,22 @@ class CreateAdvanceRequestViewController: UIViewController {
     
     func setupViewHideShow(){
         if !self.toggleSwitch.isOn{
+            self.businessTypeView.isHidden = false
+            self.buinessUnitView.isHidden = true
+            self.businessLocationView.isHidden = true
             self.projectBaseView.isHidden = true
         }
         else{
+            self.businessTypeView.isHidden = true
+            self.buinessUnitView.isHidden = true
+            self.businessLocationView.isHidden = true
             self.projectBaseView.isHidden = false
+            self.txtBusinessType.text = ""
+            self.txtBusinessUnit.text = ""
+            self.txtBusinessLocation.text = ""
+            self.selectedBusinessType = nil
+            self.selectedBusinessUnit = nil
+            self.selectedBusinessLocation = nil
         }
     }
     /*
@@ -498,6 +659,7 @@ class CreateAdvanceRequestViewController: UIViewController {
 }
 extension CreateAdvanceRequestViewController : UITextFieldDelegate, UITextViewDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let searchPlace = NSLocalizedString("search", comment: "")
         if textField == txtCurrency {
             var projectTitle = [String]()
             for dropDown in self.currenyList{
@@ -671,6 +833,94 @@ extension CreateAdvanceRequestViewController : UITextFieldDelegate, UITextViewDe
             }
             // show searchbar with placeholder and barTintColor
             selectionMenu.showSearchBar(withPlaceHolder: NSLocalizedString("search", comment: ""), barTintColor: UIColor.init(named: "NavBar")!.withAlphaComponent(0.2)) { (searchText) -> ([String]) in
+
+                return simpleArray.filter({ $0.lowercased().contains(searchText.lowercased()) })
+            }
+            selectionMenu.show(style: .popover(sourceView: textField, size: CGSize(width: textField.frame.size.width, height: 230)), from: self)
+            
+            return false
+        }
+        if textField == txtBusinessType{
+            var projectTitle = [String]()
+            for dropDown in self.businessTypeList{
+                projectTitle.append("\(dropDown.businessTypeName ?? "")")
+            }
+            
+            let simpleArray: [String] = projectTitle
+            var simpleSelectedArray: [String] = selectedBusinessType == nil ? [] : ["\(selectedBusinessType!.businessTypeName ?? "")"]
+            let selectionMenu = RSSelectionMenu(dataSource: simpleArray) { (cell, item, indexPath) in
+                cell.textLabel?.text = item
+                cell.separatorInset = .zero
+                cell.textLabel?.font = UIFont(name: "SFUIDisplay-Light", size: 15.0)
+                cell.layoutMargins = .zero
+            }
+            if (textField.text != nil) {
+                simpleSelectedArray = [textField.text] as! [String]
+            }
+            selectionMenu.setSelectedItems(items: simpleSelectedArray) {(item, index, isSelected, selectedItems) in
+                textField.text = item!
+                for drop in self.businessTypeList{
+                    if "\(drop.businessTypeName ?? "")" == item!{
+                        self.selectedBusinessType = drop
+                        self.txtBusinessUnit.text = ""
+                        self.txtBusinessLocation.text = ""
+                        self.buinessUnitView.isHidden = false
+                        self.getBusinessUnits()
+                        break
+                    }
+                }
+                
+            }
+            if #available(iOS 13.0, *) {
+                selectionMenu.searchBar?.searchTextField.textColor = .white
+            } else {
+                // Fallback on earlier versions
+            }
+            // show searchbar with placeholder and barTintColor
+            selectionMenu.showSearchBar(withPlaceHolder: searchPlace, barTintColor: UIColor.init(named: "NavBar")!.withAlphaComponent(0.2)) { (searchText) -> ([String]) in
+
+                return simpleArray.filter({ $0.lowercased().contains(searchText.lowercased()) })
+            }
+            selectionMenu.show(style: .popover(sourceView: textField, size: CGSize(width: textField.frame.size.width, height: 230)), from: self)
+            
+            return false
+        }
+        if textField == txtBusinessUnit{
+            var projectTitle = [String]()
+            for dropDown in self.businessUnitList{
+                projectTitle.append("\(dropDown.businessUnitName ?? "")")
+            }
+            
+            let simpleArray: [String] = projectTitle
+            var simpleSelectedArray: [String] = selectedBusinessUnit == nil ? [] : ["\(selectedBusinessUnit!.businessUnitName ?? "")"]
+            let selectionMenu = RSSelectionMenu(dataSource: simpleArray) { (cell, item, indexPath) in
+                cell.textLabel?.text = item
+                cell.separatorInset = .zero
+                cell.textLabel?.font = UIFont(name: "SFUIDisplay-Light", size: 15.0)
+                cell.layoutMargins = .zero
+            }
+            if (textField.text != nil) {
+                simpleSelectedArray = [textField.text] as! [String]
+            }
+            selectionMenu.setSelectedItems(items: simpleSelectedArray) {(item, index, isSelected, selectedItems) in
+                textField.text = item!
+                for drop in self.businessUnitList{
+                    if "\(drop.businessUnitName ?? "")" == item!{
+                        self.selectedBusinessUnit = drop
+                        self.businessLocationView.isHidden = false
+                        self.getBusinessLocation()
+                        break
+                    }
+                }
+                
+            }
+            if #available(iOS 13.0, *) {
+                selectionMenu.searchBar?.searchTextField.textColor = .white
+            } else {
+                // Fallback on earlier versions
+            }
+            // show searchbar with placeholder and barTintColor
+            selectionMenu.showSearchBar(withPlaceHolder: searchPlace, barTintColor: UIColor.init(named: "NavBar")!.withAlphaComponent(0.2)) { (searchText) -> ([String]) in
 
                 return simpleArray.filter({ $0.lowercased().contains(searchText.lowercased()) })
             }

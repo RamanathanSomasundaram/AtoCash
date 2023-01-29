@@ -33,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if DefaultsManager.shared.isRemoved == nil {
             DefaultsManager.shared.isRemoved = false
         }
+        if DefaultsManager.shared.expenseCount == nil {
+            DefaultsManager.shared.expenseCount = 1000
+        }
         // Search bar placeholder text color
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
