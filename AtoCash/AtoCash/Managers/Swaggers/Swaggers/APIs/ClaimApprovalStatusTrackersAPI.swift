@@ -523,7 +523,7 @@ open class ClaimApprovalStatusTrackersAPI {
      - returns: RequestBuilder<Void> 
      */
     open class func apiClaimApprovalStatusTrackersPutClaimApprovalStatusTrackerPutWithRequestBuilder(body: [ClaimApprovalStatusTrackerDTO]? = nil) -> RequestBuilder<Void> {
-        let path = "/api/ClaimApprovalStatusTrackers/PutClaimApprovalStatusTracker"
+        let path = "/api/CashAdvanceStatusTrackers/PutCashAdvanceStatusTracker"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
         let url = URLComponents(string: URLString)

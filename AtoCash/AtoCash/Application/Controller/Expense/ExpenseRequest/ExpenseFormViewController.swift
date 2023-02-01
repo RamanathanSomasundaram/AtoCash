@@ -75,7 +75,7 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
             }
             else if ((UIInfo["type"] as! String) == "Business Area"){
                 self.txtExpenseType.text = NSLocalizedString("business", comment: "")
-                self.isBusiness = true
+                self.isProject = false
                 self.selectedBusinessType = (UIInfo["bussType"] as? BusinessTypeVM)
                 self.selectedBusinessUnit = (UIInfo["bussUnit"] as? BusinessUnitVM)
                 self.getBusinessLocation()
@@ -151,6 +151,9 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
                     self.txtExpenseType.text = NSLocalizedString("business", comment: "")
                     let info = ["title": expense.expenseTitle, "project" : expense.project ?? nil, "subProject" : expense.subProjct ?? nil, "task": expense.task ?? nil,"type" : "Business Area","bussType":expense.businessType,"bussUnit": expense.businessUnit,"bussLoc": expense.businessLocation] as [String : Any?]
                     self.isBusiness = true
+                    self.selectedBusinessType = expense.businessType
+                    self.selectedBusinessUnit = expense.businessUnit
+                    self.getBusinessLocation()
                     self.UIInfo = info
                 }
 //                else{
@@ -345,6 +348,7 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
         vc.editInfo = nil
         vc.delegate = self
         vc.isBusiness = self.isBusiness
+        vc.isProject = self.isProject
         vc.expenseBusinessList = self.expenseBusinessList
         self.present(vc, animated: true, completion: nil)
     }

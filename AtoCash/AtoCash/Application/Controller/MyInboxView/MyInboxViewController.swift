@@ -228,8 +228,10 @@ class MyInboxViewController: UIViewController {
         
         showLoader()
         let cashAccept = self.cashAdvanceRequest[currentIndex!]
-        
-        ClaimApprovalStatusTrackersAPI.apiClaimApprovalStatusTrackersPutClaimApprovalStatusTrackerPut(body: [ClaimApprovalStatusTrackerDTO(_id: cashAccept._id!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0 , employeeName:  DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!,businessTypeId: cashAccept.businessTypeId,businessUnitId: cashAccept.businessUnitId, pettyCashRequestId: cashAccept.pettyCashRequestId, departmentId: cashAccept.departmentId, departmentName: cashAccept.departmentName, projectId: cashAccept.projectId, projectName: cashAccept.projectName, subProjectId: cashAccept.subProjectId, subProjectName: cashAccept.subProjectName, workTaskId: cashAccept.workTaskId, workTask: cashAccept.workTask, roleId: cashAccept.roleId, jobRole: cashAccept.jobRole, approvalLevelId: cashAccept.approvalLevelId, reqDate: cashAccept.reqDate, finalApprovedDate: cashAccept.finalApprovedDate, approvalStatusTypeId: (statusUpdate.count > 0 ? statusUpdate.first!._id! : cashAccept.approvalStatusTypeId), approvalStatusType: (statusUpdate.count > 0 ? statusUpdate.first!.status : cashAccept.approvalStatusType), comments: comment)]) { (result, error) in
+        /*
+         [{"id":59,"employeeId":40002,"employeeName":"Sign 11000","cashAdvanceRequestId":38,"businessType":"Stores","businessTypeId":1002,"businessUnit":"Sign Anas In Malek:20001","businessUnitId":101,"projectId":null,"projectName":null,"subProjectId":null,"subProjectName":null,"workTaskId":null,"workTask":null,"approvalGroupId":null,"jobRoleId":602,"jobRole":"STOR-ROLE-MGR:Store-Manager","approvalLevelId":2,"requestDate":"2023-01-29T17:37:20.329665Z","approverEmpId":null,"approverActionDate":null,"approvalStatusTypeId":4,"approvalStatusType":"Approved","claimAmount":1000,"comments":""}]
+         */
+        ClaimApprovalStatusTrackersAPI.apiClaimApprovalStatusTrackersPutClaimApprovalStatusTrackerPut(body: [ClaimApprovalStatusTrackerDTO(_id: cashAccept._id!, employeeId: Int(DefaultsManager.shared.userID!) ?? 0 , employeeName:  DefaultsManager.shared.fName! + " " + DefaultsManager.shared.lName!,businessType: cashAccept.businessType,businessUnit: cashAccept.businessUnit,businessTypeId: cashAccept.businessTypeId,businessUnitId: cashAccept.businessUnitId, cashAdvanceRequestId: cashAccept.cashAdvanceRequestId, departmentId: cashAccept.departmentId, departmentName: cashAccept.departmentName, projectId: cashAccept.projectId, projectName: cashAccept.projectName, subProjectId: cashAccept.subProjectId, subProjectName: cashAccept.subProjectName, workTaskId: cashAccept.workTaskId, workTask: cashAccept.workTask, roleId: cashAccept.roleId, jobRole: cashAccept.jobRole, approvalLevelId: cashAccept.approvalLevelId, reqDate: cashAccept.reqDate, finalApprovedDate: cashAccept.finalApprovedDate, approvalStatusTypeId: (statusUpdate.count > 0 ? statusUpdate.first!._id! : cashAccept.approvalStatusTypeId), approvalStatusType: (statusUpdate.count > 0 ? statusUpdate.first!.status : cashAccept.approvalStatusType), comments: comment,claimAmount: cashAccept.claimAmount)]) { (result, error) in
             hideLoader()
             if error == nil {
                 let message = comment == "" ? NSLocalizedString("cash_approve_status", comment: "") : NSLocalizedString("cash_reject_status", comment: "")
@@ -499,7 +501,7 @@ extension MyInboxViewController : UITableViewDelegate,UITableViewDataSource,myIn
         self.currentIndex = sender
         switch inboxviewType {
         case .advance:
-            self.incomDelegate?.incomeboxTracker(self.cashAdvanceRequest[sender].pettyCashRequestId!, incomeviewType: .advance)
+            self.incomDelegate?.incomeboxTracker(self.cashAdvanceRequest[sender].cashAdvanceRequestId!, incomeviewType: .advance)
             break
         case .expanse:
             self.incomDelegate?.incomeboxTracker(self.expenseRequest[sender].expenseReimburseRequestId!, incomeviewType: .expanse)

@@ -273,7 +273,12 @@ class AddItemViewController: UIViewController {
             self.txtTaxAmountCal.text = "\(edit.taxAmount ?? 0)"
             self.txtLocation.text = edit.location
             self.txtDesc.text = edit._description
-            self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
+            if !self.isProject{
+                self.selectedBusinessCategory = ExpenseBusinessCategoryDTO(_id: edit.expenseTypeId,expenseTypeName: edit.expenseCategory)
+            }
+            else{
+                self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
+            }
             self.selectedBusinessExpense = ExpenseBusinessDTO(_id: edit.businessExpenseId,expenseCategoryName: edit.buinessCategoryName)
             self.txtExpenseCategory.text = edit.buinessCategoryName ?? ""
             if edit.startDate != nil {
@@ -295,7 +300,13 @@ class AddItemViewController: UIViewController {
         else{
             if let edit = editInfo, edit.isDuplicate!{
                 self.selectDocument = [imageUpload]()
-                self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
+                if !self.isProject{
+                    self.selectedBusinessCategory = ExpenseBusinessCategoryDTO(_id: edit.expenseTypeId,expenseTypeName: edit.expenseCategory)
+                }
+                else{
+                    self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
+                }
+//                self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
                 self.txtExpenseType.text = edit.expenseType
                 self.txtInvoiceNo.text = edit.invoiceNo
                 self.txtInvoiceDate.text =  UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(edit.invoiceDate!),formatOf: "dd-MMM-yyyy")
@@ -806,7 +817,7 @@ class AddItemViewController: UIViewController {
                         let startDates = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtStartDates.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
                         let endDates = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtEndDate.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
                         
-                        let addItem = addItemInfo(_id: self.editInfo == nil ? 0 : self.editInfo!._id, expenseReimbClaimAmount: Double(self.txtExpenseAmount.text!), documentIDs: formattedArray, expReimReqDate: nil, invoiceNo: self.txtInvoiceNo.text, invoiceDate: invoiceDate, tax: Float(self.txtTax.text!), taxAmount: Double(self.txtTaxAmountCal.text!), vendor: self.txtVendor.text, location: self.txtLocation.text, _description: self.txtDesc.text,expenseTypeId: self.selectedExpenseType?._id, expenseType: self.txtExpenseType.text, selectDocument: self.selectDocument, isDuplicate: false,expCategory: self.txtExpenseCategory.text,startDate: startDates,endDate: endDates,noDays: self.txtDays.text,taxNo: self.txtTaxNo.text,isVAT: self.isVatToggle.isOn, businessExpenseId: self.selectedBusinessExpense?._id, buinessCategoryName: self.selectedBusinessExpense?.expenseCategoryName,selectedVendorId: self.selectedVendor?._id ?? 0, selectedVendorOthers: self.txtOthersVendor.text)
+                        let addItem = addItemInfo(_id: self.editInfo == nil ? 0 : self.editInfo!._id, expenseReimbClaimAmount: Double(self.txtExpenseAmount.text!), documentIDs: formattedArray, expReimReqDate: nil, invoiceNo: self.txtInvoiceNo.text, invoiceDate: invoiceDate, tax: Float(self.txtTax.text!), taxAmount: Double(self.txtTaxAmountCal.text!), vendor: self.txtVendor.text, location: self.txtLocation.text, _description: self.txtDesc.text,expenseTypeId: !self.isProject ? self.selectedBusinessCategory?._id : self.selectedExpenseType?._id, expenseType: self.txtExpenseType.text, selectDocument: self.selectDocument, isDuplicate: false,expCategory: self.txtExpenseCategory.text,startDate: startDates,endDate: endDates,noDays: self.txtDays.text,taxNo: self.txtTaxNo.text,isVAT: self.isVatToggle.isOn, businessExpenseId: self.selectedBusinessExpense?._id, buinessCategoryName: self.selectedBusinessExpense?.expenseCategoryName,selectedVendorId: self.selectedVendor?._id ?? 0, selectedVendorOthers: self.txtOthersVendor.text)
                         self.delegate?.addItemsList(addItem,selectIndex: self.selectedIndex)
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -916,7 +927,7 @@ extension AddItemViewController : UITextFieldDelegate,UITextViewDelegate{
                 for dropDown in self.expenseBusinessCetegoryList{
                     projectTitle.append(dropDown.expenseTypeName ?? "")
                 }
-                
+
                 let simpleArray: [String] = projectTitle
                 var simpleSelectedArray: [String] = selectedBusinessCategory == nil ? [] : [selectedBusinessCategory?.expenseTypeName ?? ""]
                 let selectionMenu = RSSelectionMenu(dataSource: simpleArray) { (cell, item, indexPath) in
@@ -929,7 +940,7 @@ extension AddItemViewController : UITextFieldDelegate,UITextViewDelegate{
                     simpleSelectedArray = [textField.text] as! [String]
                 }
                 selectionMenu.setSelectedItems(items: simpleSelectedArray) {(item, index, isSelected, selectedItems) in
-                    
+
                     textField.text = item!
                     for drop in self.expenseBusinessCetegoryList{
                         if (drop.expenseTypeName ?? "") == item!{
@@ -937,7 +948,7 @@ extension AddItemViewController : UITextFieldDelegate,UITextViewDelegate{
                             break
                         }
                     }
-                    
+
                 }
                 if #available(iOS 13.0, *) {
                     selectionMenu.searchBar?.searchTextField.textColor = .white
@@ -946,21 +957,21 @@ extension AddItemViewController : UITextFieldDelegate,UITextViewDelegate{
                 }
                 // show searchbar with placeholder and barTintColor
                 selectionMenu.showSearchBar(withPlaceHolder: NSLocalizedString("search", comment: ""), barTintColor: UIColor.init(named: "NavBar")!.withAlphaComponent(0.2)) { (searchText) -> ([String]) in
-                    
+
                     return simpleArray.filter({ $0.lowercased().contains(searchText.lowercased()) })
                 }
                 selectionMenu.show(style: .popover(sourceView: textField, size: CGSize(width: textField.frame.size.width, height: 230)), from: self)
-                
+
                 return false
             }
             else{
                 var projectTitle = [String]()
                 for dropDown in self.expenseTypeList{
-                    projectTitle.append("\(dropDown.expenseTypeName!) - \(dropDown.expenseTypeDesc ?? "")")
+                    projectTitle.append("\(dropDown.expenseTypeName!)")
                 }
                 
                 let simpleArray: [String] = projectTitle
-                var simpleSelectedArray: [String] = selectedExpenseType == nil ? [] : ["\(selectedExpenseType!.expenseTypeName!) - \(selectedExpenseType!.expenseTypeDesc ?? "")"]
+                var simpleSelectedArray: [String] = selectedExpenseType == nil ? [] : ["\(selectedExpenseType!.expenseTypeName!)"]
                 let selectionMenu = RSSelectionMenu(dataSource: simpleArray) { (cell, item, indexPath) in
                     cell.textLabel?.text = item
                     cell.separatorInset = .zero
@@ -974,7 +985,7 @@ extension AddItemViewController : UITextFieldDelegate,UITextViewDelegate{
                     
                     textField.text = item!
                     for drop in self.expenseTypeList{
-                        if "\(drop.expenseTypeName!) - \(drop.expenseTypeDesc ?? "")" == item!{
+                        if "\(drop.expenseTypeName!)" == item!{
                             self.selectedExpenseType = drop
                             break
                         }

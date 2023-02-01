@@ -246,11 +246,12 @@
 "txt_no" = "رقم الضريبه*";
 "txt_error" = "من فضلك قم بادخال رقم الضريبه";
 
-"businesstype" = "Business Type*";
-"businessunit" = "Business Unit*";
-"location1" = "Location";
-"select_businesstype_error" = "Please select business type";
-"select_businessunit_error" = "Please select business unit";
-"cash_request_delete" = "Cash Request deleted successfully";
-"vendor_select_error" = "Please select the vendor";
-"vendor_select_other_error" = "Please enter the other vendor name";
+
+"businesstype" = " *نوع جهة العمل";
+"businessunit" = "*جهة العمل";
+"location1" = "المكان";
+"select_businesstype_error" = "من فضلك قم باختيار نوع جهة العمل";
+"select_businessunit_error" = " من فضلك قم باختيار جهة العمل ";
+"cash_request_delete" = "تم الغاء طلب المقدم النقدي بنجاح";
+"vendor_select_error" = "من فضلك قم باختيار المورد";
+"vendor_select_other_error" = "من فضلك قم بادخال اسم المورد الاخر";
