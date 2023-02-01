@@ -56,8 +56,8 @@ public struct ReportsModel: Codable {
     let currencyTypeId : Int?
     let currencyType : String?
     let claimAmount : Double?
-    let amountToWallet : Int?
-    let amountToCredit : Int?
+    let amountToWallet : Double?
+    let amountToCredit : Double?
     let isSettledAmountCredited : Bool?
     let settledDate : String?
     let settlementComment : String?
@@ -129,8 +129,8 @@ public struct ReportsModel: Codable {
         currencyTypeId = try values.decodeIfPresent(Int.self, forKey: .currencyTypeId)
         currencyType = try values.decodeIfPresent(String.self, forKey: .currencyType)
         claimAmount = try values.decodeIfPresent(Double.self, forKey: .claimAmount)
-        amountToWallet = try values.decodeIfPresent(Int.self, forKey: .amountToWallet)
-        amountToCredit = try values.decodeIfPresent(Int.self, forKey: .amountToCredit)
+        amountToWallet = try values.decodeIfPresent(Double.self, forKey: .amountToWallet)
+        amountToCredit = try values.decodeIfPresent(Double.self, forKey: .amountToCredit)
         isSettledAmountCredited = try values.decodeIfPresent(Bool.self, forKey: .isSettledAmountCredited)
         settledDate = try values.decodeIfPresent(String.self, forKey: .settledDate)
         settlementComment = try values.decodeIfPresent(String.self, forKey: .settlementComment)
