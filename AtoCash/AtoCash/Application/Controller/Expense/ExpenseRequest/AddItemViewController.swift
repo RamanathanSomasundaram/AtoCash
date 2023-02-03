@@ -273,12 +273,12 @@ class AddItemViewController: UIViewController {
             self.txtTaxAmountCal.text = "\(edit.taxAmount ?? 0)"
             self.txtLocation.text = edit.location
             self.txtDesc.text = edit._description
-            if !self.isProject{
+//            if !self.isProject{
                 self.selectedBusinessCategory = ExpenseBusinessCategoryDTO(_id: edit.expenseTypeId,expenseTypeName: edit.expenseCategory)
-            }
-            else{
-                self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
-            }
+//            }
+//            else{
+//                self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
+//            }
             self.selectedBusinessExpense = ExpenseBusinessDTO(_id: edit.businessExpenseId,expenseCategoryName: edit.buinessCategoryName)
             self.txtExpenseCategory.text = edit.buinessCategoryName ?? ""
             if edit.startDate != nil {
@@ -300,12 +300,12 @@ class AddItemViewController: UIViewController {
         else{
             if let edit = editInfo, edit.isDuplicate!{
                 self.selectDocument = [imageUpload]()
-                if !self.isProject{
+//                if !self.isProject{
                     self.selectedBusinessCategory = ExpenseBusinessCategoryDTO(_id: edit.expenseTypeId,expenseTypeName: edit.expenseCategory)
-                }
-                else{
-                    self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
-                }
+//                }
+//                else{
+//                    self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
+//                }
 //                self.selectedExpenseType = ExpenseTypeDTO(_id: edit.expenseTypeId, expenseTypeName: edit.expenseType, expenseTypeDesc: nil, statusType: nil, statusTypeId: nil)
                 self.txtExpenseType.text = edit.expenseType
                 self.txtInvoiceNo.text = edit.invoiceNo
@@ -352,14 +352,14 @@ class AddItemViewController: UIViewController {
     }
     
     private func setupUI(){
-        if (self.isProject){
-            self.expenseCategoryView.isHidden = true
-            self.startDateView.isHidden = true
-            self.endDateView.isHidden = true
-            self.noDaysView.isHidden = true
-            self.isVatView.isHidden = true
-            self.taxNoView.isHidden = true
-        }
+//        if (self.isProject){
+//            self.expenseCategoryView.isHidden = true
+//            self.startDateView.isHidden = true
+//            self.endDateView.isHidden = true
+//            self.noDaysView.isHidden = true
+////            self.isVatView.isHidden = true
+//            self.taxNoView.isHidden = true
+//        }
 
         cancelBtn.setTitle(NSLocalizedString("cancel", comment: ""), for: .normal)
         uploadBtn.setTitle(NSLocalizedString("upload", comment: ""), for: .normal)
@@ -637,7 +637,7 @@ class AddItemViewController: UIViewController {
     
     @IBAction func createAction(_ sender: Any) {
         self.view.endEditing(true)
-        if txtExpenseCategory.text == "" && !isProject {
+        if txtExpenseCategory.text == "" {
             Loaf(NSLocalizedString("expense_category_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
         else if txtExpenseType.text == "" {
@@ -649,13 +649,13 @@ class AddItemViewController: UIViewController {
         else if(txtInvoiceDate.text == ""){
             Loaf(NSLocalizedString("invdate_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
-        else if(txtStartDates.text == "" && !isProject){
+        else if(txtStartDates.text == ""){
             Loaf(NSLocalizedString("start_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
-        else if(txtEndDate.text == "" && !isProject){
+        else if(txtEndDate.text == "" ){
             Loaf(NSLocalizedString("end_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
-        else if(txtTaxNo.text == "" && !isProject){
+        else if(txtTaxNo.text == "" ){
             Loaf(NSLocalizedString("txt_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
         else if(txtExpenseAmount.text == ""){
@@ -665,9 +665,9 @@ class AddItemViewController: UIViewController {
         }else if(txtVendor.text != "" && txtOthersVendor.text == "" && !vendorOthersView.isHidden){
             Loaf(NSLocalizedString("vendor_select_other_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
-        else if(txtTax.text == "" && !isVatToggle.isOn && !isProject){
+        else if(txtTax.text == "" && !isVatToggle.isOn){
             Loaf(NSLocalizedString("tax_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
-        }else if(txtTax.text == "" && isProject){
+        }else if(txtTax.text == ""){
             Loaf(NSLocalizedString("tax_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }else if(txtLocation.text == ""){
             Loaf(NSLocalizedString("loc_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
@@ -814,10 +814,14 @@ class AddItemViewController: UIViewController {
                         let formattedArray = (fileId.map{String($0)}).joined(separator: ",")
                         print("Documents Number",formattedArray);
                         let invoiceDate = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtInvoiceDate.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
-                        let startDates = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtStartDates.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
-                        let endDates = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtEndDate.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
+                        var startDates : Date? = nil
+                        var endDates : Date? = nil
+//                        if(!self.isProject){
+                            startDates = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtStartDates.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
+                            endDates = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtEndDate.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
+//                        }
                         
-                        let addItem = addItemInfo(_id: self.editInfo == nil ? 0 : self.editInfo!._id, expenseReimbClaimAmount: Double(self.txtExpenseAmount.text!), documentIDs: formattedArray, expReimReqDate: nil, invoiceNo: self.txtInvoiceNo.text, invoiceDate: invoiceDate, tax: Float(self.txtTax.text!), taxAmount: Double(self.txtTaxAmountCal.text!), vendor: self.txtVendor.text, location: self.txtLocation.text, _description: self.txtDesc.text,expenseTypeId: !self.isProject ? self.selectedBusinessCategory?._id : self.selectedExpenseType?._id, expenseType: self.txtExpenseType.text, selectDocument: self.selectDocument, isDuplicate: false,expCategory: self.txtExpenseCategory.text,startDate: startDates,endDate: endDates,noDays: self.txtDays.text,taxNo: self.txtTaxNo.text,isVAT: self.isVatToggle.isOn, businessExpenseId: self.selectedBusinessExpense?._id, buinessCategoryName: self.selectedBusinessExpense?.expenseCategoryName,selectedVendorId: self.selectedVendor?._id ?? 0, selectedVendorOthers: self.txtOthersVendor.text)
+                        let addItem = addItemInfo(_id: self.editInfo == nil ? 0 : self.editInfo!._id, expenseReimbClaimAmount: Double(self.txtExpenseAmount.text!), documentIDs: formattedArray, expReimReqDate: nil, invoiceNo: self.txtInvoiceNo.text, invoiceDate: invoiceDate, tax: Float(self.txtTax.text!), taxAmount: Double(self.txtTaxAmountCal.text!), vendor: self.txtVendor.text, location: self.txtLocation.text, _description: self.txtDesc.text,expenseTypeId:  self.selectedBusinessCategory?._id, expenseType: self.txtExpenseType.text, selectDocument: self.selectDocument, isDuplicate: false,expCategory: self.txtExpenseCategory.text,startDate: startDates,endDate: endDates,noDays: self.txtDays.text,taxNo: self.txtTaxNo.text,isVAT: self.isVatToggle.isOn, businessExpenseId: self.selectedBusinessExpense?._id, buinessCategoryName: self.selectedBusinessExpense?.expenseCategoryName,selectedVendorId: self.selectedVendor?._id ?? 0, selectedVendorOthers: self.txtOthersVendor.text)
                         self.delegate?.addItemsList(addItem,selectIndex: self.selectedIndex)
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -922,7 +926,7 @@ extension AddItemViewController : UITextFieldDelegate,UITextViewDelegate{
             
         }
         if textField == txtExpenseType{
-            if !self.isProject{
+//            if !self.isProject{
                 var projectTitle = [String]()
                 for dropDown in self.expenseBusinessCetegoryList{
                     projectTitle.append(dropDown.expenseTypeName ?? "")
@@ -963,49 +967,49 @@ extension AddItemViewController : UITextFieldDelegate,UITextViewDelegate{
                 selectionMenu.show(style: .popover(sourceView: textField, size: CGSize(width: textField.frame.size.width, height: 230)), from: self)
 
                 return false
-            }
-            else{
-                var projectTitle = [String]()
-                for dropDown in self.expenseTypeList{
-                    projectTitle.append("\(dropDown.expenseTypeName!)")
-                }
-                
-                let simpleArray: [String] = projectTitle
-                var simpleSelectedArray: [String] = selectedExpenseType == nil ? [] : ["\(selectedExpenseType!.expenseTypeName!)"]
-                let selectionMenu = RSSelectionMenu(dataSource: simpleArray) { (cell, item, indexPath) in
-                    cell.textLabel?.text = item
-                    cell.separatorInset = .zero
-                    cell.textLabel?.font = UIFont(name: "SFUIDisplay-Light", size: 15.0)
-                    cell.layoutMargins = .zero
-                }
-                if (textField.text != nil) {
-                    simpleSelectedArray = [textField.text] as! [String]
-                }
-                selectionMenu.setSelectedItems(items: simpleSelectedArray) {(item, index, isSelected, selectedItems) in
-                    
-                    textField.text = item!
-                    for drop in self.expenseTypeList{
-                        if "\(drop.expenseTypeName!)" == item!{
-                            self.selectedExpenseType = drop
-                            break
-                        }
-                    }
-                    
-                }
-                if #available(iOS 13.0, *) {
-                    selectionMenu.searchBar?.searchTextField.textColor = .white
-                } else {
-                    // Fallback on earlier versions
-                }
-                // show searchbar with placeholder and barTintColor
-                selectionMenu.showSearchBar(withPlaceHolder: NSLocalizedString("search", comment: ""), barTintColor: UIColor.init(named: "NavBar")!.withAlphaComponent(0.2)) { (searchText) -> ([String]) in
-                    
-                    return simpleArray.filter({ $0.lowercased().contains(searchText.lowercased()) })
-                }
-                selectionMenu.show(style: .popover(sourceView: textField, size: CGSize(width: textField.frame.size.width, height: 230)), from: self)
-                
-                return false
-            }
+//            }
+//            else{
+//                var projectTitle = [String]()
+//                for dropDown in self.expenseTypeList{
+//                    projectTitle.append("\(dropDown.expenseTypeName!)")
+//                }
+//
+//                let simpleArray: [String] = projectTitle
+//                var simpleSelectedArray: [String] = selectedExpenseType == nil ? [] : ["\(selectedExpenseType!.expenseTypeName!)"]
+//                let selectionMenu = RSSelectionMenu(dataSource: simpleArray) { (cell, item, indexPath) in
+//                    cell.textLabel?.text = item
+//                    cell.separatorInset = .zero
+//                    cell.textLabel?.font = UIFont(name: "SFUIDisplay-Light", size: 15.0)
+//                    cell.layoutMargins = .zero
+//                }
+//                if (textField.text != nil) {
+//                    simpleSelectedArray = [textField.text] as! [String]
+//                }
+//                selectionMenu.setSelectedItems(items: simpleSelectedArray) {(item, index, isSelected, selectedItems) in
+//
+//                    textField.text = item!
+//                    for drop in self.expenseTypeList{
+//                        if "\(drop.expenseTypeName!)" == item!{
+//                            self.selectedExpenseType = drop
+//                            break
+//                        }
+//                    }
+//
+//                }
+//                if #available(iOS 13.0, *) {
+//                    selectionMenu.searchBar?.searchTextField.textColor = .white
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+//                // show searchbar with placeholder and barTintColor
+//                selectionMenu.showSearchBar(withPlaceHolder: NSLocalizedString("search", comment: ""), barTintColor: UIColor.init(named: "NavBar")!.withAlphaComponent(0.2)) { (searchText) -> ([String]) in
+//
+//                    return simpleArray.filter({ $0.lowercased().contains(searchText.lowercased()) })
+//                }
+//                selectionMenu.show(style: .popover(sourceView: textField, size: CGSize(width: textField.frame.size.width, height: 230)), from: self)
+//
+//                return false
+//            }
             
         }
         if textField == txtVendor{

@@ -82,11 +82,11 @@ public struct TravelApprovalRequestDTO: Codable {
         case department
         case departmentId
         case projectId
-        case project
+        case project = "projectName"
         case subProjectId
-        case subProject
+        case subProject = "subProjectName"
         case workTaskId
-        case workTask
+        case workTask = "workTaskName"
         case costCenterId
         case costCenter
         case approvalStatusTypeId

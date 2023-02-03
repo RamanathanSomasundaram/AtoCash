@@ -158,6 +158,9 @@ extension AdvanceRequestViewController : UITableViewDelegate,UITableViewDataSour
         let myRequest = self.getAdvanceRequests[indexPath.row]
         let request = NSLocalizedString("request_amt", comment: "")
         cell.lblReqAmount.text = " \(request) \(myRequest.cashAdvanceAmount!) "
+        cell.lblCashStatus.text = myRequest.approvalStatusType
+        cell.lblCashStatus.textColor = myRequest.approvalStatusType == "Approved" ? UIColor(named: "Approve") : myRequest.approvalStatusType == "Rejected" ? UIColor(named: "RejectApprove") : myRequest.approvalStatusType == "Pending" ? UIColor(named: "NavBar") : UIColor.lightGray
+        cell.lblCashStatus.font = UIFont.boldSystemFont(ofSize: 17.0)
         cell.lblReqName.text = myRequest.cashAdvanceRequestDesc
         cell.lblReqDate.text =  UtilsManager.shared.systemDateStringFromUTC(utcDate: UtilsManager.shared.systemDatetoString(myRequest.cashReqDate ?? Date()))
         cell.lblCurrency.text = myRequest.currencyType

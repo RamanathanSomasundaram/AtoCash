@@ -157,7 +157,8 @@ extension travelRequestViewController : UITableViewDelegate,UITableViewDataSourc
         cell.linkIcon.isHidden = false
         cell.linkStatus.isHidden = false
         let businessTitle = "Business Type: " + (myRequest.businessType ?? "") + "\n" + "Business unit: " + (myRequest.businessUnit ?? "") + "\n" + "Location: " + (myRequest.location ?? "")
-        cell.linkStatus.text = businessTitle
+//        print("Project n ame", myRequest.project)
+        cell.linkStatus.text = myRequest.project != nil ? (myRequest.project ?? "") : businessTitle
         cell.requestDelegate = self
         cell.editBtnAction.tag = indexPath.row
         cell.deleteAction.tag = indexPath.row

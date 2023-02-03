@@ -111,6 +111,19 @@ class CreatetravelRequestViewController: UIViewController {
             self.txtProjectId.text = viewDetailModel?.project ?? ""
             self.txtSubProject.text = viewDetailModel?.subProject ?? ""
             self.txtTask.text = viewDetailModel?.workTask ?? ""
+            self.selectedProject = ProjectVM(_id: viewDetailModel?.projectId, projectName: viewDetailModel?.project ?? "")
+            if let subProject = viewDetailModel?.subProject, subProject != ""{
+                self.subProjectView.isHidden = false
+                self.txtSubProject.text = subProject
+                self.selectSubproject = SubProjectVM(_id: viewDetailModel?.subProjectId, subProjectName: subProject)
+                self.getAllTask()
+                
+            }
+            if let taskProject = viewDetailModel?.workTask, taskProject != ""{
+                self.taskView.isHidden = false
+                self.txtTask.text = taskProject
+                self.selectWorkTask = TaskModel(_id: viewDetailModel?.workTaskId, taskName: taskProject, taskDesc: nil)
+            }
         }
         self.getBusinessTypeDropDown()
         self.getAllProjects()

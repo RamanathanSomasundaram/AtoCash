@@ -200,7 +200,7 @@ class CreateAdvanceRequestViewController: UIViewController {
                     self.createAdvanceRequest()
                 }
                 else{
-                    
+                    self.updateAdvanceRequest()
                 }
             }
         }

@@ -15,6 +15,7 @@ protocol myRequestDetailDelegate : NSObjectProtocol {
 
 class MyRequestCell: UITableViewCell {
 
+    @IBOutlet weak var lblCashStatus: UILabel!
     @IBOutlet weak var deleteAction: UIButton!
     @IBOutlet weak var editBtnAction: UIButton!
     @IBOutlet weak var editDeleteView: UIStackView!
