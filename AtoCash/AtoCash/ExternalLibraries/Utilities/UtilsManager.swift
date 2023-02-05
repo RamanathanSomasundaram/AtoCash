@@ -456,7 +456,17 @@ class UtilsManager: NSObject {
         //dateFormatter.timeZone = .current
         return UTCDate!
     }
-    
+    func UTCDateFromString3(date: String, format : String = "dd-MMM-yyyy") -> Date?{
+        let utcDate = date
+        //Convert UTC date string to Date object
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        let UTCDate = dateFormatter.date(from: utcDate)
+        //dateFormatter.dateFormat = format
+        //dateFormatter.timeZone = .current
+        return UTCDate
+    }
     
     
     func localDateFromUTC(utcDate: String) -> String{

@@ -92,6 +92,8 @@ class CreateAdvanceRequestViewController: UIViewController {
             self.txtPettyDesc.text = viewDetailModel?.cashAdvanceRequestDesc
             
             if let project = viewDetailModel?.project, project != ""{
+                self.tEnable.isHidden = false
+                self.toggleSwitch.isHidden = false
                 self.txtProjectId.text = project
                 self.toggleSwitch.isOn = true
                 self.selectedProject = ProjectVM(_id: viewDetailModel?.projectId, projectName: project)
@@ -99,6 +101,8 @@ class CreateAdvanceRequestViewController: UIViewController {
             }
             else{
                 self.toggleSwitch.isOn = false
+                self.tEnable.isHidden = true
+                self.toggleSwitch.isHidden = true
                 self.projectBaseView.isHidden = true
                 self.txtBusinessType.text = viewDetailModel?.businessType
                 self.txtBusinessUnit.text = viewDetailModel?.businessUnit

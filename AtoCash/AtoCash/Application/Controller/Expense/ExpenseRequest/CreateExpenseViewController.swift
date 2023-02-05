@@ -70,7 +70,7 @@ class CreateExpenseViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
+        self.TenableTitle.isHidden = false
         self.txtTask.setupRightPadview()
         self.txtSubProject.setupRightPadview()
         self.txtProjectId.setupRightPadview()
@@ -119,12 +119,13 @@ class CreateExpenseViewController: UIViewController {
                 }
 //                self.toggleSwitch.isHidden = false
 //                self.TenableTitle.isHidden = false
-                
+                setupViewHideShow()
             }
             else{
 //                "bussType": self.selectedBusinessType, "bussUnit": self.selectedBusinessUnit, "bussLoc": self.selectedBusinessLocation
 //                self.toggleSwitch.isHidden = true
-                self.TenableTitle.isHidden = true
+                self.TenableTitle.isHidden = false
+//                self.TenableTitle.isHidden = true
                 self.toggleSwitch.isOn = false
                 self.projectBaseView.isHidden = true
                 self.txtBusinessType.text = (viewDetailModel!["bussType"] as? BusinessTypeVM)?.businessTypeName ?? ""
@@ -152,7 +153,7 @@ class CreateExpenseViewController: UIViewController {
             
             self.txtExpense.text = (viewDetailModel!["title"] as! String)
         }
-        setupViewHideShow()
+        
         //self.getCurrencyList()
         self.getBusinessTypeDropDown()
         self.getAllProjects()
@@ -188,10 +189,10 @@ class CreateExpenseViewController: UIViewController {
     @IBAction func segmentAction(_ sender: UISegmentedControl) {
         self.selectSegmentIndex = sender.selectedSegmentIndex
         if selectSegmentIndex > 0 {
-            self.TenableTitle.isHidden = true
+//            self.TenableTitle.isHidden = true
             self.toggleSwitch.isHidden = true
         }else{
-            self.TenableTitle.isHidden = false
+//            self.TenableTitle.isHidden = false
             self.toggleSwitch.isHidden = false
         }
         setupViewHideShow()

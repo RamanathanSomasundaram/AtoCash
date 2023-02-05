@@ -30,6 +30,8 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
     var editExpense : ExpenseReimburseRequestDTO?
     var isRealmSave = false
     
+    var isSubmitEdit = false
+    
     var selectedProject : ProjectVM?
     var selectSubproject : SubProjectVM?
     var selectWorkTask : TaskModel?
@@ -69,14 +71,16 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
             self.txtExpenseTitle.text = (UIInfo["title"] as! String)
             if let project = UIInfo["project"] as? ProjectVM{
                 self.isProject = true
-                self.txtExpenseType.text = NSLocalizedString("proj", comment: "")
+                self.txtExpenseType.text = project.projectName ?? ""
+//                self.txtExpenseType.text = NSLocalizedString("proj", comment: "")
                 print(project)
                 self.isBusiness = false
             }
             else if ((UIInfo["type"] as! String) == "Business Area"){
-                self.txtExpenseType.text = NSLocalizedString("business", comment: "")
+               
                 self.isProject = false
                 self.selectedBusinessType = (UIInfo["bussType"] as? BusinessTypeVM)
+                self.txtExpenseType.text = self.selectedBusinessType?.businessTypeName ?? ""
                 self.selectedBusinessUnit = (UIInfo["bussUnit"] as? BusinessUnitVM)
                 self.getBusinessLocation()
             }
@@ -92,7 +96,8 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
             self.txtExpenseTitle.text = editExpense?.expenseReportTitle
             if let project = editExpense?.project, project != ""{
                 self.isProject = true
-                self.txtExpenseType.text = NSLocalizedString("proj", comment: "")
+//                self.txtExpenseType.text = NSLocalizedString("proj", comment: "")
+                self.txtExpenseType.text = project
                 self.selectedProject = ProjectVM(_id: editExpense?.projectId, projectName: project)
                 if let subProject = editExpense?.subProject, subProject != ""{
                     self.selectSubproject = SubProjectVM(_id: editExpense?.subProjectId, subProjectName: subProject)
@@ -106,11 +111,12 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
                 self.isBusiness = false
             }
             else{
-                self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
+//                self.txtExpenseType.text = NSLocalizedString("dept", comment: "")
                 
                 self.selectedBusinessType = BusinessTypeVM(_id: editExpense?.businessTypeId,businessTypeName: editExpense?.businessType)
                 self.selectedBusinessUnit = BusinessUnitVM(_id: editExpense?.businessUnitId,businessUnitName: editExpense?.businessUnit)
                 self.getBusinessLocation()
+                self.txtExpenseType.text = self.selectedBusinessType?.businessTypeName ?? ""
                 let info = ["title": txtExpenseTitle!.text!, "project" : self.selectedProject ?? nil, "subProject" : self.selectSubproject ?? nil, "task": self.selectWorkTask ?? nil,"type" : "Business Area","bussType":self.selectedBusinessType,"bussUnit": self.selectedBusinessUnit,"bussLoc": self.selectedBusinessLocation] as [String : Any?]
                 self.UIInfo = info
                 self.isBusiness = true
@@ -181,7 +187,13 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
         self.submitBtn.setTitle(NSLocalizedString("submit", comment: ""), for: .normal)
         self.draftBtn.setTitle(NSLocalizedString("save_draft", comment: ""), for: .normal)
         self.addItemBtn.setTitle(NSLocalizedString("add_item", comment: ""), for: .normal)
-        self.updateExpenseBtn.setTitle(NSLocalizedString("update_exp", comment: ""), for: .normal)
+        if (!isSubmitEdit){
+            self.updateExpenseBtn.isHidden = false
+            self.updateExpenseBtn.setTitle(NSLocalizedString("update_exp", comment: ""), for: .normal)
+        }
+        else{
+            self.updateExpenseBtn.isHidden = true
+        }
         self.Tamount.text = NSLocalizedString("total_amount", comment: "")
         self.tExpenseType.text = NSLocalizedString("expense_type", comment: "")
         self.tExpenseTitle.text = NSLocalizedString("expense_title", comment: "")
@@ -334,11 +346,13 @@ class ExpenseFormViewController: UIViewController, createExpenseViewDelegate,add
     
     
     @IBAction func updateExpense(_ sender: Any){
-        let vc = mainStoryboard.instantiateViewController(withIdentifier: "CreateExpenseViewController") as! CreateExpenseViewController
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.expenseDelegate = self
-        vc.viewDetailModel = UIInfo
-        self.present(vc, animated: true, completion: nil)
+        if (!isSubmitEdit){
+            let vc = mainStoryboard.instantiateViewController(withIdentifier: "CreateExpenseViewController") as! CreateExpenseViewController
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.expenseDelegate = self
+            vc.viewDetailModel = UIInfo
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     @IBAction func addItemAction(_ sender: Any?){

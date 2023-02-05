@@ -22,7 +22,7 @@ let adminReuseCell = "adminCell"
 let myInboxCell = "myInboxCell"
 let myRequestCell = "myRequestCell"
 
-let concatBaseURL = ".atocash.tk" //dev
+let concatBaseURL = "server.atocash.tk" //dev
 var BASEURL = "https://" + (DefaultsManager.shared.baseLink ?? "") + concatBaseURL
 //let concatBaseURL = ".atocashserver.ml" //POSTSQL
 

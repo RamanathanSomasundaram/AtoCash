@@ -92,9 +92,13 @@ class CreatetravelRequestViewController: UIViewController {
             self.toggleSwitch.isOn = (viewDetailModel?.projectId != 0) && (viewDetailModel?.projectId != nil) ? true : false
             
             self.setupViewHideShow()
+            self.tEnable.isHidden = false
+            self.toggleSwitch.isHidden = false
             if(!self.toggleSwitch.isOn){
                 self.toggleSwitch.isOn = false
                 self.projectBaseView.isHidden = true
+                self.tEnable.isHidden = true
+                self.toggleSwitch.isHidden = true
                 self.txtBusinessType.text = viewDetailModel?.businessType
                 self.txtBusinessUnit.text = viewDetailModel?.businessUnit
                 self.txtBusinessLocation.text = viewDetailModel?.location
@@ -141,13 +145,13 @@ class CreatetravelRequestViewController: UIViewController {
         self.lblBusinessType.text = NSLocalizedString("businesstype", comment: "")
         self.lblBusinessUnit.text = NSLocalizedString("businessunit", comment: "")
         self.lblBusinessLocation.text = NSLocalizedString("location1", comment: "")
-        tStart.text = NSLocalizedString("start_date", comment: "")
+        tStart.text = NSLocalizedString("start_date1", comment: "")
         cancelBtn.setTitle(NSLocalizedString("cancel", comment: ""), for: .normal)
         tWorktask.text = NSLocalizedString("work_task", comment: "")
         tSubproject.text = NSLocalizedString("subproject", comment: "")
         tProject.text = NSLocalizedString("project", comment: "")
         tEnable.text = NSLocalizedString("enable_project", comment: "")
-        tEnd.text = NSLocalizedString("end_date", comment: "")
+        tEnd.text = NSLocalizedString("end_date1", comment: "")
         
         tTravelPurpose.text = NSLocalizedString("travel_purpose", comment: "")
         txtTask.textAlignment = .defaultAlignment

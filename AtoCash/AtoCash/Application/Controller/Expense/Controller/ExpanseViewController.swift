@@ -312,6 +312,7 @@ extension ExpanseViewController : UITableViewDelegate,UITableViewDataSource,expe
             let vc = mainStoryboard.instantiateViewController(withIdentifier: "ExpenseFormViewController") as! ExpenseFormViewController
             vc.UIInfo = [:]
             vc.editExpense = myRequest
+            vc.isSubmitEdit = true
             vc.isRealmSave = false
             vc.isBusiness = myRequest.isBusinessAreaReq ?? false
             vc.isProject = myRequest.isBusinessAreaReq ?? true

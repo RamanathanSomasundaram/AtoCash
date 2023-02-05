@@ -124,10 +124,10 @@
 "inv_no" = "Invoice No*";
 "inv_date" = "Invoice Date*";
 "exp_amount" = "Expense Amount*";
-"vend" = "Vendor*";
+"vend" = "Vendor";
 "tax_" = "Tax(%)*";
 "tax_amt" = "Tax Amount*";
-"loc" = "Location*";
+"loc" = "Location";
 "desc" = "Description*";
 "doc" = "Document*";
 "upload" = "Upload Documents*";
@@ -167,8 +167,8 @@
 
 
 //Create Travel Request
-"start_date" = "Start Date*";
-"end_date" = "End Date*";
+"start_date" = "Start Date";
+"end_date" = "End Date";
 "start_date_title" = "Start Date";
 "end_date_title" = "End Date";
 "travel_purpose" = "Travel Purpose";
@@ -243,7 +243,7 @@
 "no_days" = "No of Days";
 "is_vat" = "Is VAT";
 "expense_category_error" = "Please select atleast one Expense category";
-"txt_no" = "Tax No*";
+"txt_no" = "Tax No";
 "txt_error" = "Please enter the Tax No.";
 
 "businesstype" = "Business Type*";
@@ -254,3 +254,6 @@
 "cash_request_delete" = "Cash Request deleted successfully";
 "vendor_select_error" = "Please select the vendor";
 "vendor_select_other_error" = "Please enter the other vendor name";
+"start_date1" = "Start Date*";
+"end_date1" = "End Date*";
+"others" = "Others";

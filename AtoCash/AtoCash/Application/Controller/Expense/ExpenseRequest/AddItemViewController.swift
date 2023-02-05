@@ -378,6 +378,7 @@ class AddItemViewController: UIViewController {
         endDateLabel.text = NSLocalizedString("end_date", comment: "")
         noDaysLabel.text = NSLocalizedString("no_days", comment: "")
         isVatLabel.text = NSLocalizedString("is_vat", comment: "")
+        lblOthers.text = NSLocalizedString("others", comment: "")
         lblExpenseCategory.text = NSLocalizedString("expense_category", comment: "")
         lblTaxNo.text = NSLocalizedString("txt_no", comment: "")
 
@@ -395,13 +396,14 @@ class AddItemViewController: UIViewController {
         txtEndDate.textAlignment = .defaultAlignment
         txtDays.textAlignment = .defaultAlignment
         txtTaxNo.textAlignment = .defaultAlignment
-        
+        self.txtTax.isUserInteractionEnabled = false
         if isVatToggle.isOn{
             self.txtTax.text = self.expenseVAT == nil ? "15" : "\(self.expenseVAT?.vatPercentage ?? 0)"
             self.txtTax.isUserInteractionEnabled = false
         }
         else{
-            self.txtTax.isUserInteractionEnabled = true
+            self.txtTax.text = "0"
+//            self.txtTax.isUserInteractionEnabled = true
         }
     }
     //Vendor
@@ -546,8 +548,8 @@ class AddItemViewController: UIViewController {
         }
         else{
             isVatToggle.isOn = sender.isOn
-            self.txtTax.text = ""
-            self.txtTax.isUserInteractionEnabled = true
+            self.txtTax.text = "0"
+            self.txtTax.isUserInteractionEnabled = false
             let amount = Double(self.txtExpenseAmount.text!) ?? 0.0
             let taxPercentage = Double(self.txtTax.text!) ?? 0.0
             self.txtTaxAmountCal.text = NSString.init(format: "%.2f", ((amount * taxPercentage) / 100)) as String
@@ -649,29 +651,33 @@ class AddItemViewController: UIViewController {
         else if(txtInvoiceDate.text == ""){
             Loaf(NSLocalizedString("invdate_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
-        else if(txtStartDates.text == ""){
-            Loaf(NSLocalizedString("start_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
-        }
-        else if(txtEndDate.text == "" ){
-            Loaf(NSLocalizedString("end_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
-        }
-        else if(txtTaxNo.text == "" ){
-            Loaf(NSLocalizedString("txt_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
-        }
+//        else if(txtStartDates.text == ""){
+//            Loaf(NSLocalizedString("start_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+//        }
+//        else if(txtEndDate.text == "" ){
+//            Loaf(NSLocalizedString("end_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+//        }
+//        else if(txtTaxNo.text == "" ){
+//            Loaf(NSLocalizedString("txt_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+//        }
         else if(txtExpenseAmount.text == ""){
             Loaf(NSLocalizedString("amount_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
-        }else if(txtVendor.text == "" && vendorOthersView.isHidden){
-            Loaf(NSLocalizedString("vendor_select_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
-        }else if(txtVendor.text != "" && txtOthersVendor.text == "" && !vendorOthersView.isHidden){
-            Loaf(NSLocalizedString("vendor_select_other_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
+//        else if(txtVendor.text == "" && vendorOthersView.isHidden){
+//            Loaf(NSLocalizedString("vendor_select_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+//        }
+//        else if(txtVendor.text != "" && txtOthersVendor.text == "" && !vendorOthersView.isHidden){
+//            Loaf(NSLocalizedString("vendor_select_other_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+//        }
         else if(txtTax.text == "" && !isVatToggle.isOn){
             Loaf(NSLocalizedString("tax_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }else if(txtTax.text == ""){
             Loaf(NSLocalizedString("tax_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
-        }else if(txtLocation.text == ""){
-            Loaf(NSLocalizedString("loc_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
-        }else if(txtDesc.text == ""){
+        }
+//        else if(txtLocation.text == ""){
+//            Loaf(NSLocalizedString("loc_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
+//        }
+        else if(txtDesc.text == ""){
             Loaf(NSLocalizedString("desc_error", comment: ""), state: .error, location: .top, sender: self).show(.short, completionHandler: nil)
         }
         else if(self.selectDocument.count == 0){
@@ -817,8 +823,8 @@ class AddItemViewController: UIViewController {
                         var startDates : Date? = nil
                         var endDates : Date? = nil
 //                        if(!self.isProject){
-                            startDates = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtStartDates.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
-                            endDates = UtilsManager.shared.UTCDateFromString2(date: UtilsManager.shared.UTCDateFromString(date: self.txtEndDate.text!, format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
+                            startDates = UtilsManager.shared.UTCDateFromString3(date: UtilsManager.shared.UTCDateFromString(date: self.txtStartDates.text ?? "", format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
+                            endDates = UtilsManager.shared.UTCDateFromString3(date: UtilsManager.shared.UTCDateFromString(date: self.txtEndDate.text ?? "", format: "dd-MMM-yyyy"),format : "yyyy-MM-dd'T'HH:mm:ss.SSS")
 //                        }
                         
                         let addItem = addItemInfo(_id: self.editInfo == nil ? 0 : self.editInfo!._id, expenseReimbClaimAmount: Double(self.txtExpenseAmount.text!), documentIDs: formattedArray, expReimReqDate: nil, invoiceNo: self.txtInvoiceNo.text, invoiceDate: invoiceDate, tax: Float(self.txtTax.text!), taxAmount: Double(self.txtTaxAmountCal.text!), vendor: self.txtVendor.text, location: self.txtLocation.text, _description: self.txtDesc.text,expenseTypeId:  self.selectedBusinessCategory?._id, expenseType: self.txtExpenseType.text, selectDocument: self.selectDocument, isDuplicate: false,expCategory: self.txtExpenseCategory.text,startDate: startDates,endDate: endDates,noDays: self.txtDays.text,taxNo: self.txtTaxNo.text,isVAT: self.isVatToggle.isOn, businessExpenseId: self.selectedBusinessExpense?._id, buinessCategoryName: self.selectedBusinessExpense?.expenseCategoryName,selectedVendorId: self.selectedVendor?._id ?? 0, selectedVendorOthers: self.txtOthersVendor.text)
@@ -908,6 +914,8 @@ extension AddItemViewController : UITextFieldDelegate,UITextViewDelegate{
                         break
                     }
                 }
+                self.selectedBusinessCategory = nil
+                self.txtExpenseType.text = ""
                 self.getBusinessCategoryDropdown(businessId: self.selectedBusinessExpense?._id ?? 0)
             }
             if #available(iOS 13.0, *) {
